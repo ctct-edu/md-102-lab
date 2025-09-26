@@ -18,19 +18,21 @@ Contoso Corporation は現在、AD DS と Entra ID の両方でユーザーを�
 
 
 
-1. **SEA-SVR1** では、必要に応じて、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインし、**サーバー マネージャー**を閉じます。
+1. **SEA-SVR1** に、必要に応じて、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインし、**サーバー マネージャー**を閉じます。
 
 2. タスク バーで、[**Microsoft Edge]** を選択します。
 
-3. アドレスバーに「`https://entra.microsoft.com`
+3. アドレスバーに `https://entra.microsoft.com` と入力してアクセスします。
+
+   英語表記となりますので、日本語表記に変更した方が進めやすくなります。画面右上の歯車のマーク **「Settings」** をクリックした後、左の「Language + region」をクリックし、Language と Regional format でいずれも日本語を選択し、 **[Apply] - [OK]** をクリックします。
 
 4. 左側のナビゲーション ウィンドウの **[Entra ID**] で、 [**Entra Connect**] を選択します。
 
 5. **Microsoft Entra Connect |[作業の開始**] ウィンドウで、[**管理]** タブを選択します。
 
-6. [**インフラストラクチャの管理]** ページで、[**Connect Sync Agent のダウンロード]** を選択します。
+6. [**インフラストラクチャの管理]** ページで、[**Connect 同期エージェント のダウンロード]** ボタンをクリックします。
 
-7. **[規約に同意してダウンロード**] を選択します。
+7. **[使用条件に同意してダウンロードする**] をクリックします。
 
    > **注**: Azure AD Connect は、SEA-SVR1 の **[ダウンロード]** フォルダに自動的にダウンロードされます。
 
