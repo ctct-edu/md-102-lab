@@ -50,7 +50,7 @@ Contoso Corporation は現在、AD DS と Entra ID の両方でユーザーを�
 
 14. [**アカウントにサインイン]** ウィンドウで、「**[admin@yourtenant.onmicrosoft.com](mailto:admin@yourtenant.onmicrosoft.com)**」と入力し、[**Next**] を選択し、テナント パスワードを入力して、[**Sign in]** を選択します。
 
-15. [**Connect your directories**] ページで、[**Contoso.com**] が**[FOREST]** の下に表示されていることを確認し、[**Add Directory]** を選択します。
+15. [**Connect your directories**] ページで、[**Contoso.com**] が **[FOREST]** の下に表示されていることを確認し、[**Add Directory]** を選択します。
 
 16. [**AD フォレスト アカウント**] ウィンドウで、[**Create New AD Account]** オプションを選択し、[**ENTERPRISE ADMIN USERNAME**] フィールドに「**Contoso\Administrator**」と入力し、[**パスワード**] フィールドに「**Pa55w.rd**」と入力します。[**OK]** を選択し、[**Next**] を選択します。
 
@@ -72,9 +72,7 @@ Contoso Corporation は現在、AD DS と Entra ID の両方でユーザーを�
 
 #### タスク2: Entra IDでの同期の確認
 
-
-
-1. タスク バーで、[**Microsoft Edge]** を選択します。
+1. ブラウザーを起動します。
 
 2. アドレスバーに「**[https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力します。
 
