@@ -1,255 +1,285 @@
-# Practice Lab 0501: Configuring Multi-factor Authentication
+# ラボ 0501: 多要素認証の構成
 
-## Summary
 
-In this lab, you will configure per-user multi-factor authentication (MFA) and apply MFA using a conditional access policy .
 
-### Prerequisites
+## 概要
 
-You will need a mobile phone that can receive text messages used to secure Windows Hello sign in authentication to Entra ID.
 
-## Exercise 1: Configure per-user multi-factor authentication
 
-### Scenario
+このラボでは、ユーザーごとの多要素認証 (MFA) を構成し、条件付きアクセス ポリシーを使用して MFA を適用します。
 
-To provide additional security for user sign on events, you need to configure and test multi-factor authentication (MFA). You decide to first test out per-user MFA. Alex Wilber has agreed to validate the settings for you. 
+### 前提 条件
 
-### Task 1: Validate sign-in before enabling MFA
 
-1. Sign in to **SEA-WS3** as **Admin** with the password **Pa55w.rd**. 
 
-2. On the taskbar, select **Microsoft Edge**.
+Entra ID への Windows Hello サインイン認証をセキュリティで保護するために使用されるテキスト メッセージを受信できる携帯電話が必要です。
 
-3. In the address bar, enter **outlook.office.com** and press Enter.
+## 演習 1: ユーザーごとの多要素認証を構成する
 
-4. At the **Sign in** page, enter **`AlexW@yourtenant.onmicrosoft.com`** and then select **Next**.
 
-5. On the **Enter password** page, enter the tenant password provided by your instructor and select **Sign in**. At the Edge Save password prompt, select **Save & Turn on**.
 
-6. At the **Stay signed in** prompt, select **No**.
+### シナリオ
 
-   > Outlook on the Web opens. Take note that only the password was required to sign in to Outlook on the Web.
 
-7. At the top-right corner, select the **Account manager for Alex Wilber** and then select **Sign out**.
 
-8. Close Microsoft Edge.
+ユーザー サインオン イベントのセキュリティを強化するには、多要素認証 (MFA) を構成してテストする必要があります。最初にユーザーごとの MFA をテストすることにしました。Alex Wilber は、設定を検証することに同意しました。
 
-### Task 2: Enable MFA for a user
+### タスク1: MFAを有効にする前にサインインを検証する
 
-1. Switch to **SEA-SVR1**.
 
-2. On **SEA-SVR1**, if necessary, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd** and close **Server Manager**.
 
-3. On the taskbar select **Microsoft Edge**, in the address bar type **https://entra.microsoft.com**, and then press **Enter**.
+1. パスワード **Pa55w.rd** を使用して **SEA-WS3** に**管理者**としてサインインします。
 
-4. Sign in as user **`Admin@yourtenant.onmicrosoft.com`**, and use the tenant Admin password. If the **Stay signed in?** prompt appears, select **No**. 
+2. タスク バーで、[**Microsoft Edge]** を選択します。
 
-   > The Microsoft Entra admin center opens.
+3. アドレスバーに「**outlook.office.com**」と入力し、Enter キーを押します。
 
-5. At the top of the web page, In the search resources box, type multifactor authentication and then select **Multifactor authentication**.
+4. サインイン **ページで、「****`AlexW@yourtenant.onmicrosoft.com`**」と入力し、**次へ** を選択します。
 
-   > The multi-factor authentication page opens.
+5. [**パスワードの入力**] ページで、インストラクターから提供されたテナント パスワードを入力し、[**サインイン]** を選択します。[Edge のパスワードを保存(Save password)] プロンプトで、[**保存してオンにする(Save & Turn on**)] を選択します。
 
-6. Select **Additional cloud-based multifactor authentication settings**.
+6. [**サインインしたままにする]** プロンプトで、[**いいえ**] を選択します。
 
-7. In the **Per-user multifactor authentication** page, select **Service settings**. 
+   > Outlook on the Web が開きます。Outlook on the Web にサインインするために必要なのはパスワードのみであることに注意してください。
 
-8. On the **Service settings** page, scroll down and select the checkbox for **Allow users to remember multi-factor authentication on devices they trust**.
+7. 右上隅で、**Alex Wilber のアカウント マネージャー**を選択し、**サインアウト** を選択します。
 
-9. Next to **Number of days users can trust devices for**, enter **30** and then select **Save**. 
+8. Microsoft Edge を閉じます。
 
-10. Once saved, scroll back to the top of the **Service settings** page, and select **Users**.
+### タスク2: ユーザーのMFAの有効化
 
-11. In the user list, select the check box next to **Alex Wilber**.
 
-12. Above the user list, select **Enable MFA**.
 
-13. On the **Enable multifactor authentication** message, select **Enable**.
+1. **SEA-SVR1** に切り替えます。
 
-14. Once Enabled, refresh the page. Take note that the **Status** for Alex Wilber is now **Enabled**.
+2. **SEA-SVR1** では、必要に応じて、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインし、**サーバー マネージャー**を閉じます。
 
-15. Close Microsoft Edge.
+3. タスク バーで **[Microsoft Edge]** を選択し、アドレス バーに**[「https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
 
-### Task 3: Register and Validate MFA
+4. ユーザー **`Admin@yourtenant.onmicrosoft.com`** としてサインインし、テナント管理者パスワードを使用します。[**サインインしたままにする?]** プロンプトが表示されたら、[**いいえ**] を選択します。
 
-1. Switch to **SEA-WS3**. 
+   > Microsoft Entra 管理センターが開きます。
 
-2. On the taskbar, select **Microsoft Edge**.
+5. Web ページの上部にある [検索リソース] ボックスに「多要素認証」と入力し、 [**多要素認証**] を選択します。
 
-3. In the address bar, enter **outlook.office.com** and press Enter.
+   > 多要素認証ページが開きます。
 
-4. On the **Pick an account** page, select **`AlexW@yourtenant.onmicrosoft.com`**.
+6. **[追加のクラウドベースの多要素認証設定]** を選択します。
 
-5. On the **Enter password** page, enter the tenant password and select **Sign in**.
+7. [**ユーザーごとの多要素認証**] ページで、[**サービス設定**] を選択します。
 
-6. At the **Let's keep your account secure** page, select **Next**. The Keep your account secure page opens.
+8. [**サービス設定**] ページで、下にスクロールして **[ユーザーが信頼するデバイスで多要素認証を記憶できるようにする]** のチェック ボックスをオンにします。
 
-   > Typically, you will want to use the Microsoft Authenticator app to manage multi-factor authentication. However for this lab scenario, you will use text messages.
+9. [**ユーザーがデバイスを信頼できる日数**] の横に「**30**」と入力し、[**保存]** を選択します。
 
-7. On the **Keep your account secure** page, select **I want to set up a different method**. Choose **Phone** the list of available choices.
+10. 保存したら、[**サービス設定**] ページの上部までスクロールして、[**ユーザー]** を選択します。
 
-8. Enter your mobile phone number which you can receive text messages, and then select **Next**.
+11. ユーザーリストで、**Alex Wilber** の横にあるチェックボックスを選択します。
 
-9. After you receive the verification code as a text message, enter the code where indicated on the **Keep your account secure** page and then select **Next**.
+12. ユーザーリストの上で、[**MFA を有効にする]** を選択します。
 
-10. On the **Keep your account secure** page, you will receive a message "Verification complete. Your phone has been registered". Select **Next**.
+13. [**多要素認証を有効にする]** メッセージで、[**有効]** を選択します。
 
-11. On the **Keep your account secure** page, you will receive a message "Great job! You have successfully set up your security info". Select **Done**.
+14. 有効になったら、ページを更新します。Alex Wilber の **[ステータス**] が **[有効]** になったことに注意してください。
 
-12. At the Stay signed in message, select **No**. 
+15. Microsoft Edge を閉じます。
 
-    > Outlook on the Web opens to Alex Wilber's inbox.
+### タスク3: MFAの登録と検証
 
-13. If you are presented with a **Protect your account** dialog, select **Skip for now (*x* times left)**.
 
-14. At the top-right corner, select the **Account manager for Alex Wilber** and then select **Sign out**.
 
-15. Close Microsoft Edge.
+1. **SEA-WS3** に切り替えます。
 
-### Task 4: Remove per-user MFA
+2. タスク バーで、[**Microsoft Edge]** を選択します。
 
-1. Switch to **SEA-SVR1**.
+3. アドレスバーに「**outlook.office.com**」と入力し、Enter キーを押します。
 
-2. On **SEA-SVR1**, on the taskbar select **Microsoft Edge**, in the address bar type **https://entra.microsoft.com**, and then press **Enter**.
+4. **アカウントの選択** ページで、**`AlexW@yourtenant.onmicrosoft.com`** を選択します。
 
-3. Sign in as **`Admin@yourtenant.onmicrosoft.com`**, and use the tenant Admin password. If the **Stay signed in?** prompt appears, select **No**. 
+5. [**パスワードの入力**] ページで、テナントのパスワードを入力し、[**サインイン]** を選択します。
 
-   > The Microsoft Entra admin center opens.
+6. [**アカウントをセキュリティで保護しましょう**] ページで、[**次へ**] を選択します。アカウントを安全に保つ ページが開きます。
 
-4. In the Microsoft Entra admin center, in the navigation pane, select **Users**.
+   > 通常、Microsoft Authenticator アプリを使用して多要素認証を管理します。ただし、このラボ シナリオでは、テキスト メッセージを使用します。
 
-5. Select **All users** and then at the top of the results pane select **Per-user MFA**. 
-   
-   > The Per-user MFA page opens.
+7. [**アカウントをセキュリティで保護する]** ページで、[**別の方法を設定する]** を選択します。[**電話**] を選択して、使用可能な選択肢のリストを表示します。
 
-6. In the user list, select the check box next to **Alex Wilber**.
+8. テキスト メッセージを受信できる携帯電話番号を入力し、[**次へ**] を選択します。
 
-7. Above the user list, select **Disable MFA**.
+9. 確認コードをテキスト メッセージとして受け取ったら、[**アカウントをセキュリティで保護する]** ページに表示されるコードを入力し、[**次へ**] を選択します。
 
-8. On the **Disable multifactor authentication** message, select **Disable**.
+10. [**アカウントを安全に保つ]** ページに、「確認が完了しました。あなたの携帯電話は登録されました」と述べています。[**次へ**] を選択します。
 
-9. Once Disabled, refresh the page. Take note that the **Status** for Alex Wilber is now **Disabled**.
+11. [**アカウントを安全に保つ]** ページに、「よくやった!セキュリティ情報を正常に設定しました」と入力します。**[完了]** を選択します。
 
-10. Close Microsoft Edge.
+12. [サインインしたままにする] メッセージで、[**いいえ**] を選択します。
 
-**Results**: After completing this exercise, you will have successfully configured per-user multi-factor authentication.
+    > Outlook on the Web が開き、Alex Wilber の受信トレイが表示されます。
 
-## Exercise 2: Configure multi-factor authentication using conditional access
+13. **[アカウントの保護]** ダイアログが表示された場合は、[**今のところスキップ] を選択します (残り \*x\* 回)。**
 
-### Scenario
+14. 右上隅で、**Alex Wilber のアカウント マネージャー**を選択し、**サインアウト** を選択します。
 
-To provide additional security for user sign on events, you need to configure and test multi-factor authentication (MFA). You decide that using a conditional access policy provides greater flexibility for your MFA requirements. Alex Wilber has agreed to validate the settings for you. 
+15. Microsoft Edge を閉じます。
 
-### Task 1: Validate sign-in before enabling conditional access with MFA
+### タスク4: ユーザーごとのMFAの削除
 
-1. Sign in to **SEA-WS3** as **Admin** with the password **Pa55w.rd**. 
 
-2. On the taskbar, select **Microsoft Edge**.
 
-3. In the address bar, enter **outlook.office.com** and press Enter.
+1. **SEA-SVR1** に切り替えます。
 
-4. On the **Pick an account** page, select **`AlexW@yourtenant.onmicrosoft.com`**.
+2. **SEA-SVR1** では、タスク バーで **[Microsoft Edge]** を選択し、アドレス バーに**[「https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
 
-5. On the **Enter password** page, enter the tenant password and select **Sign in**.
+3. **`Admin@yourtenant.onmicrosoft.com`** としてサインインし、テナント管理者パスワードを使用します。**[サインインしたままにする?]** プロンプトが表示されたら、[**いいえ**] を選択します。
 
-6. On the **Stay signed in** page, select **No**. 
+   > Microsoft Entra 管理センターが開きます。
 
-   > Outlook opens to Alex's inbox. Take note that only the password was required to sign in to Outlook on the Web as you removed the MFA in the previous Exercise.
+4. Microsoft Entra 管理センターのナビゲーション ウィンドウで、 **[ユーザー]** を選択します。
 
-7. At the top-right corner, select the **Account manager for Alex Wilber** and then select **Sign out**.
+5. [**すべてのユーザー**] を選択し、結果ウィンドウの上部にある [**ユーザーごとの MFA**] を選択します。
 
-8. Close Microsoft Edge.
+   > [ユーザーごとの MFA] ページが開きます。
 
-### Task 2: Configure conditional access with MFA
+6. ユーザーリストで、**Alex Wilber** の横にあるチェックボックスを選択します。
 
-1. Switch to **SEA-SVR1**.
+7. ユーザーリストの上で、[**MFA の無効化]** を選択します。
 
-2. On **SEA-SVR1**, on the taskbar select **Microsoft Edge**, in the address bar type **https://entra.microsoft.com**, and then press **Enter**.
+8. [**多要素認証を無効にする]** メッセージで、[**無効にする]** を選択します。
 
-3. Sign in as **`Admin@yourtenant.onmicrosoft.com`**, and use the tenant Admin password. If the **Stay signed in?** prompt appears, select **No**. 
+9. [無効] になったら、ページを更新します。Alex Wilber の **[ステータス**] が **[無効]** になったことに注意してください。
 
-   > The Microsoft Entra admin center opens.
+10. Microsoft Edge を閉じます。
 
-4. In the navigation pane, under **Entra ID**, select **Conditional Access**.
+**結果**: この演習を完了すると、ユーザーごとの多要素認証が正常に構成されます。
 
-5. On the **Conditional Access** page, select **Policies**, and then select **+ New policy**.
+## 演習 2: 条件付きアクセスを使用して多要素認証を構成する
 
-6. On the **New Conditional access policy** page, in the **Name** box, enter **Contoso MFA Policy**.
 
-7. Under **Assignments**, select **0 users and groups selected**.
 
-8. In the Users and groups pane, select the option next to **Select users and groups** and then select the check box next to **Users and groups**.
+### シナリオ
 
-9. On the **Select users and groups** page, select **Alex Wilber** and then select **Select**. 
 
-    > Note that typically you would specify a group, however for this exercise we will just test the setting on Alex Wilber.
 
-10. Select **No target resources selected** and then click **Select resources**.
+ユーザー サインオン イベントのセキュリティを強化するには、多要素認証 (MFA) を構成してテストする必要があります。条件付きアクセス ポリシーを使用すると、MFA 要件の柔軟性が向上すると判断しました。Alex Wilber は、設定を検証することに同意しました。
 
-    > Note the Control access based on client app setting. This setting allows you to specify the client app that is used to access the resource. For example, you can specify that only the Outlook app can be used to access Exchange Online. 
+### タスク 1: MFA を使用して条件付きアクセスを有効にする前にサインインを検証する
 
-11. On the **Select** section of the page, click **None**.
 
-12. On the **Select** page, select the check box next to **Office 365** and then click **Select**.
 
-13. Under **Access controls**, in the **Grant** section, select **0 controls selected**.
+1. パスワード **Pa55w.rd** を使用して **SEA-WS3** に**管理者**としてサインインします。
 
-14. On the **Grant** page, select **Grant access**, select the check box next to **Require multifactor authentication**, and then click **Select**.
+2. タスク バーで、[**Microsoft Edge]** を選択します。
 
-15. Under **Enable policy**, select **On**.
+3. アドレスバーに「**outlook.office.com**」と入力し、Enter キーを押します。
 
-16. Select **Create** to create the Contoso MFA Policy. Notice that the policy is listed with a State of **On**.
+4. **アカウントの選択** ページで、**`AlexW@yourtenant.onmicrosoft.com`** を選択します。
 
-17. Close Microsoft Edge.
+5. [**パスワードの入力**] ページで、テナントのパスワードを入力し、[**サインイン]** を選択します。
 
-### Task 3: Validate conditional access MFA
+6. サインイン**したままにする** ページで、**いいえ** を選択します。
 
-1. Switch to **SEA-WS3**. 
+   > Outlook が開き、Alex の受信トレイが表示されます。前の演習で MFA を削除したため、Outlook on the Web へのサインインに必要なのはパスワードのみであることに注意してください。
 
-2. On the taskbar, select **Microsoft Edge**.
+7. 右上隅で、**Alex Wilber のアカウント マネージャー**を選択し、**サインアウト** を選択します。
 
-3. In the address bar, enter **https://outlook.office.com** and press Enter.
+8. Microsoft Edge を閉じます。
 
-4. On the **Pick an account** page, select **`AlexW@yourtenant.onmicrosoft.com`**.
+### タスク 2: MFA を使用した条件付きアクセスの構成
 
-5. On the **Enter password** page, enter the tenant password and select **Sign in**. 
 
-6. At the Verify your identity prompt, select your phone number.
 
-   > The Enter code dialog box opens.
+1. **SEA-SVR1** に切り替えます。
 
-7. At the **Enter code** page, enter the code sent to your mobile phone, and then select **Verify**.
+2. **SEA-SVR1** では、タスク バーで **[Microsoft Edge]** を選択し、アドレス バーに**[「https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
 
-8. If you are presented with a **Protect your account** dialog, select **Skip for now (*x* times left)**.
+3. **`Admin@yourtenant.onmicrosoft.com`** としてサインインし、テナント管理者パスワードを使用します。**[サインインしたままにする?]** プロンプトが表示されたら、[**いいえ**] を選択します。
 
-9. At the Stay signed in message, select **No**. 
+   > Microsoft Entra 管理センターが開きます。
 
-   > Outlook on the Web opens to Alex Wilber's inbox.
+4. ナビゲーション ウィンドウの **[Entra ID**] で、 **[条件付きアクセス]** を選択します。
 
-10. At the top-right corner, select the **Account manager for Alex Wilber** and then select **Sign out**.
+5. [**条件付きアクセス]** ページで、[**ポリシー]** を選択し、 [**+ 新しいポリシー**] を選択します。
 
-11. Close Microsoft Edge.
+6. [**新しい条件付きアクセス ポリシー]** ページの [**名前**] ボックスに「**Contoso MFA ポリシー**」と入力します。
 
-### Task 4: Remove conditional access MFA
+7. **[割り当て]** で、**選択した 0 のユーザーとグループ**を選択します。
 
-1. Switch to **SEA-SVR1**.
+8. [ユーザーとグループ] ウィンドウで、[**ユーザーとグループの選択**] の横にあるオプションを選択し、[**ユーザーとグループ**] の横にあるチェック ボックスをオンにします。
 
-2. On **SEA-SVR1**, on the taskbar select **Microsoft Edge**, in the address bar type **https://entra.microsoft.com**, and then press **Enter**.
+9. [**ユーザーとグループの選択**] ページで、 **[Alex Wilber**] を選択し、[**選択]** を選択します。
 
-3. Sign in as user **`Admin@yourtenant.onmicrosoft.com`**, and use the tenant Admin password. If the **Stay signed in?** prompt appears, select **No**. 
+   > 通常はグループを指定しますが、この演習では Alex Wilber で設定をテストするだけです。
 
-   > The Microsoft Entra admin center opens.
+10. 「**ターゲット・リソースが選択されていない」**を選択し、「**リソースの選択**」をクリックします。
 
-4. In the Microsoft Entra admin center, in the navigation pane, under **Entra ID**, select **Conditional Access**.
+    > [クライアント アプリに基づいてアクセスを制御] 設定に注意してください。この設定を使用すると、リソースへのアクセスに使用するクライアント アプリを指定できます。たとえば、Outlook アプリのみを使用して Exchange Online にアクセスできるように指定できます。
 
-5. On the **Conditional Access** page, select **Policies** and then select **Contoso MFA Policy**.
+11. ページの **[選択**] セクションで、[**なし**] をクリックします。
 
-6. On the **Contoso MFA Policy** page, select **Delete**.
+12. [**選択**] ページで、[**Office 365**] の横にあるチェック ボックスをオンにし、[**選択]** をクリックします。
 
-7. At the **Are you sure?** prompt, select **Yes**.
+13. [**アクセス制御]** の [**許可]** セクションで、**選択した 0 個のコントロール**を選択します。
 
-8. Close Microsoft Edge.
+14. [**許可]** ページで、[**アクセスの許可**] を選択し、[**多要素認証が必要]** の横にあるチェック ボックスをオンにして、[**選択]** をクリックします。
 
-**Results**: After completing this exercise, you will have successfully configured multi-factor authentication by using a conditional access policy.
+15. **[ポリシーを有効にする]** で、[**オン]** を選択します。
 
-**END OF LAB**
+16. [**作成**] を選択して、Contoso MFA ポリシーを作成します。ポリシーが [**状態]** の [オン] で一覧表示されていることに注意してください。
+
+17. Microsoft Edge を閉じます。
+
+### タスク 3: 条件付きアクセス MFA を検証する
+
+
+
+1. **SEA-WS3** に切り替えます。
+
+2. タスク バーで、[**Microsoft Edge]** を選択します。
+
+3. アドレスバーに「**[https://outlook.office.com](https://outlook.office.com/)**」と入力し、Enter キーを押します。
+
+4. **アカウントの選択** ページで、**`AlexW@yourtenant.onmicrosoft.com`** を選択します。
+
+5. [**パスワードの入力**] ページで、テナントのパスワードを入力し、[**サインイン]** を選択します。
+
+6. [本人確認] プロンプトで、電話番号を選択します。
+
+   > 「コードを入力」ダイアログ・ボックスが開きます。
+
+7. **[コードの入力**] ページで、携帯電話に送信されたコードを入力し、[**確認]** を選択します。
+
+8. **[アカウントの保護]** ダイアログが表示された場合は、[**今のところスキップ] を選択します (残り \*x\* 回)。**
+
+9. [サインインしたままにする] メッセージで、[**いいえ**] を選択します。
+
+   > Outlook on the Web が開き、Alex Wilber の受信トレイが表示されます。
+
+10. 右上隅で、**Alex Wilber のアカウント マネージャー**を選択し、**サインアウト** を選択します。
+
+11. Microsoft Edge を閉じます。
+
+### タスク 4: 条件付きアクセス MFA を削除する
+
+
+
+1. **SEA-SVR1** に切り替えます。
+
+2. **SEA-SVR1** では、タスク バーで **[Microsoft Edge]** を選択し、アドレス バーに**[「https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
+
+3. ユーザー **`Admin@yourtenant.onmicrosoft.com`** としてサインインし、テナント管理者パスワードを使用します。[**サインインしたままにする?]** プロンプトが表示されたら、[**いいえ**] を選択します。
+
+   > Microsoft Entra 管理センターが開きます。
+
+4. Microsoft Entra 管理センターのナビゲーション ウィンドウの **[Entra ID**] で、 **[条件付きアクセス]** を選択します。
+
+5. [**条件付きアクセス]** ページで、 **[ポリシー]** を選択し、 [**Contoso MFA ポリシー]** を選択します。
+
+6. **Contoso の [MFA ポリシー**] ページで、 **[削除]** を選択します。
+
+7. [**よろしいですか?]** プロンプトで、[**はい**] を選択します。
+
+8. Microsoft Edge を閉じます。
+
+**結果**: この演習を完了すると、条件付きアクセス ポリシーを使用して多要素認証が正常に構成されます。
+
+**ラボの終わり**

@@ -1,143 +1,152 @@
-# Practice Lab 0502: Configuring Self-service password reset for user accounts in Entra ID
+# ラボ 0502: Entra ID でのユーザー アカウントのセルフサービス パスワード リセットの構成
 
-## Summary
 
-In this lab, you will configure and validate self-service password reset (SSPR) for user accounts in Entra ID.
 
-### Prerequisites
+## 概要
 
-To following lab(s) must be completed before this lab:
 
-- 0102-Synchronizing identities by using Entra Connect
-- 0203-Manage Device Enrollment into Intune
 
+このラボでは、Entra ID のユーザー アカウントのセルフサービス パスワード リセット (SSPR) を構成して検証します。
 
-### Scenario
+### 前提 条件
 
-The Help Desk has indicated that a large number of support tickets are related to password resets. You have been asked to propose a solution for users to reset their own password. For accounts that are synchronized from AD DS, the process should reset both their Entra ID and AD DS password. 
 
-### Task 1: Configure password writeback
 
-1. Sign in to **SEA-SVR1** as **Contoso\\Administrator** with the password **Pa55w.rd** and close **Server Manager**.
+このラボの前に、次のラボを完了する必要があります。
 
-2. On the desktop, double-click **Azure AD Connect**.
+- 0102 - Entra Connect を使用した ID の同期
+- 0203-Intuneへのデバイス登録の管理
 
-3. On the **Welcome to Microsoft Entra Connect Sync** page, select **Configure**.
+### シナリオ
 
-4. On the **Additional tasks** page, select **Customize synchronization options**, and then select **Next**.
 
-5. On the **Connect to Microsoft Entra ID** page, if needed type **`admin@yourtenant.onmicrosoft.com`** in the **USERNAME** text box, then select **Next**.
 
-6. On the **Sign in to your account** dialog, select your admin account and enter your Admin tenant password, and then select **Sign in**.
+ヘルプデスクは、多数のサポートチケットがパスワードのリセットに関連していることを示しています。ユーザーが自分のパスワードをリセットするためのソリューションを提案するように依頼されました。AD DS から同期されたアカウントの場合、プロセスでは Entra ID と AD DS パスワードの両方をリセットする必要があります。
 
-7. On the **Connect to your directories** page, select **Next**.
+### タスク1: パスワード・ライトバックの構成
 
-8. On the **Domain and OU filtering** page, select **Next**.
 
-9. On the **Optional features** page, select **Password writeback**, and then select **Next**.
 
-10. On the **Ready to configure** page, select **Configure**.
+1. パスワード **Pa55w.rd** を使用して **Contoso\Administrator** として **SEA-SVR1** にサインインし、**サーバー マネージャー**を閉じます。
+2. デスクトップで、 **[Azure AD Connect]** をダブルクリックします。
+3. [**Microsoft Entra Connect の同期へようこそ]** ページで、 [**構成**] を選択します。
+4. **[追加のタスク]** ページで、[**同期オプションのカスタマイズ]** を選択し、[**次へ**] を選択します。
+5. [**Microsoft Entra ID への接続**] ページで、必要に応じて **[ユーザー名**] テキスト ボックスに**`「admin@yourtenant.onmicrosoft.com`**」と入力し、 [**次へ**] を選択します。
+6. [**アカウントにサインイン]** ダイアログで、管理者アカウントを選択し、管理者テナント パスワードを入力して、 **[サインイン]** を選択します。
+7. [**ディレクトリに接続する**] ページで、[**次へ**] を選択します。
+8. [**ドメインと OU のフィルター処理]** ページで、[**次へ**] を選択します。
+9. [**オプション機能]** ページで、 **[パスワードの書き戻し]** を選択し、 [**次へ**] を選択します。
+10. 構成**の準備完了** ページで、**構成** を選択します。
+11. **[構成の完了**] ページで、[**終了]** を選択します。
 
-11. On the **Configuration complete** page, select **Exit**.
+### タスク 2: セルフサービス パスワード リセットを有効にする
 
-### Task 2: Enable self-service password reset
 
-1. On **SEA-SVR1**, on the taskbar select **Microsoft Edge**, in the address bar type **https://entra.microsoft.com/**, and then press **Enter**.
 
-2. Sign in as **`Admin@yourtenant.onmicrosoft.com`**, and use the tenant Admin password. If the **Stay signed in?** prompt appears, select **No**. 
+1. **SEA-SVR1** では、タスク バーで **[Microsoft Edge]** を選択し、アドレス バーに**[「https://entra.microsoft.com/](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
 
-   > The Microsoft Entra admin center opens.
+2. **`Admin@yourtenant.onmicrosoft.com`** としてサインインし、テナント管理者パスワードを使用します。**[サインインしたままにする?]** プロンプトが表示されたら、[**いいえ**] を選択します。
 
-3. In the navigation pane, under **Entra ID**, select **Authentication methods**. 
+   > Microsoft Entra 管理センターが開きます。
 
-4. Ensure that **SMS** and **Email OTP** show **Yes** in the **Enabled** \(third\) column. 
+3. ナビゲーション ウィンドウの **[Entra ID**] で、[**認証方法]** を選択します。
 
-5. In the Microsoft Entra admin center, in the navigation pane, under **Entra ID**, select **Password reset**.
+4. **SMS** と**電子メール OTP の** [**有効** (3 番目)] 列に **[はい**] と表示されていることを確認します。
 
-6. In the **Password reset | Properties** window, select **All** to enable self-service password reset for all users. Select **Save**.
+5. Microsoft Entra 管理センターのナビゲーション ウィンドウの **[Entra ID**] で、 **[パスワードのリセット]** を選択します。
 
-7. In the **Password reset | Properties** window, select **Authentication methods** and then select the **Security questions** checkbox.
+6. パスワード**のリセット |[プロパティ]** ウィンドウで [**すべて**] を選択して、すべてのユーザーに対してセルフサービス パスワード リセットを有効にします。[**保存]** を選択します。
 
-8. For the **Number of questions required to register**, select **3**.
+7. パスワード**のリセット |[プロパティ]** ウィンドウで、[**認証方法]** を選択し、[**セキュリティの質問**] チェック ボックスをオンにします。
 
-9. For the **Number of questions required to reset**, select **3**.
+8. **登録に必要な質問数**で、**3**を選択します。
 
-10. In the **Select security questions** section, select **No security questions configured**, then select **Predefined**. Select three questions of your choice, and then select **Ok** twice.
+9. [**リセットに必要な質問数]** で、[**3**] を選択します。
 
-11. Select **Save**.
+10. [**セキュリティの質問の選択**] セクションで、[**セキュリティの質問が構成されていない]** を選択し、[**定義済み]** を選択します。選択した 3 つの質問を選択し、[**OK]** を 2 回選択します。
 
-12. Select **Registration**.
+11. [**保存]** を選択します。
 
-13. In the **Registration** page, ensure the checkbox for **Require users to register when signing in?** is unchecked \(empty\) and then select **Save**.
+12. [**登録]** を選択します。
 
-14. In the navigation pane, select **On-premises integration**.
+13. [**登録]** ページで、[**サインイン時にユーザーに登録を要求する]** のチェック ボックスがオフ (空) になっていることを確認し、[**保存]** を選択します。
 
-15. Verify that your on-premises writeback client is running.
+14. ナビゲーション ウィンドウで、オン**プレミス統合** を選択します。
 
-16. Close Microsoft Edge.
+15. オンプレミスの書き戻しクライアントが実行されていることを確認します。
 
-### Task 3: Validate self-service password reset
+16. Microsoft Edge を閉じます。
 
-1. Switch to **SEA-WS3**.
+### タスク 3: セルフサービス パスワード リセットの検証
 
-2. If necessary, sign in as **Admin** with the password of **Pa55w.rd**.
 
-3. On the taskbar, select **Microsoft Edge**.
 
-4. Browse to **https://myaccount.microsoft.com**. 
+1. **SEA-WS3** に切り替えます。
 
-5. On the **Pick an account** page, select **Use another account**.
+2. 必要に応じて、**Pa55w.rd** のパスワードを使用して**管理者**としてサインインします。
 
-6. On the **Sign in** page, enter **`Aaron@yourtenant.onmicrosoft.com`** and then select **Next**.
+3. タスク バーで、[**Microsoft Edge]** を選択します。
 
-   >**Note**: Please ensure you sign in as Aaron, not Alex.
+4. **[https://myaccount.microsoft.com](https://myaccount.microsoft.com/)** を参照します。
 
-7. On the **Enter password** page, enter **Pa55w.rd** and then select **Sign in**. If the Microsoft Edge prompts to save the password, select **Save**.
+5. **[アカウントの選択]** ページで、[**別のアカウントを使用する**] を選択します。
 
-8. If you are presented with a **Protect your account** dialog, select **Skip for now (*x* times left)**.
+6. サインイン **ページで、「****`Aaron@yourtenant.onmicrosoft.com`**」と入力し、**次へ** を選択します。
 
-9. On the **My Account** page, in the navigation pane, select **Change Password**.
+   > **注**: アレックスではなくアーロンとしてサインインしてください。
 
-10. On the **Change password** page, enter the following information and then select **submit**:
-     - Old password: **Pa55w.rd**
-     - Create new password: **Pa55w.rd1234!**
-     - Confirm new password: **Pa55w.rd1234!**
+7. [**パスワードの入力**] ページで、「**Pa55w.rd**」と入力し、[**サインイン]** を選択します。Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**保存]** を選択します。
 
-11. If Microsoft Edge prompts to save the password, select **Save**.
+8. **[アカウントの保護]** ダイアログが表示された場合は、[**今のところスキップ] を選択します (残り \*x\* 回)。**
 
-12. Close Microsoft Edge and sign out of SEA-WS3.
+9. [**マイ アカウント**] ページのナビゲーション ウィンドウで、[**パスワードの変更**] を選択します。
 
-### Task 4: Run AD Sync
+10. [**パスワードの変更**] ページで、次の情報を入力し、[**送信**] を選択します。
 
-*Note that this step is normally not necessary for password writeback, but is recommended to address issues inherent in lab environments and ensure AD DS is synchronized with Entra ID.*
+    - 旧パスワード:**Pa55w.rd**
+    - 新しいパスワードを作成: **Pa55w.rd1234!**
+    - 新しいパスワードを確認してください**:Pa55w.rd1234!**
 
-1. Switch to **SEA-SVR1**.
+11. Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**保存]** を選択します。
 
-2. Right-click **Start** and then select **Windows PowerShell (Admin)**.
+12. Microsoft Edge を閉じて、SEA-WS3 からサインアウトします。
 
-3. At the **Windows PowerShell** command prompt, type the following command, and
-    then press **Enter**:
+### タスク4: AD Syncの実行
 
-    ```
-    Start-ADSyncSyncCycle –PolicyType Delta
-    ```
 
-4. Close Windows PowerShell, and then wait for approximately 3-4 minutes.
 
-### Task 5: Verify password writeback
+*この手順は通常、パスワードの書き戻しには必要ありませんが、ラボ環境に固有の問題に対処し、AD DS が Entra ID と同期されていることを確認するために推奨されることに注意してください。*
 
-1. Switch to **SEA-CL1** and sign out if necessary.
+1. **SEA-SVR1** に切り替えます。
 
-2. On **SEA-CL1**, select **Other user**, and then attempt to sign in as **Contoso\\Aaron** with the password of **Pa55w.rd**.
+2. [**スタート]** を右クリックし、[**Windows PowerShell (管理者)]** を選択します。
 
-4. Ensure that you get the message that the user name or password is incorrect.
+3. **Windows PowerShell** コマンド プロンプトで、次のコマンドを入力し、Enter **キー**を押します。
 
-5. Sign in to **SEA-CL1** as **Contoso\\Aaron** with the password **Pa55w.rd1234!**. 
+   ```
+   Start-ADSyncSyncCycle –PolicyType Delta
+   ```
 
-   > You should be able to sign in. This confirms that the password you changed in the MyAccount portal is written back to the local Active Directory Domain Services (AD DS) account.
+   
 
-6. Sign out of **SEA-CL1**.
+4. Windows PowerShell を閉じてから、約 3 分から 4 分待ちます。
 
-**Results**: After completing this exercise, you will have successfully configured and validated self-service password reset.
+### タスク5: パスワード・ライトバックの検証
 
-**END OF LAB**
+
+
+1. **必要に応じて SEA-CL1** に切り替え、サインアウトします。
+
+2. **SEA-CL1** で [**その他のユーザー**] を選択し、**パスワード Pa55w.rd** を使用して **Contoso\Aaron** としてサインインを試みます。
+
+3. ユーザー名またはパスワードが正しくないというメッセージが表示されることを確認します。
+
+4. パスワード **Pa55w.rd1234!** を使用して、**Contoso\Aaron** として **SEA-CL1** にサインインします。
+
+   > サインインできるはずです。これにより、MyAccount ポータルで変更したパスワードがローカルの Active Directory ドメイン サービス (AD DS) アカウントに書き戻されることが確認されます。
+
+5. **SEA-CL1** からサインアウトします。
+
+**結果**: この演習を完了すると、セルフサービス パスワードのリセットが正常に構成され、検証されます。
+
+**ラボの終わり**

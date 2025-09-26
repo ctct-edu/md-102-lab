@@ -1,184 +1,192 @@
-# Practice Lab 0503: Configuring and validating device compliance
+# ラボ 0503: デバイス コンプライアンスの構成と検証
 
-## Summary
 
-In this lab, you validate device compliance by configuring a compliance policy and associated conditional access rule used to determine the status of a managed device. 
 
-### Prerequisites
+## 概要
 
-To following lab(s) must be completed before this lab:
 
-- 0101-Managing Identities in Entra ID
 
-- 0102-Synchronizing identities by using Entra Connect
+このラボでは、マネージド デバイスの状態を判断するために使用されるコンプライアンス ポリシーと関連する条件付きアクセス規則を構成して、デバイスのコンプライアンスを検証します。
 
-- 0203-Manage Device Enrollment into Intune
+### 前提 条件
 
-- 0204-Enrolling devices into Intune
 
-- 0301-Creating and Deploying Configuration Profiles
 
-  > Note: You will also need a mobile phone that can receive text messages used to secure Windows Hello sign in authentication to Entra ID.
+このラボの前に、次のラボを完了する必要があります。
 
-## Exercise 1: Configuring compliance policies 
+- 0101 - Entra IDでのアイデンティティの管理
 
-### Scenario
+- 0102 - Entra Connect を使用した ID の同期
 
-Contoso would like to ensure that Windows devices that are enrolled in Intune meet a minimum configuration specification. The following are specifications are required:
+- 0203-Intuneへのデバイス登録の管理
 
-- Minimum Windows operating system version: 10.0.19041.329
-- Microsoft Defender Antimalware required
+- 0204-Intune へのデバイスの登録
 
-If a device meets these requirements, it will be marked as compliant. If the device does not meet these requirements, the device should be marked as non-compliant.
+- 0301-構成プロファイルの作成と配備
 
-### Task 1: Create and assign a compliance policy
+  > 注: Entra ID への Windows Hello サインイン認証をセキュリティで保護するために使用されるテキスト メッセージを受信できる携帯電話も必要です。
 
-1. Sign in to **SEA-SVR1** as **Contoso\\Administrator** with the password **Pa55w.rd** and close **Server Manager**.
+## 演習 1: コンプライアンス・ポリシーの構成
 
-2. On the taskbar, select **Microsoft Edge**.
 
-3. In Microsoft Edge, type **https://intune.microsoft.com** in the  address bar, and then press **Enter**. 
 
-4. Sign in as as **`admin@yourtenant.onmicrosoft.com`** with the default tenant password.
+### シナリオ
 
-5. From the navigation pane select **Devices**, then select **Compliance**.
 
-6. On the **Devices | Compliance** blade, in the details pane select **+ Create policy**.
 
-7. On the **Create a policy** blade, provide the following value and select **Create**:
+Contoso は、Intune に登録されている Windows デバイスが最小構成仕様を満たしていることを確認したいと考えています。必要な仕様は次のとおりです。
 
-    - Platform: **Windows 10 and later**
-    - Profile type: **Windows 10/11 compliance policy**
+- Windows オペレーティング システムの最小バージョン: 10.0.19041.329
+- Microsoft Defender マルウェア対策が必要
 
-8. On the **Basics** tab, provide the following value and select **Next**:
+デバイスがこれらの要件を満たしている場合、準拠としてマークされます。デバイスがこれらの要件を満たしていない場合は、デバイスを非準拠としてマークする必要があります。
 
-    - Name: **Compliance1**
+### タスク1: コンプライアンス・ポリシーの作成および割当て
 
-9. On the **Compliance settings** tab, expand **Device Health** and review the available settings.
 
-10. On the **Compliance settings** tab, expand **Device Properties**. In the **Minimum OS version**
-    field, type **10.0.19041.329**.
 
-11. On the **Compliance settings** tab, expand **System Security**. Set the **Microsoft Defender Antimalware** setting to **Require**. 
+1. パスワード **Pa55w.rd** を使用して **Contoso\Administrator** として **SEA-SVR1** にサインインし、**サーバー マネージャー**を閉じます。
 
-12. Select **Next**. On the **Actions for noncompliance** tab, note the action to **Mark device noncompliant** default setting is **immediately**. 
+2. タスク バーで、[**Microsoft Edge]** を選択します。
 
-    > Review how you can configure the number of days after which the device is marked as noncompliant, and configuration additional actions. 
+3. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。
 
-13. Select **Next**. On the **Assignments** tab, under **Included groups** select **Add groups**. Select **Windows Devices**, choose **Select**, and then select **Next**. 
+4. 既定のテナント パスワードを使用して、**`admin@yourtenant.onmicrosoft.com`** としてサインインします。
 
-    _Note: The **Windows Devices** group was created in Lab 0301: Creating and Deploying Configuration Profiles._
+5. ナビゲーション ウィンドウから **[デバイス]** を選択し、 **[コンプライアンス]** を選択します。
 
-14. On the **Review + create** tab, review the settings and then select **Create**.
+6. **デバイス上 |[コンプライアンス]** ブレードの詳細ウィンドウで、 **[+ ポリシーの作成**] を選択します。
 
-15. In the navigation menu, select **Devices** and then in the Devices navigation pane, select **Compliance**.
+7. [**ポリシーの作成**] ブレードで、次の値を指定し、 **[作成]** を選択します。
 
-16. On the **Devices | Compliance** blade, select the **Compliance settings** tab.
+   - プラットフォーム: **Windows 10 以降**
+   - プロファイルの種類: **Windows 10/11 コンプライアンス ポリシー**
 
-17. On the **Compliance settings** page, ensure **30** is visible in the **Compliance status validity period**. If it is not, enter that value.
+8. [**基本]** タブで、次の値を指定し、[**次へ**] を選択します。
 
-18. On the **Compliance settings** page, toggle **Mark devices with no compliance policy assigned as** so it reads **Not compliant** and then select **Save**. 
+   - 名前: **コンプライアンス1**
 
-    > This setting will ensure that any device that does not have a compliance policy assigned will be set to **Not compliant**.
+9. [**コンプライアンス設定]** タブで、[**デバイスの正常性**] を展開し、使用可能な設定を確認します。
 
-**Results**: After completing this exercise, you will have successfully configured a compliance policy.
+10. [**コンプライアンス設定]** タブで、[**デバイスのプロパティ]** を展開します。[**最小 OS バージョン]** フィールドに「**10.0.19041.329**」と入力します。
 
+11. [**コンプライアンス設定]** タブで、[**システム セキュリティ]** を展開します。**[Microsoft Defender マルウェア対策**] 設定を **[必須]** に設定します。
 
-## Exercise 2: Creating a conditional access policy to enforce compliance
+12. [**次へ**] を選択します。[ **非準拠のアクション** ] タブで、[ **デバイス非準拠の既定値にマークする ]** のアクションが **[即時**] であることに注意してください。
 
-### Scenario 
+    > デバイスが非準拠としてマークされるまでの日数を設定する方法と、追加のアクションを設定する方法を確認します。
 
-When a user uses a device that is marked as non-compliant, they should not be able to access their e-mail. You've been asked to configure a conditional access policy that enforces this rule, and verify it functions as expected. In some cases, the user may experience a loop where they are prompted to sign in repeatedly.
+13. [**次へ**] を選択します。[**割り当て]** タブの **[含まれるグループ]** で **[グループの追加**] を選択します。**[Windows デバイス]** を選択し、[**選択]** を選択して、[**次へ**] を選択します。
 
-### Task 1: Create a conditional access policy
+    *注: **Windows デバイス** グループは、ラボ 0301: 構成プロファイルの作成と展開で作成されました。*
 
-1. On **SEA-SVR1**, in the **Intune admin center** select **Devices**, then select **Conditional access**.
+14. [**確認 + 作成**] タブで、設定を確認し、[**作成]** を選択します。
 
-2. On the **Conditional Access | Overview** blade, select **Policies**.
+15. ナビゲーション メニューで **[デバイス]** を選択し、[デバイス] ナビゲーション ウィンドウで **[コンプライアンス]** を選択します。
 
-3. On the **Conditional Access | Policies** blade, select **New policy**.
+16. **デバイス上 |[コンプライアンス]** ブレードで、[**コンプライアンス設定]** タブを選択します。
 
-4. On the **New** blade, in the **Name** text box, type **Conditional1** and then select **0 users and groups selected**.
+17. [**コンプライアンス設定]** ページで、[**コンプライアンス状態の有効期間**] に **30** が表示されていることを確認します。指定されていない場合は、その値を入力します。
 
-5. Under **Include**, select the **All users** radio button.
+18. [**コンプライアンス設定]** ページで、[**コンプライアンス ポリシーが割り当てられていないデバイスをマークする] を**切り替えて、[**非準拠**] と表示され、[**保存]** を選択します。
 
-6. In the **Target resources** section, select **No target resources selected**.
+    > この設定により、コンプライアンス ポリシーが割り当てられていないデバイスはすべて [**非準拠]** に設定されます。
 
-7. Under **Include** choose the **Select resources** radio button, under the Select heading, select **None**, select **Office 365 Exchange Online**, and then click **Select**.
+**結果**: この演習を完了すると、コンプライアンス ポリシーが正常に構成されます。
 
-8. In the **Conditions** section, select **0 conditions selected**. 
+## 演習 2: コンプライアンスを適用するための条件付きアクセス ポリシーを作成する
 
-9. In the list of conditions, under **Device platforms**, select **Not configured**. In the **Configure** section select **Yes**, select the **Select device platforms** radio button, select the **Windows** check box, and then select **Done**.
 
-10. In the **Grant** section, select **0 controls selected**. Select the **Require device to be marked as compliant** check box, and then select **Select**.
 
-11. On the **New** blade, select **On** for the **Enable policy** option and then select **Create**.
+### シナリオ
 
-12. Close Microsoft Edge.
 
-### Task 2: Verify that the conditional access policy is working
 
-1. Switch to **SEA-WS3** and sign in as **Admin** with the password of **Pa55w.rd**.
+ユーザーが非準拠としてマークされたデバイスを使用すると、電子メールにアクセスできなくなります。このルールを適用する条件付きアクセス ポリシーを構成し、期待どおりに機能することを確認するように求められました。場合によっては、サインインを繰り返し求められるループが発生することがあります。
 
-2. On **SEA-WS3**, on the taskbar, select **Microsoft Edge**.
+### タスク 1: 条件付きアクセス ポリシーを作成する
 
-3. In Microsoft Edge, type **outlook.office.com** and then press Enter.
 
-4. On the pick an account dialog box, select **`Aaron@yourtenant.onmicrosoft.com`**.
 
-5. On the **Enter password** page, enter **Pa55w.rd1234!** and select **Sign in**.
+1. **SEA-SVR1** では、**Intune 管理センター**で **[デバイス]** を選択し、 **[条件付きアクセス]** を選択します。
+2. **条件付きアクセス |[概要]** ブレードで、 **[ポリシー]** を選択します。
+3. **条件付きアクセス |[ポリシー]** ブレードで、 [**新しいポリシー**] を選択します。
+4. [**新規]** ブレードの [**名前**] テキスト ボックスに「**Conditional1」**と入力し、選択した **0 のユーザーとグループ**を選択します。
+5. **[含める]** で、[**すべてのユーザー**] ラジオ ボタンを選択します。
+6. [**ターゲット リソース]** セクションで、[**ターゲット リソースが選択されていません**] を選択します。
+7. **[含める]** で [**リソースの選択**] ラジオ ボタンを選択し、[選択] 見出しで [**なし**] を選択し、[**Office 365 Exchange Online**] を選択して、[**選択]** をクリックします。
+8. [**条件]** セクションで、**選択した条件を 0** 個選択します。
+9. 条件のリストで、[**デバイス プラットフォーム**] で [**未構成]** を選択します。[**構成]** セクションで [**はい**] を選択し、[**デバイス プラットフォームの選択**] ラジオ ボタンを選択し、[**Windows**] チェック ボックスをオンにして、[**完了]** を選択します。
+10. [**付与]** セクションで、**選択した 0 個のコントロール**を選択します。[**デバイスに準拠としてマークする必要がある]** チェック ボックスをオンにし、[**選択]** を選択します。
+11. [**新規]** ブレードで、[**ポリシーを有効にする]** オプションで **[オン**] を選択し、 **[作成]** を選択します。
+12. Microsoft Edge を閉じます。
 
-    > **Note** If the Microsoft Edge Save password prompt appears, select **Update**.
+### タスク 2: 条件付きアクセス ポリシーが機能していることを確認する
 
-6. You should receive a message that asks you to switch Edge profile. Select **Switch Edge profile**.
 
-7. You will be prompted with a message stating, "**Continue with your work or school account**". Select **Sign in to sync data**.
 
-8. You will be required to enter your password again. Enter **Pa55w.rd1234!** and select **Sign in**.
+1. **SEA-WS3** に切り替え、**Pa55w.rd** のパスワードで**管理者**としてサインインします。
 
-9. A dialog box will appear asking, "**Automatically sign in to all desktops apps and websites on this device?**". Select **No, sign in to this app only**.
+2. **SEA-WS3** のタスク バーで、[**Microsoft Edge]** を選択します。
 
-    > Note: A dialog will appear stating, "**Let's set up your profile to access org resources**". This is because SEA-WS3 is not joined to Entra ID and not managed by Intune. As such, you are unable to access Aarons' mailbox from this device.
+3. Microsoft Edge で、「**outlook.office.com**」と入力し、Enter キーを押します。
 
-10. **Close** all windows and sign out of **SEA-WS3**.
+4. 勘定の選択 ダイアログ ボックスで、**`Aaron@yourtenant.onmicrosoft.com`** を選択します。
 
-11. Switch to **SEA-WS1**, and sign in as as Aaron Nicholls with the PIN **102938**. 
+5. [**パスワードの入力**] ページで、「**Pa55w.rd1234!」**と入力し、[**サインイン]** を選択します。
 
-    > Note: SEA-WS1 is a managed Windows 11 device that is enrolled in Intune.
+   > **手記**Microsoft Edge の [パスワードの保存] プロンプトが表示されたら、[**更新]** を選択します。
 
-12. On the taskbar, select **Microsoft Edge**.
+6. Edge プロファイルを切り替えるように求めるメッセージが表示されます。**[エッジ プロファイルの切り替え(Switch Edge profile)]** を選択します。
 
-13. In Microsoft Edge, type **outlook.office.com** and then press Enter. 
+7. 「**職場または学校のアカウントで続行**してください」というメッセージが表示されます。**[サインイン] を選択してデータを同期**します。
 
-14. Verify that you can access Aaron's mailbox. 
+8. パスワードの入力を再度必要とします。**「Pa55w.rd1234!」**と入力し、[**サインイン]** を選択します。
 
-    > Note: This is because SEA-WS1 is a managed device and marked as compliant.
+9. 「**このデバイス上のすべてのデスクトップ アプリと Web サイトに自動的にサインインしますか?**」というダイアログ ボックスが表示されます。[**いいえ、このアプリにのみサインインします]** を選択します。
 
-15. Close Microsoft Edge and sign out of SEA-WS1.
+   > 注: 「**組織リソースにアクセスするようにプロファイルを設定しましょう**」というダイアログが表示されます。これは、SEA-WS3 が Entra ID に参加しておらず、Intune によって管理されていないためです。そのため、このデバイスからアーロンズのメールボックスにアクセスすることはできません。
 
-### Task 3: Disable the conditional access policy
+10. すべてのウィンドウ**を閉じ**て、**SEA-WS3** からサインアウトします。
 
-1. Switch to **SEA-SVR1** and enter the password **Pa55w.rd**.
+11. **SEA-WS1** に切り替え、PIN **102938**を使用して Aaron Nicholls としてサインインします。
 
-2. On the taskbar, select **Microsoft Edge**.
+    > 注: SEA-WS1 は、Intune に登録されているマネージド Windows 11 デバイスです。
 
-3. In Microsoft Edge, type **https://intune.microsoft.com** in the  address bar, and then 
-   press **Enter**.
+12. タスク バーで、[**Microsoft Edge]** を選択します。
 
-4. Sign in as as **`admin@yourtenant.onmicrosoft.com`** with the default tenant password.
+13. Microsoft Edge で、「**outlook.office.com**」と入力し、Enter キーを押します。
 
-5. From the navigation pane select **Devices**, then select **All devices**.
+14. Aaron のメールボックスにアクセスできることを確認します。
 
-   > Notice that SEA-WS1 is compliant, which is why Aaron was allowed to access his mailbox.
+    > 注:これは、SEA-WS1が管理対象デバイスであり、準拠としてマークされているためです。
 
-6. From the navigation pane select **Devices**, then select **Conditional access**.
+15. Microsoft Edge を閉じて、SEA-WS1 からサインアウトします。
 
-7. On the **Conditional Access** page, select **Policies** and then select **Conditional1**.
+### タスク 3: 条件付きアクセス ポリシーを無効にする
 
-8. On the **Conditional1** page, at the bottom of the page, select **Off** and then select **Save**.
 
-9. Close Microsoft Edge.
 
-**Results**: After completing this exercise, you will have successfully configured a conditional access policy to determine device compliance.
+1. **SEA-SVR1** に切り替えて、パスワード **Pa55w.rd** を入力します。
 
-**END OF LAB**
+2. タスク バーで、[**Microsoft Edge]** を選択します。
+
+3. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、 **Enter キー**を押します。
+
+4. 既定のテナント パスワードを使用して、**`admin@yourtenant.onmicrosoft.com`** としてサインインします。
+
+5. ナビゲーション ウィンドウから **[デバイス]** を選択し、[**すべてのデバイス**] を選択します。
+
+   > SEA-WS1 は準拠しているため、Aaron は自分のメールボックスへのアクセスを許可されました。
+
+6. ナビゲーション ウィンドウから **[デバイス]** を選択し、 **[条件付きアクセス]** を選択します。
+
+7. [**条件付きアクセス]** ページで、[**ポリシー]** を選択し、 **[条件付き 1]** を選択します。
+
+8. [**条件 1]** ページの下部にある **[オフ]** を選択し、 [**保存**] を選択します。
+
+9. Microsoft Edge を閉じます。
+
+**結果**: この演習を完了すると、デバイスのコンプライアンスを判断するための条件付きアクセス ポリシーが正常に構成されます。
+
+**ラボの終わり**

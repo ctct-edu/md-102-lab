@@ -1,117 +1,108 @@
-# Practice Lab 0602: Configuring Disk Encryption Using Intune
+# ラボ 0602: Intune を使用したディスク暗号化の構成
 
-## Summary
 
-In this lab, you will configure BitLocker disk encryption using Intune.
 
-### Prerequisites
+## 概要
 
-To following lab(s) must be completed before this lab:
 
-- 0203-Manage Device Enrollment into Intune
 
-- 0204-Enrolling devices into Intune
+このラボでは、Intune を使用して BitLocker ディスク暗号化を構成します。
 
-- 0301-Creating and Deploying Configuration Profiles
+### 前提 条件
 
-  Note: You will also need a mobile phone that can receive text messages used to secure Windows Hello sign in authentication to Entra ID.
 
-### Scenario
 
-It's been determined that all the information on SEA-WS1 should be encrypted. You've been asked to configure full disk encryption on SEA-WS1 and require additional PIN authentication at startup.
+このラボの前に、次のラボを完了する必要があります。
 
-### Task 1: Configure device configuration policy in Intune
+- 0203-Intuneへのデバイス登録の管理
 
-1. Sign in to **SEA-SVR1** as **Contoso\\Administrator** with the password **Pa55w.rd** and close **Server Manager**.
+- 0204-Intune へのデバイスの登録
 
-2. On the taskbar, select **Microsoft Edge**.
+- 0301-構成プロファイルの作成と配備
 
-3. In Microsoft Edge, type **https://intune.microsoft.com** in the  address bar, and then press **Enter**. 
+  注: Entra ID への Windows Hello サインイン認証をセキュリティで保護するために使用されるテキスト メッセージを受信できる携帯電話も必要です。
 
-4. Sign in as as **`admin@yourtenant.onmicrosoft.com`** with the default tenant password.
+### シナリオ
 
-5. In the Microsoft Intune admin center, select **Endpoint security** from the navigation bar.
 
-6. On the **Endpoint security | Overview** page, select **Disk encryption**.
 
-7. On the **Endpoint security | Disk encryption** blade, in the details pane, select **+ Create Policy**.
+SEA-WS1 のすべての情報を暗号化する必要があることが決定されました。SEA-WS1 でフルディスク暗号化を設定し、起動時に追加の PIN 認証を要求するように求められました。
 
-8. In the **Create a profile** page, select the following options, and then select **Create**:
+### タスク 1: Intune でデバイス構成ポリシーを構成する
 
-    -   Platform: **Windows**
-    -   Profile: **BitLocker**
 
-9. On the **Basics** page, enter the following information, and then select **Next**:
 
-    -   Name: **Contoso BitLocker**
-    -   Description: **Enable BitLocker for all devices**
+1. パスワード **Pa55w.rd** を使用して **Contoso\Administrator** として **SEA-SVR1** にサインインし、**サーバー マネージャー**を閉じます。
+2. タスク バーで、[**Microsoft Edge]** を選択します。
+3. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。
+4. 既定のテナント パスワードを使用して、**`admin@yourtenant.onmicrosoft.com`** としてサインインします。
+5. Microsoft Intune管理センターで、ナビゲーション バーから **[エンドポイント セキュリティ**] を選択します。
+6. エンドポイント**セキュリティ |[概要**] ページで、[**ディスク暗号化]** を選択します。
+7. エンドポイント**セキュリティ |[ディスク暗号化]** ブレードの詳細ウィンドウで、 **[+ ポリシーの作成]** を選択します。
+8. **[プロファイルの作成**] ページで、次のオプションを選択し、[**作成]** を選択します。
+   - プラットフォーム: **Windows**
+   - プロファイル: **BitLocker**
+9. **基本** ページで、次の情報を入力し、**次へ** を選択します。
+   - 名前: **Contoso BitLocker**
+   - 説明: **すべてのデバイスに対して BitLocker を有効にする**
+10. [**構成設定]** タブで、[**BitLocker**] を展開し、次のオプションを構成します。
+    - デバイスの暗号化が必要: **有効**
+11. [**構成設定]** タブで、[**オペレーティング システム ドライブ]** まで下にスクロールし、次のオプションを構成し、他のすべてのオプションは既定値のままにします。
+    - オペレーティング システム ドライブにドライブ暗号化の種類を適用する: **有効**
+    - 起動時に追加の認証を要求する: **有効**
+    - 起動時の最小 PIN 長の構成: **有効**
+    - Bitlocker で保護されたオペレーティング システム ドライブを回復する方法を選択する: **有効**
+    - オペレーティング システム ドライブの回復情報が AD DS に格納されるまで Bitlocker を有効にしない: **True**
+    - BitLocker セットアップ ウィザードからの回復オプションを省略する: **True**
+    - オペレーティング システム ドライブの Bitlocker 回復情報を AD DS に保存する: **True**
+12. [**構成設定]** ページで、[**次へ**] を選択します。
+13. [**スコープ タグ]** ページで、[**次へ**] を選択します。
+14. [**割り当て]** タブで、**Contoso** を検索し、[**Contoso 開発者デバイス]** を選択し、[**次へ**] を選択します。
+15. [**確認 + 作成**] ページで、[**保存]** を選択します。
+16. **SEA-SVR1** で開いているすべてのウィンドウを閉じます。
 
-10. On the **Configurations settings** tab, expand **BitLocker** and then configure the following option:
+### タスク 2: BitLocker 設定を確認して有効にする
 
-     - Require Device Encryption: **Enabled**
 
-11. On the **Configurations settings** tab, scroll down to **Operating System Drives** and then configure the following options, leaving all other options to their defaults:
 
-     - Enforce drive encryption type on operating system drives: **Enabled**
-     - Require additional authentication at startup: **Enabled**
-     - Configure minimum PIN length for startup: **Enabled**
-     - Choose how Bitlocker-protected operating system drives can be recovered: **Enabled**
-     - Do not enable Bitlocker until recovery information is stored to AD DS for operating system drives: **True**
-     - Omit recovery options from the BitLocker setup wizard: **True**
-     - Save Bitlocker recovery information to AD DS for operating system drives: **True**
+1. **SEA-WS1** で、PIN **102938**を使用して **Aaron Nicholls** としてサインインします。
 
-12. On the **Configurations settings** page, select **Next**.
+2. タスク バーで [**スタート]** を選択し、**設定**アプリを選択します。
 
-13. On the **Scope tags** page, select **Next**.
+3. **設定**アプリで、 **[アカウント]** を選択し、 [**職場または学校へのアクセス**] を選択します。
 
-14. On the **Assignments** tab, search for **Contoso** and then select **Contoso Developer devices**, and then select **Next**.
+4. [**職場または学校へのアクセス**] セクションで、 **[Contoso の Azure AD に接続されている]** リンクを選択し、 [**情報**] を選択します。[**同期]** を選択します。
 
-16. On the **Review + create** page, select **Save**.
+5. [**暗号化が必要]** 通知を選択します。
 
-17. Close all open windows on **SEA-SVR1**.
+   *注: 通知が表示されるまでに時間がかかる場合があります。Windows フォーカス アシストによって通知が表示されない場合もあります。通知は手動で確認できます。*
 
-### Task 2: Verify and enable BitLocker settings
+6. [**暗号化を開始する準備はできていますか?**] ダイアログで、[**他のディスク暗号化ソフトウェアがインストールされていません]** の横にあるチェック ボックスをオンにし、すべてのディスクを暗号化して、[**はい**] を選択します。
 
-1. On **SEA-WS1**, sign in as **Aaron Nicholls** with the PIN **102938**.
-    
-2. On the taskbar, select **Start** and then select the **Settings** app.
+7. [**起動時にドライブのロックを解除する方法を選択するか]** ページで、[**PIN の入力**] を選択します
 
-3. In the **Settings** app, select **Accounts** and then select **Access work or school**.
+8. [**PIN の入力**] ページの [**PIN**] ボックスと [**PIN の再入力**] ボックスに「**123456**」と入力し、[**PIN の設定**] を選択します。
 
-4. In the **Access work or school** section, select the **Connected to Contoso's Azure AD** link and then select **Info**. Select **Sync**.
+9. [**暗号化するドライブの量を選択する**] ページで、[**使用済みディスク領域のみを暗号化する**] を選択し、[**次へ**] を選択します。
 
-5. Select the **Encryption needed** notification.
+10. [**使用する暗号化モードの選択**] ページで、[**新しい暗号化モード (このデバイスの固定ドライブに最適)]** が選択されていることを確認し、[**次へ**] を選択します。
 
-   _Note: It may take some time until the notification shows up. Windows Focus Assist may also prevent the notification from appearing. You can check notifications manually._
+11. [**このドライブを暗号化する準備ができていますか]** ページで、[**続行]** を選択します。暗号化が完了するまで待ちます。
 
-6. On the **Are you ready to start encryption?** dialog, select the checkbox next to **I don't have any other disk encryption software installed, encrypt all my disks**, and select **Yes**.
+12. [**Encryption of C: is complete**] メッセージが表示されたら、[**Close**] を選択し、**SEA-WS1** を再起動します。
 
-7. On the **Choose how to unlock your drive at startup?** page, select **Enter a PIN**
+13. **SEA-WS1** が再起動したら、**123456** と入力して **Enter** キーを押してドライブのロックを解除します。
 
-8. On the **Enter a PIN** page, in the **PIN** and **Reenter PIN** boxes, enter **123456**, and then select **Set PIN**.
+### タスク 3: BitLocker 保護を確認する
 
-9. On the **Choose how much of your drive to encrypt** page, select **Encrypt used disk space only** and select **Next**.
-   
-11. On the **Choose which encryption mode to use** page, ensure that **New encryption mode (best for fixed drives on this device)** is selected, and then select **Next**.
-    
-12. On the **Are you ready to encrypt this drive** page, select **Continue**. Wait for the encryption to complete.
 
-13. At the **Encryption of C: is complete** message, select **Close**, and then restart **SEA-WS1**.
 
-14. When **SEA-WS1** restarts, type **123456** and press **Enter** to unlock the drive.
+1. PIN **102938**を使用して **Aaron Nicholls** として **SEA-WS1** にサインインします。
+2. タスク バーで、[**エクスプローラー]** を選択し、[**この PC**] を選択します。
+3. ナビゲーション ウィンドウで、[**ローカル ディスク (C:)]** を右クリックし、[**その他のオプションの表示**] を選択して、[**BitLocker の管理]** を選択します。
+4. [**BitLocker ドライブの暗号化]** ウィンドウで、[**C: BitLocker オン]** 状態が表示されていることを確認します。これは、ドライブが暗号化されていることを意味します。
+5. 開いているすべてのウィンドウを閉じて、**SEA-WS1** からサインアウトします。
 
-### Task 3: Verify BitLocker protection
+**結果**: この演習を完了すると、Intune を使用してディスク暗号化が正常に構成されます。
 
-1. Sign in to **SEA-WS1** as **Aaron Nicholls** with the PIN **102938**.
-
-2. On the taskbar, select **File Explorer** and then select **This PC**.
-
-3. In the navigation pane, right-click **Local Disk (C:)**, select **Show more options**, and then select **Manage BitLocker**.
-
-4. In the **BitLocker Drive Encryption** window, ensure that you see **C: BitLocker on** status. This means that drive is encrypted. 
-
-5. Close all open windows and sign out of **SEA-WS1**.
-
-**Results**: After completing this exercise, you will have successfully configured disk encryption by using Intune.
-
-**END OF LAB**
+**ラボの終わり**

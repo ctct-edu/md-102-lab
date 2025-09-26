@@ -1,208 +1,227 @@
-# Practice Lab 0801: Deploying Windows with Autopilot
+# ラボ 0801: Autopilot を使用した Windows の展開
 
-## Summary
 
-In this lab you will learn how provision a Windows 11 device with Autopilot using User-driven mode.
 
-### Prerequisites
+## 概要
 
-To following lab(s) must be completed before this lab:
 
-- 0101-Managing Identities in Entra ID
 
-- 0102-Synchronizing identities by using Entra Connect
+このラボでは、ユーザー駆動型モードを使用して Autopilot を使用して Windows 11 デバイスをプロビジョニングする方法について説明します。
 
-### Scenario
+### 前提 条件
 
-Contoso IT is planning to roll out a deployment of new Windows 11 devices using Autopilot. The devices have a default installation of Windows 11. Users should be able to connect the device, turn it on, and answer minimal questions during the OOBE, using their Entra ID credentials to sign in. The process should automatically enroll and join the Entra ID domain. You have been asked to configure and test the experience.
 
-### Task 1: Create group in Entra ID
 
-1. Sign in to **SEA-SVR1** as **Contoso\\Administrator** with the password **Pa55w.rd** and close **Server Manager**.
+このラボの前に、次のラボを完了する必要があります。
 
-2. On the taskbar, select **Microsoft Edge**.
+- 0101 - Entra IDでのアイデンティティの管理
+- 0102 - Entra Connect を使用した ID の同期
 
-3. In Microsoft Edge, in the address bar, type **https://entra.microsoft.com**, and then press **Enter**. If prompted, sign in with your **`Admin@yourtenant.onmicrosoft.com`** and the default tenant password.
+### シナリオ
 
-4. In the navigation pane, Expand **Entra ID**.
 
-5. Select **Groups** and then select **All groups**.
 
-6. In the **Groups | All groups** blade, select **New group**.
+Contoso IT は、Autopilot を使用して新しい Windows 11 デバイスの展開を展開することを計画しています。デバイスには、Windows 11 のデフォルト インストールがあります。ユーザーは、Entra ID 資格情報を使用してサインインし、OOBE 中にデバイスを接続し、電源を入れ、最小限の質問に答えることができる必要があります。このプロセスでは、Entra ID ドメインが自動的に登録され、参加されます。エクスペリエンスの構成とテストを求められました。
 
-7. In the **New Group** blade, in the **Group type** list, select **Security**.
+### タスク1: Entra IDでのグループの作成
 
-8. In the **Group name** box, type **IT Devices**.
 
-9. In the **Group description** box, type **IT Department Devices**.
 
-10. In the **Membership type** list, select **Dynamic Device**.
+1. パスワード **Pa55w.rd** を使用して **Contoso\Administrator** として **SEA-SVR1** にサインインし、**サーバー マネージャー**を閉じます。
 
-11. Select **Add dynamic query**.
+2. タスク バーで、[**Microsoft Edge]** を選択します。
 
-12. On the **Dynamic membership rules** blade select **Edit** above the **Rule syntax** box.
+3. Microsoft Edge のアドレス バーに「**[https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力し、**Enter キー**を押します。プロンプトが表示されたら、**`Admin@yourtenant.onmicrosoft.com`** と既定のテナント パスワードを使用してサインインします。
 
-13. In the Edit rule syntax text box, add the following simple membership rule and select **OK**.
+4. ナビゲーションペインで、[**Entra ID**] を展開します。
 
-    ```cmd
+5. [**グループ]** を選択し、[**すべてのグループ**] を選択します。
+
+6. **グループ内 |すべてのグループ** ブレードで、 [**新しいグループ**] を選択します。
+
+7. [**新しいグループ**] ブレードの [**グループの種類**] ボックスの一覧で、 **[セキュリティ]** を選択します。
+
+8. [**グループ名**] ボックスに「**IT デバイス」**と入力します。
+
+9. **[グループの説明**] ボックスに「**IT Department Devices**」と入力します。
+
+10. [**メンバーシップタイプ]** リストで、[**ダイナミックデバイス]** を選択します。
+
+11. [**動的クエリの追加**] を選択します。
+
+12. [**動的メンバーシップ ルール]** ブレードで、[**ルール構文]** ボックスの上にある **[編集**] を選択します。
+
+13. [ルール構文の編集] テキスト ボックスに、次の単純なメンバーシップ ルールを追加し、[**OK]** を選択します。
+
+    ```
     (device.devicePhysicalIDs -any (_ -contains "[ZTDId]"))
     ```
+
     
-14. Select **Save** to close **Dynamic membership rules**, and then select **Create** to create the group.
 
-### Task 2: Generate a device-specific comma-separated value (CSV) file
+14. 保存 **を選択して****動的メンバーシップ ルールを**閉じ、**作成** を選択してグループを作成します。
 
-1. Switch to **SEA-WS3** and sign in as **Admin** with the password of **Pa55w.rd**.
+### タスク2: デバイス固有のカンマ区切り値(CSV)ファイルの生成
 
-2. Right-click **Start**, select **Windows Terminal (Admin)**, and then select **Yes** at the **User Account Control** prompt.
 
-3. At the Windows PowerShell command-line prompt, type the following cmdlet, and then press **Enter**:
 
-    ```powershell
-    Install-Script -Name Get-WindowsAutoPilotInfo
-    ```
+1. **SEA-WS3** に切り替え、**Pa55w.rd** のパスワードで**管理者**としてサインインします。
 
-4. You will receive three prompts. Each time, type **Y**, and then press **Enter**.
+2. **[スタート]** を右クリックし、[**Windows ターミナル (管理者)]** を選択し、[**ユーザー アカウント制御**] プロンプトで [**はい**] を選択します。
 
-5. At the Windows PowerShell command-line prompt, type the following cmdlet, and then press **Enter**:
+3. Windows PowerShell コマンド ライン プロンプトで、次のコマンドレットを入力し、**Enter キー**を押します。
 
-    ```powershell
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
-    ```
+   ```
+   Install-Script -Name Get-WindowsAutoPilotInfo
+   ```
 
-6. At the Windows PowerShell command-line prompt, type the following cmdlet, and then press **Enter**:
+   
 
-    ```powershell
-    Get-WindowsAutoPilotInfo.ps1 -OutputFile C:\Computer.csv
-    ```
+4. 3つのプロンプトが表示されます。毎回「**Y**」と入力し、**Enter キー**を押します。
 
-7. At the Windows PowerShell command-line prompt, type the following command, press **Enter**, and then review the file content:
+5. Windows PowerShell コマンド ライン プロンプトで、次のコマンドレットを入力し、**Enter キー**を押します。
 
-    ```cmd
-    type C:\Computer.csv
-    ```
+   ```
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+   ```
 
-8. Close **Windows Terminal**.
+   
 
-### Task 3: Work with a Windows Autopilot deployment profile
+6. Windows PowerShell コマンド ライン プロンプトで、次のコマンドレットを入力し、**Enter キー**を押します。
 
-1. On **SEA-WS3**, in the windows taskbar, select **Microsoft Edge**.
+   ```
+   Get-WindowsAutoPilotInfo.ps1 -OutputFile C:\Computer.csv
+   ```
 
-2. In **Microsoft Edge**, navigate to **https://intune.microsoft.com**. Sign in with your **`Admin@yourtenant.onmicrosoft.com`** account.
+   
 
-    >Note: You may be prompted to register for MFA. Follow the same procedures you used earlier in the course to add your phone number.
+7. Windows PowerShell コマンド ライン プロンプトで、次のコマンドを入力し、**Enter キー**を押して、ファイルの内容を確認します。
 
-3. In the **Microsoft Intune admin center**, select **Devices**.
+   ```
+   type C:\Computer.csv
+   ```
 
-4. In the **Device onboarding** section, select **Enrollment**. 
+   
 
-5. In the **Windows** tab, scroll down to **Windows Autopilot**, and then select **Devices**.
+8. **Windows ターミナルを**閉じます。
 
-6. In the **Windows Autopilot devices** blade on the menu bar, select **Import**, select the **folder icon** and then browse to **C:\\**, select **Computer.csv**, select **Open**, and then select **Import**. 
+### タスク 3: Windows Autopilot 展開プロファイルの操作
 
-   _Note: The import process can take up to 15 minutes, but normally takes around 5 minutes._  
 
-   _**Important**: After the process is complete, the device may not show automatically. If this is the case, select the **Refresh** button. If the device still does not appear, select the **Sync** button, wait a few minutes, and then select **Refresh**._
 
-7. Select **X** to close the **Windows Autopilot devices** blade. 
+1. **SEA-WS3** の Windows タスクバーで、[**Microsoft Edge**] を選択します。
 
-8. On the Windows enrollment blade, in the details pane, select **Deployment Profiles**.
+2. **Microsoft Edge** で、[**[https://intune.microsoft.com](https://intune.microsoft.com/)**] に移動します。**`Admin@yourtenant.onmicrosoft.com`** アカウントでサインインします。
 
-9. On the **Windows AutoPilot deployment profiles** blade, select **+ Create profile** and then select **Windows PC**.
+   > 注: MFA の登録を求められる場合があります。コースの前半で使用したのと同じ手順に従って、電話番号を追加します。
 
-10. In the **Basics** tab, in the **Name** text box, type **Contoso profile1**.
+3. **Microsoft Intune管理センター**で、[**デバイス]** を選択します。
 
-11. For **Convert all targeted devices to Autopilot** select **No**, and then select **Next**.
+4. [**デバイスのオンボード**] セクションで、[**登録]** を選択します。
 
-12. On the **Out-of-box experience (OOBE)** tab, ensure that the **Deployment mode** is set to **User-Driven**.
+5. [**Windows**] タブで、[**Windows Autopilot**] まで下にスクロールし、[**デバイス]** を選択します。
 
-13. Ensure that **Join to Entra ID as** is set to **Microsoft Entra joined**.
+6. メニュー バーの **[Windows Autopilot デバイス**] ブレードで、[**インポート]** を選択し、**フォルダー アイコン**を選択して **[C:\**] を参照し、[**Computer.csv**]、[**開く**]、[**インポート]** の順に選択します。
 
-14. Ensure that the following options are set:
+   *注: インポート プロセスには最大 15 分かかる場合がありますが、通常は約 5 分かかります。*
 
-    - Microsoft Software License Terms: **Hide**
+   ***重要**: プロセスが完了すると、デバイスが自動的に表示されない場合があります。この場合は、[**更新]** ボタンを選択します。それでもデバイスが表示されない場合は、[**同期]** ボタンを選択し、数分待ってから **[更新]** を選択します。*
 
-    - Privacy settings: **Hide**
+7. [**X**] を選択して **[Windows Autopilot デバイス**] ブレードを閉じます。
 
-    - Hide change account options: **Hide**
+8. [Windows 登録] ブレードの詳細ウィンドウで、 **[デプロイ プロファイル**] を選択します。
 
-    - User account type: **Administrator**.
+9. [**Windows AutoPilot 展開プロファイル]** ブレードで、 [**+ プロファイルの作成**] を選択し、 [**Windows PC**] を選択します。
 
-    - Allow pre-provisioned deployment: **No**
+10. [**基本]** タブの [**名前**] テキスト ボックスに「**Contoso profile1**」と入力します。
 
-    - Language (Region): **Operating system default**
+11. **[すべてのターゲット デバイスを Autopilot に変換する]** で [**いいえ**] を選択し、 [**次へ**] を選択します。
 
-    - Automatically configure keyboard: **Yes**
+12. [**アウトオブボックス エクスペリエンス (OOBE)]** タブで、[**展開モード**] が [**ユーザー駆動型]** に設定されていることを確認します。
 
-    - Apply device name template: **No**
+13. **[Entra ID への参加] が** **[Microsoft Entra 参加済み] に設定されていることを確認します**。
 
-15. Select **Next**.
+14. 次のオプションが設定されていることを確認します。
 
-16. On the **Assignments** tab, under **Included groups** select **Add groups**.
+    - Microsoft ソフトウェア ライセンス条項: **非表示**
+    - プライバシー設定: **非表示**
+    - アカウント変更オプションを非表示にする: **非表示**
+    - ユーザーアカウントの種類: **管理者**。
+    - 事前プロビジョニングされたデプロイメントを許可する: **いいえ**
+    - 言語 (地域): **オペレーティング システムの既定値**
+    - キーボードを自動的に構成する: **はい**
+    - デバイス名テンプレートの適用: **いいえ**
 
-17. Select the **IT Devices** group and click **Select**. Select **Next**.
+15. [**次へ**] を選択します。
 
-18. On the **Review + create** tab, review the information and then select **Create**.
+16. [**割り当て]** タブの **[含まれるグループ]** で **[グループの追加**] を選択します。
 
-19. Close **Microsoft Edge**
+17. **[IT デバイス]** グループを選択し、[**選択]** をクリックします。[**次へ**] を選択します。
 
-### Task 4: Reset the PC
+18. [**確認 + 作成**] タブで、情報を確認し、[**作成]** を選択します。
 
-1. On **SEA-WS3**, select **Start**, type **reset** and select **Reset this PC**.
+19. **Microsoft Edge** を閉じる
 
-2. In the **System > Recovery** page, select **Reset PC**.
+### タスク 4: PC をリセットする
 
-3. Select **Remove everything**, and then select **Local reinstall**.
 
-4. Select **Next** and then select **Reset**.
 
-   >Note: Normally this task is not required for new deployment of physical devices. The device’s autopilot info is either provided by the manufacturer or can be obtained from the device prior to the OOBE. For the purposes of this lab, we must initiate a reset to simulate a new device OOBE.
+1. **SEA-WS3** で、[**スタート]** を選択し、「**リセット**」と入力して **[この PC をリセット]** を選択します。
 
-   >Note: This process can take 30-45 minutes and will reboot several times during the process. 
+2. [**システム>回復**] ページで、[**PC のリセット]** を選択します。
 
-### Task 5: Verify Autopilot deployment
+3. **[すべて削除]** を選択し、[**ローカル再インストール]** を選択します。
 
-1. At the **Let's set things up for your work or school** page, enter **`Aaron@yourtenant.onmicrosoft.com`** and select **Next**.
+4. [**次へ**] を選択し、[**リセット]** を選択します。
 
-2. At the Password page, enter **Pa55w.rd1234!** and select **Sign in**.
+   > 注: 通常、このタスクは、物理デバイスの新しい展開には必要ありません。デバイスの自動操縦情報は、製造元によって提供されるか、OOBE の前にデバイスから取得できます。このラボでは、新しいデバイス OOBE をシミュレートするためにリセットを開始する必要があります。
 
-3. At the **Use Windows Hello with your account**, select **OK**.
+   > 注: このプロセスには 30 分から 45 分かかる場合があり、プロセス中に数回再起動します。
 
-4. At the **Verify your identity** page, select the Text verification method.
+### タスク5: Autopilotデプロイメントの検証
 
-5. At the **Enter code** page, enter the code that has been texted to your mobile device and then select **Verify**.
 
-6. On the **Setup up a PIN** dialog box, in the **New PIN** and **Confirm PIN** fields, enter **102938**, and then select **OK**.
 
-7. On the **All set!** page, select **OK**.
+1. [**職場または学校用に設定しましょう**] ページで、「**`Aaron@yourtenant.onmicrosoft.com`**」と入力し、[**次へ**] を選択します。
 
-8. Select **Start** and select **Settings**. 
+2. [パスワード] ページで、「**Pa55w.rd1234!」**と入力し、[**サインイン]** を選択します。
 
+3. [**アカウントで Windows Hello を使用する**] で、[**OK]** を選択します。
 
-9. Select **Accounts**, and then select **Access work or school**. Verify the device is connected to Contoso's Azure AD.
+4. [**本人確認**] ページで、[テキスト検証方法] を選択します。
 
-10. Select **Connected to Contoso's Azure AD** and select **Info**.
+5. **[コードの入力**] ページで、モバイル デバイスにテキストで送信されたコードを入力し、[**確認]** を選択します。
 
-11. On the **Managed by Contoso** page, scroll down and then select **Sync**.
+6. **PIN のセットアップ** ダイアログ ボックスの **新しい PIN** フィールドと **PIN の確認** フィールドに「**102938**」と入力し、**OK** を選択します。
 
-12. On **SEA-WS3**, close the **Settings** window.
+7. **[すべての設定]** ページで、[**OK]** を選択します。
 
-13. Switch to **SEA-SVR1**.
+8. [**スタート]** を選択し、[**設定]** を選択します。
 
-14. In the Microsoft Entra admin center, expand **Entra ID**, expand **Devices** and then select **All devices**. 
+9. **[アカウント]** を選択し、 [**職場または学校へのアクセス**] を選択します。デバイスが Contoso の Azure AD に接続されていることを確認します。
 
-    > Note that the new device displays with an icon that indicates an Autopilot device. Also note that the Join Type is **Microsoft Entra joined** with Aaron Nicholls as the owner.
+10. **[Contoso の Azure AD に接続]** を選択し、 [**情報**] を選択します。
 
-15. Select the Autopilot device and then select **Manage**. 
+11. [**Contoso による管理]** ページで、下にスクロールして **[同期]** を選択します。
 
-16. Notice that you can Retire, Wipe, Sync, and Restart the device.
+12. **SEA-WS3** では、[**設定**] ウィンドウを閉じます。
 
-17. Select the ellipsis at the end of the menu bar and take notice of the additional management capabilities.
+13. **SEA-SVR1** に切り替えます。
 
-    > Additional capabilities include Fresh Start, Autopilot Reset, Quick scan, Full scan, as well as others.
+14. Microsoft Entra 管理センターで、[**Entra ID]**、[**デバイス]** の順に展開し、[**すべてのデバイス**] を選択します。
 
-18. Close Microsoft Edge.
+    > 新しいデバイスには、Autopilot デバイスを示すアイコンが表示されます。また、結合の種類は、所有者として Aaron Nicholls が参加した **Microsoft Entra** であることに注意してください。
 
-**Results**: After completing this exercise, you will have provisioned a Windows device with Autopilot using User-driven mode.
+15. Autopilot デバイスを選択し、[**管理]** を選択します。
 
-**END OF LAB**
+16. デバイスの廃止、ワイプ、同期、再起動ができることに注意してください。
+
+17. メニュー バーの最後にある省略記号を選択し、追加の管理機能に注目してください。
+
+    > その他の機能には、フレッシュスタート、オートパイロットリセット、クイックスキャン、フルスキャンなどがあります。
+
+18. Microsoft Edge を閉じます。
+
+**結果**: この演習を完了すると、ユーザー駆動モードを使用して Autopilot を使用して Windows デバイスをプロビジョニングします。
+
+**ラボの終わり**

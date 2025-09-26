@@ -1,127 +1,121 @@
-# Practice Lab 0601: Configuring Endpoint security using Intune
+# ラボ 0601: Intune を使用したエンドポイント セキュリティの構成
 
-## Summary
 
-In this lab, you will create a policy to configure Microsoft Defender for managed devices in Intune.
 
-### Prerequisites
+## 概要
 
-To following lab(s) must be completed before this lab:
 
-- 0203-Manage Device Enrollment into Intune
 
-- 0204-Enrolling devices into Intune
+このラボでは、Intune でマネージド デバイス用に Microsoft Defender を構成するポリシーを作成します。
 
-- 0301-Creating and Deploying Configuration Profiles
+### 前提 条件
 
-  Note: You will also need a mobile phone that can receive text messages used to secure Windows Hello sign in authentication to Entra ID.
 
-### Scenario
 
-You've been asked to ensure that the Contoso Developers Group have Microsoft Defender correctly configured. It's been requested that:
-* Tamper protection be prevented
-* Hide the Account protection, App and browser control, Device security, Device performance and health, and Family options areas in the Windows Security app
-* Company name and phone number must be added. 
-* Real-time protection, Remediation, and scan settings are also to be configured.
+このラボの前に、次のラボを完了する必要があります。
 
-Settings will be verified by testing on an enrolled device, SEA-WS1 and a non-enrolled device, SEA-CL1.
+- 0203-Intuneへのデバイス登録の管理
 
-### Task 1: Configure Windows Security Experience in Intune
+- 0204-Intune へのデバイスの登録
 
-1. Sign in to **SEA-SVR1** as **Contoso\\Administrator** with the password **Pa55w.rd**. 
+- 0301-構成プロファイルの作成と配備
 
-2. On the taskbar, select **Microsoft Edge**.
+  注: Entra ID への Windows Hello サインイン認証をセキュリティで保護するために使用されるテキスト メッセージを受信できる携帯電話も必要です。
 
-3. In Microsoft Edge, type **https://intune.microsoft.com** in the  address bar, and then press **Enter**. 
+### シナリオ
 
-4. Sign in as as **`admin@yourtenant.onmicrosoft.com`** with the default tenant password.
 
-5. From the navigation pane select **Endpoint security**, then select **Antivirus**.
 
-6. On the **Endpoint security | Antivirus** pane, select **+ Create Policy**.
+Contoso 開発者グループに Microsoft Defender が正しく構成されていることを確認するように求められました。次のことが要求されています。
 
-7. In the **Create a profile** pane, for **Platform**, select **Windows**. 
+- 改ざん防止
+- Windows セキュリティ アプリの [アカウント保護]、[アプリとブラウザーのコントロール]、[デバイス セキュリティ]、[デバイスのパフォーマンスと正常性]、および [ファミリー オプション] 領域を非表示にする
+- 会社名と電話番号を追加する必要があります。
+- リアルタイム保護、修復、およびスキャン設定も構成する必要があります。
 
-8. In the **Profile** list, select **Windows Security experience**. Then select **Create**.
+設定は、登録済みデバイス SEA-WS1 と登録されていないデバイス SEA-CL1 でテストすることによって検証されます。
 
-9. On the Basics tab, in the **Name** field, enter **Windows Security Settings**. Select **Next**.
+### タスク 1: Intune で Windows セキュリティ エクスペリエンスを構成する
 
-10. On the Configuration settings tab, Under **Defender**, configure the following settings:
-    - TamperProtection (Device): **On**
 
-11. Under **Windows Defender Security Center**, configure the following settings:
-     - Disable Account Protection UI: **Enable**
-     - Disable App Browser UI: **Enable**
-     - Disable Device Security UI: **Enable**
-     - Disable Family UI: **Enable**
-     - Disable Health UI: **Enable**
-     - Enable Customized Toasts: **Enable**
 
-12. Under **Company name**, select **Configured**, and then enter **Contoso IT**.
+1. パスワード **Pa55w.rd** を使用して、**Contoso\Administrator** として **SEA-SVR1** にサインインします。
+2. タスク バーで、[**Microsoft Edge]** を選択します。
+3. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。
+4. 既定のテナント パスワードを使用して、**`admin@yourtenant.onmicrosoft.com`** としてサインインします。
+5. ナビゲーション ウィンドウから **[エンドポイント セキュリティ]** を選択し、[**ウイルス対策**] を選択します。
+6. エンドポイント**セキュリティ |ウイルス対策**ウィンドウで、[**+ ポリシーの作成]** を選択します。
+7. [**プロファイルの作成**] ウィンドウの **[プラットフォーム]** で [**Windows**] を選択します。
+8. [**プロファイル]** ボックスの一覧で、[**Windows セキュリティ エクスペリエンス**] を選択します。次に、 **[作成]** を選択します。
+9. [基本] タブの [**名前**] フィールドに「**Windows セキュリティ設定**」と入力します。[**次へ**] を選択します。
+10. [構成設定] タブの **[Defender]** で、次の設定を構成します。
+    - TamperProtection (デバイス): **オン**
+11. [**Windows Defender セキュリティ センター**] で、次の設定を構成します。
+    - アカウント保護 UI の無効化: **有効化**
+    - アプリブラウザUIの無効化:**有効**
+    - デバイスセキュリティUIの無効化:**有効にする**
+    - ファミリー UI の無効化: **有効にする**
+    - 正常性 UI の無効化: **有効化**
+    - カスタマイズされたトーストを有効にする: **有効にする**
+12. **会社名** で、**構成済み** を選択し、**Contoso IT** と入力します。
+13. [**電話]** で [**構成済み]** を選択し、「**555-1234**」と入力して [**次へ**] を選択します。
+14. [**スコープ タグ]** ページで、[**次へ**] を選択します。
+15. [**割り当て]** タブで、検索ボックスに「**Contoso**」と入力し、[**Contoso 開発者デバイス]** グループを選択して、[**次へ**] を選択します。
+16. [**確認 + 作成**] タブで、情報を確認し、[**保存]** を選択します。
 
-13. For **Phone**, select **Configured** and then enter **555-1234** and then select **Next**.
+### タスク 2: IntuneでMicrosoft Defender ウイルス対策ポリシーを構成する
 
-14. On the **Scope tags** page, select **Next**.
 
-15. On the **Assignments** tab, type **Contoso** in the search box and choose the **Contoso Developer Devices** group, and then select **Next**.
 
-16. On the **Review + create** tab, review the information and select **Save**.
+1. エンドポイント**セキュリティ |[ウイルス対策**] ウィンドウで、[**ポリシーの作成]** を選択します。
+2. [**プロファイルの作成**] ウィンドウの **[プラットフォーム]** で [**Windows**] を選択します。
+3. [**プロファイル]** ボックスの一覧で、[**Microsoft Defender ウイルス対策**] を選択し、[**作成]** を選択します。
+4. [**基本**] タブの [**名前**] フィールドに、「**Microsoft Defender ウイルス対策設定**」と入力します。[**次へ**] を選択します。
+5. **[構成設定**] タブで、次の設定を構成します。
+   - ダウンロードしたすべてのファイルと添付ファイルのスキャンを許可する: **許可**
+   - リアルタイム監視を許可: **許可**
+   - スキャンを実行する前に署名を確認する: **有効**
+   - 駆除されたマルウェアを保持するまでの日数: **60**
+   - スケジュール クイック スキャン時間: **60** (午前 1:00 に相当)
+   - サンプルの同意を提出する: **安全なサンプルを自動的に送信する**
+6. [**構成設定**] タブで、[**次へ**] を 2 回選択します。
+7. [**割り当て]** タブで、「**Contoso**」と入力し、[**Contoso 開発者デバイス**] グループを選択し、[**次へ**] を選択します。
+8. [**確認 + 作成**] タブで、情報を確認し、[**保存]** を選択します。
 
-### Task 2: Configure Microsoft Defender Antivirus policy in Intune
+### タスク 3: 管理対象デバイスの同期
 
-1. On the **Endpoint security | Antivirus** pane, select **Create Policy**.
 
-2. In the **Create a profile** pane, for **Platform**, select **Windows**. 
 
-3. In the **Profile** list, select **Microsoft Defender Antivirus**, then select **Create**.
+1. Microsoft Intune管理センターで、[**デバイス]** を選択し、[**すべてのデバイス**] を選択します。
 
-4. On the **Basics** tab, in the **Name** field, enter **Microsoft Defender Antivirus Settings**. Select **Next**.
+2. [**デバイス] |[すべてのデバイス**] ウィンドウで [**SEA-WS1**] を選択し、[**SEA-WS1**] ブレードでツール バーの **[同期**] を選択し、[**はい**] を選択します。
 
-5. On the **Configuration settings** tab, configure the following settings:
+   > 同期が完了するまで3〜4分待ちます。
 
-   - Allow scanning of all downloaded files and attachments: **Allowed**
-   - Allow Realtime Monitoring: **Allowed**
-   - Check For Signatures Before Running Scan: **Enabled**
-   - Days to Retain Cleaned Malware: **60**
-   - Schedule Quick Scan Time: **60** (represents 1:00AM)
-   - Submit samples consent: **Send safe samples automatically**
+3. Microsoft Edge を閉じます。
 
-6. On the **Configuration settings** tab, select **Next** twice.
+### タスク4: 構成の確認
 
-7. On the **Assignments** tab, type **Contoso** and then select the **Contoso Developer Devices** group, and then choose select **Next**.
 
-9. On the **Review + create** tab, review the information and select **Save**.
 
-### Task 3: Sync the managed devices
+1. **SEA-CL1**に切り替えます。
 
-1. In the Microsoft Intune admin center, select **Devices** and then select **All devices**.  
+2. 必要に応じて、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインします。
 
-2. On the **Devices | All devices** pane, select **SEA-WS1** and then on the **SEA-WS1** blade, select **Sync** on the toolbar, and then select **Yes**. 
+3. **SEA-CL1** で、[**スタート]** を選択し、「**Windows セキュリティ**」と入力して、[Windows セキュリティ] アイコンの下で [**開く**] を選択します。
 
-   > Wait for 3-4 minutes for the sync to complete.
+   > すべてのセキュリティオプションが表示されます。これは、SEA-CL1 が Intune に登録されていないためです。
 
-3. Close Microsoft Edge.
+4. **Windows セキュリティ**を閉じて、SEA-CL1 からサインアウトします。
 
-### Task 4: Verify the configuration
+5. **SEA-WS1** に切り替え、PIN **102938** を使用して **Aaron Nicholls** としてサインインします。
 
-1. Switch to **SEA-CL1**.
+6. **[スタート]** を選択し、「**Windows セキュリティ**」と入力して、[Windows セキュリティ] アイコンの下で [**開く**] を選択します。
 
-2. If necessary, sign in as **Contoso\Administrator** with the password of **Pa55w.rd**.
+   > Intune ポリシーで構成されているすべての制限領域が表示されないことに注意してください。SEA-WS1 は、セキュリティ設定が適用された Intune に登録されています。
 
-3. On **SEA-CL1**, select **Start**, type **Windows Security**, and then under the Windows Security icon select **Open**.
+7. **Windows セキュリティ**を閉じて、**SEA-WS1** からサインアウトします。
 
-   > Notice that all security options are displayed. This is because SEA-CL1 is not enrolled to Intune.
+**結果**: この演習を完了すると、Intune でマネージド デバイス用にMicrosoft Defenderを構成するポリシーが正常に作成され、適用されます。
 
-4. Close **Windows Security** and sign out of SEA-CL1.
-
-5. Switch to **SEA-WS1**, and sign in as as **Aaron Nicholls** with the PIN: **102938**.
-
-6. Select **Start**, type **Windows Security**, and then under the Windows Security icon select **Open**.
-
-   > Notice that all of the restricted areas as configured in the Intune policy are not displayed. SEA-WS1 is enrolled in Intune, which has applied the security settings.
-
-7. Close **Windows Security** and sign out of **SEA-WS1**.
-
-**Results**: After completing this exercise, you will have successfully created and applied a policy to configure Microsoft Defender for managed devices in Intune.
-
-**END OF LAB**
+**ラボの終わり**

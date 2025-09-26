@@ -1,95 +1,107 @@
-# Practice Lab 0304: Using Group Policy Analytics to validate GPO support in Intune
+# ラボ 0304: グループ ポリシー分析を使用して Intune での GPO サポートを検証する
 
-## Summary
 
-In this lab, you use Group Policy Analytics to import an Active Directory Group Policy Object (GPO) and identify settings that support equivalent Microsoft Intune MDM policy.
 
-### Scenario
+## 概要
 
-Contoso has traditionally used Active Directory GPOs to deploy computer and user policy settings throughout the domain. You plan to move all supported GPO settings to Microsoft Intune configuration profiles. You have a GPO named **Windows Client Policy**. You need to use Group Policy Analytics to validate the settings in the Windows Client Policy GPO and identify which settings can be successfully migrated into Intune.
 
-### Task 1: Export the Windows Client Policy GPO to an XML file
 
-1. Switch to **SEA-SVR1** and, if necessary, sign in as **Contoso\Administrator** with the password of **Pa55w.rd**. 
+このラボでは、グループ ポリシー分析を使用して Active Directory グループ ポリシー オブジェクト (GPO) をインポートし、同等の Microsoft Intune MDM ポリシーをサポートする設定を特定します。
 
-2. If necessary, open **Server Manager**.
+### シナリオ
 
-3. In Server Manager, select **Tools** and then select **Group Policy Management**.
 
-4. In the Group Policy Management console, expand **Forest:Contoso.com**, **Domains**, **Contoso.com**, and then select **Group Policy Objects**.
 
-   > Verify that there are several Group Policy Objects listed.
+Contoso は従来、Active Directory GPO を使用して、ドメイン全体にコンピューターとユーザーのポリシー設定を展開してきました。サポートされているすべての GPO 設定を Microsoft Intune 構成プロファイルに移動する予定です。**Windows クライアント ポリシー**という名前の GPO があります。グループ ポリシー分析を使用して、Windows クライアント ポリシー GPO の設定を検証し、Intune に正常に移行できる設定を特定する必要があります。
 
-5. In the details pane, select the **Windows Client Policy** GPO.
+### タスク1: Windowsクライアント・ポリシーGPOのXMLファイルへのエクスポート
 
-6. Right-click **Windows Client Policy** and then select **Save Report**.
 
-7. In the Save GPO Report dialog box, select **Documents**, change the **Save as type** to **XML file**, and then select **Save**.
 
-8. Close the Group Policy Management console.
+1. **SEA-SVR1** に切り替え、必要に応じて、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインします。
 
-9. Close Server Manager.
+2. 必要に応じて、**サーバー マネージャー**を開きます。
 
-### Task 2: Analyze the Windows Client GPO using Group Policy Analytics
+3. サーバー マネージャーで、[**ツール]** を選択し、[**グループ ポリシー管理]** を選択します。
 
-1. On **SEA-SVR1**, on the taskbar, select **Microsoft Edge**.
+4. グループ ポリシー管理コンソールで、[**Forest:Contoso.com]**、[**ドメイン**]、[**Contoso.com**] の順に展開し、[**グループ ポリシー オブジェクト]** を選択します。
 
-2. In Microsoft Edge, type **https://intune.microsoft.com** in the address bar, and then press **Enter**. 
+   > 複数のグループ ポリシー オブジェクトが一覧表示されていることを確認します。
 
-3. Sign in as **`admin@yourtenant.onmicrosoft.com`** with the tenant Admin password.
+5. 詳細ウィンドウで、**Windows クライアント ポリシー** GPO を選択します。
 
-4. In the Microsoft Intune admin center, in the navigation pane, select **Devices**.
+6. [**Windows クライアント ポリシー]** を右クリックし、[**レポートの保存]** を選択します。
 
-5. On the **Devices | Overview** page, in the **Manage devices** section, select **Group Policy analytics**.
+7. [GPO レポートの保存] ダイアログ ボックスで、[**ドキュメント]** を選択し、[**名前を付けて保存の種類**] を **[XML ファイル**] に変更して、[**保存**] を選択します。
 
-6. On the **Devices | Group Policy analytics** blade, select **Import**.
+8. グループ ポリシー管理コンソールを閉じます。
 
-7. On the Import GPO files page, click the **Select a file** button.
+9. サーバー マネージャーを閉じます。
 
-8. In the **Open** box, select **Documents** and then select **Windows Client Policy.xml**. Select **Open**.
+### タスク 2: グループ ポリシー分析を使用して Windows クライアント GPO を分析する
 
-   > The Windows Client Policy GPO is immediately imported and analyzed.
 
-9. Select Next twice, then select **Create**.
 
-   > The Windows Client Policy GPO is imported and analyzed. It may take a few minutes to complete.
+1. **SEA-SVR1** のタスク バーで、[**Microsoft Edge]** を選択します。
 
-10. Close the **Import GPO files** page.
+2. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。
 
-11. On the **Devices | Group Policy analytics** blade, review the information next to **Windows Client Policy**.
+3. テナント管理者パスワードを使用して **`admin@yourtenant.onmicrosoft.com`** としてサインインします。
 
-    > Notice that 89% of the settings have MDM support.
+4. Microsoft Intune管理センターのナビゲーション ウィンドウで、[**デバイス]** を選択します。
 
-12. Under MDM Support, select **89%**. 
+5. **デバイス上 |[概要]** ページの **[デバイスの管理]** セクションで、[**グループ ポリシー分析**] を選択します。
 
-    > Notice each **Setting Name**, **MDM Support**, **CSP Name**, and the **CSP Mapping** for each supported setting. Take note of which settings do not have an equivalent CSP mapping.
+6. **デバイス上 |[グループ ポリシー分析**] ブレードで、[**インポート]** を選択します。
 
-### Task 3: Review the Group Policy Analytics Summary Report
+7. [GPO ファイルのインポート] ページで、[**ファイルの選択**] ボタンをクリックします。
 
-1. In the Microsoft Intune admin center, in the navigation pane, select **Reports**.
+8. [**開く**] ボックスで **[ドキュメント]** を選択し、[**Windows クライアントPolicy.xml**] を選択します。[**開く**] を選択します。
 
-2. On the **Reports** page, in the **Device management** section, select **Group Policy analytics**.
+   > Windows クライアント ポリシー GPO は、すぐにインポートされ、分析されます。
 
-3. In the details pane, under **Summary**, select **Refresh**.
+9. [次へ] を 2 回選択し、[**作成]** を選択します。
 
-   > It may take several minutes to refresh and build the summary report. You may need to refresh several times.
+   > Windows クライアント ポリシー GPO がインポートされ、分析されます。完了するまでに数分かかる場合があります。
 
-4. Review the **Group policy migration readiness** information.
+10. [**GPO ファイルのインポート]** ページを閉じます。
 
-   > There should be a number of policies ready for migration and a number of policies not supported.
+11. **デバイス上 |[グループ ポリシー分析**] ブレードで、[**Windows クライアント ポリシー]** の横にある情報を確認します。
 
-5. On the **Reports | Group policy analytics** blade, select **Reports** tab, and then select **Group policy migration readiness**.
+    > 設定の 89% が MDM をサポートしていることに注意してください。
 
-   > The Group policy migration readiness report provides information related to each setting, and the Profile Type supported.
+12. [MDM サポート] で [**89%**] を選択します。
 
-6. Select **Generate again**. 
+    > サポートされている各設定の各**設定名**、**MDM サポート**、**CSP 名**、および **CSP マッピング**に注目してください。同等の CSP マッピングがない設定をメモします。
 
-7. The Group policy migration readiness report provides information related to each setting, and the Profile Type supported.
+### タスク 3: グループ ポリシー分析の概要レポートを確認する
 
-8. Close the **Group policy migration readiness** window.
 
-9. Close Microsoft Edge.
 
-**Results**: After completing this exercise, you will have successfully exported a GPO and used Group Policy Analytics to validate equivalent policy settings in Intune.
+1. Microsoft Intune管理センターのナビゲーション ウィンドウで、[**レポート]** を選択します。
 
-**END OF LAB**
+2. [**レポート]** ページの [**デバイス管理**] セクションで、[**グループ ポリシー分析**] を選択します。
+
+3. 詳細ウィンドウの **[概要]** で、[**更新]** を選択します。
+
+   > 概要レポートの更新と作成には数分かかる場合があります。数回更新する必要がある場合があります。
+
+4. **グループ ポリシーの移行準備**情報を確認します。
+
+   > 移行の準備ができているポリシーと、サポートされていないポリシーが多数ある必要があります。
+
+5. **レポート |[グループ ポリシー分析**] ブレードで、[**レポート]** タブを選択し、[**グループ ポリシーの移行準備]** を選択します。
+
+   > グループ ポリシー移行準備レポートには、各設定に関連する情報と、サポートされているプロファイルの種類が表示されます。
+
+6. もう**一度 [生成]** を選択します。
+
+7. グループ ポリシー移行準備レポートには、各設定に関連する情報と、サポートされているプロファイルの種類が表示されます。
+
+8. **[グループ ポリシーの移行準備]** ウィンドウを閉じます。
+
+9. Microsoft Edge を閉じます。
+
+**結果**: この演習を完了すると、GPO が正常にエクスポートされ、グループ ポリシー分析を使用して Intune で同等のポリシー設定が検証されます。
+
+**ラボの終わり**

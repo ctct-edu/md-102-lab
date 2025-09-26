@@ -1,199 +1,201 @@
-# Practice Lab 0401: Deploying cloud apps using Intune
+# ラボ 0401: Intune を使用したクラウド アプリのデプロイ
 
-## Summary
 
-In this lab, you create and deploy cloud-based apps using Intune and the Company Portal Website.
 
-### Prerequisites
+## 概要
 
-To following lab(s) must be completed before this lab:
 
-- 0101-Managing Identities in Entra ID
 
-- 0102-Synchronizing identities by using Entra Connect
+このラボでは、Intune とポータル サイト Web サイトを使用して、クラウドベースのアプリを作成して展開します。
 
-- 0203-Manage Device Enrollment into Intune
+### 前提 条件
 
-- 0204-Enrolling devices into Intune
 
-  > Note: You will also need a mobile phone that can receive text messages used to secure Windows Hello sign in authentication to Entra ID.
 
-## Exercise 1: Add a Microsoft Store App to Intune
+このラボの前に、次のラボを完了する必要があります。
 
-### Scenario
+- 0101 - Entra IDでのアイデンティティの管理
 
-You use Microsoft Intune to manage desktops and apps for Contoso Corporation. The Research department often connects to various servers to perform tasks and has asked for the Windows App to be available for Research members to install as needed. The Windows App is available from the Microsoft Store, but you decide to add the app to Intune so that users can access it from the Company Portal website. A Research member named Aaron Nicholls has agreed to test the installation process after you have published the app to the portal.
+- 0102 - Entra Connect を使用した ID の同期
 
-### Task 1: Add Windows App to Intune
+- 0203-Intuneへのデバイス登録の管理
 
-1. On **SEA-SVR1**, if necessary, sign in as **Contoso\\Administrator** with the password **Pa55w.rd** and close **Server Manager**.
+- 0204-Intune へのデバイスの登録
 
-2. On the taskbar, select **Microsoft Edge**.
+  > 注: Entra ID への Windows Hello サインイン認証をセキュリティで保護するために使用されるテキスト メッセージを受信できる携帯電話も必要です。
 
-3. In Microsoft Edge, type **https://intune.microsoft.com** in the address bar, and then press **Enter**.
+## 演習 1: Microsoft Store アプリを Intune に追加する
 
-4. Sign in as **`admin@yourtenant.onmicrosoft.com`** with the tenant Admin password.
 
-5. On the **Microsoft Intune admin center** page, select **Apps**.
 
-6. On the **Apps** page, in the navigation pane, select **All apps**.
+### シナリオ
 
-7. In the details pane, select **+ Create**.
 
-8. On the **Select app type** page, click the drop-down menu and then Choose **Microsoft store app (new)**. Click **Select**.
 
-9. On the **Add App** page, click **Seach the  Microsoft Store app (new)**, search for and select **Windows App**. Click **Select**.
+Microsoft Intune を使用して、Contoso Corporation のデスクトップとアプリを管理します。研究部門は、タスクを実行するためにさまざまなサーバーに接続することが多く、必要に応じて研究メンバーがインストールできるように Windows アプリを利用できるように依頼しています。Windows アプリは Microsoft Store から入手できますが、ユーザーがポータル サイト Web サイトからアクセスできるように、アプリを Intune に追加することにしました。Aaron Nicholls という名前の研究メンバーは、アプリをポータルに公開した後、インストール プロセスをテストすることに同意しました。
 
-10. On the **App information** page, verify the following information and then select **Next**:
-    - Name: **Windows App**
-    - Publisher: **Microsoft Corp.**
-    - Category: **Business**
-    - Show this as a featured app in the Company Portal: **Yes**
+### タスク 1: Windows アプリを Intune に追加する
 
-11. Select **Next** twice and then select **Create**.
 
-12. The Windows App page opens.
 
-    > Take note of the Properties, Device install status, and User install status nodes.
+1. **SEA-SVR1** では、必要に応じて、パスワード **Pa55w.rd** を使用して **Contoso\Administrator** としてサインインし、**サーバー マネージャー**を閉じます。
 
-### Task 2: Assign a Group to the App
+2. タスク バーで、[**Microsoft Edge]** を選択します。
 
-1. In the **Windows App** page, under **Manage**,  select **Properties**.
+3. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。
 
-2. In the details pane, scroll down to the **Assignments** section and then select **Edit**.
+4. テナント管理者パスワードを使用して **`admin@yourtenant.onmicrosoft.com`** としてサインインします。
 
-3. On the **Assignments** page, select **Add group** in the **Available for enrolled devices**.
+5. **Microsoft Intune管理センター** ページで、[**アプリ]** を選択します。
 
-4. On the **Select groups** page, search and select the **Research** group and then click **Select**.
+6. **[アプリ**] ページのナビゲーション ウィンドウで、 **[すべてのアプリ**] を選択します。
 
-5. Select **Review + save** and then select **Save**.
+7. 詳細ウィンドウで、 **[+ 作成]** を選択します。
 
-### Task 3: Force policy synchronization from the Intune console
+8. [**アプリの種類の選択**] ページで、ドロップダウン メニューをクリックし、[**Microsoft ストア アプリ (新規)]** を選択します。**[選択]** をクリックします。
 
-1. In the **Microsoft Intune admin center**, select **Devices** and then select **All devices**.
+9. [**アプリの追加**] ページで、[**Microsoft Store アプリ (新規)] の検索**をクリックし、[**Windows アプリ**] を検索して選択します。**[選択]** をクリックします。
 
-2. In the details pane, select **SEA-WS1**.
+10. **[アプリ情報**] ページで、次の情報を確認し、[**次へ**] を選択します。
 
-3. On the **SEA-WS1** blade, select **Sync** and when prompted select **Yes**.
+    - 名前: **Windows アプリ**
+    - 出版社: **マイクロソフト株式会社**
+    - カテゴリー: **ビジネス**
+    - ポータル サイトでこれを注目のアプリとして表示する: **はい**
 
-   > Intune will contact the device and tell it to synchronize all policies. This may take up to 5 minutes.
+11. **[次へ**] を 2 回選択し、[**作成]** を選択します。
 
+12. [Windows アプリ] ページが開きます。
 
-### Task 4: Install an app from the Company Portal Website
+    > [プロパティ]、[デバイスのインストール状態]、および [ユーザーインストールの状態] ノードをメモします。
 
-1. Switch to **SEA-WS1**.
+### タスク2: アプリケーションへのグループの割り当て
 
-2. Sign in as **Aaron Nicholls** with the PIN **102938**.
 
-3. On the taskbar, select **Microsoft Edge**.
 
-4. If necessary, at the **Welcome to Microsoft Edge** page, select **Confirm and continue**. Close the Welcome page.
+1. **[Windows アプリ**] ページの **[管理]** で、[**プロパティ]** を選択します。
+2. 詳細ウィンドウで、[**割り当て]** セクションまで下にスクロールし、[**編集]** を選択します。
+3. [**割り当て]** ページで、[**登録済みデバイスで使用可能**] で **[グループの追加**] を選択します。
+4. **[グループの選択**] ページで、[**調査**] グループを検索して選択し、[**選択]** をクリックします。
+5. [**確認 + 保存**] を選択し、 **[保存]** を選択します。
 
-5. In the address bar browse to **https://portal.manage.microsoft.com** and then press **Enter**.
+### タスク 3: Intune コンソールからポリシー同期を強制する
 
-6. Sign in as **Aaron Nicholls**.
 
-7. On the Contoso web portal, select **View Devices**.
 
-8. On the Devices page, select **Tap here to tell us which device you're using or add a new device**.
+1. **Microsoft Intune管理センター**で、[**デバイス]** を選択し、[**すべてのデバイス**] を選択します。
 
-9. On the **Which device are you using** dialog box, select the option next to **SEA-WS1**, and then select **Select**.
+2. 詳細ペインで、[**SEA-WS1**] を選択します。
 
-   > Notice that the message now changes to Apps will be installed onto: SEA-WS1
+3. [**SEA-WS1**] ブレードで **[同期]** を選択し、プロンプトが表示されたら [**はい**] を選択します。
 
-10. At the top-left corner, select the navigation button and then select **Apps**.
+   > Intune はデバイスに接続し、すべてのポリシーを同期するように指示します。これには最大 5 分かかる場合があります。
 
-   > Take note of the Windows app listed on the Apps page. **Note** It might take a few minutes for the app to appear.
+### タスク 4: ポータル サイト Web サイトからアプリをインストールする
 
-11. Select **Windows App**.
 
-12. On the Windows App page, select **Install**.
 
-13. If prompted, on the **Install Windows App** dialog box, select **Always allow portal.manage.microsoft.com to open links of this type in the associated app** and then select **Open**.
+1. **SEA-WS1** に切り替えます。
 
-   >It may take a few minutes for the app to install.
+2. PIN **102938**を使用して **Aaron Nicholls** としてサインインします。
 
-14. After the app is installed close all open windows.
+3. タスク バーで、[**Microsoft Edge]** を選択します。
 
-15. Select **Start** and verify that **Windows App** is displayed on the Start menu.
+4. 必要に応じて、[**Microsoft Edge へようこそ**] ページで **[確認して続行**] を選択します。ようこそページを閉じます。
 
-**Results**: After completing this exercise, you will have successfully added and installed a Microsoft Store App from Intune.
+5. アドレス バーで **[https://portal.manage.microsoft.com](https://portal.manage.microsoft.com/)** を参照し、**Enter キー**を押します。
 
-## Exercise 2: Configure and deploy Microsoft 365 Apps from Intune
+6. **Aaron Nicholls** という名前でサインインします。
 
-### Scenario
+7. Contoso Web ポータルで、 **[デバイスの表示]** を選択します。
 
-All the users of the Research department at Contoso require Microsoft 365 Apps. You've been asked to deploy the 64-bit versions of Microsoft Excel, Outlook, PowerPoint and Word to their Windows devices. You also need to ensure they are configured for the Current Channel for updates.
+8. [デバイス] ページで、[**ここをタップ] を選択して、使用しているデバイスを確認するか、新しいデバイスを追加します**。
 
-### Task 1: Verify installed apps on SEA-WS1
+9. [**どのデバイスを使用していますか**] ダイアログボックスで、[**SEA-WS1**] の横にあるオプションを選択し、[**選択]** を選択します。
 
-1. On **SEA-WS1**, on the taskbar, select **Start** and then select the **Settings** app.
+   > メッセージが [アプリが SEA-WS1 にインストールされます] に変わります。
 
-2. In the **Settings** app, select **Apps**, and then select **Apps & features**.
+10. 左上隅にあるナビゲーション ボタンを選択し、**アプリ** を選択します。
 
-   > Verify that **Microsoft 365 Apps for enterprise - en-us** is not listed.
+> [アプリ] ページに一覧表示されている Windows アプリをメモします。**手記**アプリが表示されるまでに数分かかる場合があります。
 
-3. Close all open windows.
+1. [**Windows アプリ**] を選択します。
+2. [Windows アプリ] ページで、[**インストール]** を選択します。
+3. メッセージが表示されたら、[**Windows アプリのインストール]** ダイアログ ボックスで、[**関連付けられたアプリでこの種類のリンクを開くことを常に許可する portal.manage.microsoft.com**] を選択し、[**開く**] を選択します。
 
-### Task 2: Add Microsoft 365 apps to Intune
+> アプリのインストールには数分かかる場合があります。
 
-1. On **SEA-SVR1**, in the **Microsoft Intune admin center**, select **Apps**.
+1. アプリをインストールしたら、開いているすべてのウィンドウを閉じます。
+2. [**スタート]** を選択し、[スタート] メニューに **Windows アプリ**が表示されていることを確認します。
 
-2. In the **Apps | Overview** blade, select **All Apps**. In the details pane, select **Create**.
+**結果**: この演習を完了すると、Intune から Microsoft Store アプリが正常に追加され、インストールされます。
 
-3. In the **Select app type** blade, under **Microsoft 365 Apps**, select **Windows 10 and later** , and then click **Select**.
+## 演習 2: Intune からMicrosoft 365 Appsを構成して展開する
 
-4. On the **Add Microsoft 365 Apps** blade, configure the following options and select **Next**:
 
-    - Suite Name: **Microsoft 365 Apps (Research)**
 
-    - Description: **Microsoft 365 Apps for the Research dept at Contoso**
+### シナリオ
 
-5. On the **Configure app suite** tab, expand the **Select Office apps** dropdown, and ensure that only the following apps are selected:
 
-    - Excel
 
-    - Outlook
+Contoso の研究部門のすべてのユーザーには、Microsoft 365 Apps が必要です。64 ビット バージョンの Microsoft Excel、Outlook、PowerPoint、Word を Windows デバイスに展開するように求められました。また、更新用の現在のチャネル用に構成されていることを確認する必要があります。
 
-    - PowerPoint
+### タスク 1: SEA-WS1 にインストールされているアプリの検証
 
-    - Word
 
-6. On the **App suite information** section, configure the following options:
 
-     - Architecture: **64-bit**
+1. **SEA-WS1** のタスク バーで [**スタート**] を選択し、[**設定**] アプリを選択します。
 
-     - Default file format: **Office Open XML Format**
+2. **設定**アプリで、[**アプリ]** を選択し、[**アプリと機能**] を選択します。
 
-     - Update channel: **Monthly Enterprise Channel**
+   > **Microsoft 365 Apps for enterprise - en-us** が一覧に表示されないことを確認します。
 
-7. On the **Properties** section, configure the following options and select **Next**:
+3. 開いているすべてのウィンドウを閉じます。
 
-     - Accept the Microsoft Software License Terms on behalf of users: **Yes**
-     
-8. On the **Assignments** tab, in the **Required** section, select **Add group**.
+### タスク 2: Microsoft 365 アプリを Intune に追加する
 
-9. On the **Select groups** blade, select **Research**, and then choose **Select**.
 
-10. Select **Next**. On the **Review + Create** tab, select **Create**.
 
-11. On the **Microsoft 365 Apps (Research)** page, select **Properties**.
+1. **SEA-SVR1** の **Microsoft Intune 管理センター**で、[**アプリ]** を選択します。
+2. Macの**アプリ |概要**ブレードで、 **[すべてのアプリ]** を選択します。詳細ウィンドウで、**作成** を選択します。
+3. [**アプリの種類の選択**] ブレードの **[Microsoft 365 Apps**] で、 [**Windows 10 以降**] を選択し、[**選択]** をクリックします。
+4. [**Microsoft 365 Appsの追加**] ブレードで、次のオプションを構成し、[**次へ**] を選択します。
+   - スイート名: **Microsoft 365 Apps (調査)**
+   - 説明: **Contoso の研究部門向け Microsoft 365 Apps**
+5. [**アプリ スイートの構成]** タブで、[**Office アプリの選択**] ドロップダウンを展開し、次のアプリのみが選択されていることを確認します。
+   - 秀でる
+   - 前途
+   - PowerPoint
+   - 言葉
+6. [**アプリ スイート情報**] セクションで、次のオプションを構成します。
+   - アーキテクチャ: **64 ビット**
+   - 既定のファイル形式: **Office Open XML 形式**
+   - 更新チャネル: **月次エンタープライズ チャネル**
+7. [**プロパティ]** セクションで、次のオプションを構成し、[**次へ**] を選択します。
+   - ユーザーに代わって Microsoft ソフトウェア ライセンス条項に同意する: **はい**
+8. [**割り当て]** タブの [**必須]** セクションで、[**グループの追加**] を選択します。
+9. [**グループの選択**] ブレードで、 **[調査]** を選択し、 **[選択]** を選択します。
+10. [**次へ**] を選択します。[**レビュー + 作成**] タブで、 **[作成]** を選択します。
+11. [**Microsoft 365 Apps(リサーチ)]** ページで、[**プロパティ]** を選択します。
+12. 詳細ウィンドウで、[**課題]** セクションの **[必須]** の下に **[研究**] が表示されていることを確認します。
 
-12. In the details pane verify that **Research** is listed under **Required** in the **Assignments** section.
+### タスク 3: Intune コンソールからポリシーの同期を要求する
 
-### Task 3: Request policy synchronization from the Intune console
 
-1. In the **Microsoft Intune admin center**, select **Devices** and then select **All devices**.
 
-2. In the details pane, select **SEA-WS1**.
+1. **Microsoft Intune管理センター**で、[**デバイス]** を選択し、[**すべてのデバイス**] を選択します。
 
-3. On the **SEA-WS1** blade, select **Sync** and when prompted select **Yes**.
+2. 詳細ペインで、[**SEA-WS1**] を選択します。
 
-   > Intune will contact the device and tell it to synchronize all policies. This may take up to 15 minutes. You may choose to Sync from **SEA-WS1**
+3. [**SEA-WS1**] ブレードで **[同期]** を選択し、プロンプトが表示されたら [**はい**] を選択します。
 
-### Task 4: Verify Microsoft 365 apps are installed
+   > Intune はデバイスに接続し、すべてのポリシーを同期するように指示します。これには最大 15 分かかる場合があります。**SEA-WS1** から同期することを選択できます。
 
-1. Switch to **SEA-WS1** and wait approximately 10-15 minutes for the Microsoft 365 Suite to install on the device.
+### タスク 4: Microsoft 365 アプリがインストールされていることを確認する
+
+
+
+1. **SEA-WS1** に切り替え、Microsoft 365 Suite がデバイスにインストールされるまで約 10 分から 15 分待ちます。
 
 2. Sign out of **SEA-WS1** and then sign back in as **Aaron Nicholls** with the PIN **102938**.
 
@@ -205,44 +207,46 @@ All the users of the Research department at Contoso require Microsoft 365 Apps. 
 
 6. Select all apps, scroll down to **W** and select **Word** and verify that the app opens.
 
-   > _Note: Recall in a previous lab, you removed recently added apps from the Start Menu._
+   > *Note: Recall in a previous lab, you removed recently added apps from the Start Menu.*
 
 7. Close all open windows.
 
 8. Sign out of SEA-WS1.
 
-### Task 5: Monitor app installation status in Intune
+### タスク 5: Intune でのアプリのインストール状態の監視
 
-1. Switch to **SEA-SVR1**.
 
-2. In the **Microsoft Intune admin center**, select **Apps**.
 
-3. On the **Apps | Overview** blade, select **Monitor** and then select **App install status**.
+1. **SEA-SVR1** に切り替えます。
 
-4. In the details pane, select **Microsoft 365 Apps \(Research\)**.
+2. **Microsoft Intune管理センター**で、[**アプリ]** を選択します。
 
-5. In the details pane, under **Monitor** and under **User install status**, verify that **1** is displayed under Installed.
+3. **アプリ |概要**ブレードで、 **[監視]** を選択し、 [**アプリのインストール状態**] を選択します。
 
-   _Note: It may take some time for the information to display._
-   
-   _Note: This indicates that the app is installed on one device and for one user._
+4. 詳細ウィンドウで、[**Microsoft 365 Apps(調査)]** を選択します。
 
-6. Select **Device install status**.
+5. 詳細ウィンドウの **[監視]** と **[ユーザーのインストール状態**] で、[インストール済み] に **1** が表示されていることを確認します。
 
-   > In the details pane, you can see the devices that the app is installed on, and also the name of the user. The **Device Name** column should list **SEA-WS1** and the **Status** column should say **Installed**. This means that the app is installed on SEA-WS1.
+   *注: 情報が表示されるまでに時間がかかる場合があります。*
 
-7. In the **Microsoft Intune admin center**, select **Devices**.
+   *注: これは、アプリが 1 つのデバイスに 1 人のユーザーに対してインストールされていることを示します。*
 
-8. On the **Devices | Overview** blade, select **All devices** and then in the details pane, select **SEA-WS1**.
+6. [**デバイスのインストール状態**] を選択します。
 
-9. On the **SEA-WS1** blade, select **Managed Apps**.
+   > 詳細ウィンドウには、アプリがインストールされているデバイスと、ユーザーの名前が表示されます。[**デバイス名(Device Name**)] 列には **SEA-WS1** がリストされ、[**ステータス(Status)]** 列には [**インストール済み(Installed)]** と表示されます。これは、アプリが SEA-WS1 にインストールされていることを意味します。
 
-10. On the **SEA-WS1 | Managed Apps** blade, in the details pane, select **Microsoft 365 Apps (Research)**.
+7. **Microsoft Intune管理センター**で、[**デバイス]** を選択します。
 
-   > On the **Microsoft 365 Apps (Research) - Installation details** window, you can see the entire lifecycle of the application, that is - when it was created, assigned, installation time and status and the last time the device checked in (synced with Intune).
+8. **デバイス上 |概要**ブレードで [**すべてのデバイス**] を選択し、詳細ウィンドウで [**SEA-WS1]** を選択します。
 
-11. Close all open windows.
+9. [**SEA-WS1**] ブレードで、[**マネージド アプリ]** を選択します。
 
-**Results**: After completing this exercise, you will have successfully configured and deployed Microsoft 365 Apps from Intune.
+10. **SEA-WS1 |[マネージド アプリ]** ブレードの詳細ウィンドウで、[**Microsoft 365 Apps(リサーチ)]** を選択します。
 
-**END OF LAB**
+> [**Microsoft 365 Apps(リサーチ) - インストールの詳細]** ウィンドウでは、アプリケーションのライフサイクル全体、つまり、アプリケーションの作成、割り当て、インストール時刻と状態、およびデバイスが最後にチェックインした時刻 (Intune と同期) を確認できます。
+
+1. 開いているすべてのウィンドウを閉じます。
+
+**結果**: この演習を完了すると、Intune からMicrosoft 365 Appsを正常に構成して展開できます。
+
+**ラボの終わり**

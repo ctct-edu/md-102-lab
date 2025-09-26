@@ -1,148 +1,162 @@
-# Practice Lab 0203: Manage Device Enrollment into Intune
+# ラボ 0203: Intune へのデバイス登録を管理する
 
-## Summary
 
-In this lab, you prepare for device management using Microsoft Intune by reviewing and assigning licenses, configuring Windows automatic enrollment, and configuring enrollment restrictions. 
 
-### Prerequisites
+## 概要
 
-To following lab(s) must be completed before this lab:
 
-- 0101-Managing Identities in Entra ID
 
-- 0102-Synchronizing identities by using Entra Connect
+このラボでは、ライセンスの確認と割り当て、Windows 自動登録の構成、登録制限の構成を行うことで、Microsoft Intune を使用したデバイス管理の準備をします。
 
-  > Note: You will also need a mobile phone that can receive text messages used to secure Windows Hello sign in authentication to Entra ID.
+### 前提 条件
 
-### Scenario
 
-You need to prepare for device management using Microsoft Intune. First of all, you need to ensure that users are assigned appropriate licenses for device management. As a verification test, you will assign Aaron Nicholls the required licenses. You also need to ensure that any Windows device that is joined or registered to Entra ID will automatically be enrolled into Intune. You have also been asked to ensure that members of the Sales group are restricted from enrolling personal Android and iOS devices into Intune and that the Enrollment Device Limit is increased to 10 devices. Finally, you need to configure Allan Deyoung as a Device enrollment manager to allow him to enroll 1000 devices.
 
-### Task 1: Review and assign licenses for device management
+このラボの前に、次のラボを完了する必要があります。
 
-1. On **SEA-SVR1**, if necessary, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd** and close **Server Manager**.
+- 0101 - Entra IDでのアイデンティティの管理
 
-2. On the taskbar select **Microsoft Edge**, in the address bar type **https://admin.microsoft.com**, and then press **Enter**.
+- 0102 - Entra Connect を使用した ID の同期
 
-3. Sign in as user `Admin@yourtenant.onmicrosoft.com`, and use the tenant Admin password. If the **Stay signed in?** prompt appears, select **No**. 
+  > 注: Entra ID への Windows Hello サインイン認証をセキュリティで保護するために使用されるテキスト メッセージを受信できる携帯電話も必要です。
 
-   > The Microsoft 365 admin center opens.
+### シナリオ
 
-4. In the Microsoft 365 admin center, in the Navigation pane, select **Billing** > **Your products**.
 
-5. On the **Your products** page, take note of the licenses that are available in the tenant. 
 
-6. Select **Enterprise Mobility + Security E5 Demo Trial**. 
-  
-7. Scroll down the page, and select the **View apps and services included with this subscription** link. Take note of the services included in the Enterprise Mobility + Security E5 license. Microsoft Intune is one of the supported services for this license.
+Microsoft Intune を使用してデバイス管理を準備する必要があります。まず、デバイス管理のための適切なライセンスがユーザーに割り当てられていることを確認する必要があります。検証テストとして、Aaron Nicholls に必要なライセンスを割り当てます。また、Entra ID に参加または登録されているすべての Windows デバイスが Intune に自動的に登録されることを確認する必要があります。また、Sales グループのメンバーが個人の Android および iOS デバイスを Intune に登録することを制限し、登録デバイスの制限を 10 デバイスに増やすように求められました。最後に、Allan Deyoung をデバイス登録マネージャーとして構成して、1000 台のデバイスを登録できるようにする必要があります。
 
-8. In the Microsoft 365 admin center navigation pane, select **Users** > **Active users**.
+### タスク 1: デバイス管理のライセンスの確認と割り当て
 
-9. Select **Aaron Nicholls** (select the name, not the checkbox).
 
-10. Select the **Licenses and apps** tab.
 
-11. If the **Select location** field is not populated, select the a location from the drop-down list.
+1. **SEA-SVR1** では、必要に応じて、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインし、**サーバー マネージャー**を閉じます。
 
-12. Select the check boxes next to **Enterprise Mobility + Security E5** and **Office 365 E5 (no Teams)**.
+2. タスク バーで **[Microsoft Edge]** を選択し、アドレス バーに「**[https://admin.microsoft.com](https://admin.microsoft.com/)**」と入力して、**Enter キー**を押します。
 
-13. Select **Save Changes**.
+3. ユーザーとしてサインインし、テナント管理者パスワードを使用します。[**サインインしたままにする?]** プロンプトが表示されたら、[**いいえ**] を選択します。`Admin@yourtenant.onmicrosoft.com`
 
-14. Once the changes have been saved, close the **Microsoft 365 admin center** tab in Edge. 
+   > Microsoft 365 管理センターが開きます。
 
+4. Microsoft 365 管理センターの [ナビゲーション] ウィンドウで、[**課金**] > [**製品]** を選択します。
 
-### Task 2: Enable Windows Automatic Enrollment into Microsoft Intune
+5. [**製品**] ページで、テナントで使用可能なライセンスをメモします。
 
-1. In **SEA-SVR1**, open a new tab in **Microsoft Edge**, and then in the address bar type **https://intune.microsoft.com**, and then press **Enter**. 
+6. [**Enterprise Mobility + Security E5 デモ試用版**] を選択します。
 
-   > The Microsoft Intune admin center opens.
+7. ページを下にスクロールし、[**このサブスクリプションに含まれるアプリとサービスの表示**] リンクを選択します。Enterprise Mobility + Security E5 ライセンスに含まれるサービスに注意してください。Microsoft Intune は、このライセンスでサポートされているサービスの 1 つです。
 
-2. In the Microsoft Intune admin center, select **Devices**.
+8. Microsoft 365 管理センターのナビゲーション ウィンドウで、[**ユーザー**] > **[アクティブ ユーザー**] を選択します。
 
-3. On the Devices pane, under the **Device onboarding** section, select **Enrollment**.
+9. **[Aaron Nicholls**] を選択します (チェックボックスではなく名前を選択します)。
 
-4. In the Enroll devices pane, ensure **Windows** is selected.
+10. [**ライセンスとアプリ]** タブを選択します。
 
-5. In the **Enrollment options** section, select **Automatic Enrollment**.
+11. **[場所の選択**] フィールドが入力されていない場合は、ドロップダウン リストから場所を選択します。
 
-6. On the **MDM user scope** row, select **All** and then select **Save**.
+12. [**エンタープライズ モビリティ + セキュリティ E5**] と **[Office 365 E5 (Teams なし)]** の横にあるチェック ボックスをオンにします。
 
-   _**Note**: By performing this step, you enabled automatic enrollment into Intune for any User that performs an Entra join or Entra registration from a Windows device._
+13. [**変更の保存]** を選択します。
 
-### Task 3: Configure Enrollment Restrictions
+14. 変更が保存されたら、Edge の **[Microsoft 365 管理センター**] タブを閉じます。
 
-1. In the Microsoft Intune admin center, select **Devices**.
+### タスク 2: Microsoft Intune への Windows 自動登録を有効にする
 
-2. On the Devices pane, under the **Device onboarding** section, select **Enrollment**.
 
-3. On the **Devices | Enrollment** page, in the **Enrollment options** section, note that you can create enrollment device limit and platform restrictions. 
 
-4. Select **Device platform restriction**. 
+1. **SEA-SVR1** で、**Microsoft Edge** で新しいタブを開き、アドレス バーに**[「https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力して、**Enter キー**を押します。
 
-   > Notice that there is a Default device type restriction that is assigned to **All Users**. This default restriction allows all device types.
+   > Microsoft Intune管理センターが開きます。
 
-5. In the details pane, select the **Android restrictions** tab, and then select **+ Create restriction**.
+2. Microsoft Intune管理センターで、[**デバイス]** を選択します。
 
-6. On the Create restriction page, in the Name box enter **Android Personal Device Restriction**. Select **Next**.
+3. [デバイス] ウィンドウの [**デバイスのオンボード]** セクションで、[**登録**] を選択します。
 
-7. On the Platform settings page, under **Personally owned**, select **Block** for the following device types:
+4. [デバイスの登録] ウィンドウで、[**Windows**] が選択されていることを確認します。
 
-   - Android Enterprise (work profile)
-   - Android device administrator
+5. [**登録オプション**] セクションで、[**自動登録]** を選択します。
 
-8. On the Platform settings page, select **Next**.
+6. [**MDM ユーザー スコープ**] 行で、[**すべて**] を選択し、[**保存]** を選択します。
 
-9. On the Scope tags page, select **Next**.
+   ***注**: この手順を実行することで、Windows デバイスから Entra 参加または Entra 登録を実行するすべてのユーザーに対して、Intune への自動登録が有効になりました。*
 
-10. On the Assignments page, under Included groups, select **Add groups**.
+### タスク3: 登録制限の構成
 
-11. Search for and Select **Sales** and then click **Select** and then click **Next**.
 
-12. On the **Review + create** page, select **Create**.
 
-    > Notice the Android Personal Device Restriction assigned with a priority of 1.
+1. Microsoft Intune管理センターで、[**デバイス]** を選択します。
 
-13. On the **Enrollment** pane, select **Device limit restrictions**. 
+2. [デバイス] ウィンドウの [**デバイスのオンボード]** セクションで、[**登録**] を選択します。
 
-    > Notice that there is a Default device limit restriction that is assigned to **All Users**. This default restriction sets a device enrollment limit to 5 devices per user.
+3. **デバイス上 |[登録]** ページの [**登録オプション**] セクションで、登録デバイスの制限とプラットフォームの制限を作成できることに注意してください。
 
-14. In the details pane, select **+ Create restriction**.
+4. [**デバイス プラットフォームの制限]** を選択します。
 
-15. On the Create restriction page, in the Name box enter **Sales Device Enrollment Limit**. Select **Next**.
+   > **[すべてのユーザー**] に割り当てられている既定のデバイス タイプの制限があることに注意してください。このデフォルトの制限では、すべてのデバイスタイプが許可されます。
 
-16. On the Device limit page, select **10** and then select **Next**.
+5. 詳細ウィンドウで、 **[Android の制限**] タブを選択し、 **[+ 制限の作成**] を選択します。
 
-17. On the Scope tags page, select **Next**.
+6. [制限の作成] ページの [名前] ボックスに「**Android Personal Device Restriction**」と入力します。[**次へ**] を選択します。
 
-18. On the Assignments page, under Included groups, select **Add groups**.
+7. [プラットフォーム設定] ページの **[個人所有]** で、次のデバイスの種類に対して **[ブロック]** を選択します。
 
-19. Search for and Select **Sales** and then click **Select** and then click **Next**.
+   - Android Enterprise (仕事用プロファイル)
+   - Android デバイス管理者
 
-20. On the **Review + create** page, select **Create**.
+8. [プラットフォーム設定] ページで、[**次へ**] を選択します。
 
-    > Notice the Sales Device Enrollment Limit, configured with a Device limit of 10 and assigned with a priority of 1.
+9. [スコープ タグ] ページで、[**次へ**] を選択します。
 
-### Task 4: Configure a Device enrollment manager
+10. [割り当て] ページの [含まれるグループ] で、[**グループの追加**] を選択します。
 
-1. In the Microsoft Intune admin center, select **Devices**.
+11. **[Sales**] を検索して選択し、[**選択**] をクリックし、[**次へ**] をクリックします。
 
-2. On the Devices pane, select **Enrollment**.
+12. [**レビュー + 作成**] ページで、[**作成]** を選択します。
 
-3. On the **Enroll devices** pane, select **Device enrollment managers**. 
+    > Android Personal Device Restriction が優先度 1 で割り当てられていることに注意してください。
 
-   > Notice that, by default, there are no Device enrollment managers configured.
+13. [**登録**] ウィンドウで、[**デバイス制限の制限]** を選択します。
 
-4. On the **Devices|Device enrollment managers** page, select **+ Add**.
+    > **[すべてのユーザー**] に割り当てられている既定のデバイス制限があることに注意してください。この既定の制限では、デバイス登録制限がユーザーあたり 5 台に設定されます。
 
-5. In the **Add user** page, under User name, enter `AllanD@yourtenant.onmicrosoft.com` and then select **Add**.
+14. 詳細ウィンドウで、 **[+ 制限の作成**] を選択します。
 
-   > Allan is now allowed to enroll up to 1000 devices.
+15. [制限の作成] ページの [名前] ボックスに「**販売デバイス登録制限」**と入力します。**[次へ**] を選択します。
 
-6. In the Microsoft Intune admin center, in the navigation pane, select **Home**.
+16. [デバイスの制限] ページで、[**10**] を選択し、[**次へ**] を選択します。
 
-7. Close Microsoft Edge.
+17. [スコープ タグ] ページで、[**次へ**] を選択します。
 
-**Results**: After completing this exercise, you will have successfully reviewed and assigned licenses, configured Windows automatic enrollment, enabled and assigned enrollment restrictions, and configured a Device enrollment manager.
+18. [割り当て] ページの [含まれるグループ] で、[**グループの追加**] を選択します。
 
+19. **[Sales**] を検索して選択し、[**選択**] をクリックし、[**次へ**] をクリックします。
 
-**END OF LAB**
+20. [**レビュー + 作成**] ページで、[**作成]** を選択します。
+
+    > デバイス制限 10 で構成され、優先度 1 で割り当てられた販売デバイス登録制限に注目してください。
+
+### タスク4: デバイス登録マネージャの構成
+
+
+
+1. Microsoft Intune管理センターで、[**デバイス]** を選択します。
+
+2. [デバイス] ウィンドウで、[**登録**] を選択します。
+
+3. [**デバイスの登録**] ウィンドウで、[**デバイス登録マネージャー**] を選択します。
+
+   > 既定では、デバイス登録マネージャーは構成されていないことに注意してください。
+
+4. **デバイス上|[デバイス登録マネージャー]** ページで、[**+ 追加]** を選択します。
+
+5. **[ユーザーの追加**] ページの [ユーザー名] に「追加」と入力し、[**追加]** を選択します。`AllanD@yourtenant.onmicrosoft.com`
+
+   > これで、Allan は最大 1,000 台のデバイスを登録できるようになりました。
+
+6. Microsoft Intune管理センターのナビゲーション ウィンドウで、[**ホーム**] を選択します。
+
+7. Microsoft Edge を閉じます。
+
+**結果**: この演習を完了すると、ライセンスの確認と割り当て、Windows 自動登録の構成、登録制限の有効化と割り当て、デバイス登録マネージャーの構成が正常に完了します。
+
+**ラボの終わり**

@@ -1,295 +1,308 @@
-# Practice Lab 0201: Configuring and managing Entra Join
+# ラボ 0201: Entra Join の構成と管理
 
-## Summary
 
-In this lab, you will configure Entra ID Join settings and perform both standard and Entra hybrid join scenarios for Windows devices.
 
-### Prerequisites
+## 概要
 
-To following lab(s) must be completed before this lab:
 
-- 0102-Synchronizing Identities by using Microsoft Entra Connect
 
-  > Note: You will also need a mobile phone that can receive text messages used to secure Windows Hello sign in authentication to Entra ID.
+このラボでは、Entra ID 参加設定を構成し、Windows デバイスに対して標準と Entra ハイブリッド結合の両方のシナリオを実行します。
 
-## Exercise 1: Configuring Entra Join
+### 前提 条件
 
-### Scenario
 
-You need to configure Entra ID device settings to ensure that all users are allowed to join devices to Entra ID. You also need to ensure that users can only join a maximum of 20 devices and that Allan Deyoung is added as a local administrator on all Entra joined devices. Finally, you will verify that Entra join works as expected by having Joni Sherman join SEA-WS1 to the tenant.
 
-### Task 1: Configure Entra join Device settings
+このラボの前に、次のラボを完了する必要があります。
 
-1. On **SEA-SVR1**, if necessary, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd** and close Server Manager.
+- 0102 - Microsoft Entra Connect を使用した ID の同期
 
-2. On the taskbar select **Microsoft Edge**, in the address bar type **https://entra.microsoft.com**, and then press **Enter**.
+  > 注: Entra ID への Windows Hello サインイン認証をセキュリティで保護するために使用されるテキスト メッセージを受信できる携帯電話も必要です。
 
-3. Sign in as user `Admin@yourtenant.onmicrosoft.com`, and use the tenant Admin password. If the **Stay signed in?** prompt appears, select **No**. 
+## 演習 1: Entra Join の構成
 
-   > The Microsoft Entra admin center opens.
 
-4. In the Microsoft Entra admin center, in the navigation pane, select **Devices**, and then select **All devices**.
 
-   > Notice that there are no devices found, as you have not joined any devices yet.
+### シナリオ
 
-5. On the **Devices | All devices** page, select **Device settings**.
 
-6. On the **Devices|Device settings** page, in the details pane, under **Users may join devices to Microsoft Entra**, verify that **All** is selected. 
 
-   > This indicates that all Entra users are permitted to join Windows 10 or newer devices to Microsoft Entra. Note that this setting does not apply to Entra hybrid  joined devices, or devices joined by using Windows Autopilot self-deployment mode.
+すべてのユーザーがデバイスを Entra ID に参加できるように、Entra ID デバイス設定を構成する必要があります。また、ユーザーが最大 20 台のデバイスにのみ参加できること、および Allan Deyoung がすべての Entra 参加済みデバイスのローカル管理者として追加されていることを確認する必要があります。最後に、Joni Sherman をテナントに SEA-WS1 に参加させることで、Entra join が期待どおりに機能することを確認します。
 
-7. In the **Require Multi-factor Authentication to register or join devices with Microsoft Entra** section, verify that the setting is set to **No**. 
+### タスク1: Entra参加デバイス設定の構成
 
-8. In the **Maximum number of devices per user** section, select **20**.
 
-9. Under **Local administrator settings**, select **Manage Additional local administrators on all Entra joined devices**. The Device Administrators page opens.
 
-10. In the Device Administrators page, select **+ Add assignments**.
+1. **SEA-SVR1** では、必要に応じて、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインし、サーバー マネージャーを閉じます。
 
-11. In the Search box, enter **Allan Deyoung**, select the **Allan Deyoung** user object, and then select **Add**. 
+2. タスク バーで **[Microsoft Edge]** を選択し、アドレス バーに**[「https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
 
-    > Allan Deyoung will now be added as a Device Administrator on all Entra joined devices.
+3. ユーザーとしてサインインし、テナント管理者パスワードを使用します。[**サインインしたままにする?]** プロンプトが表示されたら、[**いいえ**] を選択します。`Admin@yourtenant.onmicrosoft.com`
 
-12. Scroll back to or select the **Devices | Device settings** navigation link at the top of the page.
+   > Microsoft Entra 管理センターが開きます。
 
-13. On the Device settings page, select **Save**.
+4. Microsoft Entra 管理センターのナビゲーション ウィンドウで、 **[デバイス]** を選択し、[**すべてのデバイス**] を選択します。
 
-14. Select **Authentication methods**.
+   > まだデバイスに参加していないため、デバイスが見つからないことに注意してください。
 
-15. Select **SMS**.
+5. **デバイス上 |[すべてのデバイス]** ページで、[**デバイス設定**] を選択します。
 
-16. Select **Enable**.
+6. **デバイス上|デバイス設定**ページの [詳細] ウィンドウの [**ユーザーはデバイスを Microsoft Entra に参加させることができます]** で、[**すべて]** が選択されていることを確認します。
 
-17. At the bottom of the page, select **Save**.
+   > これは、すべての Entra ユーザーが Windows 10 以降のデバイスを Microsoft Entra に参加させることが許可されていることを示します。この設定は、Entra ハイブリッド参加済みデバイス、または Windows Autopilot 自己展開モードを使用して参加したデバイスには適用されないことに注意してください。
 
-### Task 2: Perform an Entra Join
+7. [**Microsoft Entra にデバイスを登録または参加するには多要素認証が必要]** セクションで、設定が [**いいえ**] に設定されていることを確認します。
 
-1. Switch to **SEA-WS1** and sign in as **Admin** with the password of **Pa55w.rd**.
+8. [**ユーザーあたりのデバイスの最大数]** セクションで、[**20**] を選択します。
 
-2. On the taskbar, select **Start** and then select **Settings**.
+9. **[ローカル管理者の設定]** で、 **[Entra に参加しているすべてのデバイスで追加のローカル管理者を管理する]** を選択します。[デバイス管理者] ページが開きます。
 
-3. In the **Settings** window, select **Accounts**.
+10. [デバイス管理者] ページで、[**+ 割り当ての追加**] を選択します。
 
-4. On the Accounts page, select **Access work or school**.
+11. [検索] ボックスに「**Allan Deyoung**」と入力し、**Allan Deyoung** ユーザー オブジェクトを選択して、[**追加]** を選択します。
 
-5. In the **Access work or school** page, select **Connect**.
+    > Allan Deyoung は、すべての Entra 参加済みデバイスのデバイス管理者として追加されます。
 
-6. In the **Microsoft account** window, select **Join this device to Entra ID**.
+12. [**デバイス] |**ページ上部のデバイス設定ナビゲーションリンク。
 
-7. On the **Sign in** page, type **JoniS@yourtenant.onmicrosoft.com** and then select **Next**.
+13. [デバイス設定] ページで、[**保存]** を選択します。
 
-8. On the **Enter password** page, enter the tenant password provided by your instructor and then select **Sign in**.
+14. **[認証方法]** を選択します。
 
-9. On the **Make sure this is your organization** dialog box, select **Join**.
+15. [**SMS]** を選択します。
 
-10. On the **You're all set!** page, select **Done**.
+16. [**有効にする**] を選択します。
 
-11. On the **Access work or school** page, verify that **Connected to Contoso's Azure AD** is displayed.
+17. ページの下部にある [**保存**] を選択します。
 
-12. Close the **Settings** page.
+### タスク2: Entra結合の実行
 
-### Task 3: Validate Entra Join
 
-1. On SEA-WS1, right-click **Start**, and then select **Windows Terminal (Admin)**. At the User Account Control, select **Yes**.
 
-2. In the PowerShell console, type the following and press **Enter**:
+1. **SEA-WS1** に切り替え、**Pa55w.rd** のパスワードで**管理者**としてサインインします。
+2. タスク バーで、[**スタート]** を選択し、[**設定]** を選択します。
+3. [**設定**] ウィンドウで、[**アカウント]** を選択します。
+4. [アカウント] ページで、[**職場または学校へのアクセス**] を選択します。
+5. [**職場または学校へのアクセス**] ページで、[**接続]** を選択します。
+6. [**Microsoft アカウント**] ウィンドウで、[**このデバイスを Entra ID に参加させる]** を選択します。
+7. [**サインイン]** ページで、「**[JoniS@yourtenant.onmicrosoft.com](mailto:JoniS@yourtenant.onmicrosoft.com)**」と入力し、[**次へ**] を選択します。
+8. [**パスワードの入力**] ページで、インストラクターから提供されたテナント パスワードを入力し、[**サインイン]** を選択します。
+9. これが**組織であることを確認する** ダイアログ ボックスで、**参加** を選択します。
+10. [準備**完了です!**] ページで、[**完了]** を選択します。
+11. [**職場または学校へのアクセス**] ページで、 **[Contoso の Azure AD に接続済み]** が表示されていることを確認します。
+12. [**設定**] ページを閉じます。
 
-   ```powershell
+### タスク3: Entra結合の検証
+
+
+
+1. SEA-WS1 で、[**スタート]** を右クリックし、[**Windows ターミナル (管理者)]** を選択します。[ユーザー アカウント制御] で、[**はい**] を選択します。
+
+2. PowerShell コンソールで、次のように入力し、**Enter** キーを押します。
+
+   ```
    dsregcmd /status
    ```
 
-3. In the output under **Device State**, verify that **AzureAdJoined : YES** is displayed.
-
-   > This indicates that the device is Entra joined.
-
-4. Close PowerShell.
-
-5. Right-click **Start** and then select **Computer Management**.
-
-6. In Computer Management, expand **Local Users and Groups**, and then select **Groups**.
-
-7. Double-click the **Administrators** group.
-
-   > Notice that Joni Sherman has been added as a local Administrator on SEA-WS1. Also notice two security principals represented by their security identifiers (SID). These two SIDs represent the Entra ID global administrator role, and the Entra joined device administrator role. 
-
-8. Close all open windows and sign out of SEA-WS1.
-
-9. Switch to **SEA-SVR1**.
-
-10. In Microsoft Edge, in the Microsoft Entra admin center, select **Devices**, and then select **All devices**. 
-
-    > In the Devices pane, notice that SEA-WS1 is listed. 
-
-11. Verify that the **Join Type** is listed as **Microsoft Entra joined** and that the owner is **Joni Sherman**. 
-
-    > Also note that the MDM column shows None. This indicates that this device is not yet managed by Microsoft Intune.
-
-### Task 4: Sign in to Windows as an Entra User
-
-1. Switch to **SEA-WS1** and then sign in as **`JoniS@yourtenant.onmicrosoft.com`** with the Tenant password as provided by your instructor. 
-
-   > Wait for the profile to be created.
-
-2. At the **Use Windows Hello with your account** page, select **OK**.
-
-3. On the **Let's keep your account secure** page, select **Next**.
-
-4. On the **Keep your account secure** page, select **I want to set up a different method**.
-
-5. In the **Choose a different method** dialog box, select **Phone** and then select **Confirm**.
-
-6. On the **Phone** page, in the **Enter phone number** field, enter your mobile phone number which is able to receive text messages. Select **Next**.
-
-7. When you receive the verification code, enter the code on the Phone page and then select **Next**.
-
-8. On the verification page, select **Next** and then select **Done**.
-
-9. On the **Set up a PIN** page, in the **New PIN** and **Confirm PIN** boxes, type **`102938`** and then select **OK**.
-
-10. On the **All set!** page, select **OK**.
-
-### Task 5: Remove a Windows device from Entra
-
-1. On SEA-WS1, signed in as **azuread\jonisherman**, select **Start** and then select **Settings**.
-
-2. In the **Settings** window, select **Accounts**.
-
-3. On the Accounts page, select **Access work or school**.
-
-4. In the **Access work or school** page, select **Connected to Contoso's Azure AD**.
-
-5. Select **Disconnect** and then select **Yes**.
-
-6. On the **Disconnect from the organization** page, select **Disconnect**.
-
-7. On the **Windows Security** dialog box, in the **Email address** box, enter **Admin** and in the **Password** box, type **Pa55w.rd**. Select **OK**.
-
-8. In the **Restart your PC** dialog box, select **Restart now**. SEA-WS1 restarts.
-
-**Results**: After completing this exercise, you will have configured Microsoft Entra device settings, joined a device to Entra, and removed a device from Entra.
-
-## Exercise 2: Configuring Entra Hybrid Join
-
-### Scenario
-
-Some Contoso Windows devices are currently joined to the local Active Directory Domain Services. To enable those devices to seamlessly access cloud services you plan to enable Entra hybrid join. You will test Entra hybrid join by re-configuring Entra Connect sync and testing out the process on SEA-CL2.
-
-### Task 1: Prepare the environment
-
-1. Switch to **SEA-SVR1**.
-
-2. Select **Start**, expand **Windows Administrative Tools**, and then select **Active Directory Users and Computers**.
-
-3. In **Active Directory Users and Computers**, right-click **Contoso.com**, point to **New**, and then select **Organizational Unit**.
-
-4. In the **New-Object - Organizational Unit** dialog box, type **`Entra ID clients`** and then select **OK**.
-
-5. In the navigation pane, select **Seattle Clients**.
-
-6. Right-click **SEA-CL2** and then select **Move**.
-
-7. In the **Move** dialog box, select **Entra ID clients** and then select **OK**.
-
-8. Close **Active Directory Users and Computers**.
-
-### Task 2: Configure Entra hybrid join in Entra Connect sync
-
-1. On **SEA-SVR1**, on the **Desktop**, double-click **Azure AD Connect**.
-
-2. In the **Microsoft Entra Connect Sync** window select **Configure**.
-
-3. On the **Additional tasks** page, select **Configure device options** and select **Next**.
-
-4. On the **Overview** page, select **Next**.
-
-5. On the **Connect to Microsoft Entra ID** page, select **Next**.
-
-6. On the **Sign in to your account** window, select the tenant admin account, and then enter the tenant password and select **Sign in**.
-
-7. On the **Device options** page, select **Configure Hybrid Microsoft Entra ID join**, and then select **Next**.
-
-8. On the **Device operating systems** page, select **Windows 10 or later domain-joined devices**, and then select **Next**.
-
-9. On the **SCP configuration** page, select the check box next to **Contoso.com**. 
-
-10. Select **Microsoft Entra ID** from the **Authentication Service** dropdown and select **Add**. 
-
-11. In the **Enterprise Admin Credentials** window enter **Contoso\\Administrator** as **User name** and **Pa55w.rd** as **Password**. Select **OK** and select **Next**.
-
-12. In the **Ready to configure** page, select **Configure** to run the configuration.
-
-13. When the configuration is complete, select **Exit**.
-
-14. Switch to **SEA-CL2**.
-
-15. At the sign-in page, select the **Power** button and then select **Restart**.
-
-    > **Note** Restarting **SEA-CL2** will enable quicker discovery of the SCP created by reconfiguring Entra Connect Sync.
-
-16. After **SEA-CL2** has restarted, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
-
-### Task 3: Re-configure Entra Connect Sync to sync the new OU
-
-1. On **SEA-SVR1**, on the **Desktop**, double-click **Azure AD Connect**.
-
-2. In the **Microsoft Entra Connect Sync** window select **Configure**.
-
-3. On the **Additional tasks** page, select **Customize synchronization options** and select **Next**.
-
-4. On the **Connect to Microsoft Entra ID** page, select **Next**.
-
-5. One the **Sign in to your account** window, select the tenant admin account, and then enter the tenant password and select **Sign in**.
-
-6. On the **Connect your directories** page, select **Next**.
-
-7. On the **Domain and OU filtering** page, ensure that **Sync selected domains and OUs** is selected and then expand **Contoso.com**.
-
-8. Select the check box next to **Entra ID clients**. **Do not make any other changes** and then select **Next**.
-
-9. In the **Optional features** page, do not make any changes and then select **Next**.
-
-10. In the **Ready to configure** window, select **Configure** to run the configuration and start synchronization.
-
-11. When the configuration is complete, select **Exit**.
-
-    > **Note**: Entra Connect Sync synchronizes automatically now when you modify the OUs being synced. You can use the **Synchronization Service** to monitor sync status.
-
-### Task 4: Verify the Entra hybrid join
-
-1. Switch to **SEA-CL2**.
-
-2. Right-click **Start**, select **Shut down or sign out**, and then select **Restart**.
-
-    _Note: The reboot will trigger the Entra hybrid join on SEA-CL2._
    
-3. After **SEA-CL2** has restarted, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
-    
-4. On the taskbar, right-click **Start** and select **Windows Terminal (Admin)**.
 
-5. In the **Windows PowerShell** window, type the following command, and then press **Enter**:
+3. **[デバイスの状態]** の下の出力で、 **[AzureAdJoined: YES]** が表示されていることを確認します。
 
-   ```powershell
+   > これは、デバイスが Entra に参加していることを示します。
+
+4. PowerShell を閉じます。
+
+5. [**スタート]** を右クリックし、[**コンピューターの管理]** を選択します。
+
+6. [コンピューターの管理] で、[**ローカル ユーザーとグループ]** を展開し、[**グループ]** を選択します。
+
+7. [**管理者]** グループをダブルクリックします。
+
+   > Joni Sherman が SEA-WS1 のローカル管理者として追加されました。また、セキュリティ識別子 (SID) で表される 2 つのセキュリティ プリンシパルにも注意してください。これら 2 つの SID は、Entra ID グローバル管理者ロールと、Entra 参加済みデバイス管理者ロールを表します。
+
+8. 開いているすべてのウィンドウを閉じて、SEA-WS1 からサインアウトします。
+
+9. **SEA-SVR1** に切り替えます。
+
+10. Microsoft Edge の Microsoft Entra 管理センターで、[**デバイス]** を選択し、[**すべてのデバイス**] を選択します。
+
+    > [デバイス(Devices)] ペインに、SEA-WS1 がリストされていることに注意してください。
+
+11. [**参加の種類]** が **[Microsoft Entra 参加済み**] として表示され、所有者が **Joni Sherman** であることを確認します。
+
+    > また、MDM 列に [なし] と表示されていることにも注意してください。これは、このデバイスがまだ Microsoft Intune によって管理されていないことを示します。
+
+### タスク4: EntraユーザーとしてWindowsにサインインする
+
+
+
+1. **SEA-WS1** に切り替え、インストラクターから提供されたテナント パスワードを使用して **`JoniS@yourtenant.onmicrosoft.com`** としてサインインします。
+
+   > プロファイルが作成されるまで待ちます。
+
+2. [**アカウントで Windows Hello を使用する]** ページで、[**OK]** を選択します。
+
+3. [**アカウントをセキュリティで保護しましょう]** ページで、[**次へ**] を選択します。
+
+4. [**アカウントをセキュリティで保護する]** ページで、[**別の方法を設定する]** を選択します。
+
+5. [**別の方法の選択**] ダイアログ ボックスで、[**電話**] を選択し、[**確認]** を選択します。
+
+6. **[電話**] ページの [**電話番号の入力**] フィールドに、テキスト メッセージを受信できる携帯電話番号を入力します。[**次へ**] を選択します。
+
+7. 確認コードを受け取ったら、[電話] ページでコードを入力し、[**次へ**] を選択します。
+
+8. 検証ページで、 [**次へ**] を選択し、 **[完了]** を選択します。
+
+9. [**PIN の設定**] ページの [**新しい PIN**] ボックスと [**PIN の確認**] ボックスに「**`102938`**」と入力し、[**OK]** を選択します。
+
+10. **[すべての設定]** ページで、[**OK]** を選択します。
+
+### タスク 5: Entra から Windows デバイスを削除する
+
+
+
+1. SEA-WS1 で、**azuread\jonisherman** としてサインインし、 [**スタート]** を選択し、 **[設定]** を選択します。
+2. [**設定**] ウィンドウで、[**アカウント]** を選択します。
+3. [アカウント] ページで、[**職場または学校へのアクセス**] を選択します。
+4. [**職場または学校へのアクセス**] ページで、 **[Contoso の Azure AD に接続]** を選択します。
+5. [**切断**] を選択し、[**はい**] を選択します。
+6. [**組織からの切断**] ページで、[**切断**] を選択します。
+7. **[Windows セキュリティ**] ダイアログ ボックスの **[電子メール アドレス]** ボックスに「**Admin**」と入力し、[**パスワード]** ボックスに「**Pa55w.rd**」と入力します。[**OK]** を選択します。
+8. [**PC の再起動**] ダイアログ ボックスで、[**今すぐ再起動**] を選択します。SEA-WS1 が再起動します。
+
+**結果**: この演習を完了すると、Microsoft Entra デバイス設定を構成し、デバイスを Entra に参加させ、Entra からデバイスを削除します。
+
+## 演習 2: Entra ハイブリッド結合の構成
+
+
+
+### シナリオ
+
+
+
+一部の Contoso Windows デバイスは、現在、ローカルの Active Directory ドメイン サービスに参加しています。これらのデバイスがクラウド サービスにシームレスにアクセスできるようにするには、Entra ハイブリッド参加を有効にする予定です。Entra Connect 同期を再構成し、SEA-CL2 でプロセスをテストすることで、Entra ハイブリッド結合をテストします。
+
+### タスク 1: 環境の準備
+
+
+
+1. **SEA-SVR1** に切り替えます。
+2. **[スタート]** を選択し、[**Windows 管理ツール]** を展開して、[**Active Directory ユーザーとコンピューター]** を選択します。
+3. **[Active Directory ユーザーとコンピューター]** で、[**Contoso.com**] を右クリックし、[**新規]** をポイントして、[**組織単位]** を選択します。
+4. [**新規オブジェクト - 組織単位**] ダイアログ ボックスで、「**`Entra ID クライアント`**」と入力し、[**OK]** を選択します。
+5. ナビゲーション ウィンドウで、[**シアトル クライアント**] を選択します。
+6. **SEA-CL2** を右クリックし、[**移動]**を選択します。
+7. [**移動]** ダイアログ ボックスで、 [**Entra ID クライアント**] を選択し、 **[OK]** を選択します。
+8. **Active Directory ユーザーとコンピューターを閉じます**。
+
+### タスク 2: Entra Connect 同期での Entra ハイブリッド参加の構成
+
+
+
+1. **SEA-SVR1** の**デスクトップ**で、[**Azure AD Connect]** をダブルクリックします。
+
+2. [**Microsoft Entra Connect の同期]** ウィンドウで、 [**構成**] を選択します。
+
+3. **[ 追加タスク** ] ページで、[ **デバイス オプションの構成** ] を選択し、[ **次へ**] を選択します。
+
+4. **[概要**] ページで、[**次へ**] を選択します。
+
+5. [**Microsoft Entra ID への接続**] ページで、 [**次へ**] を選択します。
+
+6. [**アカウントにサインイン]** ウィンドウで、テナント管理者アカウントを選択し、テナント パスワードを入力して **[サインイン]** を選択します。
+
+7. [**デバイス オプション**] ページで、 **[ハイブリッド Microsoft Entra ID 参加の構成]** を選択し、 [**次へ**] を選択します。
+
+8. [**デバイス オペレーティング システム**] ページで、[**Windows 10 以降のドメインに参加しているデバイス**] を選択し、[**次へ**] を選択します。
+
+9. **[SCP 設定**] ページで、[**Contoso.com**] の横にあるチェックボックスをオンにします。
+
+10. [**認証サービス]** ドロップダウンから **[Microsoft Entra ID]** を選択し、 **[追加]** を選択します。
+
+11. [**エンタープライズ管理者の資格情報**] ウィンドウで、**ユーザー名**として「**Contoso\Administrator**」と入力し、**パスワード**として「**Pa55w.rd**」と入力します。[**OK**] を選択し、[**次へ**] を選択します。
+
+12. 構成**の準備完了** ページで、**構成** を選択して構成を実行します。
+
+13. 構成が完了したら、[**終了]** を選択します。
+
+14. **SEA-CL2**に切り替えます。
+
+15. サインイン ページで、[**電源**] ボタンを選択し、[**再起動**] を選択します。
+
+    > **手記****SEA-CL2** を再起動すると、Entra Connect Sync を再構成して作成された SCP をより迅速に検出できるようになります。
+
+16. **SEA-CL2** が再起動したら、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインします。
+
+### タスク3: 新しいOUを同期するようにEntra Connect Syncを再構成する
+
+
+
+1. **SEA-SVR1** の**デスクトップ**で、[**Azure AD Connect]** をダブルクリックします。
+
+2. [**Microsoft Entra Connect の同期]** ウィンドウで、 [**構成**] を選択します。
+
+3. [**追加のタスク]** ページで、[**同期オプションのカスタマイズ]** を選択し、[**次へ**] を選択します。
+
+4. [**Microsoft Entra ID への接続**] ページで、 [**次へ**] を選択します。
+
+5. [**アカウントにサインイン]** ウィンドウの 1 つで、テナント管理者アカウントを選択し、テナント パスワードを入力して **[サインイン]** を選択します。
+
+6. [**ディレクトリの接続**] ページで、[**次へ**] を選択します。
+
+7. [**ドメインと OU のフィルター処理]** ページで、[**選択したドメインと OU の同期]** が選択されていることを確認し、[**Contoso.com**] を展開します。
+
+8. [**Entra ID クライアント]** の横にあるチェック ボックスをオンにします。**他に変更を加えず**、[**次へ**] を選択します。
+
+9. [**オプションの機能]** ページで、変更を加えず、[**次へ**] を選択します。
+
+10. [**構成準備完了]** ウィンドウで、[**構成]** を選択して構成を実行し、同期を開始します。
+
+11. 構成が完了したら、[**終了]** を選択します。
+
+    > **注**: Entra Connect Sync は、同期する OU を変更すると自動的に同期されるようになりました。**同期サービス**を使用して、同期ステータスを監視できます。
+
+### タスク4: Entraハイブリッド参加の確認
+
+
+
+1. **SEA-CL2**に切り替えます。
+
+2. **[スタート]** を右クリックし、[**シャットダウンまたはサインアウト**] を選択して、[**再起動**] を選択します。
+
+   *注: 再起動すると、SEA-CL2 で Entra ハイブリッド参加がトリガーされます。*
+
+3. **SEA-CL2** が再起動したら、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインします。
+
+4. タスクバーで、[**スタート]**を右クリックし、[**Windowsターミナル(管理者)**]を選択します。
+
+5. **Windows PowerShell** ウィンドウで、次のコマンドを入力し、**Enter キー**を押します。
+
+   ```
    dsregcmd /status
    ```
 
-6. In the output under **Device State**, verify that **AzureAdJoined : YES** and **DomainJoined : YES** are displayed.
-
-   > **Note**: If the device is not yet joined to Entra ID, switch back to **SEA-SRV1** and run the command below. Once completed, switch back to SEA-CL2 and restart the computer once more.
    
-   ```powershell
+
+6. [**デバイスの状態]** の下の出力で、 **[AzureAdJoined : YES]** と **[DomainJoined : YES]** が表示されていることを確認します。
+
+   > **注**:デバイスがまだEntra IDに参加していない場合は、**SEA-SRV1**に切り替えて、次のコマンドを実行します。完了したら、SEA-CL2 に戻し、コンピュータをもう一度再起動します。
+
+   ```
    Start-ADSyncSyncCycle -PolicyType Delta
    ```
 
-7. Close all windows on SEA-CL2 and sign out.
+   
 
-8. Switch to **SEA-SVR1** and switch to the Microsoft Entra admin center.
+7. SEA-CL2 のすべてのウィンドウを閉じて、サインアウトします。
 
-9. Select **Devices** > **All devices**. 
+8. **SEA-SVR1** に切り替えて、Microsoft Entra 管理センターに切り替えます。
 
-10. Verify that **SEA-CL2** has **Microsoft Entra hybrid joined** as value for the row **Join Type**. If necessary, select the **Refresh** button if SEA-CL2 is not listed.
+9. [**デバイス]** > [**すべてのデバイス**] を選択します。
 
-11. Close all windows on **SEA-SVR1**.
+10. **SEA-CL2** に、行 **[結合の種類**] の値として **Microsoft Entra ハイブリッド結合**があることを確認します。必要に応じて、SEA-CL2 がリストされていない場合は [**更新]** ボタンを選択します。
 
-**Results**: After completing this exercise, you will have successfully configured and validated Entra hybrid join.
+11. **SEA-SVR1** のすべてのウィンドウを閉じます。
 
-**END OF LAB**
+**結果**: この演習を完了すると、Entra ハイブリッド結合が正常に構成され、検証されます。
+
+**ラボの終わり**

@@ -1,68 +1,69 @@
-# Practice Lab 0402: Configure App Protection Policies for Mobile Devices
+# ラボ 0402: モバイル デバイスのアプリ保護ポリシーを構成する
 
-## Summary
 
-In this lab, you will configure an App protection policy for a mobile device.
 
-### Scenario
+## 概要
 
-All of the developers at Contoso have iPhones and iPads running the latest iOS/iPadOS versions. The security department in is concerned with data leaks and wants to prevent data from the corporate e-mail to be copied out to other apps on the mobile devices. You must provide a solution that addresses the concerns from the security department. You need to ensure the following:
 
-- Outlook data must be restricted from backing up to iTunes or iCloud.
-- Only policy managed apps can send and receive data from Outlook.
-- Only policy managed apps can cut, copy, or paste with Outlook.
-- Users must provide their Work or school account credentials for access to Outlook.
 
-### Task 1: Create an App protection policy for iOS/iPadOS devices
+このラボでは、モバイル デバイスのアプリ保護ポリシーを構成します。
 
-1. On **SEA-SVR1**, if necessary, sign in as **Contoso\\Administrator** with the password **Pa55w.rd** and close **Server Manager**.
-    
-2. On the taskbar, select **Microsoft Edge**.
+### シナリオ
 
-3. In Microsoft Edge, type **https://intune.microsoft.com** in the address bar, and then press **Enter**. 
 
-4. Sign in as **`admin@yourtenant.onmicrosoft.com`** with the tenant Admin password.
 
-5. On the **Microsoft Intune admin center** page, select **Apps**.
+Contoso のすべての開発者は、最新の iOS/iPadOS バージョンを実行している iPhone と iPad を持っています。セキュリティ部門はデータ漏洩を懸念しており、企業の電子メールからのデータがモバイルデバイス上の他のアプリにコピーされるのを防ぎたいと考えています。セキュリティ部門の懸念に対処するソリューションを提供する必要があります。次のことを確認する必要があります。
 
-6. On the **Apps | Overview** blade, under **Manage apps**, select **Protection**. 
+- Outlook データは、iTunes または iCloud へのバックアップを制限する必要があります。
+- ポリシーで管理されているアプリのみが Outlook からデータを送受信できます。
+- ポリシーで管理されているアプリのみが、Outlook で切り取り、コピー、または貼り付けることができます。
+- ユーザーは、Outlook にアクセスするために職場または学校のアカウントの資格情報を提供する必要があります。
 
-7. In the details pane, select **Create policy** and then select **iOS/iPadOS**.
+### タスク 1: iOS/iPadOS デバイスのアプリ保護ポリシーを作成する
 
-8. On the **Basics** tab, configure the following options and select **Next**:
 
-- Name: **Outlook – Developers**
-- Description: **Policy to prevent cut/copy and paste from Outlook**
 
-9. On the **Apps** tab, click **+ Select public apps**.
+1. **SEA-SVR1** では、必要に応じて、パスワード **Pa55w.rd** を使用して **Contoso\Administrator** としてサインインし、**サーバー マネージャー**を閉じます。
+2. タスク バーで、[**Microsoft Edge]** を選択します。
+3. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。
+4. テナント管理者パスワードを使用して **`admin@yourtenant.onmicrosoft.com`** としてサインインします。
+5. **Microsoft Intune管理センター** ページで、[**アプリ]** を選択します。
+6. **アプリ |概要**ブレードの **[アプリの管理]** で、 **[保護]** を選択します。
+7. 詳細ウィンドウで、 [**ポリシーの作成**] を選択し、 [**iOS/iPadOS**] を選択します。
+8. [**基本]** タブで、次のオプションを構成し、[**次へ**] を選択します。
 
-10. On the **Select apps to target** blade, in the text box, type **Outlook**. Select **Microsoft Outlook** and then select **Select**, and then select **Next**.
+- 名前: **Outlook – 開発者**
+- 説明 : **Outlook からの切り取り/コピーと貼り付けを禁止するポリシー**
 
-11. On the **Data protection** tab, configure the following options and select **Next**:
+1. [**アプリ**] タブで、[**+ パブリック アプリの選択**] をクリックします。
 
-    - Backup Org data to ITunes and iCloud backups: **Block**
-    - Send Org data to other apps: **Policy managed apps**
-    - Receive data from other apps: **Policy managed apps**
-    - Restrict cut, copy, and paste between other apps: **Policy managed apps**
-    - Save all other settings at default
+2. [**ターゲットとするアプリの選択]** ブレードのテキスト ボックスに「**Outlook**」と入力します。**[Microsoft Outlook**] を選択し、[**選択]** を選択し、[**次へ**] を選択します。
 
-12. On the **Access requirements** tab, configure the following options and select **Next**:
+3. [**データ保護**] タブで、次のオプションを構成し、[**次へ**] を選択します。
 
-    - PIN for access: **Not required**
-    - Work or school account credentials for access: **Require**
+   - 組織データを iTunes および iCloud バックアップにバックアップする: **ブロック**
+   - 組織データを他のアプリに送信する: **ポリシー管理アプリ**
+   - 他のアプリからデータを受信する: **ポリシーで管理されているアプリ**
+   - 他のアプリ間での切り取り、コピー、貼り付けを制限する: **ポリシーで管理されているアプリ**
+   - その他の設定をすべてデフォルトで保存する
 
-13. On the **Conditional launch** tab, review the settings. Select **Next**.
+4. [**アクセス要件**] タブで、次のオプションを構成し、[**次へ**] を選択します。
 
-    _Note: Here you can set the sign-in security requirements for your access protection policy. You can select a setting and enter the value that users must meet to sign in to your company app. Make note of the various settings but do not change anything._
+   - アクセス用の PIN: **不要**
+   - アクセス用の職場または学校アカウントの資格情報: **必須**
 
-14. On the **Assignments** tab, select **Next**. 
+5. [**条件付き起動]** タブで、設定を確認します。[**次へ**] を選択します。
 
-15. On the **Review + create** tab, review the settings and select **Create**. 
+   *注: ここでは、アクセス保護ポリシーのサインイン セキュリティ要件を設定できます。設定を選択し、ユーザーが会社のアプリにサインインするために満たす必要がある値を入力できます。さまざまな設定をメモしますが、何も変更しないでください。*
 
-17. On the **Apps | App protection policies** blade, in the details pane, verify that **Outlook - Developers** is listed.
+6. [**割り当て]** タブで、[**次へ**] を選択します。
 
-18. Close Microsoft Edge.
+7. [**確認 + 作成**] タブで、設定を確認し、[**作成]** を選択します。
 
-**Results**: After completing this exercise, you will have successfully configured an App protection policy for a mobile device.
+8. **アプリ |アプリ保護ポリシー** ブレードの詳細ウィンドウで、 **[Outlook - 開発者]** が一覧表示されていることを確認します。
 
-**END OF LAB**
+9. Microsoft Edge を閉じます。
+
+**結果**: この演習を完了すると、モバイル デバイスのアプリ保護ポリシーが正常に構成されます。
+
+**ラボの終わり**

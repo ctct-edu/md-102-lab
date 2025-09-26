@@ -1,75 +1,78 @@
-# Practice Lab 0305: Monitor device and user activity in Intune
+# ラボ 0305: Intune でデバイスとユーザーのアクティビティを監視する
 
-## Summary
 
-In this lab, you will monitor user Sign-in activity, Audit logs, and device information.
 
-### Prerequisites
+## 概要
 
-To following lab(s) must be completed before this lab:
 
-- 0101-Managing Identities in Entra ID
 
-- 0102-Synchronizing identities by using Entra Connect
+このラボでは、ユーザーのサインイン アクティビティ、監査ログ、デバイス情報を監視します。
 
-- 0203-Manage Device Enrollment into Intune
+### 前提 条件
 
-- 0204-Enrolling devices into Intune
 
-- 0301-Creating and Deploying Configuration Profiles
 
-  > Note: You will also need a mobile phone that can receive text messages used to secure Windows Hello sign in authentication to Entra ID.
+このラボの前に、次のラボを完了する必要があります。
 
-### Scenario
+- 0101 - Entra IDでのアイデンティティの管理
 
-You need to review Aaron Nicholls sign-in activity and general information provided by the Audit logs.  You also need to verify the hardware on SEA-WS1 and confirm the configuration profile assigned to this device is successfully applied.
+- 0102 - Entra Connect を使用した ID の同期
 
-### Task 1: Monitor user activity
+- 0203-Intuneへのデバイス登録の管理
 
-1. On **SEA-SVR1**, on the taskbar, select **Microsoft Edge**.
+- 0204-Intune へのデバイスの登録
 
-2. In Microsoft Edge, type **https://intune.microsoft.com** in the address bar, and then press **Enter**.
+- 0301-構成プロファイルの作成と配備
 
-3. Sign in as **`admin@yourtenant.onmicrosoft.com`** with the tenant Admin password.
+  > 注: Entra ID への Windows Hello サインイン認証をセキュリティで保護するために使用されるテキスト メッセージを受信できる携帯電話も必要です。
 
-4. On the **Microsoft Intune admin center** page, select **Users**.
+### シナリオ
 
-5. On the **Users|All users** pane, select **Sign-ins logs**.
 
-6. In the Details pane, user sign-ins are listed. Select the first entry where the **User** column displays **Aaron Nicholls**.
 
-7. In the **Details** pane, Aaron Nicholls´sign-in details are displayed.
+Aaron Nicholls のサインイン アクティビティと、監査ログによって提供される一般情報を確認する必要があります。また、SEA-WS1 のハードウェアを確認し、このデバイスに割り当てられた設定プロファイルが正常に適用されていることを確認する必要があります。
 
-8. Select each of the main pages, including **Basic info**, **Location**, **Device info**, **Authentication Details**, and **Conditional Access**. Scroll to examine information on each page and then select **X** in the top right hand corner to close out of the **Activity Details** page.
+### タスク1: ユーザー・アクティビティのモニター
 
-9. In the Users navigation pane, select **Audit logs**.
 
-10. In the details pane, audit information is displayed about administrative changes to users. Examine the information by selecting the various entries.
 
-### Task 2: Monitor device information
+1. **SEA-SVR1** のタスク バーで、[**Microsoft Edge]** を選択します。
+2. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。
+3. テナント管理者パスワードを使用して **`admin@yourtenant.onmicrosoft.com`** としてサインインします。
+4. **Microsoft Intune管理センター** ページで、[**ユーザー]** を選択します。
+5. **ユーザー|[すべてのユーザー**] ウィンドウで、[**サインイン ログ]** を選択します。
+6. [詳細] ウィンドウに、ユーザーのサインインが一覧表示されます。[**ユーザー**] 列に **Aaron Nicholls** と表示される最初のエントリを選択します。
+7. [**詳細]** ウィンドウに、Aaron Nicholls のサインインの詳細が表示されます。
+8. **基本情報**、**場所**、**デバイス情報**、**認証の詳細**、**条件付きアクセス**などの各メイン ページを選択します。スクロールして各ページの情報を調べ、右上隅にある **[X**] を選択して **[アクティビティの詳細]** ページを閉じます。
+9. [ユーザー] ナビゲーション ウィンドウで、[**監査ログ**] を選択します。
+10. 詳細ウィンドウには、ユーザーに対する管理上の変更に関する監査情報が表示されます。さまざまなエントリを選択して情報を調べます。
 
-1. In the Microsoft Intune admin center, from the navigation pane, select **Devices**.
+### タスク 2: デバイス情報のモニター
 
-2. In the Devices navigation pane, select **Overview**.
 
-3. Select **All devices**, and in the details pane, select **SEA-WS1**. Information about the device such as name, Primary user, and operating system is displayed.
 
-4. In the SEA-WS1 navigation pane, select **Hardware** and examine the hardware inventory.
+1. Microsoft Intune管理センターのナビゲーション ウィンドウから **[デバイス**] を選択します。
 
-5. In the SEA-WS1 navigation pane, select **Discovered apps** and examine the app inventory.
+2. [デバイス] ナビゲーション ウィンドウで、[**概要**] を選択します。
 
-6. In the SEA-WS1 navigation pane, select **Device configuration** and in the details pane take note of the Device configuration profiles assigned to the device. The **State** column should display **Succeeded**, which means that the profiles were applied successfully to the device.
+3. [**すべてのデバイス(All devices)]** を選択し、詳細ペインで **[SEA-WS1**] を選択します。名前、プライマリ・ユーザー、オペレーティング・システムなどのデバイスに関する情報が表示されます。
 
-7. In the details pane, select **Contoso Developer – standard**.
+4. SEA-WS1 ナビゲーションペインで、[**ハードウェア(Hardware**)] を選択し、ハードウェアインベントリを調べます。
 
-8. On the **Contoso Developer – standard** blade, take note of each setting you configured in the profile.
+5. [SEA-WS1] ナビゲーション ペインで、[**検出されたアプリ]** を選択し、アプリ インベントリを調べます。
 
-   > The **State** should display **Succeeded** next to all of them.
+6. [SEA-WS1] ナビゲーション ペインで [**デバイス設定(Device configuration**)] を選択し、詳細ペインでデバイスに割り当てられた [デバイス設定プロファイル(Device configuration profiles)] をメモします。[**状態**] 列には **[成功]** と表示され、プロファイルがデバイスに正常に適用されたことを意味します。
 
-9. In the Microsoft Intune admin center, from the navigation pane, select **Home**.
+7. 詳細ウィンドウで、**Contoso Developer – standard** を選択します。
 
-10. Close Microsoft Edge.
+8. **[Contoso 開発者 - 標準**] ブレードで、プロファイルで構成した各設定をメモします。
 
-**Results**: After completing this exercise, you will have successfully monitored user Sign-in activity, Audit logs, and device information.
+   > **State** は、すべての横に **Succeeded** と表示されます。
 
-**END OF LAB**
+9. Microsoft Intune管理センターのナビゲーション ウィンドウから [**ホーム**] を選択します。
+
+10. Microsoft Edge を閉じます。
+
+**結果**: この演習を完了すると、ユーザーのサインイン アクティビティ、監査ログ、およびデバイス情報が正常に監視されます。
+
+**ラボの終わり**

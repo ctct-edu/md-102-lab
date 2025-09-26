@@ -1,141 +1,138 @@
-# Practice Lab 0204: Enrolling devices into Microsoft Intune
+# ラボ 0204: Microsoft Intune へのデバイスの登録
 
-## Summary
 
-In this lab, you will join a Windows client to Entra ID and verify that the device has automatically enrolled in to Microsoft Intune.
 
-### Prerequisites
+## 概要
 
-To following lab(s) must be completed before this lab:
 
-- 0101-Managing Identities in Entra ID
 
-- 0102-Synchronizing identities by using Entra Connect
+このラボでは、Windows クライアントを Entra ID に参加させ、デバイスが Microsoft Intune に自動的に登録されていることを確認します。
 
-- 0203-Manage Device Enrollment into Intune
+### 前提 条件
 
-  > Note: You will also need a mobile phone that can receive text messages used to secure Windows Hello sign in authentication to Entra ID.
 
-### Scenario
 
-You have assigned Aaron Nicholls appropriate licenses and will now test the process of joining a Windows device to Entra ID and have it automatically enroll in Microsoft Intune.
+このラボの前に、次のラボを完了する必要があります。
 
-### Task 1: Automatically enroll a Windows device to Microsoft Intune
+- 0101 - Entra IDでのアイデンティティの管理
 
-1. Sign in to **SEA-WS1** as **Admin** with the password of **Pa55w.rd**.
+- 0102 - Entra Connect を使用した ID の同期
 
-2. Select **Start** and then select **Settings**.
+- 0203-Intuneへのデバイス登録の管理
 
-3. In **Settings**, select **Accounts**.
+  > 注: Entra ID への Windows Hello サインイン認証をセキュリティで保護するために使用されるテキスト メッセージを受信できる携帯電話も必要です。
 
-4. On the Accounts page, select **Access work or school**.
+### シナリオ
 
-5. In the **Access work or school** page, select **Connect**.
 
-6. In the **Microsoft account** window, select **Join this device to Microsoft Entra ID**.
 
-7. On the **Sign in** page, type **`Aaron@yourtenant.onmicrosoft.com`** and then select **Next**.
+Aaron Nicholls に適切なライセンスを割り当て、Windows デバイスを Entra ID に参加させ、Microsoft Intune に自動的に登録するプロセスをテストします。
 
-8. On the **Enter password** page, enter **Pa55w.rd** and then select **Sign in**.
+### タスク 1: Windows デバイスを Microsoft Intune に自動的に登録する
 
-9. On the **Make sure this is your organization** dialog box, select **Join**.
 
-10. On the **You're all set!** page, read the information and then select **Done**.
 
-11. In the **Access work or school** section, verify that **Connected to Contoso's Azure AD** displays.
+1. **Pa55w.rd** のパスワードを使用して **SEA-WS1** に**管理者**としてサインインします。
+2. [**スタート]** を選択し、[**設定]** を選択します。
+3. **[設定]** で **[アカウント]** を選択します。
+4. [アカウント] ページで、[**職場または学校へのアクセス**] を選択します。
+5. [**職場または学校へのアクセス**] ページで、[**接続]** を選択します。
+6. [**Microsoft アカウント**] ウィンドウで、[**このデバイスを Microsoft Entra ID に参加させる]** を選択します。
+7. サインイン **ページで、「****`Aaron@yourtenant.onmicrosoft.com`**」と入力し、**次へ** を選択します。
+8. [**パスワードの入力**] ページで、「**Pa55w.rd**」と入力し、[**サインイン]** を選択します。
+9. これが**組織であることを確認する** ダイアログ ボックスで、**参加** を選択します。
+10. [**準備完了です!]** ページで、情報を読み、[**完了]** を選択します。
+11. [**職場または学校へのアクセス**] セクションで、 **[Contoso の Azure AD に接続済み]** が表示されていることを確認します。
+12. [**Contoso の Azure AD に接続]** を選択し、 [**情報**] を選択します。
+13. Contoso が管理する領域に関する情報をメモし、下にスクロールして **[同期]** を選択します。これにより、デバイスが Intune と強制的に同期されます。
+14. **[設定**]ウィンドウを閉じます。
 
-12. Select **Connected to Contoso's Azure AD** and then select **Info**.
+### タスク 2: Entra ID と Intune へのデバイス登録を検証する
 
-13. Take note of the information regarding the areas managed by Contoso, scroll down, and then select **Sync**. This will force a Device sync with Intune.
 
-14. Close the **Settings** window.
 
-### Task 2: Validate device enrollment into Entra ID and Intune
+1. **SEA-WS1** タスクバーで、[**スタート]** を選択し、「**cert**」と入力して、[**コンピューター証明書の管理]** を選択します。**[ユーザー アカウント制御**] で、[**はい**] を選択します。
+2. **証明書**コンソールのナビゲーションペインで、[**個人用**] を展開し、[**証明書]** ノードを選択します。次の証明書が詳細ウィンドウに一覧表示されていることを確認します。
 
-1. On the **SEA-WS1** taskbar, select **Start**, type **cert**, and select **Manage computer certificates**. At the **User Account Control**, select **Yes**.
-  
-2. In the **Certificates** console, in the navigation pane, expand **Personal** and select the **Certificates** node. Verify that the following certificates are listed in the details pane:
+- Microsoft Intune MDM デバイス CA
 
--   Microsoft Intune MDM Device CA
--   MS-Organization-Access
--   MS-Organization-P2P-Access \[2025\]
+- MS 組織アクセス
 
-    This indicates that the device is enrolled in Entra and Intune.
+- MS-組織-P2P-アクセス [2025]
 
-3. Close the Certificates window.
+  これは、デバイスが Entra と Intune に登録されていることを示します。
 
-4. Right-click **Start**, and then select **Windows Terminal (Admin)**. When prompted select **Yes**.
+1. [証明書] ウィンドウを閉じます。
 
-5. In the PowerShell console, type the following and press **Enter**: 
+2. **[スタート]** を右クリックし、[**Windows ターミナル (管理者)]** を選択します。プロンプトが表示されたら、[**はい**] を選択します。
 
-   ```powershell
+3. PowerShell コンソールで、次のように入力し、**Enter** キーを押します。
+
+   ```
    dsregcmd /status
    ```
 
-6. In the output under **Device State**, verify that **AzureAdJoined : YES** is displayed. This indicates that the device is Azure AD joined.
+   
 
-7. In the output under **Tenant Details**, verify that the following three entries exist:
+4. In the output under **Device State**, verify that **AzureAdJoined : YES** is displayed. This indicates that the device is Azure AD joined.
 
-   ```cmd
+5. In the output under **Tenant Details**, verify that the following three entries exist:
+
+   ```
    mdmUrl : https://enrollment.manage.microsoft.com/enrollmentserver/discovery.svc
    mdmTouUrl : https://portal.manage.microsoft.com/TermsofUse.aspx
    mdmComplianceUrl : https://portal.manage.microsoft.com/?portalAction=Compliance
    ```
 
+   
+
    > Note: These entries indicate that the device is enrolled in Intune.
 
 ### Task 3: Sign in as an Entra user
 
+
+
 1. Sign out of **SEA-WS1**.
-
 2. Select **Other user**, and sign in as **`Aaron@yourtenant.onmicrosoft.com`** with the password **Pa55w.rd**. Wait for the profile to be created.
-
 3. At the **Use Windows Hello with your account** page, select **OK**.
-
 4. On the **Let's keep your account secure** page, select **Next**.
-
 5. On the **Keep your account secure** page, select **I want to set up a different method**.
-
 6. In the **Choose a different method** dialog box, select **Phone** and then select **Confirm**.
-
 7. On the **Phone** page, in the **Enter phone number** field, enter your mobile phone number which is able to receive text messages. Select **Next**.
-
 8. When you receive the verification code, enter the code on the Phone page and then select **Next**.
-
 9. On the verification page, select **Next** and then select **Done**.
-
 10. On the **Set up a PIN** page, in the **New PIN** and **Confirm PIN** boxes, type **102938** and then select **OK**.
-
 11. On the **All set!** page, select **OK**.
-
 12. Sign out of **SEA-WS1**.
 
-### Task 4: Verifying device enrollment in the Intune console
+### タスク 4: Intune コンソールでのデバイス登録の確認
 
-1. Switch to **SEA-SVR1** as **Contoso\Administrator** with the password of **Pa55w.rd**. 
 
-2. In Microsoft Edge, type **https://intune.microsoft.com** in the address bar, and then press **Enter**. Sign in with your Tenant administrator account.
 
-3. In the navigation pane, select **Devices**.
+1. パスワード **Pa55w.rd** を使用して、**Contoso\Administrator** として **SEA-SVR1** に切り替えます。
 
-4. On the **Devices | Overview** blade under **Manage devices by platform**, verify that **1** is displayed next to **Windows**. It may take a while to display.
+2. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。テナント管理者アカウントでサインインします。
 
-5. On the **Devices | Overview** blade, select **All devices** and verify that **SEA-WS1** is listed.
+3. ナビゲーション ウィンドウで、 **[デバイス]** を選択します。
 
-6. Note that for SEA-WS1, the **Managed by** column displays **Intune** and the **Ownership** column displays **Corporate**. 
+4. **デバイス上 |** **[プラットフォーム別のデバイスの管理]** の概要ブレードで、**Windows** の横に **1** が表示されていることを確認します。表示に時間がかかる場合があります。
 
-   _Note: This view lists devices that are enrolled to Intune. Remember that you configured automatic enrollment between Entra and Intune, and because of that, any device that is joined or registered to Entra is automatically enrolled to Intune. Any devices joined prior to setting up enrollment are only joined or registered to Entra, but not enrolled in Intune._
+5. **デバイス上 |[概要**] ブレードで [**すべてのデバイス**] を選択し、**SEA-WS1** が一覧表示されていることを確認します。
 
-7. Open a new tab in **Microsoft Edge**, in the address bar type **https://entra.microsoft.com**, and then press **Enter**.
+6. SEA-WS1 の場合、[**管理元]** 列には **Intune** と表示され、[**所有権]** 列には **[企業]** と表示されます。
 
-8. In the Microsoft Entra admin center, expand **Entra ID**.
+   *注: このビューには、Intune に登録されているデバイスが一覧表示されます。Entra と Intune の間で自動登録を構成したため、Entra に参加または登録されているすべてのデバイスが自動的に Intune に登録されることに注意してください。登録を設定する前に参加したデバイスは、Entra に参加または登録されるだけで、Intune には登録されません。*
 
-9. Select **Devices**, then select **All devices**. 
+7. **Microsoft Edge** で新しいタブを開き、アドレス バーに**[「https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
 
-   > Take note of SEA-WS1. Notice that the Join Type column displays **Microsoft Entra joined** and the MDM column displays **Microsoft Intune**.
+8. Microsoft Entra 管理センターで、 **[Entra ID]** を展開します。
 
-10. Close all open Windows.
+9. **[デバイス]** を選択し、[**すべてのデバイス**] を選択します。
 
-**Results**: After completing this exercise, you will have successfully joined a Windows client to Entra ID and verified that the device has automatically enrolled in to Microsoft Intune.
+   > SEA-WS1に注意してください。[結合の種類] 列には **[Microsoft Entra 参加済み**] と表示され、[MDM] 列には **Microsoft Intune** が表示されます。
 
-**END OF LAB**
+10. 開いているすべてのWindowsを閉じます。
+
+**結果**: この演習を完了すると、Windows クライアントを Entra ID に正常に参加させ、デバイスが Microsoft Intune に自動的に登録されたことを確認できます。
+
+**ラボの終わり**

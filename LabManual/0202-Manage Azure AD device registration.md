@@ -1,101 +1,110 @@
-# Practice Lab 0202: Manage Entra ID device registration
+# ラボ 0202: Entra ID デバイス登録の管理
 
-## Summary
 
-In this lab, you will perform Entra registration using a Windows device.
 
-## Exercise 1: Configuring Entra device registration
+## 概要
 
-### Scenario
 
-Several users have asked to use their personal iOS, Android, and Windows devices to access Contoso cloud resources. Since Contoso does not own the Windows devices, you do not want to have the users perform an Entra join (only WIndows devices can be Entra joined). Instead, you need to ensure that users are able to register their devices with Entra, which still allows you to apply company policy to apps as needed, and still permit users to access Contoso resources. You will test out Entra device registration using a Windows 11 device.
 
-### Task 1: Configure Entra ID device registration
+このラボでは、Windows デバイスを使用して Entra 登録を実行します。
 
-1. On **SEA-SVR1**, if necessary, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd** and close **Server Manager**.
+## 演習 1: Entra デバイス登録の構成
 
-2. On the taskbar select **Microsoft Edge**, in the address bar type **https://entra.microsoft.com**, and then press **Enter**.
 
-3. Sign in as user `Admin@yourtenant.onmicrosoft.com`, and use the tenant Admin password. If the **Stay signed in?** prompt appears, select **No**. 
 
-   > The Microsoft Entra admin center opens.
+### シナリオ
 
-4. In the Microsoft Entra admin center, in the navigation pane, select **Devices**, and then select **All devices**. 
 
-5. On the **Devices | All devices** page, select **Device settings**.
 
-6. On the **Devices|Device settings** page, in the details pane, verify that **Users may register their devices with Microsoft Entra** is set to **All** and is greyed out.
+何人かのユーザーが、個人の iOS、Android、Windows デバイスを使用して Contoso クラウド リソースにアクセスするように依頼しています。Contoso は Windows デバイスを所有していないため、ユーザーに Entra 参加を実行させたくありません (Entra に参加できるのは WIndows デバイスのみです)。代わりに、ユーザーが自分のデバイスを Entra に登録できるようにし、必要に応じて会社のポリシーをアプリに適用し、ユーザーが Contoso リソースにアクセスできるようにする必要があります。Windows 11 デバイスを使用して Entra デバイスの登録をテストします。
 
-   > This option is greyed out and set to **All** by default when Microsoft Intune is enable in the tenant. This ensures that all users are able to register Windows 10 or newer personal, iOS, Android, and macOS devices with Entra.
+### タスク1: Entra IDデバイス登録の構成
 
-### Task 2: Perform Entra registration
 
-1. Switch to **SEA-WS1** and sign in as **Admin** with the password of **Pa55w.rd**.
 
-2. On the taskbar, select **Start** and then select **Settings**.
+1. **SEA-SVR1** では、必要に応じて、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインし、**サーバー マネージャー**を閉じます。
 
-3. In the **Settings** window, select **Accounts**.
+2. タスク バーで **[Microsoft Edge]** を選択し、アドレス バーに**[「https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
 
-4. On the Accounts page, select **Access work or school**.
+3. ユーザーとしてサインインし、テナント管理者パスワードを使用します。[**サインインしたままにする?]** プロンプトが表示されたら、[**いいえ**] を選択します。`Admin@yourtenant.onmicrosoft.com`
 
-5. In the **Access work or school** page, select **Connect**.
+   > Microsoft Entra 管理センターが開きます。
 
-6. In the **Microsoft account** window, in the Email address box, enter **`JoniS@yourtenant.onmicrosoft.com`** and then select **Next**.
+4. Microsoft Entra 管理センターのナビゲーション ウィンドウで、 **[デバイス]** を選択し、[**すべてのデバイス**] を選択します。
 
-7. On the **Enter password** page, enter the tenant password provided by your instructor and then select **Sign in**.
+5. **デバイス上 |[すべてのデバイス]** ページで、[**デバイス設定**] を選択します。
 
-8. On the **You're all set!** page, select **Done**.
+6. **デバイス上|デバイス設定**ページの詳細ウィンドウで、 **[ユーザーがデバイスを Microsoft Entra に登録できる]** が [**すべて**] に設定され、淡色表示されていることを確認します。
 
-9. On the **Access work or school** page, verify that Joni's Work or school account is displayed.
+   > このオプションは淡色表示され、テナントで Microsoft Intune が有効になっている場合、既定で **[すべて]** に設定されます。これにより、すべてのユーザーが Windows 10 以降の個人用、iOS、Android、macOS デバイスを Entra に登録できるようになります。
 
-10. Close the **Settings** page.
+### タスク2: Entra登録の実行
 
-### Task 3: Validate Entra registration
 
-1. On SEA-WS1, right-click **Start**, and then select **Windows Terminal (Admin)**. At the User Account Control, select **Yes**.
 
-2. In the PowerShell console, type the following and press **Enter**: 
+1. **SEA-WS1** に切り替え、**Pa55w.rd** のパスワードで**管理者**としてサインインします。
+2. タスク バーで、[**スタート]** を選択し、[**設定]** を選択します。
+3. [**設定**] ウィンドウで、[**アカウント]** を選択します。
+4. [アカウント] ページで、[**職場または学校へのアクセス**] を選択します。
+5. [**職場または学校へのアクセス**] ページで、[**接続]** を選択します。
+6. **[Microsoft アカウント**] ウィンドウの [メール アドレス] ボックスに「**`JoniS@yourtenant.onmicrosoft.com`**」と入力し、[**次へ**] を選択します。
+7. [**パスワードの入力**] ページで、インストラクターから提供されたテナント パスワードを入力し、[**サインイン]** を選択します。
+8. [準備**完了です!**] ページで、[**完了]** を選択します。
+9. [**職場または学校へのアクセス**] ページで、Joni の職場または学校のアカウントが表示されていることを確認します。
+10. [**設定**] ページを閉じます。
 
-   ```powershell
+### タスク 3: Entra 登録の検証
+
+
+
+1. SEA-WS1 で、[**スタート]** を右クリックし、[**Windows ターミナル (管理者)]** を選択します。[ユーザー アカウント制御] で、[**はい**] を選択します。
+
+2. PowerShell コンソールで、次のように入力し、**Enter** キーを押します。
+
+   ```
    dsregcmd /status
    ```
 
-3. In the output under **User State**, verify that **WorkplaceJoined : YES** is displayed. This indicates that the user has performed a device registration in Azure AD.
+   
 
-4. Close PowerShell and then sign out of SEA-WS1.
+3. [**ユーザーの状態]** の下の出力で、[**WorkplaceJoined: YES]** が表示されていることを確認します。これは、ユーザーが Azure AD でデバイス登録を実行したことを示します。
 
-5. Switch to **SEA-SVR1**.
+4. PowerShell を閉じてから、SEA-WS1 からサインアウトします。
 
-6. In Microsoft Edge, in the Microsoft Entra admin center, expand **Entra ID**.
+5. **SEA-SVR1** に切り替えます。
 
-7. Select **Devices**, then select **All devices**. In the Devices pane, notice that SEA-WS1 is listed. 
+6. Microsoft Edge の Microsoft Entra 管理センターで、[**Entra ID**] を展開します。
 
-8. Verify that the **Join Type** is listed as **Microsoft Entra registered** and that the owner is **Joni Sherman**. 
+7. **[デバイス]** を選択し、[**すべてのデバイス**] を選択します。[デバイス(Devices)] ペインに、SEA-WS1 がリストされていることに注意してください。
 
-   > Notice that the device is Microsoft Entra registered, NOT Microsoft Entra joined. Entra registered devices are typically devices that cannot be Entra joined, or devices that are personally owned by the user. Registering a device will provide access to Cloud based resources.
+8. [**参加の種類]** が **[Microsoft Entra 登録済み**] として一覧表示され、所有者が **Joni Sherman** であることを確認します。
 
-9. Close Microsoft Edge.
+   > デバイスは Microsoft Entra に登録されており、Microsoft Entra に参加しているわけではありません。Entra 登録済みデバイスは、通常、Entra に参加できないデバイス、またはユーザーが個人的に所有するデバイスです。デバイスを登録すると、クラウドベースのリソースにアクセスできるようになります。
 
-### Task 4: Sign in to Windows and disconnect from the organization
+9. Microsoft Edge を閉じます。
 
-1. Switch to **SEA-WS1** and notice that unlike Entra Joined or Entra Hybrid Joined devices, an Entra registered device only allows local accounts to be selected. 
+### タスク4: Windowsにサインインし、組織から切断する
 
-2. On SEA-WS1, sign in as **Admin** with the password of **Pa55w.rd**. 
 
-3. Select **Start** and then select **Settings**.
 
-4. In the **Settings** window, select **Accounts**.
+1. **SEA-WS1** に切り替えると、Entra Joined デバイスや Entra Hybrid Joined デバイスとは異なり、Entra 登録済みデバイスではローカル アカウントのみを選択できることに気付きます。
 
-5. On the Accounts page, select **Access work or school**.
+2. SEA-WS1 で、**パスワード Pa55w.rd** を使用して**管理者**としてサインインします。
 
-6. In the **Access work or school** page, select the **JoniS** Work or School account.
+3. [**スタート]** を選択し、[**設定]** を選択します。
 
-7. Next to Disconnect this account, select **Disconnect** and then select **Yes**.
+4. [**設定**] ウィンドウで、[**アカウント]** を選択します。
 
-   > Notice that you do not have to restart to disconnect a registered device from Azure AD.
+5. [アカウント] ページで、[**職場または学校へのアクセス**] を選択します。
 
-8. To prepare for the next lab, select **Start**, then select the **Power** icon, and then select **Restart**.
+6. [**職場または学校へのアクセス**] ページで、**JoniS** 職場または学校アカウントを選択します。
 
-**Results**: After completing this exercise, you will have configured Entra device registration.
+7. [このアカウントの切断] の横にある [**切断**] を選択し、[**はい**] を選択します。
 
-**END OF LAB**
+   > 登録済みデバイスを Azure AD から切断するために再起動する必要はありません。
+
+8. 次のラボの準備をするには、 **[開始]** を選択し、[**電源**] アイコンを選択して、[**再起動**] を選択します。
+
+**結果**: この演習を完了すると、Entra デバイスの登録が構成されます。
+
+**ラボの終わり**

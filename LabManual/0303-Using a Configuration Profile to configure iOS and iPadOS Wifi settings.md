@@ -1,89 +1,92 @@
-# Practice Lab 0303: Using a Configuration Profile to configure iOS and iPadOS Wi-Fi settings
+# ラボ 0303: 構成プロファイルを使用して iOS および iPadOS の Wi-Fi 設定を構成する
 
-## Summary
 
-In this lab, you use Microsoft Intune to create and apply a Configuration profile to run configure Wi-Fi settings for iOS and iPadOS devices.
 
-## Exercise 1: Creating a Configuration profile
+## 概要
 
-### Scenario
 
-You have been asked to create a Configuration profile to be used to automatically configure Wi-Fi settings for enrolled iOS and iPadOS devices. You need to ensure that the Wi-Fi settings are configured as follows:
 
-- Network name: **Contoso Wi-Fi**
-- SSID: **MainOffice**
-- Connect automatically: **Enable**
-- Security type: **WPA/WPA2-Personal**
-- Pre-Shared key: **ContosoWiFi123**
-- Assigned to: A new security group named **iOS_iPadOS Devices**
+このラボでは、Microsoft Intune を使用して構成プロファイルを作成して適用し、iOS および iPadOS デバイスの Wi-Fi 設定の構成を実行します。
 
-### Task 1: Create the iOS_iPadOS device group
+## 演習 1: 構成プロファイルの作成
 
-1. Switch to **SEA-SVR1** and sign in as **Contoso\Administrator** with the password of **Pa55w.rd**. Close Server Manager.
 
-2. On **SEA-SVR1**, on the taskbar, select **Microsoft Edge**.
 
-3. In Microsoft Edge, type **https://intune.microsoft.com** in the address bar, and then press **Enter**. 
+### シナリオ
 
-4. Sign in as **`admin@yourtenant.onmicrosoft.com`** with the tenant Admin password.
 
-5. In the Microsoft Intune admin center, in the navigation pane, select **Groups**.
 
-6. On the **Groups | All groups** blade, select **New group**.
+登録済みのiOSおよびiPadOSデバイスのWi-Fi設定を自動的に構成するために使用する構成プロファイルを作成するように求められました。Wi-Fi 設定が次のように構成されていることを確認する必要があります。
 
-7. On the **New Group** blade, enter the following information:
+- ネットワーク名: **Contoso Wi-Fi**
+- SSID:**メインオフィス**
+- 自動接続: **有効にする**
+- セキュリティタイプ:**WPA/WPA2-Personal**
+- 事前共有キー: **ContosoWiFi123**
+- 割り当て先: **iOS_iPadOS デバイス**という名前の新しいセキュリティ グループ
 
-    - Group type: **Security**
-    - Group name: **iOS_iPadOS Devices**
-    - Group description: **All iOS and iPadOS devices**
-    - Membership type: **Assigned**
+### タスク1: iOS_iPadOSデバイス・グループの作成
 
-8. On the **New Group** blade, select **Create**. 
 
-9. On the **Groups | All groups** blade, verify that the **iOS_iPadOS Devices** group is displayed. You may need to select the Refresh button for the new group to become visible.
 
-### Task 2: Create a Configuration profile based on scenario requirements
+1. **SEA-SVR1** に切り替え、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインします。サーバー マネージャーを閉じます。
+2. **SEA-SVR1** のタスク バーで、[**Microsoft Edge]** を選択します。
+3. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。
+4. テナント管理者パスワードを使用して **`admin@yourtenant.onmicrosoft.com`** としてサインインします。
+5. Microsoft Intune管理センターのナビゲーション ウィンドウで、[**グループ]** を選択します。
+6. **グループ |すべてのグループ** ブレードで、 [**新しいグループ**] を選択します。
+7. [**新しいグループ**] ブレードで、次の情報を入力します。
+   - グループの種類: **セキュリティ**
+   - グループ名: **iOS_iPadOS デバイス**
+   - グループの説明: **すべてのiOSおよびiPadOSデバイス**
+   - メンバーシップの種類: **割り当て済み**
+8. [**新しいグループ**] ブレードで、 **[作成]** を選択します。
+9. **グループ |[すべてのグループ**] ブレードで、[**iOS_iPadOS デバイス**] グループが表示されていることを確認します。新しいグループを表示するには、[更新] ボタンを選択する必要がある場合があります。
 
-1. In the Microsoft Intune admin center, select **Devices** from the navigation bar.
+### タスク2: シナリオ要件に基づく構成プロファイルの作成
 
-2. On the **Devices** page, under **Manage devices** section, select **Configuration**.
 
-3. On the **Devices | Configuration** blade, in the details pane, select **+ Create**, and then select **+ New Policy**.
 
-4. In the **Create a profile** blade, select the following options, and then select **Create**:
+1. Microsoft Intune管理センターで、ナビゲーション バーから **[デバイス]** を選択します。
 
-    - Platform: **iOS/iPadOS**
-    - Profile type: **Templates**
+2. [**デバイス]** ページの **[デバイスの管理]** セクションで、[**構成]** を選択します。
 
-5. Select **Wi-Fi** from the list of templates, and then select **Create**.
+3. **デバイス上 |構成**ブレードの詳細ウィンドウで、 **[+ 作成]** を選択し、 **[+ 新しいポリシー]** を選択します。
 
-6. In the **Basics** blade, enter the following information, and then select **Next**:
+4. [**プロファイルの作成**] ブレードで、次のオプションを選択し、 **[作成]** を選択します。
 
-    - Name: **iOS/iPadOS Wi-Fi Policy**
-    - Description: **Wi-Fi settings for iOS/iPadOS Devices.**
+   - プラットフォーム: **iOS/iPadOS**
+   - プロファイルタイプ: **テンプレート**
 
-7. On the **Configuration settings** blade, next to **Wi-Fi type**, select **Basic**. 
+5. テンプレートの一覧から **[Wi-Fi**] を選択し、 **[作成]** を選択します。
 
-   > Additional options display based upon the type selected.
+6. [**基本]** ブレードで、次の情報を入力し、 [**次へ**] を選択します。
 
-8. On the **Configuration settings** blade, select the following options, and then select **Next**:
+   - 名前: **iOS/iPadOS Wi-Fi ポリシー**
+   - 説明: **iOS/iPadOS デバイスの Wi-Fi 設定。**
 
-    - Network name: **Contoso Wi-Fi**
-    - SSID: **MainOffice**
-    - Connect automatically: **Enable**
-    - Security type: **WPA/WPA2-Personal**
-    - Pre-Shared key: **ContosoWiFi123**
+7. [**構成設定**] ブレードの [**Wi-Fi の種類**] の横にある **[基本]** を選択します。
 
-9. On the **Assignments** blade, under **Included groups**, select **Add groups**.
+   > 選択したタイプに基づいて、追加のオプションが表示されます。
 
-10. In the **Select groups to include** window, select **iOS_iPadOS Devices**, and then click **Select**.
+8. [**構成設定**] ブレードで、次のオプションを選択し、[**次へ**] を選択します。
 
-11. Select **Next** until you reach the **Review + create** blade. Select **Create**.
+   - ネットワーク名: **Contoso Wi-Fi**
+   - SSID:**メインオフィス**
+   - 自動接続: **有効にする**
+   - セキュリティタイプ:**WPA/WPA2-Personal**
+   - 事前共有キー: **ContosoWiFi123**
 
-12. Refresh the **Devices | Configuration** blade, and verify that the **iOS/iPadOS Wi-Fi Policy** is listed. 
+9. [**割り当て]** ブレードの **[含まれるグループ]** で、 [**グループの追加**] を選択します。
 
-13. Close the Edge browser.
+10. [**含めるグループの選択]** ウィンドウで、[**iOS_iPadOS デバイス**] を選択し、[**選択]** をクリックします。
 
-**Results**: After completing this exercise, you will have successfully created and assigned a Configuration profile to configure Wi-Fi settings for iOS and iPadOS devices.
+11. [**確認 + 作成**] ブレードが表示されるまで、 **[次へ**] を選択します。**[作成]** を選択します。
 
-**END OF LAB**
+12. **デバイスの更新 |[構成**] ブレードをクリックし、**iOS/iPadOS Wi-Fi ポリシー**が一覧表示されていることを確認します。
+
+13. Edge ブラウザーを閉じます。
+
+**結果**: この演習を完了すると、iOS および iPadOS デバイスの Wi-Fi 設定を構成するための構成プロファイルが正常に作成され、割り当てられます。
+
+**ラボの終わり**

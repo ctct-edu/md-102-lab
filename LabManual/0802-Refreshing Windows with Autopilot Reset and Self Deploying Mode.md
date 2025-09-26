@@ -1,113 +1,106 @@
-# Practice Lab: Refreshing Windows with Autopilot Reset and Self-Deploying mode
-
-## Summary
-
-In this lab you will learn how perform a remote Autopilot reset.
-
-### Prerequisites
-
-To following lab(s) must be completed before this lab:
-
-- 0101-Managing Identities in Azure AD
-
-- 0102-Synchronizing identities by using Entra Connect
-
-- 0701-Deploying Windows 11 using Microsoft Deployment Toolkit
-
-- 0801-Deploying Windows 11 with Autopilot
+# ラボ: Autopilot リセットと自己展開モードで Windows を更新する
 
 
-### Scenario
 
-SEA-WS4 has been deployed by using Windows Autopilot. You need to test out another provisioning scenario that involves Autopilot Reset. You will create a new deployment profile configured with the Windows Autopilot Self-Deploying mode.
+## 概要
 
-### Task 1: Configure a  Self-Deploying Windows Autopilot deployment profile
 
-1. Switch to **SEA-SVR1**.
 
-2. In **Microsoft Edge**, open a new tab and navigate to **https://intune.microsoft.com**. If prompted, sign in with your **`Admin@yourtenant.onmicrosoft.com`**.
+このラボでは、リモート オートパイロット リセットを実行する方法を学習します。
 
-3. In the **Microsoft Intune admin center**, select **Devices**.
+### 前提 条件
 
-4. In the **Device onboarding** section, select **Enrollment**. 
 
-5. On the Windows enrollment tab, scroll down to **Windows Autopilot** in the details pane, and then select **Deployment Profiles**.
 
-6. On the **Windows AutoPilot deployment profiles** blade, select **Contoso Profile 1** and then select **Properties**.
+このラボの前に、次のラボを完了する必要があります。
 
-7. Scroll down to **Assignments** and then select **Edit**.
+- 0101-Azure AD での ID の管理
+- 0102 - Entra Connect を使用した ID の同期
+- 0701 - Microsoft Deployment Toolkitを使用したWindows 11の展開
+- 0801-Autopilotを使用したWindows 11の展開
 
-8. Next to **IT Devices**, select **Remove**.
+### シナリオ
 
-9. Select **Review and save** and then select **Save**.
 
-10. Close the **Contoso Profile 1|Properties** page.
 
-11. On the **Windows AutoPilot deployment profiles** blade, select **Create profile** and then select **Windows PC**.
+SEA-WS4 は、Windows Autopilot を使用して展開されています。Autopilot リセットを含む別のプロビジョニング シナリオをテストする必要があります。Windows Autopilot 自己展開モードで構成された新しい展開プロファイルを作成します。
 
-12. In the **Basics** tab, in the **Name** text box, type **Contoso profile 2**.
+### タスク 1: 自己展開 Windows Autopilot 展開プロファイルの構成
 
-13. For **Convert all targeted devices to Autopilot** select **No**, and then select **Next**.
 
-14. On the **Out-of-box experience (OOBE)** tab, ensure that the **Deployment mode** is set to **Self-Deploying**.
 
-15. Ensure that the following options are set:
+1. **SEA-SVR1** に切り替えます。
+2. **Microsoft Edge** で、新しいタブを開き、**[https://intune.microsoft.com](https://intune.microsoft.com/)** に移動します。メッセージが表示されたら、**`Admin@yourtenant.onmicrosoft.com`** でサインインします。
+3. **Microsoft Intune管理センター**で、[**デバイス]** を選択します。
+4. [**デバイスのオンボード**] セクションで、[**登録]** を選択します。
+5. [Windows 登録] タブで、詳細ウィンドウの **[Windows Autopilot**] まで下にスクロールし、[**展開プロファイル]** を選択します。
+6. **[Windows AutoPilot 展開プロファイル]** ブレードで、 [**Contoso プロファイル 1]** を選択し、 **[プロパティ]** を選択します。
+7. [**割り当て]** まで下にスクロールし、[**編集]** を選択します。
+8. **[IT デバイス]** の横にある [**削除**] を選択します。
+9. [**確認して保存**] を選択し、[**保存]** を選択します。
+10. **Contoso プロファイルを閉じる 1|プロパティ** ページ。
+11. [**Windows AutoPilot 展開プロファイル]** ブレードで、 [**プロファイルの作成**] を選択し、 [**Windows PC**] を選択します。
+12. [**基本]** タブの [**名前**] テキスト ボックスに「**Contoso プロファイル 2**」と入力します。
+13. **[すべてのターゲット デバイスを Autopilot に変換する]** で [**いいえ**] を選択し、 [**次へ**] を選択します。
+14. [ アウトオブ**ボックス エクスペリエンス (OOBE)]** タブで、[ **展開モード** ] が **[自己展開]** に設定されていることを確認します。
+15. 次のオプションが設定されていることを確認します。
 
-   - Language (Region): **Operating system default**
-   - Automatically configure keyboard: **Yes**
-   - Apply device name template: **Yes**
-   - Enter a name: **Contoso-%RAND:2%**
+- 言語 (地域): **オペレーティング システムの既定値**
+- キーボードを自動的に構成する: **はい**
+- デバイス名テンプレートの適用: **はい**
+- 名前を入力します: **Contoso-%RAND:2%**
 
-16. Select **Next**.
+1. [**次へ**] を選択します。
+2. [**割り当て]** タブの **[含まれるグループ]** で **[グループの追加**] を選択します。
+3. **[IT デバイス]** グループを選択し、[**選択]** をクリックします。[**次へ**] を選択します。
+4. [**確認 + 作成**] ブレードで、情報を確認し、 **[作成]** を選択します。
 
-17. On the **Assignments** tab, under **Included groups** select **Add groups**.
+### タスク 2: オートパイロット リセットを実行する
 
-18. Select the **IT Devices** group and click **Select**. Select **Next**.
 
-19. On the **Review + create** blade, review the information and then select **Create**.
 
-### Task 2: Perform an Autopilot reset
+1. **Microsoft Intune管理センター**で、[**デバイス]** を選択し、[**すべてのデバイス**] を選択します。
 
-1. In the **Microsoft Intune admin center**, select **Devices** and then select **All devices**.
+2. Autopilot PC (DESKTOP という名前で始まる) を選択します。
 
-2. Select the Autopilot PC (Begins with the name DESKTOP).
+3. メニュー バーで省略記号を選択し、**Autopilot リセット** を選択します。
 
-3. In the menu bar, select the ellipsis and then select **Autopilot Reset**.
+4. メッセージ プロンプトで、[**はい**] を選択します。
 
-5. At the message prompt, select **Yes**.
+5. **SEA-WS3** に切り替えます。
 
-6. Switch to **SEA-WS3**.
+   > 注: SEA-WS3 は、前のラボから実行されている必要があります。
 
-   > Note: SEA-WS3 should still be running from the previous lab.
+6. **SEA-WS3** を再起動します。
 
-7. Restart **SEA-WS3**.
+   > 注: このプロセスには 30 分から 45 分かかる場合があり、プロセス中に数回再起動します。
 
-   > Note: This process can take 30-45 minutes and will reboot several times during the process. 
+### タスク3: Autopilotデプロイメントの検証
 
-### Task 3: Verify Autopilot deployment
 
-1. At the sign-in page, enter **`Aaron@yourtenant.onmicrosoft.com`** with the Password of **Pa55w.rd1234!**.
 
-2. At the **Use Windows Hello with your account**, select **OK**.
+1. サインインページで、**パスワード Pa55w.rd1234!** で **`Aaron@yourtenant.onmicrosoft.com`** を入力します。
 
-3. At the **Verify your identity** page, select the Text verification method.
+2. [**アカウントで Windows Hello を使用する**] で、[**OK]** を選択します。
 
-4. At the **Enter code** page, enter the code that has been texted to your mobile device and then select **Verify**.
+3. [**本人確認**] ページで、[テキスト検証方法] を選択します。
 
-5. On the **Setup up a PIN** dialog box, in the **New PIN** and **Confirm PIN** fields, enter **102938**, and then select **OK**.
+4. **[コードの入力**] ページで、モバイル デバイスにテキストで送信されたコードを入力し、[**確認]** を選択します。
 
-6. On the **All set!** page, select **OK**.
+5. **PIN のセットアップ** ダイアログ ボックスの **新しい PIN** フィールドと **PIN の確認** フィールドに「**102938**」と入力し、**OK** を選択します。
 
-7. Select **Start** and select **Settings**. 
+6. **[すべての設定]** ページで、[**OK]** を選択します。
 
-8. Select **Accounts**, and then select **Access work or school**. Verify the device is connected to Contoso's Azure AD.
+7. [**スタート]** を選択し、[**設定]** を選択します。
 
-9. Select **Connected to Contoso's Azure AD** and select **Info**.
+8. **[アカウント]** を選択し、 [**職場または学校へのアクセス**] を選択します。デバイスが Contoso の Azure AD に接続されていることを確認します。
 
-10. On the **Managed by Contoso** page, scroll down and then select **Sync**.
+9. **[Contoso の Azure AD に接続]** を選択し、 [**情報**] を選択します。
 
-11. On **SEA-WS3**, close the **Settings** window.
+10. [**Contoso による管理]** ページで、下にスクロールして **[同期]** を選択します。
 
-    **Results**: After completing this exercise, you will have provisioned a Windows device with Autopilot Reset using Self-Deploying mode.
+11. **SEA-WS3** では、[**設定**] ウィンドウを閉じます。
 
-**END OF LAB**
+    **結果**: この演習を完了すると、自己展開モードを使用して Autopilot リセットを使用して Windows デバイスをプロビジョニングします。
+
+**ラボの終わり**

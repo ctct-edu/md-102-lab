@@ -1,145 +1,140 @@
-# Practice Lab 0302: Using a Configuration Profile to configure Kiosk mode
+# ラボ 0302: 構成プロファイルを使用したキオスク モードの設定
 
-## Summary
 
-In this lab, you use Microsoft Intune to create and apply a Configuration profile to run single-app Kiosk mode on a Windows 11 device.
 
-### Prerequisites
+## 概要
 
-To following lab(s) must be completed before this lab:
 
-- 0203-Manage Device Enrollment into Intune
 
-> Note: You will also need a mobile phone that can receive text messages used to secure Windows Hello sign in authentication to Entra ID.
+このラボでは、Microsoft Intune を使用して構成プロファイルを作成して適用し、Windows 11 デバイスで単一アプリ キオスク モードを実行します。
 
-## Exercise 1: Create and apply a Configuration profile
+### 前提 条件
 
-### Scenario
 
-You have been asked to configure SEA-WS2 as a Windows 11 kiosk to allow Contoso visitors the ability to browse the Internet. You need to ensure that the kiosk is configured as follows:
 
--   A single app, full-screen kiosk.
--   Auto logon.
--   Provides access to the Microsoft Edge browser, which is to be configured in Public Browsing (InPrivate) mode. The home page should be configured for https://bing.com.
+このラボの前に、次のラボを完了する必要があります。
 
-### Task 1: Enroll SEA-WS2 to Microsoft Intune
+- 0203-Intuneへのデバイス登録の管理
 
-1. Sign in to **SEA-WS2** as **Admin** with the password of **Pa55w.rd**.
+> 注: Entra ID への Windows Hello サインイン認証をセキュリティで保護するために使用されるテキスト メッセージを受信できる携帯電話も必要です。
 
-2. Select **Start** and then select **Settings**.
+## 演習 1: 構成プロファイルを作成して適用する
 
-3. In **Settings**, select **Accounts**.
 
-4. On the Accounts page, select **Access work or school**.
 
-5. In the **Access work or school** page, select **Connect**.
+### シナリオ
 
-6. In the **Microsoft account** window, select **Join this device to Microsoft Entra ID**.
 
-7. On the **Sign in** page, type **`AllanD@yourtenant.onmicrosoft.com`** and then select **Next**.
 
-8. On the **Enter password** page, enter the Tenant password and then select **Sign in**.
+SEA-WS2 を Windows 11 キオスクとして構成して、Contoso の訪問者がインターネットを閲覧できるようにするように求められました。キオスクが次のように構成されていることを確認する必要があります。
 
-9. On the **Make sure this is your organization** dialog box, select **Join**.
+- 1 つのアプリ、フルスクリーン キオスク。
+- 自動ログオン。
+- パブリック ブラウジング (InPrivate) モードで構成される Microsoft Edge ブラウザーへのアクセスを提供します。ホームページは [https://bing.com](https://bing.com/) 用に構成する必要があります。
 
-10. On the **You're all set!** page, read the information and then select **Done**.
+### タスク 1: SEA-WS2 を Microsoft Intune に登録する
 
-11. In the **Access work or school** section, verify that **Connected to Contoso's Azure AD** displays.
 
-12. Select **Connected to Contoso's Azure AD** and then select **Info**.
 
-13. Scroll down, and then select **Sync**. This will force a Device sync with Intune.
+1. パスワード **Pa55w.rd** を使用して **SEA-WS2** に**管理者**としてサインインします。
+2. [**スタート]** を選択し、[**設定]** を選択します。
+3. **[設定]** で **[アカウント]** を選択します。
+4. [アカウント] ページで、[**職場または学校へのアクセス**] を選択します。
+5. [**職場または学校へのアクセス**] ページで、[**接続]** を選択します。
+6. [**Microsoft アカウント**] ウィンドウで、[**このデバイスを Microsoft Entra ID に参加させる]** を選択します。
+7. サインイン **ページで、「****`AllanD@yourtenant.onmicrosoft.com`**」と入力し、**次へ** を選択します。
+8. [**パスワードの入力**] ページで、テナント パスワードを入力し、[**サインイン]** を選択します。
+9. これが**組織であることを確認する** ダイアログ ボックスで、**参加** を選択します。
+10. [**準備完了です!]** ページで、情報を読み、[**完了]** を選択します。
+11. [**職場または学校へのアクセス**] セクションで、 **[Contoso の Azure AD に接続済み]** が表示されていることを確認します。
+12. [**Contoso の Azure AD に接続]** を選択し、 [**情報**] を選択します。
+13. 下にスクロールして、[**同期]** を選択します。これにより、デバイスが Intune と強制的に同期されます。
+14. **[設定**]ウィンドウを閉じます。
 
-14. Close the **Settings** window.
+### タスク 2: Contoso キオスク デバイス グループを作成する
 
-### Task 2: Create the Contoso Kiosk device group
 
-1. Switch to **SEA-SVR1** and sign in as **Contoso\Administrator** with the password of **Pa55w.rd**. Close Server Manager.
 
-2. On **SEA-SVR1**, on the taskbar, select **Microsoft Edge**.
+1. **SEA-SVR1** に切り替え、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインします。サーバー マネージャーを閉じます。
+2. **SEA-SVR1** のタスク バーで、[**Microsoft Edge]** を選択します。
+3. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。
+4. テナント管理者パスワードを使用して **`admin@yourtenant.onmicrosoft.com`** としてサインインします。
+5. Microsoft Intune管理センターのナビゲーション ウィンドウで、[**グループ]** を選択します。
+6. **グループ |すべてのグループ** ブレードで、 [**新しいグループ**] を選択します。
+7. [**新しいグループ**] ブレードで、次の情報を入力します。
+   - グループの種類: **セキュリティ**
+   - グループ名: **Contoso キオスク デバイス**
+   - グループの説明: **キオスクとして構成されたすべての Windows デバイス**
+   - メンバーシップの種類: **割り当て済み**
+8. **[メンバー]** で、[**メンバーが選択されていません**] を選択します。
+9. [**メンバーの追加**] ブレードの [**検索]** ボックスに「**Sea**」と入力します。**[SEA-WS2**] を選択し、[**選択]** を選択します。
+10. [**新しいグループ**] ブレードで、 **[作成]** を選択します。
+11. **グループ |[すべてのグループ]** ブレードで、**Contoso キオスク デバイス** グループが表示されていることを確認します。新しいグループを表示するには、[更新] ボタンを選択する必要がある場合があります。
 
-3. In Microsoft Edge, type **https://intune.microsoft.com** in the address bar, and then press **Enter**. 
+### タスク3: シナリオ要件に基づく構成プロファイルの作成
 
-4. Sign in as **`admin@yourtenant.onmicrosoft.com`** with the tenant Admin password.
-5. In the Microsoft Intune admin center, in the navigation pane, select **Groups**.
 
-6. On the **Groups | All groups** blade, select **New group**.
 
-7. On the **New Group** blade, enter the following information:
+1. Microsoft Intune管理センターで、ナビゲーション バーから **[デバイス]** を選択します。
 
-   - Group type: **Security**
-   - Group name: **Contoso Kiosk Devices**
-   - Group description: **All Windows devices configured as a Kiosk**
-   - Membership type: **Assigned**
+2. [**デバイス]** ページの **[デバイスの管理]** セクションで、[**構成]** を選択します。
 
-8. Under **Members**, select **No members selected**. 
+3. **デバイス上 |構成**ブレードの詳細ウィンドウで、 **[+ 作成]** を選択し、 **[+ 新しいポリシー]** を選択します。
 
-9. On the **Add members** blade, in the **Search** box type **Sea**. Select **SEA-WS2** and then choose **Select**.
+4. [**プロファイルの作成**] ブレードで、次のオプションを選択し、 **[作成]** を選択します。
 
-10. On the **New Group** blade, select **Create**. 
+   - プラットフォーム: **Windows 10 以降**
+   - プロファイルタイプ: **テンプレート**
+   - テンプレート名: **キオスク**
 
-11. On the **Groups | All groups** blade, verify that the **Contoso Kiosk Devices** group is displayed. You may need to select the Refresh button for the new group to become visible.
+5. [**基本]** ブレードで、次の情報を入力し、 [**次へ**] を選択します。
 
-### Task 3: Create a Configuration profile based on scenario requirements
+   - 名前: **Contoso キオスク ポリシー**
+   - 説明: **Contoso キオスク デバイスの基本設定。**
 
-1. In the Microsoft Intune admin center, select **Devices** from the navigation bar.
+6. [**構成設定**] ブレードの [**キオスク モードの選択**] の横にある [**単一アプリ、全画面キオスク**] を選択します。
 
-2. On the **Devices** page, under **Manage devices** section, select **Configuration**.
+   > 選択したモードに基づいて、追加のオプションが表示されます。
 
-3. On the **Devices | Configuration** blade, in the details pane, select **+ Create**, and then select **+ New Policy**.
+7. [**構成設定**] ブレードで、次のオプションを選択し (キオスク URL を上書きしてください)、 [**次へ**] を選択します。
 
-4. In the **Create a profile** blade, select the following options, and then select **Create**:
+   - ユーザー ログオンの種類: **自動ログオン (Windows 10 バージョン 1803 以降、または Windows 11)**
+   - アプリケーションの種類: **Microsoft Edge ブラウザーの追加**
+     - Edge キオスク URL: **[https://bing.com](https://bing.com/)**
+     - Microsoft Edge キオスク モードの種類: **パブリック ブラウズ (InPrivate)**
+     - アイドル時間後にブラウザを更新する: **5**
+   - アプリの再起動のメンテナンス期間の指定: **未構成**
 
-   - Platform: **Windows 10 and later**
-   - Profile type: **Templates**
-   - Template name: **Kiosk**
+8. [**割り当て]** ブレードの **[含まれるグループ]** で、 [**グループの追加**] を選択します。
 
-5. In the **Basics** blade, enter the following information, and then select **Next**:
+9. **[含めるグループの選択**] ウィンドウで、[**Contoso キオスク デバイス]** を選択し、[**選択]** をクリックします。
 
-   - Name: **Contoso Kiosk Policy**
-   - Description: **Basic settings for Contoso Kiosk Devices.**
+10. [**確認 + 作成**] ブレードに到達するまで、 **[次へ**] を 2 回選択します。**[作成]** を選択します。
 
-6. On the **Configuration settings** blade, next to **Select a kiosk mode**, select **Single app, full-screen kiosk**. 
+11. Microsoft Edge を閉じます。
 
-   > Additional options display based upon the mode selected.
+### タスク4: 構成プロファイルが適用されていることを確認する
 
-7. On the **Configuration settings** blade, select the following options (making sure to overtype the Kiosk URL), and then select **Next**:
 
-   - User logon type: **Auto logon (Windows 10, version 1803 and later, or Windows 11)**
-   - Application type: **Add Microsoft Edge browser**
-     - Edge Kiosk URL: **https://bing.com**
-     - Microsoft Edge kiosk mode type: **Public Browsing (InPrivate)**
-     - Refresh browser after idle time: **5**
-   - Specify Maintenance Window for App Restarts: **Not configured**
 
-8. On the **Assignments** blade, under **Included groups**, select **Add groups**.
+1. **SEA-WS2**に切り替えます。
 
-9. In the **Select groups to include** window, select **Contoso Kiosk Devices**, and then click **Select**.
+2. **SEA-WS2** では、タスクバーで [**スタート**] を選択し、[**設定]** を選択します。
 
-10. Select **Next** two times until you reach the **Review + create** blade. Select **Create**.
+3. **[設定]** で **[アカウント]** を選択し、[**職場または学校へのアクセス**] を選択します。
 
-11. Close Microsoft Edge.
+4. [**職場または学校へのアクセス**] セクションで、 **[Contoso の Azure AD に接続されている]** リンクを選択し、 [**情報**] を選択します。
 
-### Task 4: Verify that the Configuration profile is applied
+5. [**Contoso による管理]** ページで、下にスクロールし、 [デバイス同期の状態] で **[同期]** を選択します。同期が完了するまで待ちます。
 
-1. Switch to **SEA-WS2**.
+   > **注**: キオスク ポリシーを同期で使用できるようになるまでに 5 分から 10 分かかる場合があります。**同期**を選択する前に、5〜10分待つことをお勧めします。
 
-2. On **SEA-WS2**, on the taskbar, select **Start** and then select **Settings**.
+6. **設定**アプリを閉じます。
 
-3. In **Settings**, select **Accounts** and then select **Access work or school**.
+7. **SEA-WS2** を再起動します。
 
-4. In the **Access work or school** section, select the **Connected to Contoso's Azure AD** link and then select **Info**.
+   > SEA-WS2 は自動的にサインインし、プロファイルを作成します。サインインが完了すると、InPrivate ブラウズで構成された Microsoft Edge が表示されます。SEA-WS2 が自動的にサインインしない場合は、手順 1 から 7 を繰り返して、デバイスでポリシーが更新されていることを確認します。
 
-5. In the **Managed by Contoso** page, scroll down and then under Device sync status, select **Sync**. Wait for the synchronization to complete. 
+**結果**: この演習を完了すると、Windows 11 デバイスをシングル アプリ キオスクとして構成するための構成プロファイルが正常に作成され、割り当てられます。
 
-   > **Note**: It could take 5-10 minutes before the kiosk policy is available to a sync. You may wish to wait the 5-10 minutes before selecting **Sync**.
-
-6. Close the **Settings** app.
-
-7. Restart **SEA-WS2**.
-
-   > Notice that SEA-WS2 automatically signs in and creates a profile. After the sign-in is complete, Microsoft Edge is displayed configured with InPrivate browsing. If SEA-WS2 does not sign in automatically, repeat steps 1-7 to ensure that the policy has refreshed on the device.
-
-**Results**: After completing this exercise, you will have successfully created and assigned a Configuration profile to configure a Windows 11 device as a single-app kiosk.
-
-**END OF LAB**
+**ラボの終わり**

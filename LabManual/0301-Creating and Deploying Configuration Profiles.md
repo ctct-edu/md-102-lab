@@ -1,254 +1,224 @@
-# Practice Lab 0301: Creating and Deploying Configuration Profiles
+# ラボ 0301: 構成プロファイルの作成と展開
 
-## Summary
 
-In this lab, you will use Microsoft Intune to create and apply a Configuration profile for a Windows 11 device.
 
-### Prerequisites
+## 概要
 
-To following lab(s) must be completed before this lab:
 
-- 0101-Managing Identities in Entra ID
 
-- 0102-Synchronizing identities by using Entra Connect
+このラボでは、Microsoft Intune を使用して、Windows 11 デバイスの構成プロファイルを作成して適用します。
 
-- 0203-Manage Device Enrollment into Intune
+### 前提 条件
 
-- 0204-Enrolling devices into Intune
 
-  > Note: You will also need a mobile phone that can receive text messages used to secure Windows Hello sign in authentication to Entra ID.
 
-## Exercise 1: Create and apply a Configuration profile
+このラボの前に、次のラボを完了する必要があります。
 
-### Scenario
+- 0101 - Entra IDでのアイデンティティの管理
 
-You need to use Entra and Intune to manage members of the Developers department at Contoso . You have been asked to evaluate the solutions that would enable the users to work effectively and securely on Windows 11 devices. Aaron Nicholls has volunteered to help you test and evaluate the solution and provide feedback. He has also given you some initial requirements that must be included and applied to the developer's Windows devices:
+- 0102 - Entra Connect を使用した ID の同期
 
-- The Gaming section in Settings should not be visible.
-- The Privacy section in Settings should be restricted as much as possible.
-- The C:\DevProjects folder must be excluded from Windows Defender.
-- The process devbuild.exe must be excluded from Windows Defender.
-- Most used apps and Recently added apps should not be displayed on the Start menu.
+- 0203-Intuneへのデバイス登録の管理
 
+- 0204-Intune へのデバイスの登録
 
-### Task 1: Verify device settings
+  > 注: Entra ID への Windows Hello サインイン認証をセキュリティで保護するために使用されるテキスト メッセージを受信できる携帯電話も必要です。
 
-1. Sign in to **SEA-WS1** as **Aaron Nicholls** with the PIN **102938**.
+## 演習 1: 構成プロファイルを作成して適用する
 
-2. On the taskbar, select **Start** and then select **Settings**.
 
-3. On the **Settings** navigation list, verify that you can see the **Gaming** setting.
 
-4. Select the **Personalization** setting and then on the Personalization page, select **Start**. Ensure that **Show recently added apps** and **Show most used apps** are both set to **On**.
+### シナリオ
 
-5. In the **Settings** app, select **Privacy & security**.
 
-6. On the **Privacy & security** page, take note of the available options under the **Security** section, **Windows permissions** section, and **App permissions** section.
 
-7. On the **Privacy & security** page, select **Windows Security** and then select **Open Windows Security**.
+Entra と Intune を使用して、Contoso の開発者部門のメンバーを管理する必要があります。ユーザーが Windows 11 デバイスで効果的かつ安全に作業できるようにするソリューションを評価するよう求められています。Aaron Nicholls は、ソリューションのテストと評価、フィードバックの提供をボランティアで支援しています。また、開発者の Windows デバイスに含めて適用する必要がある初期要件もいくつか示しました。
 
-8. On the **Windows Security** page, select **Virus & threat protection**.
+- [設定] の [ゲーム] セクションは表示されません。
+- 設定のプライバシーセクションは、可能な限り制限する必要があります。
+- C:\DevProjects フォルダーは、Windows Defender から除外する必要があります。
+- プロセスdevbuild.exeは、Windows Defender から除外する必要があります。
+- 最も使用されているアプリと最近追加したアプリは、[スタート] メニューに表示されません。
 
-9. On the **Virus & threat protection** page, under **Virus & threat protection settings**, select **Manage settings** . 
+### タスク 1: デバイス設定を確認する
 
-10. Scroll down to **Exclusions** and select **Add or remove exclusions**. At the User Account Control, select **Yes**.
 
-11. On the **Exclusions** page, verify that no exclusions have been configured.
 
-12. Close the **Windows Security** window.
+1. PIN **102938**を使用して **Aaron Nicholls** として **SEA-WS1** にサインインします。
+2. タスク バーで、[**スタート]** を選択し、[**設定]** を選択します。
+3. [**設定**] ナビゲーション リストで、[**ゲーム]** 設定が表示されることを確認します。
+4. 個人**用設定**を選択し、個人用設定 ページで **開始** を選択します。[**最近追加したアプリを表示する**] と [**最も使用したアプリを表示する**] の両方が **[オン**] に設定されていることを確認します。
+5. **設定**アプリで、[**プライバシーとセキュリティ]** を選択します。
+6. [**プライバシーとセキュリティ]** ページで、[**セキュリティ**] セクション、[**Windows アクセス許可**] セクション、**および [アプリのアクセス許可**] セクションで使用可能なオプションをメモします。
+7. [**プライバシーとセキュリティ**] ページで、[**Windows セキュリティ**] を選択し、[**Windows セキュリティを開く]** を選択します。
+8. [**Windows セキュリティ**] ページで、[**ウイルスと脅威の防止**] を選択します。
+9. [**ウイルスと脅威の防止**] ページの [**ウイルスと脅威の防止の設定**] で、[**設定の管理]** を選択します。
+10. [**除外**] まで下にスクロールし、[**除外の追加または削除]** を選択します。[ユーザー アカウント制御] で、[**はい**] を選択します。
+11. [**除外**] ページで、除外が構成されていないことを確認します。
+12. **[Windows セキュリティ**] ウィンドウを閉じます。
+13. **[設定**]ウィンドウを閉じます。
 
-13. Close the **Settings** window.
+### タスク2: シナリオ要件に基づく構成プロファイルの作成
 
-### Task 2: Create a Configuration profile based on scenario requirements
 
-1. Switch to **SEA-SVR1**.
 
-2. On **SEA-SVR1**, on the taskbar, select **Microsoft Edge**.
+1. **SEA-SVR1** に切り替えます。
+2. **SEA-SVR1** のタスク バーで、[**Microsoft Edge]** を選択します。
+3. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。
+4. テナント管理者パスワードを使用して **`admin@yourtenant.onmicrosoft.com`** としてサインインします。
+5. Microsoft Intune管理センターで、ナビゲーション バーから **[デバイス]** を選択します。
+6. [**デバイス]** ページの [**デバイスの管理]** セクションで、[**構成]** を選択します。
+7. **デバイス上 |構成**ブレードの詳細ウィンドウで、 **[+ 作成]** を選択し、 [**+ 新しいポリシー**] を選択します。
+8. [**プロファイルの作成**] ブレードで、次のオプションを選択し、 **[作成]** を選択します。
+   - プラットフォーム: **Windows 10 以降**
+   - プロファイルタイプ: **テンプレート**
+   - テンプレート名: **デバイス制限**
+9. **基本** タブで、次の情報を入力し、**次へ** を選択します。
 
-3. In Microsoft Edge, type **https://intune.microsoft.com** in the address bar, and then press **Enter**. 
+- 名前: **Contoso Developer - standard**
+- 説明: **Contoso 開発者向けの基本的な制限と構成。**
 
-4. Sign in as **`admin@yourtenant.onmicrosoft.com`** with the tenant Admin password.
+1. [**構成設定**] タブで、[**コントロール パネルと設定**] を展開します。
 
-5. In the Microsoft Intune admin center, select **Devices** from the navigation bar.
+2. [**ゲーム]** と **[プライバシー**] オプションの横にある **[ブロック]** を選択します。
 
-6. On the **Devices** page, under the **Manage devices** section, select **Configuration**.
+3. **[デバイスの制限**] タブで、[**スタート]** を展開します。
 
-7. On the **Devices | Configuration** blade, in the details pane, select **+ Create**, and then select **+ New policy**.
+4. 下にスクロールして、[**最もよく使用されるアプリ**]、[**最近追加したアプリ**]、[**ジャンプ リストで最近開いたアイテム**] の横にある **[ブロック**] を選択します。
 
-8. In the **Create a profile** blade, select the following options, and then select **Create**:
+5. [**デバイスの制限**] タブで、下にスクロールして **[Microsoft Defender ウイルス対策**] を展開します。
 
-   - Platform: **Windows 10 and later**
-   - Profile type: **Templates**
-   - Template name: **Device restrictions**
+6. [**Microsoft Defender ウイルス対策**] で、下にスクロールして [**Microsoft Defender ウイルス対策の除外**] を展開します。
 
-9. In the **Basics** tab, enter the following information, and then select **Next**:
+7. [**ファイルとフォルダー]** ボックスの **[Microsoft Defender ウイルス対策の除外**] で、次のように入力します。
 
-- Name: **Contoso Developer - standard**
-- Description: **Basic restrictions and configuration for Contoso Developers.**
+   **C:\DevProjects**です。
 
-10. On the **Configurations settings** tab, expand **Control Panel and Settings**. 
+8. [**プロセス]** ボックスに、次のように入力します。**DevBuild.exe**。
 
-11. Select **Block** next to the **Gaming** and **Privacy** options.
+9. [**確認 + 作成**] ブレードに到達するまで、 **[次へ**] を 3 回選択します。**[作成]** を選択します。
 
-12. On the **Device restrictions** tab, expand **Start**. 
+### タスク 3: Contoso Developer デバイス グループを作成する
 
-13. Scroll down and select **Block** next to **Most used apps**, **Recently added apps** and **Recently opened items in Jump Lists**.
 
-14. On the **Device restrictions** tab, scroll down and expand **Microsoft Defender Antivirus**. 
 
-15. Under **Microsoft Defender Antivirus,** scroll down and expand **Microsoft Defender Antivirus Exclusions**.
+1. Microsoft Intune管理センターのナビゲーション ウィンドウで、[**グループ]** を選択します。
+2. **グループ |すべてのグループ** ブレードで、 [**新しいグループ**] を選択します。
+3. [**新しいグループ**] ブレードで、次の情報を入力します。
 
-16. Under **Microsoft Defender Antivirus Exclusions** in the **Files and folders** box, type the following:
+- グループの種類: **セキュリティ**
+- グループ名: **Contoso Developer devices**
+- グループの説明: **Contoso 開発者部門のすべての Windows デバイス**
+- メンバーシップの種類: **割り当て済み**
 
-    **C:\\DevProjects**.
+1. **[メンバー]** で、[**メンバーが選択されていません**] を選択します。
+2. [**メンバーの追加**] ブレードの [**検索]** ボックスに「**Sea**」と入力します。[**SEA-WS1**] を選択し、[**選択]** を選択します。
+3. [**新しいグループ**] ブレードで、 **[作成]** を選択します。
+4. **グループ |[すべてのグループ**] ブレードで、**Contoso の開発者デバイス** グループが表示されていることを確認します。
 
-17. In the **Processes** box, type the following:
-    **DevBuild.exe**. 
-18. Select **Next** three times until you reach the **Review + create** blade. Select **Create**.
+### タスク4: 動的Entra IDデバイス・グループの作成
 
-### Task 3: Create the Contoso Developer device group
 
-1. In the Microsoft Intune admin center, in the navigation pane, select **Groups**.
 
-2. On the **Groups | All groups** blade, select **New group**.
+1. **グループ |[すべてのグループ]** ブレードの詳細ウィンドウで、 [**新しいグループ**] を選択します。
+2. [**グループ**] ブレードで、次の値を指定します。
+   - グループの種類: **セキュリティ**
+   - グループ名: **Windows デバイス**
+   - メンバーシップタイプ:**動的デバイス**
+3. [**動的デバイス メンバー]** セクションで、[**動的クエリの追加**] を選択します。
+4. [**動的メンバーシップ ルール]** ブレードの **[ルール構文]** セクションで、 **[編集]** を選択します。
+5. **[ルール構文の編集]** テキスト ボックスに、次の単純なメンバーシップ ルールを追加し、[**OK]** を選択します。
 
-3. On the **New Group** blade, enter the following information:
-
-- Group type: **Security**
-- Group name: **Contoso Developer devices**
-- Group description: **All Windows devices in Contoso Developer department**
-- Membership type: **Assigned**
-
-4. Under **Members**, select **No members selected**. 
-
-5. On the **Add members** blade, in the **Search** box type **Sea**. Select **SEA-WS1** and then choose **Select**.
-
-6. On the **New Group** blade, select **Create**. 
-
-7. On the **Groups | All groups** blade, verify that the **Contoso developer devices** group is displayed.
-
-### Task 4: Create a dynamic Entra ID device group
-
-1. On the **Groups | All Groups** blade, on the details pane, select **New group**.
-
-2. On the **Group** blade, provide the following values:
-
-   - Group type: **Security**
-   - Group name: **Windows Devices**
-   - Membership type: **Dynamic Device**
-
-3. Under the **Dynamic Device Members** section, select **Add dynamic query**. 
-
-4. On the **Dynamic membership rules** blade, in the **Rule syntax** section, select **Edit**. 
-    
-5. In the **Edit rule syntax** text box, add the following simple membership rule and select **OK**.
-
-```powershell
+```
 (device.deviceOSType -contains "Windows")
 ```
 
-6. On the **Dynamic membership rules** blade, select **Save**.
 
-7. On the **New Group** page, select **Create**.
 
-### Task 5: Assign a Configuration profile to Windows devices
+1. [**動的メンバーシップ ルール]** ブレードで、 [**保存]** を選択します。
+2. 新しい**グループ** ページで、**作成** を選択します。
 
-1. In the Microsoft Intune admin center, in the navigation pane, select **Devices**. 
+### タスク5: Windowsデバイスへの構成プロファイルの割り当て
 
-2. On the **Devices** blade, under **Manage devices** section, select **Configuration**.
 
-3. On the **Devices | Configuration** blade, in the details pane, select the **Contoso Developer – standard** profile.
 
-4. On the **Contoso Developer – standard** blade, scroll down to the **Assignments** section, and select **Edit**.
+1. Microsoft Intune管理センターのナビゲーション ウィンドウで、[**デバイス]** を選択します。
+2. [**デバイス]** ブレードの **[デバイスの管理]** セクションで、 **[構成]** を選択します。
+3. **デバイス上 |[構成**] ブレードの詳細ウィンドウで、**Contoso Developer – standard** プロファイルを選択します。
+4. **[Contoso Developer – standard**] ブレードで、[**割り当て]** セクションまで下にスクロールし、 **[編集]** を選択します。
+5. [割り当て] ページの **[含まれるグループ]** で **[グループの追加**] を選択します。
+6. [**含めるグループの選択]** ブレードの [**検索**] ボックスで、 **[Contoso Developer デバイス**] を選択し、[**選択]** を選択します。
+7. [**デバイスの制限**] ブレードに戻り、 [**確認 + 保存**] を選択し、 [**保存]** を選択します。
+8. Microsoft Intune管理センターで、階層リンク ナビゲーション メニューの **[デバイス]** を選択します。
 
-5. On the Assignments page, under **Included groups** select **Add groups**.
+### タスク6: 構成プロファイルが適用されていることを確認する
 
-6. On the **Select groups to include** blade, in the **Search** box, select **Contoso Developer devices** and then select **Select**.
 
-7. Back on the **Device restrictions** blade, select **Review + save**, then select **Save**.
 
-8. In the Microsoft Intune admin center, select **Devices** in the breadcrumb navigation menu.
+1. **SEA-WS1** に切り替えます。
+2. **SEA-WS1** のタスクバーで、[**スタート**]、[**設定]** の順に選択します。
+3. **[設定]** で **[アカウント]** を選択し、[**職場または学校へのアクセス**] を選択します。
+4. [**職場または学校へのアクセス**] セクションで、 **[Contoso の Azure AD に接続されている]** リンクを選択し、 [**情報**] を選択します。
+5. [**Contoso による管理]** ページで、下にスクロールし、 [デバイス同期の状態] で **[同期]** を選択します。同期が完了するまで待ちます。
+6. 同期が完了したら、**設定**アプリを閉じます。
+7. **SEA-WS1** で、[**スタート]** を選択し、[**設定]** を選択します。**[ゲーム]** 設定が削除されていることを確認します。
+8. **[プライバシーとセキュリティ]** を選択すると、プライバシー設定の多くが非表示になっていることがわかります。
+9. [**個人用設定]** を選択し、[**開始]** を選択します。[**最近追加したアプリを表示する**] と [**最も使用したアプリを表示する**] が **[オフ]** に設定されていることを確認します。
+10. **設定**アプリで、[**プライバシーとセキュリティ]** を選択します。
+11. [**プライバシーとセキュリティ**] ページで、[**Windows セキュリティ**] を選択し、[**Windows セキュリティを開く]** を選択します。
+12. [**Windows セキュリティ**] ページで、[**ウイルスと脅威の防止**] を選択します。
+13. [**ウイルスと脅威の防止**] ページで、[**ウイルスと脅威の防止設定**] の [**設定の管理**] を選択します。
+14. [**除外**] まで下にスクロールし、[**除外の追加または削除]** を選択します。[ユーザー アカウント制御] メッセージで [**はい**] を選択します。
+15. [**除外**] ページで、**C:\DevProjects** と **DevBuild.exe** が表示されていることを確認します。
+16. **Windows セキュリティ** ページを閉じてから、**設定**アプリを閉じます。
 
-### Task 6: Verify that the Configuration profile is applied
+**結果**: この演習を完了すると、Windows 11 デバイスの構成プロファイルが正常に作成され、割り当てられます。
 
-1. Switch to **SEA-WS1**.
+## 演習 2: 割り当てられた構成プロファイル ポリシーを変更する
 
-2. On **SEA-WS1**, on the taskbar, select **Start** and then select **Settings**.
 
-3. In **Settings**, select **Accounts** and then select **Access work or school**.
 
-4. In the **Access work or school** section, select the **Connected to Contoso's Azure AD** link and then select **Info**.
+### シナリオ
 
-5. In the **Managed by Contoso** page, scroll down and then under Device sync status, select **Sync**. Wait for the synchronization to complete. 
 
-6. Once the sync has completed, close the **Settings** app.
 
-7. On **SEA-WS1**, select **Start** and then select **Settings**. Verify that the **Gaming** setting has been removed.
+Contoso のポリシーには、開発者部門のメンバーがデバイスの [設定] で [プライバシー] オプションをブロックしてはならないと指定する例外がありました。この変更は実装され、テストされる必要があります。
 
-8. Select **Privacy & security** and notice that many of the privacy settings are now hidden. 
+### タスク 1: 割り当てられた構成プロファイルの設定を変更する
 
-9. Select the **Personalization** setting and then select **Start**. Verify that **Show recently added apps** and **Show most used apps** are set to **Off**. 
 
-10. In the **Settings** app, select **Privacy and Security**.
 
-11. On the **Privacy & Security** page, select **Windows Security** and then select **Open Windows Security**.
+1. **SEA-SVR1** に切り替えます。
+2. **SEA-SVR1** の Microsoft Intune 管理センターで **[デバイス]** を選択し、[**デバイスの管理]** セクションで **[構成]** を選択します。
+3. **デバイス上 |構成**ブレードの詳細ウィンドウで、 **[Contoso Developer - standard**] を選択します。
+4. **[Contoso Developer - standard**] ブレードで、[**構成設定**] セクションまで下にスクロールし、[**編集]** を選択します。
+5. [**デバイスの制限**] ページで、[**コントロール パネルと設定]** を展開します。
+6. [**プライバシー]** の横にある [**未構成]** を選択します。
+7. [**確認 + 保存**] を選択し、 [**保存]** を選択します。
 
-12. On the **Windows Security** page, select **Virus & threat protection**.
+### タスク 2: Intune Manager 管理センターからのデバイス同期を強制する
 
-13. On the **Virus & threat protection** page, select **Manage settings** under **Virus & threat protection settings**. 
 
-14. Scroll down to **Exclusions** and select **Add or remove exclusions**. Select **Yes** at the User Account Control message.
 
-15. On the **Exclusions** page, verify that **C:\\DevProjects** and **DevBuild.exe** are displayed.
+1. **SEA-SVR1** では、Microsoft Intune管理センターで、ナビゲーション ウィンドウで **[デバイス]** を選択し、[**すべてのデバイス**] を選択します。
 
-16. Close the **Windows Security** page and then close the **Settings** app.
+2. 詳細ペインで、[**SEA-WS1**] を選択します。
 
-**Results**: After completing this exercise, you will have successfully created and assigned a Configuration profile for a Windows 11 device.
+3. [**SEA-WS1**] ブレードで **[同期]** を選択し、プロンプトが表示されたら [**はい**] を選択します。
 
-## Exercise 2: Modify an assigned Configuration profile policy  
+   *注: Intune はデバイスに接続し、すべてのポリシーを同期するように指示します。これには最大 5 分かかる場合があります。*
 
-### Scenario
+4. Microsoft Edge を閉じます。
 
-There was an exception to Contoso's policy that specifies that members of the Developer department should not have the Privacy options blocked in Settings on their devices. This change should be implemented and tested.
+### タスク 3: SEA-WS1 の変更の確認
 
-### Task 1: Change settings in an assigned Configuration profile
 
-1. Switch to **SEA-SVR1**.
 
-2. On **SEA-SVR1**, in the Microsoft Intune admin center, select **Devices** and under the **Manage devices** section, select **Configuration**. 
+1. **SEA-WS1** に切り替えます。
+2. **SEA-WS1** とタスク バーで、[**スタート]** を選択し、[**設定**] アプリを選択します。
+3. **設定**アプリで、[**プライバシーとセキュリティ]** を選択し、すべてのカスタマイズ オプションが戻っていることを確認します。
+4. 開いているすべてのウィンドウを閉じて、**SEA-WS1** からサインアウトします。
 
-3. On the **Devices | Configuration** blade, in the details pane select **Contoso Developer -  standard**.
+**結果**: この演習を完了すると、割り当てられた構成プロファイルを変更し、構成プロファイルを変更し、変更を検証できます。
 
-4. On the **Contoso Developer - standard** blade, scroll down to the **Configuration settings** section, and then select **Edit**.
-
-5. On the **Device restrictions** page, expand **Control Panel and Settings**. 
-
-6. Next to **Privacy**, select **Not configured**. 
-
-7. Select **Review + save**, and then select **Save**.
-
-### Task 2: Force device synchronization from Intune Manager admin center
-
-1. On **SEA-SVR1**, in the Microsoft Intune admin center, select **Devices** in the navigation pane and then select **All devices**.
-    
-2. In the details pane, select **SEA-WS1**. 
-    
-3. On the **SEA-WS1** blade, select **Sync** and when prompted select **Yes**. 
-
-   _Note: Intune will contact the device and tell it to synchronize all policies. This may take up to 5 minutes._
-
-4. Close Microsoft Edge.
-
-### Task 3: Verify changes on SEA-WS1
-
-1. Switch to **SEA-WS1**.
-
-2. On **SEA-WS1** and on the taskbar, select **Start** and then select the **Settings** app.
-
-3. In the **Settings** app, select **Privacy & security** and verify that all of the customization options are back.
-
-4. Close all open windows and sign out of **SEA-WS1**.
-
-**Results**: After completing this exercise, you will have successfully modified an assigned a Configuration profile, modified a Configuration profile, and verified the changes.
-
-**END OF LAB**
+**ラボの終わり**
