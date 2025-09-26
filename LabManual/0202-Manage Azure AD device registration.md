@@ -24,7 +24,7 @@
 
 1. **SEA-SVR1** では、必要に応じて、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインし、**サーバー マネージャー**を閉じます。
 
-2. タスク バーで **[Microsoft Edge]** を選択し、アドレス バーに**[「https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
+2. タスク バーで **[Microsoft Edge]** を選択し、アドレス バーに **[「https://entra.microsoft.com](https://entra.microsoft.com/)** 」と入力して、**Enter キー**を押します。
 
 3. ユーザーとしてサインインし、テナント管理者パスワードを使用します。[**サインインしたままにする?]** プロンプトが表示されたら、[**いいえ**] を選択します。`Admin@yourtenant.onmicrosoft.com`
 

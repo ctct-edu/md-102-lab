@@ -32,7 +32,7 @@
 
 
 
-1. ブラウザーを起動し、アドレス バーに**[「https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
+1. ブラウザーを起動し、アドレス バーに **[「https://entra.microsoft.com](https://entra.microsoft.com/)** 」と入力して、**Enter キー**を押します。
 
 3. ユーザーとしてサインインし、テナント管理者パスワードを使用します。[**サインインしたままにする?]** プロンプトが表示されたら、[**いいえ**] を選択します。`Admin@yourtenant.onmicrosoft.com`
 
@@ -85,7 +85,7 @@
 9. これが**Make sure this is your organization** ダイアログ ボックスで、**Join** を選択します。
 10. [**You're all set!**] ページで、[**Done]** を選択します。
 11. [**Access work or school**] ページで、 **[Connected to Contoso's Azure AD]** が表示されていることを確認します。
-12. [**Settings **] ページを閉じます。
+12. [**Settings** ] ページを閉じます。
 
 ### タスク3: Entra結合の検証
 
@@ -139,7 +139,7 @@
 
 5. [**Choose a different method**] ダイアログ ボックスで、[**Phone**] を選択します。
 
-6. **[Phone **] ページの[Country code] で [**Japan(+81)**] を選択後 [**Enter phone number**] フィールドに、テキスト メッセージを受信できる携帯電話番号を入力します。[**Next**] を選択します。
+6. **[Phone** ] ページの[Country code] で [**Japan(+81)**] を選択後 [**Enter phone number**] フィールドに、テキスト メッセージを受信できる携帯電話番号を入力します。[**Next**] を選択します。
 
 7. 確認コードを受け取ったら、[Phone ] ページでコードを入力し、[**Next**] を選択します。
 
@@ -159,7 +159,7 @@
 6. [**Disconnect **] を選択し、[**Yes**] を選択します。
 7. [**Disconnect from the organization**] ページで、[**Disconnect**] を選択します。
 8. **[Windows Security**] ダイアログ ボックスの **[Email address]** ボックスに「**Admin**」と入力し、[**Password ]** ボックスに「**Pa55w.rd**」と入力します。[**OK]** を選択します。
-9. [**Restart your PC **] ダイアログ ボックスで、[**Restart now**] を選択します。SEA-WS1 が再起動します。
+9. [ **Restart your PC** ] ダイアログ ボックスで、[**Restart now**] を選択します。SEA-WS1 が再起動します。
 10. SEA-CL2 が再起動したら、パスワード **Pa55w.rd** を使用して **Contoso\Administrator** としてサインインします。
 
 **結果**: この演習を完了すると、Microsoft Entra デバイス設定を構成し、デバイスを Entra に参加させ、Entra からデバイスを削除します。
@@ -181,7 +181,7 @@
 3. **[Active Directory Users and Computers]** で、[**Contoso.com**] を右クリックし、[**New]** をポイントして、[**Organizational Unit]** を選択します。
 4. [**New-Object - Organizational Unit **] ダイアログ ボックスで、「**`Entra ID clients`**」と入力し、[**OK]** を選択します。
 5. ナビゲーション ウィンドウで、[**Seattle Clients**] OUを選択します。
-6. **SEA-CL2** を右クリックし、[**Move]**を選択します。
+6. **SEA-CL2** を右クリックし、[**Move]** を選択します。
 7. [**Move]** ダイアログ ボックスで、 [**Entra ID clients**] を選択し、 **[OK]** を選択します。
 8. **Active Directory Users and Computers を閉じます**。
 
@@ -209,7 +209,7 @@
 
 11. [**Enterprise Admin Credentials**] ウィンドウで、**User name**として「**Contoso\Administrator**」と入力し、**パスワード**として「**Pa55w.rd**」と入力します。[**OK**] を選択し、[**Next**] を選択します。
 
-12. **Ready to configure** ページで、**Configure ** を選択して構成を実行します。
+12. **Ready to configure** ページで、**Configure** を選択して構成を実行します。
 
 13. 構成が完了したら、[**Exit]** を選択します。
 
