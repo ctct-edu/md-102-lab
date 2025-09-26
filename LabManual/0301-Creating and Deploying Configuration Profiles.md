@@ -49,10 +49,11 @@ Entra と Intune を使用して、Contoso の開発者部門のメンバーを�
 3. [**Settings**] ナビゲーション リストで、[**Gaming]** 設定が表示されることを確認します。
 4. **Personalization** を選択し、Personalization ページで **Start** を選択します。[**Show recently added apps**] と [**Show most used apps**] の両方が **[On**] に設定されていることを確認します。(そうでない場合は両方Onに設定してください)
 5. **Settings**アプリで、[**Privacy & security]** を選択します。
+6. [**Privacy & security**] ページで、[**Security**] セクション、[**Windows permissions**] セクション、および [**App permissions**] セクションで使用可能なオプションを記録します。
 7. [**Privacy & security**] ページで、[**Windows Security**] を選択し、[**Open Windows Security]** を選択します。
 8. [**Windows Security**] ページで、[**Virus & threat protection**] を選択します。
 9. [**Virus & threat protection**] ページの [**Virus & threat protection settings**] で、[**Manage settings]** を選択します。
-10. [**Exclusions**] まで下にスクロールし、[**Add or remove exclusions]** を選択します。[User Account Control,] で、[**Yes**] を選択します。
+10. [**Exclusions**] まで下にスクロールし、[**Add or remove exclusions]** を選択します。[User Account Control] で、[**Yes**] を選択します。
 11. [**Exclusions**] ページで、除外が構成されていないことを確認します。
 12. **[Windows Security**] ウィンドウを閉じます。
 13. **[Settings**]ウィンドウを閉じます。
@@ -148,14 +149,15 @@ Entra と Intune を使用して、Contoso の開発者部門のメンバーを�
 5. [**Managed by Contoso]** ページで、下にスクロールし、 [Device Sync Status] で **[Sync]** を選択します。同期が完了するまで待ちます。
 6. 同期が完了したら、**Settings**アプリを閉じます。
 7. **SEA-WS1** で、[**Start （Windowsアイコン）]** を選択し、[**Settings]** を選択します。**[Gaming]** 設定が削除されていることを確認します。
-8. [**Personalization ]** を選択し、[**Start]** を選択します。[**Show recently added apps**] と [**Show most used apps**] が **[オフ]** Offに設定されていることを確認します。
-9. **Settings** アプリで、[**Privacy & Security]** を選択します。
-10. [**Privacy & Security**] ページで、[**Windows Security**] を選択し、[**Open Windows Security]** を選択します。
-11. [**Windows Security**] ページで、[**Virus & threat protection**] を選択します。
-12. [**Virus & threat protection**] ページで、[**Virus & threat protection settings**] の [**Manage settings**] を選択します。
-13. [**Exclusions**] まで下にスクロールし、[**Add or remove exclusions]** を選択します。[User Account Control] メッセージで [**Yes**] を選択します。
-14. [**Exclusions**] ページで、**C:\DevProjects** と **DevBuild.exe** が表示されていることを確認します。
-15. **Windows Security** ページを閉じてから、**Settings**アプリを閉じます。
+8. **[Privacy & Security]** を選択すると、プライバシー設定の多くが非表示になっていることがわかります。
+9. [**Personalization ]** を選択し、[**Start]** を選択します。[**Show recently added apps**] と [**Show most used apps**] が **[オフ]** Offに設定されていることを確認します。
+10. **Settings** アプリで、[**Privacy & Security]** を選択します。
+11. [**Privacy & Security**] ページで、[**Windows Security**] を選択し、[**Open Windows Security]** を選択します。
+12. [**Windows Security**] ページで、[**Virus & threat protection**] を選択します。
+13. [**Virus & threat protection**] ページで、[**Virus & threat protection settings**] の [**Manage settings**] を選択します。
+14. [**Exclusions**] まで下にスクロールし、[**Add or remove exclusions]** を選択します。[User Account Control] メッセージで [**Yes**] を選択します。
+15. [**Exclusions**] ページで、**C:\DevProjects** と **DevBuild.exe** が表示されていることを確認します。
+16. **Windows Security** ページを閉じてから、**Settings**アプリを閉じます。
 
 **結果**: この演習を完了すると、Windows 11 デバイスの構成プロファイルが正常に作成され、割り当てられます。
 
@@ -186,12 +188,10 @@ Contoso のポリシーには、開発者部門のメンバーがデバイスの
 
    *注: Intune はデバイスに接続し、すべてのポリシーを同期するように指示します。これには最大 5 分かかる場合があります。*
 
-4. Microsoft Edge を閉じます。
-
 ### タスク 3: SEA-WS1 の変更の確認
 
 1. **SEA-WS1** に切り替えます。
-2. **SEA-WS1** とタスク バーで、[**Start ]** を選択し、[**Settings**] アプリを選択します。
+2. **SEA-WS1** とタスク バーで、[**Start]** を選択し、[**Settings**] アプリを選択します。
 3. **Settings**アプリで、[**Privacy & security]** を選択し、すべてのカスタマイズ オプションが戻っていることを確認します。
 4. 開いているすべてのウィンドウを閉じて、**SEA-WS1** からサインアウトします。
 
