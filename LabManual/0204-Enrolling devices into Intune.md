@@ -51,7 +51,7 @@ Aaron Nicholls に適切なライセンスを割り当て、Windows デバイス
 
 1. **SEA-WS1** タスクバーで、[**Start （Windowsアイコン）]** を選択し、「**cert**」と入力して、[**Manage computer certificates]** を選択します。**[ User Account Control**] で、[**Yes**] を選択します。
 
-2. **Certificates **コンソールのナビゲーションペインで、**Personal** を展開し、**Certificates** ノードを選択します。次の証明書が詳細ウィンドウに一覧表示されていることを確認します。
+2. **Certificates**　コンソールのナビゲーションペインで、**Personal** を展開し、**Certificates** ノードを選択します。次の証明書が詳細ウィンドウに一覧表示されていることを確認します。
 
    - Microsoft Intune MDM Device CA
 
