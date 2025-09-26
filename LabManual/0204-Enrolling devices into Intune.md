@@ -30,53 +30,50 @@ Aaron Nicholls に適切なライセンスを割り当て、Windows デバイス
 
 ### タスク 1: Windows デバイスを Microsoft Intune に自動的に登録する
 
+※開始前にEntra管理センターで「**Aaron@yourtenant.onmicrosoft.com**」のパスワードをリセットしてください。
 
-
-1. **Pa55w.rd** のパスワードを使用して **SEA-WS1** に**管理者**としてサインインします。
-2. [**スタート]** を選択し、[**設定]** を選択します。
-3. **[設定]** で **[アカウント]** を選択します。
-4. [アカウント] ページで、[**職場または学校へのアクセス**] を選択します。
-5. [**職場または学校へのアクセス**] ページで、[**接続]** を選択します。
-6. [**Microsoft アカウント**] ウィンドウで、[**このデバイスを Microsoft Entra ID に参加させる]** を選択します。
-7. サインイン **ページで、「****`Aaron@yourtenant.onmicrosoft.com`**」と入力し、**次へ** を選択します。
-8. [**パスワードの入力**] ページで、「**Pa55w.rd**」と入力し、[**サインイン]** を選択します。
-9. これが**組織であることを確認する** ダイアログ ボックスで、**参加** を選択します。
-10. [**準備完了です!]** ページで、情報を読み、[**完了]** を選択します。
-11. [**職場または学校へのアクセス**] セクションで、 **[Contoso の Azure AD に接続済み]** が表示されていることを確認します。
-12. [**Contoso の Azure AD に接続]** を選択し、 [**情報**] を選択します。
-13. Contoso が管理する領域に関する情報をメモし、下にスクロールして **[同期]** を選択します。これにより、デバイスが Intune と強制的に同期されます。
-14. **[設定**]ウィンドウを閉じます。
+1. **SEA-WS1** に切り替え、**Pa55w.rd** のパスワードで**管理者**としてサインインします。
+2. タスク バーで、[**Start （Windowsアイコン）]** を選択し、[**Settings]** を選択します。
+3. [**Settings**] ウィンドウで、[**Accounts]** を選択します。
+4. [Accounts] ページで、[**Access work or school**] を選択します。
+5. [**Access work or school**] ページで、[**Connect]** を選択します。
+6. [**Microsoft account] ウィンドウで、**[**Join this device to Entra ID]** を選択します。
+7. [**Sign in**] ページで、「**Aaron@yourtenant.onmicrosoft.com**」と入力し、[**次へ**] を選択します。
+8. [**Enter password**] ページでパスワードを入力し、[**Sign in]** を選択します。
+9. これが**Make sure this is your organization** ダイアログ ボックスで、**Join** を選択します。
+10. [**You're all set!**] ページで、[**Done]** を選択します。
+11. [**Access work or school**] ページで、 **[Connected to Contoso's Azure AD]** が表示されていることを確認します。
+12. [**Connected to Contoso's Azure AD]** を選択し、 [**Info**] を選択します。
+13. Contoso が管理する領域に関する情報をメモし、下にスクロールして **[Sync]** を選択します。これにより、デバイスが Intune と強制的に同期されます。
+14. **[Settings **]ウィンドウを閉じます。
 
 ### タスク 2: Entra ID と Intune へのデバイス登録を検証する
 
+1. **SEA-WS1** タスクバーで、[**Start （Windowsアイコン）]** を選択し、「**cert**」と入力して、[**Manage computer certificates]** を選択します。**[ User Account Control**] で、[**Yes**] を選択します。
 
+2. **Certificates **コンソールのナビゲーションペインで、**Personal** を展開し、**Certificates** ノードを選択します。次の証明書が詳細ウィンドウに一覧表示されていることを確認します。
 
-1. **SEA-WS1** タスクバーで、[**スタート]** を選択し、「**cert**」と入力して、[**コンピューター証明書の管理]** を選択します。**[ユーザー アカウント制御**] で、[**はい**] を選択します。
-2. **証明書**コンソールのナビゲーションペインで、[**個人用**] を展開し、[**証明書]** ノードを選択します。次の証明書が詳細ウィンドウに一覧表示されていることを確認します。
+   - Microsoft Intune MDM Device CA
 
-- Microsoft Intune MDM デバイス CA
+   - MS-Organization-Access
 
-- MS 組織アクセス
+   - MS-Organization-P2P-Access [2025]
 
-- MS-組織-P2P-アクセス [2025]
+     これは、デバイスが Entra と Intune に登録されていることを示します。
 
-  これは、デバイスが Entra と Intune に登録されていることを示します。
+3. [Certificates] ウィンドウを閉じます。
 
-1. [証明書] ウィンドウを閉じます。
+4. SEA-WS1 で、[**スタート（Windowsアイコン）]** を右クリックし、[**Windows Terminal (Admin)]** を選択します。[User Account Control] で、[**Yes**] を選択します。
 
-2. **[スタート]** を右クリックし、[**Windows ターミナル (管理者)]** を選択します。プロンプトが表示されたら、[**はい**] を選択します。
-
-3. PowerShell コンソールで、次のように入力し、**Enter** キーを押します。
+5. PowerShell コンソールで、次のように入力し、**Enter** キーを押します。
 
    ```
    dsregcmd /status
    ```
 
-   
+6. **[Device State]** の下の出力で、 **[AzureAdJoined: YES]** が表示されていることを確認します。これは、デバイスが Azure AD に参加していることを示します。
 
-4. In the output under **Device State**, verify that **AzureAdJoined : YES** is displayed. This indicates that the device is Azure AD joined.
-
-5. In the output under **Tenant Details**, verify that the following three entries exist:
+7. [**Temnant Details]** の出力で、次の 3 つのエントリが存在することを確認します。
 
    ```
    mdmUrl : https://enrollment.manage.microsoft.com/enrollmentserver/discovery.svc
@@ -84,16 +81,14 @@ Aaron Nicholls に適切なライセンスを割り当て、Windows デバイス
    mdmComplianceUrl : https://portal.manage.microsoft.com/?portalAction=Compliance
    ```
 
-   
+   > 注: これらのエントリは、デバイスが Intune に登録されていることを示します
 
-   > Note: These entries indicate that the device is enrolled in Intune.
+
 
 ### Task 3: Sign in as an Entra user
 
-
-
-1. Sign out of **SEA-WS1**.
-2. Select **Other user**, and sign in as **`Aaron@yourtenant.onmicrosoft.com`** with the password **Pa55w.rd**. Wait for the profile to be created.
+1. **SEA-WS1**からサインアウトします。
+2.  **Other user** を選択し、パスワード **Pa55w.rd** を使用して **`Aaron@yourtenant.onmicrosoft.com`** としてサインインします。プロファイルが作成されるまで待ちます。
 3. At the **Use Windows Hello with your account** page, select **OK**.
 4. On the **Let's keep your account secure** page, select **Next**.
 5. On the **Keep your account secure** page, select **I want to set up a different method**.
