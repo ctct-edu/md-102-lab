@@ -160,6 +160,7 @@
 7. [**Disconnect from the organization**] ページで、[**Disconnect**] を選択します。
 8. **[Windows Security**] ダイアログ ボックスの **[Email address]** ボックスに「**Admin**」と入力し、[**Password ]** ボックスに「**Pa55w.rd**」と入力します。[**OK]** を選択します。
 9. [**Restart your PC **] ダイアログ ボックスで、[**Restart now**] を選択します。SEA-WS1 が再起動します。
+10. SEA-CL2 が再起動したら、パスワード **Pa55w.rd** を使用して **Contoso\Administrator** としてサインインします。
 
 **結果**: この演習を完了すると、Microsoft Entra デバイス設定を構成し、デバイスを Entra に参加させ、Entra からデバイスを削除します。
 
@@ -175,50 +176,46 @@
 
 ### タスク 1: 環境の準備
 
-
-
 1. **SEA-SVR1** に切り替えます。
-2. **[スタート]** を選択し、[**Windows 管理ツール]** を展開して、[**Active Directory ユーザーとコンピューター]** を選択します。
-3. **[Active Directory ユーザーとコンピューター]** で、[**Contoso.com**] を右クリックし、[**新規]** をポイントして、[**組織単位]** を選択します。
-4. [**新規オブジェクト - 組織単位**] ダイアログ ボックスで、「**`Entra ID クライアント`**」と入力し、[**OK]** を選択します。
-5. ナビゲーション ウィンドウで、[**シアトル クライアント**] を選択します。
-6. **SEA-CL2** を右クリックし、[**移動]**を選択します。
-7. [**移動]** ダイアログ ボックスで、 [**Entra ID クライアント**] を選択し、 **[OK]** を選択します。
-8. **Active Directory ユーザーとコンピューターを閉じます**。
+2. **[Start （Windowsアイコン）]** を選択し、[**Windows Administrative Tools]** を展開して、[**Active Directory Users and Computers]** を選択します。
+3. **[Active Directory Users and Computers]** で、[**Contoso.com**] を右クリックし、[**New]** をポイントして、[**Organizational Unit]** を選択します。
+4. [**New-Object - Organizational Unit **] ダイアログ ボックスで、「**`Entra ID clients`**」と入力し、[**OK]** を選択します。
+5. ナビゲーション ウィンドウで、[**Seattle Clients**] OUを選択します。
+6. **SEA-CL2** を右クリックし、[**Move]**を選択します。
+7. [**Move]** ダイアログ ボックスで、 [**Entra ID clients**] を選択し、 **[OK]** を選択します。
+8. **Active Directory Users and Computers を閉じます**。
 
 ### タスク 2: Entra Connect 同期での Entra ハイブリッド参加の構成
 
-
-
 1. **SEA-SVR1** の**デスクトップ**で、[**Azure AD Connect]** をダブルクリックします。
 
-2. [**Microsoft Entra Connect の同期]** ウィンドウで、 [**構成**] を選択します。
+2. [**Microsoft Entra Connect Sync]** ウィンドウで、 [**Configure**] を選択します。
 
-3. **[ 追加タスク** ] ページで、[ **デバイス オプションの構成** ] を選択し、[ **次へ**] を選択します。
+3. **[ Additional tasks** ] ページで、[ **Configure device options** ] を選択し、[**Next**] を選択します。
 
-4. **[概要**] ページで、[**次へ**] を選択します。
+4. **[Overview **] ページで、[**Next**] を選択します。
 
-5. [**Microsoft Entra ID への接続**] ページで、 [**次へ**] を選択します。
+5. [**Connect to Microsoft Entra ID**] ページで、 [**Next**] を選択します。
 
-6. [**アカウントにサインイン]** ウィンドウで、テナント管理者アカウントを選択し、テナント パスワードを入力して **[サインイン]** を選択します。
+6. [**Sign in to your account ]** ウィンドウで、テナント管理者アカウントを選択し、テナント パスワードを入力して **[Sign in]** を選択します。
 
-7. [**デバイス オプション**] ページで、 **[ハイブリッド Microsoft Entra ID 参加の構成]** を選択し、 [**次へ**] を選択します。
+7. [**Device options**] ページで、 **[Configure Hybrid Microsoft Entra ID join]** を選択し、 [**Next**] を選択します。
 
-8. [**デバイス オペレーティング システム**] ページで、[**Windows 10 以降のドメインに参加しているデバイス**] を選択し、[**次へ**] を選択します。
+8. [**Device operating systems**] ページで、[**Windows 10 or later domain-joined devices**] を選択し、[**Next**] を選択します。
 
-9. **[SCP 設定**] ページで、[**Contoso.com**] の横にあるチェックボックスをオンにします。
+9. **[SCP configuration**] ページで、[**Contoso.com**] の横にあるチェックボックスをオンにします。
 
-10. [**認証サービス]** ドロップダウンから **[Microsoft Entra ID]** を選択し、 **[追加]** を選択します。
+10. [**Authentication Service]** ドロップダウンから **[Microsoft Entra ID]** を選択し、 **[Add]** を選択します。
 
-11. [**エンタープライズ管理者の資格情報**] ウィンドウで、**ユーザー名**として「**Contoso\Administrator**」と入力し、**パスワード**として「**Pa55w.rd**」と入力します。[**OK**] を選択し、[**次へ**] を選択します。
+11. [**Enterprise Admin Credentials**] ウィンドウで、**User name**として「**Contoso\Administrator**」と入力し、**パスワード**として「**Pa55w.rd**」と入力します。[**OK**] を選択し、[**Next**] を選択します。
 
-12. 構成**の準備完了** ページで、**構成** を選択して構成を実行します。
+12. **Ready to configure** ページで、**Configure ** を選択して構成を実行します。
 
-13. 構成が完了したら、[**終了]** を選択します。
+13. 構成が完了したら、[**Exit]** を選択します。
 
 14. **SEA-CL2**に切り替えます。
 
-15. サインイン ページで、[**電源**] ボタンを選択し、[**再起動**] を選択します。
+15. サインイン ページで、画面右下[**電源**] ボタンを選択し、[**Restart**] を選択します。
 
     > **手記****SEA-CL2** を再起動すると、Entra Connect Sync を再構成して作成された SCP をより迅速に検出できるようになります。
 
@@ -226,45 +223,41 @@
 
 ### タスク3: 新しいOUを同期するようにEntra Connect Syncを再構成する
 
-
-
 1. **SEA-SVR1** の**デスクトップ**で、[**Azure AD Connect]** をダブルクリックします。
 
-2. [**Microsoft Entra Connect の同期]** ウィンドウで、 [**構成**] を選択します。
+2. [**Microsoft Entra Connect Sync]** ウィンドウで、 [**Configure**] を選択します。
 
-3. [**追加のタスク]** ページで、[**同期オプションのカスタマイズ]** を選択し、[**次へ**] を選択します。
+3. **[ Additional tasks** ] ページで、[ **Customize synchronization options** ] を選択し、[**Next**] を選択します。
 
-4. [**Microsoft Entra ID への接続**] ページで、 [**次へ**] を選択します。
+4. [**Connect to Microsoft Entra ID**] ページで、 [**Next**] を選択します。
 
-5. [**アカウントにサインイン]** ウィンドウの 1 つで、テナント管理者アカウントを選択し、テナント パスワードを入力して **[サインイン]** を選択します。
+5. [**Sign in to your account ]** ウィンドウで、テナント管理者アカウントを選択し、テナント パスワードを入力して **[Sign in]** を選択します。
 
-6. [**ディレクトリの接続**] ページで、[**次へ**] を選択します。
+6. [**Connect your directories**] ページで、[**Next**] を選択します。
 
-7. [**ドメインと OU のフィルター処理]** ページで、[**選択したドメインと OU の同期]** が選択されていることを確認し、[**Contoso.com**] を展開します。
+7. [**ドDomain and OU filtering]** ページで、[**Sync selected domains and OUs]** が選択されていることを確認し、[**Contoso.com**] を展開します。
 
-8. [**Entra ID クライアント]** の横にあるチェック ボックスをオンにします。**他に変更を加えず**、[**次へ**] を選択します。
+8. [**Entra ID clients]** の横にあるチェック ボックスをオンにします。**他に変更を加えず**、[**Next**] を選択します。
 
-9. [**オプションの機能]** ページで、変更を加えず、[**次へ**] を選択します。
+9. [**Optional features]** ページで、変更を加えず、[**Next**] を選択します。
 
-10. [**構成準備完了]** ウィンドウで、[**構成]** を選択して構成を実行し、同期を開始します。
+10. [**Ready to configure]** ウィンドウで、[**Configure ]** を選択して構成を実行し、同期を開始します。
 
-11. 構成が完了したら、[**終了]** を選択します。
+11. 構成が完了したら、[**Exit]** を選択します。
 
     > **注**: Entra Connect Sync は、同期する OU を変更すると自動的に同期されるようになりました。**同期サービス**を使用して、同期ステータスを監視できます。
 
 ### タスク4: Entraハイブリッド参加の確認
 
-
-
 1. **SEA-CL2**に切り替えます。
 
-2. **[スタート]** を右クリックし、[**シャットダウンまたはサインアウト**] を選択して、[**再起動**] を選択します。
+2. **[Start （Windowsアイコン）]** を右クリックし、[**Shut down or sign out**] を選択して、[**Restart**] を選択します。
 
    *注: 再起動すると、SEA-CL2 で Entra ハイブリッド参加がトリガーされます。*
 
 3. **SEA-CL2** が再起動したら、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインします。
 
-4. タスクバーで、[**スタート]**を右クリックし、[**Windowsターミナル(管理者)**]を選択します。
+4. [**スタート（Windowsアイコン）]** を右クリックし、[**Windows Terminal (Admin)]** を選択します。
 
 5. **Windows PowerShell** ウィンドウで、次のコマンドを入力し、**Enter キー**を押します。
 
@@ -274,7 +267,7 @@
 
    
 
-6. [**デバイスの状態]** の下の出力で、 **[AzureAdJoined : YES]** と **[DomainJoined : YES]** が表示されていることを確認します。
+6. [**Device State]** の下の出力で、 **[AzureAdJoined : YES]** と **[DomainJoined : YES]** が表示されていることを確認します。
 
    > **注**:デバイスがまだEntra IDに参加していない場合は、**SEA-SRV1**に切り替えて、次のコマンドを実行します。完了したら、SEA-CL2 に戻し、コンピュータをもう一度再起動します。
 
@@ -286,13 +279,13 @@
 
 7. SEA-CL2 のすべてのウィンドウを閉じて、サインアウトします。
 
-8. **SEA-SVR1** に切り替えて、Microsoft Entra 管理センターに切り替えます。
+8. ブラウザーのMicrosoft Entra 管理センターに切り替えます。
 
 9. [**デバイス]** > [**すべてのデバイス**] を選択します。
 
-10. **SEA-CL2** に、行 **[結合の種類**] の値として **Microsoft Entra ハイブリッド結合**があることを確認します。必要に応じて、SEA-CL2 がリストされていない場合は [**更新]** ボタンを選択します。
+10. **SEA-CL2** に、行 **[参加の種類**] の値として **Microsoft Entra hybrid joined**があることを確認します。必要に応じて、SEA-CL2 がリストされていない場合は [**更新]** ボタンを選択します。
 
-11. **SEA-SVR1** のすべてのウィンドウを閉じます。
+    
 
 **結果**: この演習を完了すると、Entra ハイブリッド結合が正常に構成され、検証されます。
 
