@@ -34,18 +34,18 @@ Aaron Nicholls に適切なライセンスを割り当て、Windows デバイス
 
 1. **SEA-WS1** に切り替え、**Pa55w.rd** のパスワードで**管理者**としてサインインします。
 2. タスク バーで、[**Start （Windowsアイコン）]** を選択し、[**Settings]** を選択します。
-3. [**Settings**] ウィンドウで、[**Accounts]** を選択します。
+3. [Settings] ウィンドウで、[**Accounts]** を選択します。
 4. [Accounts] ページで、[**Access work or school**] を選択します。
-5. [**Access work or school**] ページで、[**Connect]** を選択します。
-6. [**Microsoft account] ウィンドウで、**[**Join this device to Entra ID]** を選択します。
-7. [**Sign in**] ページで、「**Aaron@yourtenant.onmicrosoft.com**」と入力し、[**次へ**] を選択します。
-8. [**Enter password**] ページでパスワードを入力し、[**Sign in]** を選択します。
-9. これが**Make sure this is your organization** ダイアログ ボックスで、**Join** を選択します。
-10. [**You're all set!**] ページで、[**Done]** を選択します。
-11. [**Access work or school**] ページで、 **[Connected to Contoso's Azure AD]** が表示されていることを確認します。
+5. [Access work or school] ページで、[**Connect]** を選択します。
+6. [Microsoft account] ウィンドウで、[**Join this device to Entra ID]** を選択します。
+7. [Sign in] ページで、「**Aaron@yourtenant.onmicrosoft.com**」と入力し、[**次へ**] を選択します。
+8. [Enter password] ページでパスワードを入力し、[**Sign in]** を選択します。
+9. **Make sure this is your organization** ダイアログ ボックスで、**Join** を選択します。
+10. [You're all set!] ページで、[**Done]** を選択します。
+11. [Access work or school] ページで、 **[Connected to Contoso's Azure AD]** が表示されていることを確認します。
 12. [**Connected to Contoso's Azure AD]** を選択し、 [**Info**] を選択します。
 13. Contoso が管理する領域に関する情報をメモし、下にスクロールして **[Sync]** を選択します。これにより、デバイスが Intune と強制的に同期されます。
-14. **[Settings **]ウィンドウを閉じます。
+14. [Settings]ウィンドウを閉じます。
 
 ### タスク 2: Entra ID と Intune へのデバイス登録を検証する
 
