@@ -50,10 +50,10 @@ Entra と Intune を使用して、Contoso の開発者部門のメンバーを�
 4. **Personalization** を選択し、Personalization ページで **Start** を選択します。[**Show recently added apps**] と [**Show most used apps**] の両方が **[On**] に設定されていることを確認します。(そうでない場合は両方Onに設定してください)
 5. **Settings**アプリで、[**Privacy & security]** を選択します。
 7. [**Privacy & security**] ページで、[**Windows Security**] を選択し、[**Open Windows Security]** を選択します。
-8. [**Windows Security **] ページで、[**Virus & threat protection**] を選択します。
+8. [**Windows Security**] ページで、[**Virus & threat protection**] を選択します。
 9. [**Virus & threat protection**] ページの [**Virus & threat protection settings**] で、[**Manage settings]** を選択します。
-10. [**Exclusions **] まで下にスクロールし、[**Add or remove exclusions]** を選択します。[User Account Control,] で、[**Yes**] を選択します。
-11. [**Exclusions **] ページで、除外が構成されていないことを確認します。
+10. [**Exclusions**] まで下にスクロールし、[**Add or remove exclusions]** を選択します。[User Account Control,] で、[**Yes**] を選択します。
+11. [**Exclusions**] ページで、除外が構成されていないことを確認します。
 12. **[Windows Security**] ウィンドウを閉じます。
 13. **[Settings**]ウィンドウを閉じます。
 
@@ -146,7 +146,7 @@ Entra と Intune を使用して、Contoso の開発者部門のメンバーを�
 3. **[Settings]** で **[Accounts**] を選択し、[**Access work or school**] を選択します。
 4. [**Access work or school**] セクションで、 **[Connected to Contoso's Azure AD]** リンクを選択し、 [**Info**] を選択します。
 5. [**Managed by Contoso]** ページで、下にスクロールし、 [Device Sync Status] で **[Sync]** を選択します。同期が完了するまで待ちます。
-6. 同期が完了したら、**Settings **アプリを閉じます。
+6. 同期が完了したら、**Settings**アプリを閉じます。
 7. **SEA-WS1** で、[**Start （Windowsアイコン）]** を選択し、[**Settings]** を選択します。**[Gaming]** 設定が削除されていることを確認します。
 8. [**Personalization ]** を選択し、[**Start]** を選択します。[**Show recently added apps**] と [**Show most used apps**] が **[オフ]** Offに設定されていることを確認します。
 9. **Settings** アプリで、[**Privacy & Security]** を選択します。
@@ -191,7 +191,7 @@ Contoso のポリシーには、開発者部門のメンバーがデバイスの
 ### タスク 3: SEA-WS1 の変更の確認
 
 1. **SEA-WS1** に切り替えます。
-2. **SEA-WS1** とタスク バーで、[**Start ]** を選択し、[**Settings **] アプリを選択します。
+2. **SEA-WS1** とタスク バーで、[**Start ]** を選択し、[**Settings**] アプリを選択します。
 3. **Settings **アプリで、[**Privacy & security]** を選択し、すべてのカスタマイズ オプションが戻っていることを確認します。
 4. 開いているすべてのウィンドウを閉じて、**SEA-WS1** からサインアウトします。
 
