@@ -88,45 +88,50 @@ Aaron Nicholls に適切なライセンスを割り当て、Windows デバイス
 ### Task 3: Sign in as an Entra user
 
 1. **SEA-WS1**からサインアウトします。
-2.  **Other user** を選択し、パスワード **Pa55w.rd** を使用して **`Aaron@yourtenant.onmicrosoft.com`** としてサインインします。プロファイルが作成されるまで待ちます。
-3. At the **Use Windows Hello with your account** page, select **OK**.
-4. On the **Let's keep your account secure** page, select **Next**.
-5. On the **Keep your account secure** page, select **I want to set up a different method**.
-6. In the **Choose a different method** dialog box, select **Phone** and then select **Confirm**.
-7. On the **Phone** page, in the **Enter phone number** field, enter your mobile phone number which is able to receive text messages. Select **Next**.
-8. When you receive the verification code, enter the code on the Phone page and then select **Next**.
-9. On the verification page, select **Next** and then select **Done**.
-10. On the **Set up a PIN** page, in the **New PIN** and **Confirm PIN** boxes, type **102938** and then select **OK**.
-11. On the **All set!** page, select **OK**.
-12. Sign out of **SEA-WS1**.
+2. **Other user** を選択し、パスワード **Pa55w.rd** を使用して **`Aaron@yourtenant.onmicrosoft.com`** としてサインインします。プロファイルが作成されるまで待ちます。
+3. [**Use Windows Hello with your account]** ページで、[**OK]** を選択します。
+4. [**Let's keep your account secure]** ページで、[**Next**] を選択します。
+
+5. [**Keep your account secure]** ページで、[**I want to set up a different method]** を選択します。
+
+6. [**Choose a different method**] ダイアログ ボックスで、[**Phone**] を選択します。
+
+7. **[Phone** ] ページの[Country code] で [**Japan(+81)**] を選択後 [**Enter phone number**] フィールドに、テキスト メッセージを受信できる携帯電話番号を入力します。[**Next**] を選択します。
+
+8. 確認コードを受け取ったら、[Phone ] ページでコードを入力し、[**Next**] を選択します。
+
+9. [**Next**] を選択し、 **[Done]** を選択します。
+
+10. [**Set up a PIN**] ページの [**New PIN**] ボックスと [**Confirm PIN**] ボックスに「**`102938`**」と入力し、[**OK]** を選択します。
+
+11. **[All set!]** ページで、[**OK]** を選択します。
+
+12. **SEA-WS1** からサインアウトします。
+
 
 ### タスク 4: Intune コンソールでのデバイス登録の確認
 
+1. ブラウザー で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。テナント管理者アカウントでサインインします。
 
+2. ナビゲーション ウィンドウで、 **[デバイス]** を選択します。
 
-1. パスワード **Pa55w.rd** を使用して、**Contoso\Administrator** として **SEA-SVR1** に切り替えます。
+3. **デバイス上 |[概要**] ブレードの「プラットフォームごとにデバイスを管理する」で**Windows** の欄に **1このデバイス** と表示されていることを確認します。表示に時間がかかる場合があります。
 
-2. Microsoft Edge で、アドレス バーに「**[https://intune.microsoft.com](https://intune.microsoft.com/)**」と入力し、**Enter キー**を押します。テナント管理者アカウントでサインインします。
+4.  [**すべてのデバイス**] を選択し、**SEA-WS1** が一覧表示されていることを確認します。
 
-3. ナビゲーション ウィンドウで、 **[デバイス]** を選択します。
-
-4. **デバイス上 |** **[プラットフォーム別のデバイスの管理]** の概要ブレードで、**Windows** の横に **1** が表示されていることを確認します。表示に時間がかかる場合があります。
-
-5. **デバイス上 |[概要**] ブレードで [**すべてのデバイス**] を選択し、**SEA-WS1** が一覧表示されていることを確認します。
-
-6. SEA-WS1 の場合、[**管理元]** 列には **Intune** と表示され、[**所有権]** 列には **[企業]** と表示されます。
+5. SEA-WS1 の場合、[**管理者]** 列には **Intune** と表示され、[**所有権]** 列には **[企業]** と表示されます。
 
    *注: このビューには、Intune に登録されているデバイスが一覧表示されます。Entra と Intune の間で自動登録を構成したため、Entra に参加または登録されているすべてのデバイスが自動的に Intune に登録されることに注意してください。登録を設定する前に参加したデバイスは、Entra に参加または登録されるだけで、Intune には登録されません。*
 
-7. **Microsoft Edge** で新しいタブを開き、アドレス バーに**[「https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
+6. **Microsoft Edge** で新しいタブを開き、アドレス バーに**[「https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
 
-8. Microsoft Entra 管理センターで、 **[Entra ID]** を展開します。
+7. Microsoft Entra 管理センターで、 **[Entra ID]** を展開します。
 
-9. **[デバイス]** を選択し、[**すべてのデバイス**] を選択します。
+8. **[デバイス]** を選択し、[**すべてのデバイス**] を選択します。
 
    > SEA-WS1に注意してください。[結合の種類] 列には **[Microsoft Entra 参加済み**] と表示され、[MDM] 列には **Microsoft Intune** が表示されます。
 
-10. 開いているすべてのWindowsを閉じます。
+9. 開いているすべてのWindowsを閉じます。
 
 **結果**: この演習を完了すると、Windows クライアントを Entra ID に正常に参加させ、デバイスが Microsoft Intune に自動的に登録されたことを確認できます。
 
