@@ -80,7 +80,7 @@
 4. [Accounts] ページで、[**Access work or school**] を選択します。
 5. [**Access work or school**] ページで、[**Connect]** を選択します。
 6. [**Microsoft account] ウィンドウで、**[**Join this device to Entra ID]** を選択します。
-7. [**Sign in**]** ページで、「**[JoniS@yourtenant.onmicrosoft.com](mailto:JoniS@yourtenant.onmicrosoft.com)**」と入力し、[**次へ**] を選択します。
+7. [**Sign in**] ページで、「**[JoniS@yourtenant.onmicrosoft.com](mailto:JoniS@yourtenant.onmicrosoft.com)**」と入力し、[**次へ**] を選択します。
 8. [**Enter password**] ページで、インストラクターから提供されたテナント パスワード(User password)を入力し、[**Sign in]** を選択します。
 9. これが**Make sure this is your organization** ダイアログ ボックスで、**Join** を選択します。
 10. [**You're all set!**] ページで、[**Done]** を選択します。
