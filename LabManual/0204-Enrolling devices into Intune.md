@@ -85,7 +85,7 @@ Aaron Nicholls に適切なライセンスを割り当て、Windows デバイス
 
 
 
-### Task 3: Sign in as an Entra user
+### Task 3:  Entra ユーザーとしてサインインする
 
 1. **SEA-WS1**からサインアウトします。
 2. **Other user** を選択し、パスワード **Pa55w.rd** を使用して **`Aaron@yourtenant.onmicrosoft.com`** としてサインインします。プロファイルが作成されるまで待ちます。
