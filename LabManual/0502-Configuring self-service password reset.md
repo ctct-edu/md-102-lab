@@ -39,7 +39,7 @@
 
 ### タスク 2: セルフサービス パスワード リセットを有効にする
 
-1. ブラウザーのアドレス バーに**[「https://entra.microsoft.com/](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
+1. ブラウザーのアドレス バーに[「https://entra.microsoft.com/](https://entra.microsoft.com/)**」と入力して、**Enter キーを押します。
 
 2. **`Admin@yourtenant.onmicrosoft.com`** としてサインインし、テナント管理者パスワードを使用します。**[サインインしたままにする?]** プロンプトが表示されたら、[**いいえ**] を選択します。
 
