@@ -82,8 +82,6 @@ Entra ID への Windows Hello サインイン認証をセキュリティで保�
 
 ### タスク3: MFAの登録と検証
 
-
-
 1. **SEA-WS3** に切り替えます。
 
 2. タスク バーで、[**Microsoft Edge]** を選択します。
@@ -98,7 +96,7 @@ Entra ID への Windows Hello サインイン認証をセキュリティで保�
 
    > 通常、Microsoft Authenticator アプリを使用して多要素認証を管理します。ただし、このラボ シナリオでは、テキスト メッセージを使用します。
 
-7. [**Keep your account secure]** ページで、[**I want to set up a different method]** を選択します。[**Phone **] を選択して、使用可能な選択肢のリストを表示します。
+7. [**Keep your account secure]** ページで、[**I want to set up a different method]** を選択します。[ **Phone** ] を選択して、使用可能な選択肢のリストを表示します。
 
 8. Country Code に **Japan(+81)** を選択し、テキスト メッセージを受信できる携帯電話番号を入力し、[**Next**] を選択します。
 
@@ -119,8 +117,6 @@ Entra ID への Windows Hello サインイン認証をセキュリティで保�
 15. Microsoft Edge を閉じます。
 
 ### タスク4: ユーザーごとのMFAの削除
-
-
 
 1. Microsoft Entra 管理センターの画面に切り替えます。
 
