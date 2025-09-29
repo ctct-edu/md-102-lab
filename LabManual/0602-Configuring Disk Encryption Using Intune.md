@@ -61,7 +61,7 @@ SEA-WS1 のすべての情報を暗号化する必要があることが決定さ
 
 1. **SEA-WS1** で、PIN **102938**を使用して **Aaron Nicholls** としてサインインします。
 
-2. タスク バーで [**Start ]** を選択し、**Settings **アプリを選択します。
+2. タスク バーで [**Start ]** を選択し、**Settings**アプリを選択します。
 
 3. **Settings**アプリで、 **[Accounts ]** を選択し、 [**Access work or school**] を選択します。
 
@@ -71,7 +71,7 @@ SEA-WS1 のすべての情報を暗号化する必要があることが決定さ
 
    *注: 通知が表示されるまでに時間がかかる場合があります。Windows フォーカス アシストによって通知が表示されない場合もあります。通知は手動で確認できます。*
 
-6. [**Are you ready to start encryption?**] ダイアログで、[** I don't have any other disk encryption software installed, encrypt all my disks]** の横にあるチェック ボックスをオンにし、[**Yes**] を選択します。
+6. [**Are you ready to start encryption?**] ダイアログで、[ **I don't have any other disk encryption software installed, encrypt all my disks]** の横にあるチェック ボックスをオンにし、[**Yes**] を選択します。
 
 7. [**Choose how to unlock your drive at startup?]** ページで、[**Enter a PIN(Recommended)**] を選択します
 
