@@ -28,7 +28,7 @@ Entra ID への Windows Hello サインイン認証をセキュリティで保�
 
 
 
-1. パスワード **Pa55w.rd** を使用して **SEA-WS3** に **Admin ** としてサインインします。
+1. パスワード **Pa55w.rd** を使用して **SEA-WS3** に **Admin** としてサインインします。
 
 2. タスク バーで、[**Microsoft Edge]** を選択します。
 
