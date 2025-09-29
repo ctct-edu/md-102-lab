@@ -87,7 +87,7 @@
 
    > **注**: アレックスではなくアーロンとしてサインインしてください。
 
-7. [**Enter password**] ページで、「**Pa55w.rd**」と入力し、[**Sign in]** を選択します。Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Save]** を選択します。
+7. [**Enter password**] ページで、「**Pa55w.rd1234**」と入力し、[**Sign in]** を選択します。Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Save]** を選択します。多要素認証を求められた場合は実施してください。
 
 8. **[Protect your account]** ダイアログが表示された場合は、[**Skip for now (x times left)] **を選択します。
 
@@ -95,23 +95,20 @@
 
 10. [**Change Password**] ページで、次の情報を入力し、[**submit**] を選択します。
 
-    - Old password:**Pa55w.rd**
-    - Create new password: **Pa55w.rd1234!**
+    - New password: **Pa55w.rd1234!**
     - Confirm new password**:Pa55w.rd1234!**
-
-11. Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Save]** を選択します。
+    
+11. Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Not Now]** を選択します。
 
 12. Microsoft Edge を閉じて、SEA-WS3 からサインアウトします。
 
 ### タスク4: AD Syncの実行
 
-
-
 *この手順は通常、パスワードの書き戻しには必要ありませんが、ラボ環境に固有の問題に対処し、AD DS が Entra ID と同期されていることを確認するために推奨されることに注意してください。*
 
 1. **SEA-SVR1** に切り替えます。
 
-2. [**スタート]** を右クリックし、[**Windows PowerShell (管理者)]** を選択します。
+2. [**Start]** を右クリックし、[**Windows PowerShell (Admin)]** を選択します。
 
 3. **Windows PowerShell** コマンド プロンプトで、次のコマンドを入力し、Enter **キー**を押します。
 
