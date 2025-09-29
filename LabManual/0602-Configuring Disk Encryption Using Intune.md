@@ -92,7 +92,7 @@ SEA-WS1 のすべての情報を暗号化する必要があることが決定さ
 ### タスク 3: BitLocker 保護を確認する
 
 1. PIN **102938**を使用して **Aaron Nicholls** として **SEA-WS1** にサインインします。
-2. タスク バーで、[**File Explorer]** を選択し、[**この PC**] を選択します。
+2. 102938タスク バーで、[**File Explorer]** を選択し、[**This PC**] を選択します。
 3. ナビゲーション ウィンドウで、[**Local Disk (C:)]** を右クリックし、[**Show more options**] を選択して、[**Manage BitLocker]** を選択します。
 4. [**BitLocker Drive Encryption]** ウィンドウで、[**C: BitLocker on ]** 状態が表示されていることを確認します。これは、ドライブが暗号化されていることを意味します。
 5. 開いているすべてのウィンドウを閉じて、**SEA-WS1** からサインアウトします。
