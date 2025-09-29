@@ -29,15 +29,15 @@
 
 1. パスワード **Pa55w.rd** を使用して **Contoso\Administrator** として **SEA-SVR1** にサインインし、**サーバー マネージャー**を閉じます。
 2. デスクトップで、 **[Azure AD Connect]** をダブルクリックします。
-3. [**Microsoft Entra Connect の同期へようこそ]** ページで、 [**構成**] を選択します。
-4. **[追加のタスク]** ページで、[**同期オプションのカスタマイズ]** を選択し、[**次へ**] を選択します。
-5. [**Microsoft Entra ID への接続**] ページで、必要に応じて **[ユーザー名**] テキスト ボックスに**`「admin@yourtenant.onmicrosoft.com`**」と入力し、 [**次へ**] を選択します。
-6. [**アカウントにサインイン]** ダイアログで、管理者アカウントを選択し、管理者テナント パスワードを入力して、 **[サインイン]** を選択します。
-7. [**ディレクトリに接続する**] ページで、[**次へ**] を選択します。
-8. [**ドメインと OU のフィルター処理]** ページで、[**次へ**] を選択します。
-9. [**オプション機能]** ページで、 **[パスワードの書き戻し]** を選択し、 [**次へ**] を選択します。
-10. 構成**の準備完了** ページで、**構成** を選択します。
-11. **[構成の完了**] ページで、[**終了]** を選択します。
+3. [**Welcome to Microsoft Entra Connect Sync]** ページで、 [**Configure**] を選択します。
+4. **[Additional tasks]** ページで、[**Customize synchronization options]** を選択し、[**次へ**] を選択します。
+5. [**Connect to Microsoft Entra ID**] ページで、必要に応じて **[USERNAME **] テキスト ボックスに**`「admin@yourtenant.onmicrosoft.com`**」と入力し、 [**Sign in**] を選択します。
+6. [**Sign in to your account]** ダイアログで、管理者アカウントを選択し、管理者テナント パスワードを入力して、 **[サインイン]** を選択します。
+7. [**Connect to your directories**] ページで、[**Next**] を選択します。
+8. [**Domain and OU filtering]** ページで、[**Next**] を選択します。
+9. [**Optional features]** ページで、 **[Password writeback]** を選択し、 [**Next**] を選択します。
+10. **Ready to configure** ページで、**Configure** を選択します。
+11. **[Configuration complete**] ページで、[**Exit]** を選択します。
 
 ### タスク 2: セルフサービス パスワード リセットを有効にする
 
