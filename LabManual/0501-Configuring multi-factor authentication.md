@@ -28,7 +28,7 @@ Entra ID への Windows Hello サインイン認証をセキュリティで保�
 
 
 
-1. パスワード **Pa55w.rd** を使用して **SEA-WS3** に**Admin **としてサインインします。
+1. パスワード **Pa55w.rd** を使用して **SEA-WS3** に **Admin ** としてサインインします。
 
 2. タスク バーで、[**Microsoft Edge]** を選択します。
 
@@ -50,7 +50,7 @@ Entra ID への Windows Hello サインイン認証をセキュリティで保�
 
 
 
-1. お手元のPCのブラウザーに切り替えます。アドレス バーに**[「https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力して、**Enter キー**を押します。
+1. お手元のPCのブラウザーに切り替えます。アドレス バーに[「https://entra.microsoft.com](https://entra.microsoft.com/)」と入力して、**Enter キー**を押します。
 
 2. ユーザー **`Admin@yourtenant.onmicrosoft.com`** としてサインインします。
 
@@ -112,7 +112,7 @@ Entra ID への Windows Hello サインイン認証をセキュリティで保�
 
     > Outlook on the Web が開き、Alex Wilber の受信トレイが表示されます。
 
-13. **[Protect your account]** ダイアログが表示された場合は、[**Skip for now (x times left)] ** を選択します。
+13. **[Protect your account]** ダイアログが表示された場合は、[ **Skip for now (x times left)]** を選択します。
 
 14. Outlook on the Web 画面右上隅で、**Alex Wilber の写真のアイコン**をクリックし、**Sign out** を選択します。
 
