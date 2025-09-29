@@ -83,20 +83,20 @@
 
 5. **[Pick an account]** ページで、[**Use another account**] を選択します。
 
-6. サインイン ページで、「****`Aaron@yourtenant.onmicrosoft.com`」と入力し、**Sign in** を選択します。
+6. サインイン ページで、「`Aaron@yourtenant.onmicrosoft.com`」と入力し、**Sign in** を選択します。
 
-   > **注**: アレックスではなくアーロンとしてサインインしてください。
+   > **注**: AlexではなくAaronとしてサインインしてください。
 
-7. [**Enter password**] ページで、「**Pa55w.rd1234**」と入力し、[**Sign in]** を選択します。Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Save]** を選択します。多要素認証を求められた場合は実施してください。
+7. [**Enter password**] ページで、「 **Pa55w.rd1234** 」と入力し、[**Sign in]** を選択します。Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Save]** を選択します。多要素認証を求められた場合は実施してください。
 
-8. **[Protect your account]** ダイアログが表示された場合は、[**Skip for now (x times left)] **を選択します。
+8. **[Protect your account]** ダイアログが表示された場合は、[ **Skip for now (x times left)** ] を選択します。
 
 9. [**My Account**] ページのナビゲーション ウィンドウで、[**Change Password**] を選択します。
 
 10. [**Change Password**] ページで、次の情報を入力し、[**submit**] を選択します。
 
     - New password: **Pa55w.rd1234!**
-    - Confirm new password**:Pa55w.rd1234!**
+    - Confirm new password: **Pa55w.rd1234!**
     
 11. Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Not Now]** を選択します。
 
