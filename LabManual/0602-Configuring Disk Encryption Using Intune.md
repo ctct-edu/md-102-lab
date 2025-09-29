@@ -77,9 +77,9 @@ SEA-WS1 のすべての情報を暗号化する必要があることが決定さ
 
 8. [**Enter a PIN**] ページの [**PIN**] ボックスと [**Reenter PIN**] ボックスに「**123456**」と入力し、[**Set PIN**] を選択します。
 
-9. [**How do you want to back up your recovery key?**] ページで、[**Encrypt used disk space only**] を選択し、[**Next**] を選択します。
+9. [**How do you want to back up your recovery key?**] ページで、[**Print the recovery key**] を選択してPDF印刷し、任意のな名前でDocumentフォルダーに保存した後、[**Next**] を選択します。
 
-10. [**Choose how much of your drive to encrypt**] ページで、[**Encrypt used disk space only**] を選択し、[**Next**] を選択します。
+10. [**Choose how much of your drive to encrypt**] ページで、[**Encrypt used disk space only**] を選択し、Desktopに保存した後、[**Next**] を選択します。
 
 11. [**Choose which encryption mode to use**] ページで、[**New encryption mode (best for fixed drives on this device)]** が選択されていることを確認し、[**Next**] を選択します。
 
