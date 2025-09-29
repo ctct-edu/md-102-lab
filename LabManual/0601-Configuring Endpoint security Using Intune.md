@@ -96,7 +96,7 @@ Contoso 開発者グループに Microsoft Defender が正しく構成されて�
 
 2. 必要に応じて、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインします。
 
-3. **SEA-CL1** で、[**Start]** を選択し、「**Windows Security**」と入力して、[Windows セキュリティ] アイコンの下で [**Open**] を選択します。
+3. **SEA-CL1** で、[**Start]** を選択し、「**Windows Security**」と入力して、[Windows Security] アイコンの下で [**Open**] を選択します。
 
    > すべてのセキュリティオプションが表示されます。これは、SEA-CL1 が Intune に登録されていないためです。
 
@@ -104,7 +104,7 @@ Contoso 開発者グループに Microsoft Defender が正しく構成されて�
 
 5. **SEA-WS1** に切り替え、PIN **102938** を使用して **Aaron Nicholls** としてサインインします。
 
-6. [**Start]** を選択し、「**Windows Security**」と入力して、[Windows セキュリティ] アイコンの下で [**Open**] を選択します。
+6. [**Start]** を選択し、「**Windows Security**」と入力して、[Windows Security] アイコンを選択します。
 
    > Intune ポリシーで構成されているすべての制限領域が表示されないことに注意してください。SEA-WS1 は、セキュリティ設定が適用された Intune に登録されています。
 
