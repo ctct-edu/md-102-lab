@@ -1,4 +1,4 @@
-# ラボ: Autopilot リセットと自己展開モードで Windows を更新する
+# (オプション)ラボ: Autopilot リセットと自己展開モードで Windows を更新する
 
 
 
