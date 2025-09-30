@@ -37,7 +37,7 @@ Contoso IT は、Autopilot を使用して新しい Windows 11 デバイスの�
 
 7. [**新しいグループ**] ブレードの [**グループの種類**] ボックスの一覧で、 **[セキュリティ]** を選択します。
 
-8. [**グループ名**] ボックスに「**IT Devices」**と入力します。
+8. [**グループ名**] ボックスに「 **IT Devices** 」と入力します。
 
 9. **[グループの説明**] ボックスに「**IT Department Devices**」と入力します。
 
@@ -158,13 +158,13 @@ Contoso IT は、Autopilot を使用して新しい Windows 11 デバイスの�
 
 ### タスク 4: PC をリセットする
 
-1. **SEA-WS3** で、[**Start]** を選択し、「**reset **」と入力して **[Reset this PC]** を選択します。
+1. **SEA-WS3** で、[**Start]** を選択し、「 **reset** 」と入力して **[Reset this PC]** を選択します。
 
 2. [**System > Recovery**] ページで、[**Reset PC]** を選択します。
 
 3. **[Remove everything]** を選択し、[**Local reinstall]** を選択します。
 
-4. [**Next **] を選択し、[**Reset]** を選択します。
+4. [ **Next** ] を選択し、[**Reset]** を選択します。
 
    > 注: 通常、このタスクは、物理デバイスの新しい展開には必要ありません。デバイスの自動操縦情報は、製造元によって提供されるか、OOBE の前にデバイスから取得できます。このラボでは、新しいデバイス OOBE をシミュレートするためにリセットを開始する必要があります。
 
@@ -176,7 +176,7 @@ Contoso IT は、Autopilot を使用して新しい Windows 11 デバイスの�
 
 1. [**Let's set things up for your work or school**] ページで、「**`Aaron@yourtenant.onmicrosoft.com`**」と入力し、[**次へ**] を選択します。
 
-2. [パスワード] ページで、「**Pa55w.rd1234!」**と入力し、[**サインイン]** を選択します。
+2. [パスワード] ページで、「 **Pa55w.rd1234!** 」と入力し、[**サインイン]** を選択します。
 
 3. [**Use Windows Hello with your account**] で、[**OK]** を選択します。
 
