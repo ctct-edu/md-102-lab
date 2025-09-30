@@ -75,27 +75,29 @@ SEA-WS4 は、Windows Autopilot を使用して展開されています。Autopi
 
 ### タスク3: Autopilotデプロイメントの検証
 
-1. サインインページで、**パスワード Pa55w.rd1234!** で **`Aaron@yourtenant.onmicrosoft.com`** を入力します。
+1. [**Let's set things up for your work or school**] ページで、「**`Aaron@yourtenant.onmicrosoft.com`**」と入力し、[**次へ**] を選択します。
 
-2. [**Use Windows Hello with your account**] で、[**OK]** を選択します。
+2. [パスワード] ページで、「 **Pa55w.rd1234!** 」と入力し、[**Sign in]** を選択します。
 
-3. [Verify your identity] ページで、[ **Text +XX XXXXXXXX** ] を選択します。
+3. [**Use Windows Hello with your account**] で、[**OK]** を選択します。
 
-4. **[Enter code**] ページで、モバイル デバイスにテキストで送信されたコードを入力し、[**確認]** を選択します。
+4. [Verify your identity] ページで、[ **Text +XX XXXXXXXX** ] を選択します。
 
-5. **Setup up a PIN** ダイアログ ボックスの **New PIN** フィールドと **Confirm PIN** フィールドに「**102938**」と入力し、**OK** を選択します。
+5. **[Enter code**] ページで、モバイル デバイスにテキストで送信されたコードを入力し、[**確認]** を選択します。
 
-6. **[All set!]** ページで、[**OK]** を選択します。
+6. **Setup up a PIN** ダイアログ ボックスの **New PIN** フィールドと **Confirm PIN** フィールドに「**102938**」と入力し、**OK** を選択します。
 
-7. [**Start]** を選択し、[**Settings]** を選択します。
+7. **[All set!]** ページで、[**OK]** を選択します。
 
-8. **[Accounts]** を選択し、 [**Access work or school**] を選択します。デバイスが Contoso の Azure AD に接続されていることを確認します。
+8. [**Start]** を選択し、[**Settings]** を選択します。
 
-9. **[Connected to Contoso's Azure AD]** を選択し、 [**Info**] を選択します。
+9. **[Accounts]** を選択し、 [**Access work or school**] を選択します。デバイスが Contoso の Azure AD に接続されていることを確認します。
 
-10. [**Managed by Contoso]** ページで、下にスクロールして **[Sync]** を選択します。
+10. **[Connected to Contoso's Azure AD]** を選択し、 [**Info**] を選択します。
 
-11. **SEA-WS3** では、[**Settings**] ウィンドウを閉じます。
+11. [**Managed by Contoso]** ページで、下にスクロールして **[Sync]** を選択します。
+
+12. **SEA-WS3** では、[**Settings**] ウィンドウを閉じます。
 
     **結果**: この演習を完了すると、自己展開モードを使用して Autopilot リセットを使用して Windows デバイスをプロビジョニングします。
 
