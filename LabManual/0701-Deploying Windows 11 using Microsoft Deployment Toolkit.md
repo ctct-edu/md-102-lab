@@ -1,4 +1,4 @@
-# ラボ 0701: Microsoft Deployment Toolkit を使用した Windows 11 の展開
+# (オプション) ラボ 0701: Microsoft Deployment Toolkit を使用した Windows 11 の展開
 
 
 
