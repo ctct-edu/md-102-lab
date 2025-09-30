@@ -29,7 +29,7 @@ SEA-WS4 は、Windows Autopilot を使用して展開されています。Autopi
 
 
 
-1. ブラウザーで**[https://intune.microsoft.com](https://intune.microsoft.com/)** に移動します。メッセージが表示されたら、**`Admin@yourtenant.onmicrosoft.com`** でサインインします。
+1. ブラウザーで **[https://intune.microsoft.com](https://intune.microsoft.com/)** に移動します。メッセージが表示されたら、**`Admin@yourtenant.onmicrosoft.com`** でサインインします。
 2. **Microsoft Intune管理センター**で、[**デバイス]** を選択します。
 3. [ **デバイスのオンボードディング** ] セクションで、[**登録]** を選択します。
 4. [Windows 登録] タブで、詳細ウィンドウの **[Windows Autopilot**] まで下にスクロールし、[**デバイスプロファイル]** を選択します。
