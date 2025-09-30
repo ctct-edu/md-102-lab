@@ -29,8 +29,7 @@ SEA-WS4 は、Windows Autopilot を使用して展開されています。Autopi
 
 
 
-1. **SEA-SVR1** に切り替えます。
-2. **Microsoft Edge** で、新しいタブを開き、**[https://intune.microsoft.com](https://intune.microsoft.com/)** に移動します。メッセージが表示されたら、**`Admin@yourtenant.onmicrosoft.com`** でサインインします。
+1. ブラウザーで**[https://intune.microsoft.com](https://intune.microsoft.com/)** に移動します。メッセージが表示されたら、**`Admin@yourtenant.onmicrosoft.com`** でサインインします。
 3. **Microsoft Intune管理センター**で、[**デバイス]** を選択します。
 4. [**デバイスのオンボード**] セクションで、[**登録]** を選択します。
 5. [Windows 登録] タブで、詳細ウィンドウの **[Windows Autopilot**] まで下にスクロールし、[**展開プロファイル]** を選択します。
@@ -57,8 +56,6 @@ SEA-WS4 は、Windows Autopilot を使用して展開されています。Autopi
 
 ### タスク 2: オートパイロット リセットを実行する
 
-
-
 1. **Microsoft Intune管理センター**で、[**デバイス]** を選択し、[**すべてのデバイス**] を選択します。
 
 2. Autopilot PC (DESKTOP という名前で始まる) を選択します。
@@ -77,29 +74,27 @@ SEA-WS4 は、Windows Autopilot を使用して展開されています。Autopi
 
 ### タスク3: Autopilotデプロイメントの検証
 
-
-
 1. サインインページで、**パスワード Pa55w.rd1234!** で **`Aaron@yourtenant.onmicrosoft.com`** を入力します。
 
-2. [**アカウントで Windows Hello を使用する**] で、[**OK]** を選択します。
+2. [**Use Windows Hello with your account**] で、[**OK]** を選択します。
 
-3. [**本人確認**] ページで、[テキスト検証方法] を選択します。
+3. [Verify your identity] ページで、[ **Text +XX XXXXXXXX** ] を選択します。
 
-4. **[コードの入力**] ページで、モバイル デバイスにテキストで送信されたコードを入力し、[**確認]** を選択します。
+4. **[Enter code**] ページで、モバイル デバイスにテキストで送信されたコードを入力し、[**確認]** を選択します。
 
-5. **PIN のセットアップ** ダイアログ ボックスの **新しい PIN** フィールドと **PIN の確認** フィールドに「**102938**」と入力し、**OK** を選択します。
+5. **Setup up a PIN** ダイアログ ボックスの **New PIN** フィールドと **Confirm PIN** フィールドに「**102938**」と入力し、**OK** を選択します。
 
-6. **[すべての設定]** ページで、[**OK]** を選択します。
+6. **[All set!]** ページで、[**OK]** を選択します。
 
-7. [**スタート]** を選択し、[**設定]** を選択します。
+7. [**Start]** を選択し、[**Settings]** を選択します。
 
-8. **[アカウント]** を選択し、 [**職場または学校へのアクセス**] を選択します。デバイスが Contoso の Azure AD に接続されていることを確認します。
+8. **[Accounts]** を選択し、 [**Access work or school**] を選択します。デバイスが Contoso の Azure AD に接続されていることを確認します。
 
-9. **[Contoso の Azure AD に接続]** を選択し、 [**情報**] を選択します。
+9. **[Connected to Contoso's Azure AD]** を選択し、 [**Info**] を選択します。
 
-10. [**Contoso による管理]** ページで、下にスクロールして **[同期]** を選択します。
+10. [**Managed by Contoso]** ページで、下にスクロールして **[Sync]** を選択します。
 
-11. **SEA-WS3** では、[**設定**] ウィンドウを閉じます。
+11. **SEA-WS3** では、[**Settings**] ウィンドウを閉じます。
 
     **結果**: この演習を完了すると、自己展開モードを使用して Autopilot リセットを使用して Windows デバイスをプロビジョニングします。
 
