@@ -55,11 +55,11 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 
 1. Deployment Workbench で、[**Deployment Shares**]、[**MDT Deployment Share**] の順に展開し、[**Operating Systems]** を選択します。
 
-2. **[Operating Systems]**を右クリックし、[**Import Operating System]**を選択します。オペレーティングシステムのインポートウィザードが開きます。
+2. **[Operating Systems]** を右クリックし、[**Import Operating System]** を選択します。オペレーティングシステムのインポートウィザードが開きます。
 
 3. **Import Operating System Wizard**の [**OS Type**] ページで、[**Full set of source files**] を選択し、[**Next**] を選択します。
 
-4. [**Source **] ページの **[Source Directory**] に「**F:\ ** 」と入力し、[**Next**] を選択します。
+4. [**Source**] ページの **[Source Directory] に「 F:\  」と入力**し、[**Next**] を選択します。
 
 5. [**Destination ]** ページで、既定の宛先ディレクトリ名を **Windows 11 Enterprise x64** に変更し、[**Next**] を選択します。
 
@@ -108,7 +108,7 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
    - Organization: **Contoso Corporation**
    - Internet Explorer Home Page: **about:blank**
 
-8. [**Admin Password**] ページで、[**Use the specified local Administrator password**] を選択し、両方のテキスト ボックスに**「Pa55w.rd**」と入力します。[**Next**] を選択します。
+8. [**Admin Password**] ページで、[**Use the specified local Administrator password**] を選択し、両方のテキスト ボックスに「 **Pa55w.rd** 」と入力します。[**Next**] を選択します。
 
 9. [**Summary ]** ページで、情報を確認し、[**Next**] を選択します。
 
@@ -130,7 +130,7 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 
 ### タスク 5: 展開共有のプロパティと Windows PE 設定の構成
 
-1. デプロイメント・ワークベンチで、「**Deployment Shares」**を展開し、「**MDT Deployment Share**」を選択します。
+1. デプロイメント・ワークベンチで、「**Deployment Shares** 」を展開し、「**MDT Deployment Share**」を選択します。
 
 2. [**MDT Deployment Share**] を右クリックし、[**Properties]** を選択します。
 
@@ -179,13 +179,13 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 
 3. [**New virtual network switch**] を選択し、詳細ウィンドウで **[External]** を選択します。[**Create Virtual Switch]** を選択します。
 
-4. [**Virtual Switch Properties** ] ページの [**Name**] に「**External network」**と入力し、[**OK]** を選択して、[**Yes**] を選択します。
+4. [**Virtual Switch Properties** ] ページの [**Name**] に「 **External network** 」と入力し、[**OK]** を選択して、[**Yes**] を選択します。
 
 5. Hyper-V マネージャーで **[SEA-SVR2**] を選択し、[アクション] ウィンドウで [**New**] を選択し、[**Virtual Machine]** を選択します。
 
 6. [**Before you Begin**] ページで、[**Next**] を選択します。
 
-7. [**Specify Name and Location**] ページの [**Name**] ボックスに「**SEA-WS4」**と入力します。
+7. [**Specify Name and Location**] ページの [**Name**] ボックスに「 **SEA-WS4** 」と入力します。
 
 8. [**Store the virtual machine in a different location]** の横にあるチェック ボックスをオンにし、[**Location]** の横に「**E:\Labfiles\VirtualMachines**」と入力します。[**Next**] を選択します。
 
@@ -265,7 +265,7 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 
 39. 詳細ウィンドウの **[Media**] で [**None**] を選択し、[**OK]** を選択します。
 
-40. **[SEA-WS4**]を右クリックし、[**Checkpoint]**を選択して、SEA-WS4の現在の状態のチェックポイントを作成します。
+40. **[SEA-WS4**]を右クリックし、[ **Checkpoint** ]を選択して、SEA-WS4の現在の状態のチェックポイントを作成します。
 
 41. SEA-SVR2 では、**Hyper-V Manager** を閉じ、**Deployment Workbench** を閉じます。
 
