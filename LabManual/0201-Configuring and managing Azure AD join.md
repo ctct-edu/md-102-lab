@@ -135,15 +135,17 @@
 
 3. [**Let's keep your account secure]** ページで、[**Next**] を選択します。
 
-4. [**Keep your account secure]** ページで、[**I want to set up a different method]** を選択します。
+4. [**Install Microsoft Authenticator]** ページで、[**Set up a different way to sign in]** リンクを選択します。
 
-5. [**Choose a different method**] ダイアログ ボックスで、[**Phone**] を選択します。
+   ![](./Media/2-1-1.jpg)
+
+5. [**Add a sign-in method**] ダイアログ ボックスで、[**Phone**] を選択します。
 
 6. **[Phone** ] ページの[Country code] で [**Japan(+81)**] を選択後 [**Enter phone number**] フィールドに、テキスト メッセージを受信できる携帯電話番号を入力します。[**Next**] を選択します。
 
 7. 確認コードを受け取ったら、[Phone ] ページでコードを入力し、[**Next**] を選択します。
 
-8.  [**Next**] を選択し、 **[Done]** を選択します。
+8. **[Phone number added]** ダイアログ ボックスで、**[Done]** を選択します。
 
 9. [**Set up a PIN**] ページの [**New PIN**] ボックスと [**Confirm PIN**] ボックスに「**`102938`**」と入力し、[**OK]** を選択します。
 
@@ -152,17 +154,24 @@
 ### タスク 5: Entra から Windows デバイスを削除する
 
 1. タスク バーで、[**Start （Windowsアイコン）]** を選択し、[**Settings]** を選択します。
+
 2. [**Settings**] ウィンドウで、[**Accounts]** を選択します。
+
 3. [Accounts] ページで、[**Access work or school**] を選択します。
-4. [**Access work or school**] ページで、[**Connect]** を選択します。
-5. [**職場または学校へのアクセス**] ページで、 **[Connected to Contoso's Azure AD]** をクリックします。
-6. [**Disconnect **] を選択し、[**Yes**] を選択します。
-7. [**Disconnect from the organization**] ページで、[**Disconnect**] を選択します。
-8. **[Windows Security**] ダイアログ ボックスの **[Email address]** ボックスに「**Admin**」と入力し、[**Password ]** ボックスに「**Pa55w.rd**」と入力します。[**OK]** を選択します。
-9. [ **Restart your PC** ] ダイアログ ボックスで、[**Restart now**] を選択します。SEA-WS1 が再起動します。
-10. SEA-CL2 が再起動したら、パスワード **Pa55w.rd** を使用して **Contoso\Administrator** としてサインインします。
+
+4. [**Access work or school**] ページで、 **[Connected to Contoso's Azure AD]** をクリックします。すると [**Disconnect**] ボタンが表示されるため、それを選択した後、[**Yes**] を選択します。
+
+   ![](./Media/2-1-2.jpg)
+
+5. [**Disconnect from the organization**] ダイアログ ボックスで、[**Disconnect**] を選択します。
+
+6. **[Windows Security**] ダイアログ ボックスの **[Email address]** ボックスに「**Admin**」と入力し、[**Password ]** ボックスに「**Pa55w.rd**」と入力します。[**OK]** を選択します。
+
+7. [ **Restart your PC** ] ダイアログ ボックスで、[**Restart now**] を選択します。SEA-WS1 が再起動します。
 
 **結果**: この演習を完了すると、Microsoft Entra デバイス設定を構成し、デバイスを Entra に参加させ、Entra からデバイスを削除します。
+
+
 
 ## 演習 2: Entra ハイブリッド joinの構成
 
