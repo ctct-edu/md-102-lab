@@ -44,7 +44,7 @@ Contoso Corporation は現在、AD DS と Entra ID の両方でユーザーを�
 
 11. 必要な**Install required components** ページで、**Install** を選択します。
 
-12. **[User sign-in] ** ページで、[**Password Hash Synchronization]** が選択されていることを確認し、[**Next**] を選択します。
+12. **[User sign-in]** ページで、[**Password Hash Synchronization]** が選択されていることを確認し、[**Next**] を選択します。
 
 13. [**Microsoft Entra ID への接続**] ページの **[USERNAME**] ボックスに「**[admin@yourtenant.onmicrosoft.com](mailto:admin@yourtenant.onmicrosoft.com)**」と入力し、 [**Next**] を選択します。
 
