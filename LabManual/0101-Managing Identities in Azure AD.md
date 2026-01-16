@@ -175,7 +175,7 @@
    
 5. [ **Installation completed successfully** ] ウィンドウで、[**Launch PowerShell**] をオンにして、[**Finish**] を選択します。
 
-   > **手記：** PowerShell を起動せずにインストーラーが閉じた場合は、**Windows 検索**バーをクリックし、「**pwsh**」と入力して **[PowerShell 7**] を右クリックして、[**管理者として実行]** を選択します。
+   > **手記：** PowerShell を起動せずにインストーラーが閉じた場合は、**Windows 検索**バーをクリックし、「**pwsh**」と入力して **[PowerShell 7**] を右クリックして、[**Run as administrator]** を選択します。
 
 6. **PowerShell 7** ウィンドウで、次のコマンドを入力し、**Enter キー**を押します。メッセージが表示されたら、NuGet とリポジトリ メッセージに **Y** と入力します。
 
@@ -197,7 +197,7 @@
 
 9. 表示される **[Permissions Requested]** プロンプトで、[**Consent on behalf of your organization**] をオンにし、[**Accept]** を選択します。
 
-10. [**Authentication complete*]** タブを閉じて、**Microsoft Edge** を最小化します
+10. [**Authentication complete]** タブを閉じて、**Microsoft Edge** を最小化します
 
 11.  **PowerShell 7** ウィンドウに戻り、次のコードを入力して新しいプロファイル オブジェクトを作成し、**Enter キー**を押します。
 
@@ -208,9 +208,7 @@
     }
     ```
 
-    
-
-12. 次に、次のコードを入力して新しいユーザーを作成し、**Enter キー**を押します。"yourtenant" が割り当てられたテナント名と一致していることを確認します。
+12. 次に、次のコードを入力して新しいユーザーを作成し、**Enter キー**を押します。**"yourtenant" が割り当てられたテナント名と一致するよう修正してからコードを実行してください。**
 
     ```
     New-MgUser `
