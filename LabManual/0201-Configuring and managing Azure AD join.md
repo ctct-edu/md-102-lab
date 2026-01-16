@@ -202,7 +202,7 @@
 
 3. **[ Additional tasks** ] ページで、[ **Configure device options** ] を選択し、[**Next**] を選択します。
 
-4. **[Overview **] ページで、[**Next**] を選択します。
+4. **[Overview]** ページで、[**Next**] を選択します。
 
 5. [**Connect to Microsoft Entra ID**] ページで、 [**Next**] を選択します。
 
@@ -226,7 +226,7 @@
 
 15. サインイン ページで、画面右下[**電源**] ボタンを選択し、[**Restart**] を選択します。
 
-    > **手記****SEA-CL2** を再起動すると、Entra Connect Sync を再構成して作成された SCP をより迅速に検出できるようになります。
+    > **手記** SEA-CL2を再起動すると、Entra Connect Sync を再構成して作成された SCP をより迅速に検出できるようになります。
 
 16. **SEA-CL2** が再起動したら、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインします。
 
@@ -244,7 +244,7 @@
 
 6. [**Connect your directories**] ページで、[**Next**] を選択します。
 
-7. [**ドDomain and OU filtering]** ページで、[**Sync selected domains and OUs]** が選択されていることを確認し、[**Contoso.com**] を展開します。
+7. [**Domain and OU filtering]** ページで、[**Sync selected domains and OUs]** が選択されていることを確認し、[**Contoso.com**] を展開します。
 
 8. [**Entra ID clients]** の横にあるチェック ボックスをオンにします。**他に変更を加えず**、[**Next**] を選択します。
 
