@@ -133,15 +133,15 @@
 
 2. [**Use Windows Hello with your account]** ページで、[**OK]** を選択します。
 
-3. [**Let's keep your account secure]** ページで、[**Next**] を選択します。
+3. [**Let's keep your account secure]** ダイアログ ボックスで、[**Next**] を選択します。
 
-4. [**Install Microsoft Authenticator]** ページで、[**Set up a different way to sign in]** リンクを選択します。
+4. [**Install Microsoft Authenticator]** ダイアログ ボックスで、[**Set up a different way to sign in]** リンクを選択します。
 
    ![](./Media/2-1-1.jpg)
 
 5. [**Add a sign-in method**] ダイアログ ボックスで、[**Phone**] を選択します。
 
-6. **[Phone** ] ページの[Country code] で [**Japan(+81)**] を選択後 [**Enter phone number**] フィールドに、テキスト メッセージを受信できる携帯電話番号を入力します。[**Next**] を選択します。
+6. **[Add your phone number]** ダイアログ ボックスの[Country code] で [**Japan(+81)**] を選択後 [**Enter phone number**] フィールドに、テキスト メッセージを受信できる携帯電話番号を入力します。[**Next**] を選択します。
 
 7. 確認コードを受け取ったら、[Phone ] ページでコードを入力し、[**Next**] を選択します。
 

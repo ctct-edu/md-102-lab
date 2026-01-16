@@ -32,14 +32,14 @@ Aaron Nicholls に適切なライセンスを割り当て、Windows デバイス
 
 ※開始前にEntra管理センターで「**Aaron@yourtenant.onmicrosoft.com**」のパスワードをリセットしてください。
 
-1. **SEA-WS1** に切り替え、**Pa55w.rd** のパスワードで**管理者**としてサインインします。
+1. **SEA-WS1** に切り替え、**Pa55w.rd** のパスワードで**Admin**としてサインインします。
 2. タスク バーで、[**Start （Windowsアイコン）]** を選択し、[**Settings]** を選択します。
 3. [Settings] ウィンドウで、[**Accounts]** を選択します。
 4. [Accounts] ページで、[**Access work or school**] を選択します。
 5. [Access work or school] ページで、[**Connect]** を選択します。
 6. [Microsoft account] ウィンドウで、[**Join this device to Entra ID]** を選択します。
 7. [Sign in] ページで、「**Aaron@yourtenant.onmicrosoft.com**」と入力し、[**次へ**] を選択します。
-8. [Enter password] ページでパスワードを入力し、[**Sign in]** を選択します。
+8. [Enter password] ページでパスワード( **Pa55w.rd** となります。Windows Server ADから同期されたパスワードです )を入力し、[**Sign in]** を選択します。
 9. **Make sure this is your organization** ダイアログ ボックスで、**Join** を選択します。
 10. [You're all set!] ページで、[**Done]** を選択します。
 11. [Access work or school] ページで、 **[Connected to Contoso's Azure AD]** が表示されていることを確認します。
@@ -88,19 +88,24 @@ Aaron Nicholls に適切なライセンスを割り当て、Windows デバイス
 ### Task 3:  Entra ユーザーとしてサインインする
 
 1. **SEA-WS1**からサインアウトします。
+
 2. **Other user** を選択し、パスワード **Pa55w.rd** を使用して **`Aaron@yourtenant.onmicrosoft.com`** としてサインインします。プロファイルが作成されるまで待ちます。
-3. [**Use Windows Hello with your account]** ページで、[**OK]** を選択します。
-4. [**Let's keep your account secure]** ページで、[**Next**] を選択します。
 
-5. [**Keep your account secure]** ページで、[**I want to set up a different method]** を選択します。
+3. [**Use Windows Hello with your account]** ダイアログ ボックスで、[**OK]** を選択します。
 
-6. [**Choose a different method**] ダイアログ ボックスで、[**Phone**] を選択します。
+4. [**Let's keep your account secure]** ダイアログ ボックスで、[**Next**] を選択します。
 
-7. **[Phone** ] ページの[Country code] で [**Japan(+81)**] を選択後 [**Enter phone number**] フィールドに、テキスト メッセージを受信できる携帯電話番号を入力します。[**Next**] を選択します。
+5. [**Install Microsoft Authenticator]** ダイアログ ボックスで、[**Set up a different way to sign in]** リンクを選択します。
 
-8. 確認コードを受け取ったら、[Phone ] ページでコードを入力し、[**Next**] を選択します。
+   ![](C:/Users/z2115023/Documents/GitHub/md-102-lab/LabManual/Media/2-1-1.jpg)
 
-9. [**Next**] を選択し、 **[Done]** を選択します。
+6. [**Add a sign-in method**] ダイアログ ボックスで、[**Phone**] を選択します。
+
+7. **[Add your phone number]** ダイアログ ボックスの[Country code] で [**Japan(+81)**] を選択後 [**Enter phone number**] フィールドに、テキスト メッセージを受信できる携帯電話番号を入力します。[**Next**] を選択します。
+
+8. 確認コードを受け取ったら、[Phone] ダイアログ ボックスでコードを入力し、[**Next**] を選択します。
+
+9. **[Phone number added]** ダイアログ ボックスで、**[Done]** を選択します。
 
 10. [**Set up a PIN**] ページの [**New PIN**] ボックスと [**Confirm PIN**] ボックスに「**`102938`**」と入力し、[**OK]** を選択します。
 
