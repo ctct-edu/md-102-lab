@@ -49,7 +49,7 @@ Entra と Intune を使用して、Contoso の開発者部門のメンバーを�
 3. [**Settings**] ナビゲーション リストで、[**Gaming]** 設定が表示されることを確認します。
 4. **Personalization** を選択し、Personalization ページで **Start** を選択します。[**Show recently added apps**] と [**Show most used apps**] の両方が **[On**] に設定されていることを確認します。(そうでない場合は両方Onに設定してください)
 5. **Settings**アプリで、[**Privacy & security]** を選択します。
-6. [**Privacy & security**] ページで、[**Security**] セクション、[**Windows permissions**] セクション、および [**App permissions**] セクションで使用可能なオプションを記録します。
+6. [**Privacy & security**] ページで、[**Security**] セクション、[**Windows permissions**] セクション、および [**App permissions**] セクションで使用可能なオプションを確認します。
 7. [**Privacy & security**] ページで、[**Windows Security**] を選択し、[**Open Windows Security]** を選択します。
 8. [**Windows Security**] ページで、[**Virus & threat protection**] を選択します。
 9. [**Virus & threat protection**] ページの [**Virus & threat protection settings**] で、[**Manage settings]** を選択します。
@@ -64,7 +64,7 @@ Entra と Intune を使用して、Contoso の開発者部門のメンバーを�
 4. テナント管理者パスワードを使用して **`admin@yourtenant.onmicrosoft.com`** としてサインインします。
 5. Microsoft Intune管理センターで、ナビゲーション バーから **[デバイス]** を選択します。
 6. [**デバイス]** ページの [**デバイスの管理]** セクションで、[**構成]** を選択します。
-7. **デバイス上 |構成**ブレードの詳細ウィンドウで、 **[+ 作成]** を選択し、 [**+ 新しいポリシー**] を選択します。
+7. **デバイス |構成**ブレードの詳細ウィンドウで、 **[+ 作成]** を選択し、 [**+ 新しいポリシー**] を選択します。
 8. [**プロファイルの作成**] ブレードで、次のオプションを選択し、 **[作成]** を選択します。
    - プラットフォーム: **Windows 10 以降**
    - プロファイルタイプ: **テンプレート**
@@ -78,13 +78,13 @@ Entra と Intune を使用して、Contoso の開発者部門のメンバーを�
 
 2. [**ゲーム]** と **[プライバシー**] の横にある **[ブロック]** をそれぞれ選択します。
 
-3. **[デバイスの制限**] 画面で、[**開始]** を展開します。
+3. 同じ画面にある **[開始]** を展開します。
 
 4. 下にスクロールして、[**最もよく使用されるアプリ**]、[**最近追加したアプリ**]、[**ジャンプ リストで最近開いたアイテム**] の横にある **[ブロック**] をそれぞれ選択します。
 
-5. [**デバイスの制限**] 画面で、下にスクロールして **[Microsoft Defender ウイルス対策**] を展開します。
+5. 同じ画面にある  **[Microsoft Defender ウイルス対策**] を展開します。
 
-6. [**Microsoft Defender ウイルス対策**] で、下にスクロールして [**Microsoft Defender ウイルス対策の除外**] を展開します。
+6. 下にスクロールして [**Microsoft Defender ウイルス対策の除外**] を展開します。
 
 7.  **[Microsoft Defender ウイルス対策の除外**]の[**ファイルとフォルダー]** ボックスで、次のように入力します。
 
