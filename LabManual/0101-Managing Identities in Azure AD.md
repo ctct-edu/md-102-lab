@@ -193,13 +193,19 @@
 
    
 
-8. **Microsoft Edge** に新しいタブが表示され、サインインを求められます。[**Sign in to your account]** ダイアログ ボックスで、テナント パスワードを使用して **`admin@yourtenant.onmicrosoft.com`** としてサインインし、 **[Sign in]** を選択します。
+8. a
 
-9. 表示される **[Permissions Requested]** プロンプトで、[**Consent on behalf of your organization**] をオンにし、[**Accept]** を選択します。
+9. 表示される **[Let's get you signed in]** プロンプトで、[**Work or school account**] を選択し、 **[Continue]** を選択します。
 
-10. [**Authentication complete]** タブを閉じて、**Microsoft Edge** を最小化します
+10. サインインを求められます。[**Sign in to your account]** ダイアログ ボックスで、テナント パスワードを使用して **`admin@yourtenant.onmicrosoft.com`** としてサインインし、 **[Sign in]** を選択します。
 
-11. **PowerShell 7** ウィンドウに戻り、次のコードを入力して新しいプロファイル オブジェクトを作成し、**Enter キー**を押します。
+11. 表示される **[Permissions Requested]** プロンプトで、[**Consent on behalf of your organization**] をオンにし、[**Accept]** を選択します。
+
+12. [**Sign in to all apps, websites, and services on this device?]** プロンプトで **[No, this app only]** を選択します。
+
+    ![](./Media/1-1-1.jpg)
+
+13. **PowerShell 7** ウィンドウに戻り、次のコードを入力して新しいプロファイル オブジェクトを作成し、**Enter キー**を押します。
 
     ```
     $PWProfile = @{
@@ -208,7 +214,7 @@
     }
     ```
 
-12. 次に、次のコードを入力して新しいユーザーを作成し、**Enter キー**を押します。**"yourtenant" が割り当てられたテナント名と一致するよう修正してからコードを実行してください。**
+14. 次に、次のコードを入力して新しいユーザーを作成し、**Enter キー**を押します。**"yourtenant" が割り当てられたテナント名と一致するよう修正してからコードを実行してください。**
 
     ```
     New-MgUser `
@@ -223,7 +229,7 @@
 
     
 
-13. ユーザー **Cody Godinez** が作成されたことを確認するには、**PowerShell 7** ウィンドウで次のコマンドを入力し、**Enter キー**を押します。
+15. ユーザー **Cody Godinez** が作成されたことを確認するには、**PowerShell 7** ウィンドウで次のコマンドを入力し、**Enter キー**を押します。
 
     ```
     Get-MgUser
