@@ -143,23 +143,42 @@ Entra と Intune を使用して、Contoso の開発者部門のメンバーを�
 ### タスク6: 構成プロファイルが適用されていることを確認する
 
 1. **SEA-WS1** に切り替えます。
+
 2. タスク バーで、[**Start （Windowsアイコン）]** を選択し、[**Settings]** を選択します。
+
 3. **[Settings]** で **[Accounts**] を選択し、[**Access work or school**] を選択します。
+
 4. [**Access work or school**] セクションで、 **[Connected to Contoso's Azure AD]** を選択し、 [**Info**] を選択します。
+
 5. [**Managed by Contoso]** ページで、下にスクロールし、 [Device Sync Status] で **[Sync]** を選択します。同期が完了するまで待ちます。
+
 6. 同期が完了したら、**Settings**アプリを閉じます。
+
+   ※ 以下の手順は動作確認となります。想定通りの結果になっていない場合は、数分時間をおいて再度Syncしたり、構成プロファイルの設定があっているか等を確認してみてください。
+
 7. **SEA-WS1** で、[**Start （Windowsアイコン）]** を選択し、[**Settings]** を選択します。**[Gaming]** 設定が削除されていることを確認します。
+
 8. **[Privacy & Security]** を選択すると、プライバシー設定の多くが非表示になっていることがわかります。
-9. [**Personalization ]** を選択し、[**Start]** を選択します。[**Show recently added apps**] と [**Show most used apps**] が **[オフ]** Offに設定されていることを確認します。
+
+9. [**Personalization]** を選択し、[**Start]** を選択します。[**Show recently added apps**] と [**Show most used apps**] が **[Off]** に設定されていることを確認します。
+
 10. **Settings** アプリで、[**Privacy & Security]** を選択します。
+
 11. [**Privacy & Security**] ページで、[**Windows Security**] を選択し、[**Open Windows Security]** を選択します。
+
 12. [**Windows Security**] ページで、[**Virus & threat protection**] を選択します。
+
 13. [**Virus & threat protection**] ページで、[**Virus & threat protection settings**] の [**Manage settings**] を選択します。
+
 14. [**Exclusions**] まで下にスクロールし、[**Add or remove exclusions]** を選択します。[User Account Control] メッセージで [**Yes**] を選択します。
+
 15. [**Exclusions**] ページで、**C:\DevProjects** と **DevBuild.exe** が表示されていることを確認します。
+
 16. **Windows Security** ページを閉じてから、**Settings**アプリを閉じます。
 
 **結果**: この演習を完了すると、Windows 11 デバイスの構成プロファイルが正常に作成され、割り当てられます。
+
+
 
 ## 演習 2: 割り当てられた構成プロファイル ポリシーを変更する
 
@@ -168,8 +187,6 @@ Entra と Intune を使用して、Contoso の開発者部門のメンバーを�
 Contoso のポリシーには、開発者部門のメンバーがデバイスの [設定] で [プライバシー] オプションをブロックしてはならないと指定する例外がありました。この変更は実装され、テストされる必要があります。
 
 ### タスク 1: 割り当てられた構成プロファイルの設定を変更する
-
-
 
 1. ブラウザー の Microsoft Intune 管理センターで **[デバイス]** を選択し、[**デバイスの管理]** セクションで **[構成]** を選択します。
 3. **デバイス |構成**ブレードの詳細ウィンドウで、 **[Contoso Developer - standard**] を選択します。
