@@ -171,8 +171,8 @@
    - **[Next**] を２回選択します
    - **Optional Actions**をそのままにして、[**Next**] を選択します
    - 「Use Microsoft Update to help keep your computer secure and up to date 」のチェック ボックスをすべて[**オフ**] にして、[**Next**] を選択します
-   - **Install ** を選択します
-   
+   - **Install** を選択します
+
 5. [ **Installation completed successfully** ] ウィンドウで、[**Launch PowerShell**] をオンにして、[**Finish**] を選択します。
 
    > **手記：** PowerShell を起動せずにインストーラーが閉じた場合は、**Windows 検索**バーをクリックし、「**pwsh**」と入力して **[PowerShell 7**] を右クリックして、[**Run as administrator]** を選択します。
@@ -199,7 +199,7 @@
 
 10. [**Authentication complete]** タブを閉じて、**Microsoft Edge** を最小化します
 
-11.  **PowerShell 7** ウィンドウに戻り、次のコードを入力して新しいプロファイル オブジェクトを作成し、**Enter キー**を押します。
+11. **PowerShell 7** ウィンドウに戻り、次のコードを入力して新しいプロファイル オブジェクトを作成し、**Enter キー**を押します。
 
     ```
     $PWProfile = @{
