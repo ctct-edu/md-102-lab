@@ -41,16 +41,16 @@
 3. [**Settings**] ウィンドウで、[**Accounts]** を選択します。
 4. [Accounts] ページで、[**Access work or school**] を選択します。
 5. [**Access work or school**] ページで、[**Connect]** を選択します。
-6. **[Microsoft アカウント**] ウィンドウの [メール アドレス] ボックスに「**`JoniS@yourtenant.onmicrosoft.com`**」と入力し、[**次へ**] を選択します。
-7. [**Sign in**] ページで、「**[JoniS@yourtenant.onmicrosoft.com](mailto:JoniS@yourtenant.onmicrosoft.com)**」と入力し、[**次へ**] を選択します。
-8. [**Enter password**] ページで、インストラクターから提供されたテナント パスワード(User password)を入力し、[**Sign in]** を選択します。
-9. **Account added to this device** ページで、[**Done]** を選択します。
-10. [Access work or school] ページで、「[JoniS@yourtenant.onmicrosoft.com](mailto:JoniS@yourtenant.onmicrosoft.com)」と [Work or school account] が表示されていることを確認します。
+6. **[Set up a work or school account]** ウィンドウの [Email address] ボックスに「**`JoniS@yourtenant.onmicrosoft.com`**」と入力し、[**Next**] を選択します。
+7. [**Enter password**] ページで、インストラクターから提供されたテナント パスワード(User password)を入力し、[**Sign in]** を選択します。
+8. **Stay signed in?** ページで、[**No]** を選択します。
+9. Setting up your device ページで、**[Got it]** を選択します。
+10. [Access work or school] ページで、「Connected by [JoniS@yourtenant.onmicrosoft.com](mailto:JoniS@yourtenant.onmicrosoft.com)」が表示されていることを確認します。
 11. [Settings] ページを閉じます。
 
 ### タスク 3: Entra 登録の検証
 
-1. [**スタート（Windowsアイコン）]** を右クリックし、[**Windows Terminal (Admin)]** を選択します。
+1. [**スタート（Windowsアイコン）]** を右クリックし、[**Windows Terminal (Admin)]** を選択します。[User Account Control] で、[**Yes**] を選択します。
 
 2. **Windows PowerShell** ウィンドウで、次のコマンドを入力し、**Enter キー**を押します。
 
@@ -92,7 +92,7 @@
 
 7. [**Access work or school**] ページで、**JoniS** 職場または学校アカウントを選択します。
 
-8. [Disconnect this account] の横にある [**Disconnect **] を選択し、[**Yes**] を選択します。
+8. [Disconnect this account] の横にある **[Disconnect]** を選択し、[**Yes**] を選択します。
 
    > 登録済みデバイスを Azure AD から切断するために再起動する必要はありません。
 
