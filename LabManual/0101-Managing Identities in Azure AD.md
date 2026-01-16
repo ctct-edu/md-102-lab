@@ -58,17 +58,15 @@
 
 7. [アカウントをセキュリティ保護しましょう] プロンプトで、[**次へ**] を選択します。
 
-8. [最初にアプリを取得します] プロンプトで、[**次へ**] を選択します。
+8. [Microsoft Authenticator のインストール] プロンプトで、[**次へ**] を選択します。
 
-9. [アカウントのセットアップ] プロンプトで、[**次へ**] を選択します。
+9. [アプリでアカウントをセットアップする] プロンプトで、[**次へ**] を選択します。
 
 10. [QR コードをスキャンします] プロンプトに表示されたQRコードを、お手元のスマートフォンにインストールしたMicrosoft Authenticatorでスキャンした後、[**次へ**] を選択します。
 
 11. お手元のMicrosoft Authenticatorで承認します。
 
-12. [通知が承認されました] プロンプトで、[**完了**] を選択します。
-
-13. [成功] プロンプトで、[**次へ**] を選択します。
+12. [Authenticator Added] プロンプトで、[**完了**] を選択します。
 
 14. [サインインの状態を維持しますか?] プロンプトで、[**いいえ**] を選択します。Entra 管理センターが開きます。
 
@@ -164,18 +162,18 @@
 
 1. **SEA-SVR1** で、**Microsoft Edge** を開きます。
 
-2. アドレスバーに「**https://github.com/PowerShell/powershell/releases/download/v7.5.2/PowerShell-7.5.2-win-x64.msi**」と入力します
+2. アドレスバーに「 **https://github.com/PowerShell/powershell/releases/download/v7.5.2/PowerShell-7.5.2-win-x64.msi** 」と入力します
 
 3. タスクバーで **[エクスプローラー]** を選択し、[**ダウンロード]** フォルダーに移動します。
 
 4. **PowerShell-7.5.2-win-x64.msi**をダブルクリックして、セットアップウィザードを起動します。
 
    - **[Next**] を２回選択します
-   - **Optional Actions**をそのままにして、[**次へ**] を選択します
-   - 「Use Microsoft Update to help keep your computer secure and up to date 」のチェック ボックスをすべて[**オフ**] にして、[**次へ**] を選択します
+   - **Optional Actions**をそのままにして、[**Next**] を選択します
+   - 「Use Microsoft Update to help keep your computer secure and up to date 」のチェック ボックスをすべて[**オフ**] にして、[**Next**] を選択します
    - **Install ** を選択します
    
-5. [** **Installation completed successfully** ] ウィンドウで、[**Launch PowerShell**] をオンにして、[**Finish**] を選択します。
+5. [ **Installation completed successfully** ] ウィンドウで、[**Launch PowerShell**] をオンにして、[**Finish**] を選択します。
 
    > **手記：** PowerShell を起動せずにインストーラーが閉じた場合は、**Windows 検索**バーをクリックし、「**pwsh**」と入力して **[PowerShell 7**] を右クリックして、[**管理者として実行]** を選択します。
 
