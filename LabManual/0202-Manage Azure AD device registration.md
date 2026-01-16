@@ -37,15 +37,27 @@
 ### タスク2: Entra登録の実行
 
 1. **SEA-WS1** に切り替え、**Pa55w.rd** のパスワードで**管理者**としてサインインします。
+
 2. タスク バーで、[**Start （Windowsアイコン）]** を選択し、[**Settings]** を選択します。
+
 3. [**Settings**] ウィンドウで、[**Accounts]** を選択します。
+
 4. [Accounts] ページで、[**Access work or school**] を選択します。
+
 5. [**Access work or school**] ページで、[**Connect]** を選択します。
+
 6. **[Set up a work or school account]** ウィンドウの [Email address] ボックスに「**`JoniS@yourtenant.onmicrosoft.com`**」と入力し、[**Next**] を選択します。
+
 7. [**Enter password**] ページで、インストラクターから提供されたテナント パスワード(User password)を入力し、[**Sign in]** を選択します。
+
 8. **Stay signed in?** ページで、[**No]** を選択します。
+
 9. Setting up your device ページで、**[Got it]** を選択します。
-10. [Access work or school] ページで、「Connected by [JoniS@yourtenant.onmicrosoft.com](mailto:JoniS@yourtenant.onmicrosoft.com)」が表示されていることを確認します。
+
+10. [Access work or school] ページで、「[JoniS@yourtenant.onmicrosoft.com](mailto:JoniS@yourtenant.onmicrosoft.com)」と「Work or school account」が表示されていることを確認します。
+
+    ![](./Media/2-2-1.jpg)
+
 11. [Settings] ページを閉じます。
 
 ### タスク 3: Entra 登録の検証
