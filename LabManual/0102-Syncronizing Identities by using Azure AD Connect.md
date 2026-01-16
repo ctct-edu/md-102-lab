@@ -22,15 +22,15 @@ Contoso Corporation は現在、AD DS と Entra ID の両方でユーザーを�
 
 2. タスク バーで、[**Microsoft Edge]** を選択します。
 
-3. アドレスバーに `https://entra.microsoft.com` と入力してアクセスします。
+3. アドレスバーに `https://entra.microsoft.com` と入力してアクセスします。サインインは admin@yourtenant.onmicrosoft.com として実施してください。
 
-   英語表記となりますので、日本語表記に変更した方が進めやすくなります。画面右上の歯車のマーク **「Settings」** をクリックした後、左の「Language + region」をクリックし、Language と Regional format でいずれも日本語を選択し、 **[Apply] - [OK]** をクリックします。
+   アクセスして英語表記となっている場合、日本語表記に変更した方が進めやすくなります。画面右上の歯車のマーク **「Settings」** をクリックした後、左の「Language + region」をクリックし、Language と Regional format でいずれも日本語を選択し、 **[Apply] - [OK]** をクリックします。
 
 4. 左側のナビゲーション ウィンドウの **[Entra ID**] で、 [**Entra Connect**] を選択します。
 
 5. **Microsoft Entra Connect |[作業の開始**] ウィンドウで、[**管理]** タブを選択します。
 
-6. [**インフラストラクチャの管理]** ページで、[**Connect 同期エージェント のダウンロード]** ボタンをクリックします。
+6. [**インフラストラクチャの管理]** ページで、[**Connect 同期エージェント のダウンロード]** ボタンをクリックします。(「～のダウンロード」ボタンが２つありますが、下のものはずです。)
 
 7. **[使用条件に同意してダウンロードする**] をクリックします。
 
