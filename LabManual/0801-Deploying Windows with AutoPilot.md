@@ -156,6 +156,8 @@ Contoso IT は、Autopilot を使用して新しい Windows 11 デバイスの�
 
    > 注: このプロセスには 30 分から 45 分かかる場合があり、プロセス中に数回再起動します。
 
+> 「Is the right country or region?」と聞かれた場合「United States」を選択し、「Yes」を選択してすすめてください。
+
 ### タスク5: Autopilotデプロイメントの検証
 
 1. [**Let's set things up for your work or school**] ページで、「**`Aaron@yourtenant.onmicrosoft.com`**」と入力し、[**次へ**] を選択します。
@@ -190,11 +192,15 @@ Contoso IT は、Autopilot を使用して新しい Windows 11 デバイスの�
 
 15. Autopilot デバイスを選択し、[**管理]** を選択します。
 
+    ![](./Media/8-1-2.jpg)
+
 16. デバイスのリタイヤ、ワイプ、同期、再起動ができることに注意してください。
 
 17. メニュー バーの最後にある省略記号を選択し、追加の管理機能に注目してください。
 
     > その他の機能には、フレッシュスタート、オートパイロットリセット、クイックスキャン、フルスキャンなどがあります。
+
+    ![](./Media/8-1-3.jpg)
 
 18. Microsoft Edge を閉じます。
 
