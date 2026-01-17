@@ -135,7 +135,13 @@ Contoso は、Intune に登録されている Windows デバイスが最小構�
 
 9. 「**Automatically sign in to all desktops apps and websites on this device?**」というダイアログ ボックスが表示されます。[**No, sign in to this app only]** を選択します。
 
-   > 注: 「**Let's set up your profile to access org resources**」というダイアログが表示されます。これは、SEA-WS3 が Entra ID に参加しておらず、Intune によって管理されていないためです。そのため、このデバイスからAaronのメールボックスにアクセスすることはできません。
+   ![](./Media/1-1-1.jpg)
+
+   > 注: 「**Let's set up your profile to access org resources**」というダイアログが表示されます。これは、SEA-WS3 が Entra ID に参加しておらず、Intune によって管理されていないためです。(下記スクリーンショットの左下に[Continue]ボタンがありますが、選択してもサインインの最初からやり直しとなります。)
+   >
+   > そのため、このデバイスからAaronのメールボックスにアクセスすることはできません。
+
+   ![](./Media/5-3-2.jpg)
 
 10. すべてのウィンドウを閉じて、**SEA-WS3** からサインアウトします。
 
