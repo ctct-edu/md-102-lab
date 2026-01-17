@@ -63,11 +63,11 @@
 
 11. [**保存]** を選択します。
 
-12. [**登録]** を選択します。
+12. **パスワードのリセット |[認証方法]** ウィンドウで、[**登録]** を選択します。
 
 13. [**登録]** ページで、[**サインイン時にユーザーに登録を求めますか?]** の項目で **いいえ** を選択し、[**保存]** を選択します。
 
-14. ナビゲーション ウィンドウで、**オンプレミスの統合** を選択します。
+14. **パスワードのリセット |[登録]**  ウィンドウで、**オンプレミスの統合** を選択します。
 
 15. 画面上の方に「お客様のオンプレミスのライトバック クライアントは稼働しています。」のメッセージが表示され、オンプレミスの書き戻しクライアントが実行されていることを確認します。
 
@@ -75,30 +75,30 @@
 
 1. **SEA-WS3** に切り替えます。
 
-2. 必要に応じて、**Pa55w.rd** のパスワードを使用して**管理者**としてサインインします。
+2. タスク バーで、[**Microsoft Edge]** を選択します。
 
-3. タスク バーで、[**Microsoft Edge]** を選択します。
+3. **[https://myaccount.microsoft.com](https://myaccount.microsoft.com/)** を参照します。
 
-4. **[https://myaccount.microsoft.com](https://myaccount.microsoft.com/)** を参照します。
+4. **[Pick an account]** ページで、[**Use another account**] を選択します。
 
-5. **[Pick an account]** ページで、[**Use another account**] を選択します。
-
-6. サインイン ページで、「`Aaron@yourtenant.onmicrosoft.com`」と入力し、**Sign in** を選択します。
+5. サインイン ページで、「`Aaron@yourtenant.onmicrosoft.com`」と入力し、**Sign in** を選択します。
 
    > **注**: AlexではなくAaronとしてサインインしてください。
 
-7. [**Enter password**] ページで、「 **Pa55w.rd1234** 」と入力し、[**Sign in]** を選択します。Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Save]** を選択します。多要素認証を求められた場合は実施してください。
+6. [**Enter password**] ページで、「 **Pa55w.rd** 」と入力し、[**Sign in]** を選択します。Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Save]** を選択します。
 
-8. **[Protect your account]** ダイアログが表示された場合は、[ **Skip for now (x times left)** ] を選択します。
+7. 多要素認証を求められた場合は実施してください。**[Protect your account]** ダイアログが表示された場合は、[ **Skip for now (x times left)** ] を選択します。
 
-9. [**My Account**] ページのナビゲーション ウィンドウで、[**Change Password**] を選択します。
+8. [**My Account**] ページのナビゲーション ウィンドウで、[**Change Password**] を選択します。
 
-10. [**Change Password**] ページで、次の情報を入力し、[**submit**] を選択します。
+9. [**Change Password**] ページで、次の情報を入力し、[**submit**] を選択します。
 
-    - New password: **Pa55w.rd1234!**
-    - Confirm new password: **Pa55w.rd1234!**
-    
-11. Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Not Now]** を選択します。
+   - New password: **Pa55w.rd1234!**
+   - Confirm new password: **Pa55w.rd1234!**
+
+10. Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Not Now]** を選択します。
+
+11. [**Success, password changed**] ダイアログで、[**Done**] を選択します。
 
 12. Microsoft Edge を閉じて、SEA-WS3 からサインアウトします。
 
