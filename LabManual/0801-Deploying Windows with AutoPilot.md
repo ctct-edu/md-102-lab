@@ -67,8 +67,6 @@ Contoso IT は、Autopilot を使用して新しい Windows 11 デバイスの�
    Install-Script -Name Get-WindowsAutoPilotInfo
    ```
 
-   
-
 4. 3つのプロンプトが表示されます。毎回「**Y**」と入力し、**Enter キー**を押します。
 
 5. Windows PowerShell コマンド ライン プロンプトで、次のコマンドレットを入力し、**Enter キー**を押します。
@@ -77,15 +75,11 @@ Contoso IT は、Autopilot を使用して新しい Windows 11 デバイスの�
    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
    ```
 
-   
-
 6. Windows PowerShell コマンド ライン プロンプトで、次のコマンドレットを入力し、**Enter キー**を押します。
 
    ```
    Get-WindowsAutoPilotInfo.ps1 -OutputFile C:\Computer.csv
    ```
-
-   
 
 7. Windows PowerShell コマンド ライン プロンプトで、次のコマンドを入力し、**Enter キー**を押して、ファイルの内容を確認します。
 
@@ -93,19 +87,13 @@ Contoso IT は、Autopilot を使用して新しい Windows 11 デバイスの�
    type C:\Computer.csv
    ```
 
-   
-
 8. **Windows Terminal** を閉じます。
 
 ### タスク 3: Windows Autopilot 展開プロファイルの操作
 
-
-
 1. **SEA-WS3** の Windows タスクバーで、[**Microsoft Edge**] を選択します。
 
 2. **Microsoft Edge** で、[**[https://intune.microsoft.com](https://intune.microsoft.com/)**] に移動します。**`Admin@yourtenant.onmicrosoft.com`** アカウントでサインインします。
-
-   > 注: MFA の登録を求められる場合があります。コースの前半で使用したのと同じ手順に従って、電話番号を追加します。
 
 3. **Microsoft Intune管理センター**で、[**デバイス]** を選択します。
 
