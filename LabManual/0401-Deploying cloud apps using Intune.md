@@ -188,7 +188,7 @@ Contoso の研究部門のすべてのユーザーには、Microsoft 365 Apps �
 1. **SEA-WS1** に切り替え、Microsoft 365 Suite がデバイスにインストールされるまで約 10 分から 15 分待ちます。
 
 2. **SEA-WS1** からサインアウトし、PIN **102938**を使用して **Aaron Nicholls** として再度サインインします。
-3. **SEA-WS1** のタスク バーで [**Start**] を選択し、[**Settings **] アプリを選択します。
+3. **SEA-WS1** のタスク バーで [**Start**] を選択し、[**Settings**] アプリを選択します。
 4.  **[Settings]** アプリで [**Apps**] を選択し、[**Apps & features**] ページで下にスクロールして、**Microsoft 365 Apps for enterprise - en-us** が一覧表示されていることを確認します。
 5. **設定**アプリを閉じて、[**Start]** ボタンを選択します。
 6. **Word** を選択し、アプリが開くことを確認します。
