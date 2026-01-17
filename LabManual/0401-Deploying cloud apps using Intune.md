@@ -69,8 +69,6 @@ Microsoft Intune を使用して、Contoso Corporation のデスクトップと�
 
 ### タスク2: アプリケーションへのグループの割り当て
 
-
-
 1. **[Windows アプリ**] ページの **[管理]** で、[**プロパティ]** を選択します。
 2. 詳細ウィンドウで、[**割り当て]** セクションまで下にスクロールし、[**編集]** を選択します。
 3. [**割り当て]** ページで、[**登録済みデバイスで使用可能**] で **[グループの追加**] を選択します。
@@ -78,8 +76,6 @@ Microsoft Intune を使用して、Contoso Corporation のデスクトップと�
 5. [**レビューと保存**] を選択し、 **[保存]** を選択します。
 
 ### タスク 3: Intune コンソールからポリシー同期を強制する
-
-
 
 1. **Microsoft Intune管理センター**で、[**デバイス]** を選択し、[**すべてのデバイス**] を選択します。
 
@@ -91,27 +87,33 @@ Microsoft Intune を使用して、Contoso Corporation のデスクトップと�
 
 ### タスク 4: ポータル サイト Web サイトからアプリをインストールする
 
-
-
 1. **SEA-WS1** に切り替えます。
 
 2. PIN **102938**を使用して **Aaron Nicholls** としてサインインします。
 
 3. [**Microsoft Edge]** を起動します。
 
-5. アドレス バーで **[https://portal.manage.microsoft.com](https://portal.manage.microsoft.com/)** を参照し、**Enter キー**を押します。
+4. アドレス バーで **[https://portal.manage.microsoft.com](https://portal.manage.microsoft.com/)** を参照し、**Enter キー**を押します。
 
-6. **Aaron Nicholls** という名前でサインインします。
+5. **Aaron Nicholls** という名前でサインインします。
 
-7. Contoso Web ポータルで、 **[View Devices]** を選択します。
+6. Contoso Web ポータルで、 **[View Devices]** を選択します。
 
-8. [Devices] ページで、上の方に表示される、[**Tap here to tell us which device you're using or add a new device**] をクリックします。
+7. [Devices] ページで、上の方に表示される、[**Tap here to tell us which device you're using or add a new device**] をクリックします。
 
-9. [**Which device are you using**] ダイアログボックスで、[**SEA-WS1**] の左にあるラジオボタンを選択し、[**Select]** (下にある青いボタン)を選択します。
+   ![](./Media/4-1-1.jpg)
 
-   > メッセージが [Apps will be installed onto: SEA-WS1] に変わります。
+8. [**Which device are you using**] ダイアログボックスで、[**SEA-WS1**] の左にあるラジオボタンを選択し、[**Select]** (下にある青いボタン)を選択します。
 
-10. 左上隅にあるナビゲーション ボタンを選択し、**Apps** を選択します。
+   ![](./Media/4-1-2.jpg)
+
+   > [Tap here to tell us which device you're using or add a new device] メッセージだった個所がが [Apps will be installed onto: SEA-WS1] に変わります。
+
+9. 左上隅にあるナビゲーション ボタンを選択します。
+
+   ![](./Media/4-1-3.jpg)
+
+10. ナビゲーションメニューの  **Apps** を選択します。
 
 > [Apps] ページに一覧表示されている Windows アプリを確認します。アプリが表示されるまでに数分かかる場合があります。
 
@@ -126,9 +128,9 @@ Microsoft Intune を使用して、Contoso Corporation のデスクトップと�
 
 **結果**: この演習を完了すると、Intune から Microsoft Store アプリが正常に追加され、インストールされます。
 
+
+
 ## 演習 2: Intune からMicrosoft 365 Appsを構成して展開する
-
-
 
 ### シナリオ
 
@@ -137,8 +139,6 @@ Microsoft Intune を使用して、Contoso Corporation のデスクトップと�
 Contoso の研究部門のすべてのユーザーには、Microsoft 365 Apps が必要です。64 ビット バージョンの Microsoft Excel、Outlook、PowerPoint、Word を Windows デバイスに展開するように求められました。また、更新用の現在のチャネル用に構成されていることを確認する必要があります。
 
 ### タスク 1: SEA-WS1 にインストールされているアプリの検証
-
-
 
 1. **SEA-WS1** のタスク バーで [**Start**] を選択し、[**Settings**] アプリを選択します。
 
@@ -150,10 +150,8 @@ Contoso の研究部門のすべてのユーザーには、Microsoft 365 Apps �
 
 ### タスク 2: Microsoft 365 アプリを Intune に追加する
 
-
-
 1. Microsoft Intune 管理センターで、[**アプリ]** を選択します。
-2. Macの**アプリ |概要**ブレードで、 **[すべてのアプリ]** を選択します。詳細ウィンドウで、**作成** を選択します。
+2. **アプリ |概要**ブレードで、 **[すべてのアプリ]** を選択します。詳細ウィンドウで、**作成** を選択します。
 3. [**アプリの種類の選択**] ブレードの **[Microsoft 365 アプリ**] で、 [**Windows 10 以降**] を選択し、[**選択]** をクリックします。
 4. [**Microsoft 365 Appsの追加**] ブレードで、次のオプションを構成し、[**次へ**] を選択します。
    - スイート名: **Microsoft 365 Apps (Research)**
