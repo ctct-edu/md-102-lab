@@ -70,7 +70,7 @@ SEA-WS1 のすべての情報を暗号化する必要があることが決定さ
 
 5. [**Encryption needed]** 通知を選択します。
 
-   *注: 通知が表示されるまでに時間がかかる場合があります。Windows フォーカス アシストによって通知が表示されない場合もあります。通知は手動で確認できます。*
+   *注: 通知が表示されるまでに時間がかかる場合があります。Windows フォーカス アシストによって通知が表示されない場合もあります。通知はWindowsデスクトップの右下に表示され、手動で確認できます。*
 
 6. [**Are you ready to start encryption?**] ダイアログで、[ **I don't have any other disk encryption software installed, encrypt all my disks]** の横にあるチェック ボックスをオンにし、[**Yes**] を選択します。
 
