@@ -74,11 +74,15 @@ SEA-WS1 のすべての情報を暗号化する必要があることが決定さ
 
 6. [**Are you ready to start encryption?**] ダイアログで、[ **I don't have any other disk encryption software installed, encrypt all my disks]** の横にあるチェック ボックスをオンにし、[**Yes**] を選択します。
 
+   ![](./Media/6-2-1.jpg)
+
 7. [**Choose how to unlock your drive at startup?]** ページで、[**Enter a PIN(Recommended)**] を選択します
+
+   ![](./Media/6-2-1.jpg)
 
 8. [**Enter a PIN**] ページの [**PIN**] ボックスと [**Reenter PIN**] ボックスに「**123456**」と入力し、[**Set PIN**] を選択します。
 
-9. [**How do you want to back up your recovery key?**] ページで、[**Print the recovery key**] を選択してPDF印刷し、任意のな名前でDocumentフォルダーに保存した後、[**Next**] を選択します。
+9. [**How do you want to back up your recovery key?**] ページで、[**Print the recovery key**] を選択してPDF印刷し、任意の名前でDocumentフォルダーに保存した後、[**Next**] を選択します。
 
 10. [**Choose how much of your drive to encrypt**] ページで、[**Encrypt used disk space only**] を選択し、Desktopに保存した後、[**Next**] を選択します。
 

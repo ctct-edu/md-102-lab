@@ -32,7 +32,7 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 
    > **[新しい展開共有ウィザード**] が開きます。
 
-7. [**Path]** ページの **[Deployment share path]** で、値を **[E:\DeploymentShare**] に変更し、[**次へ**] を選択します。
+7. [**Path]** ページの **[Deployment share path]** で、値を **[E:\DeploymentShare**] に変更し、[**Next**] を選択します。
 
 8. [**Share]** ページで、**Share name**を確認しますが、変更しないでください。[**Next**] を選択します。
 
@@ -40,8 +40,8 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 
 10. [**Options ]** ページで、以下のように構成し、[**Next**] を選択します。
 
-    - Ask to set the local Administrator password: **Enabled**
-    - その他のすべてのチェックボックス: **Disabled**
+    - Ask to set the local Administrator password: **チェックオン**
+    - その他のすべてのチェックボックス: **チェックオフ**
 
 11. [**Summary]** ページで、情報を確認し、[**Next**] を選択します。
 
