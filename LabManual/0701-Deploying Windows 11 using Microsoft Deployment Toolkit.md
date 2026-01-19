@@ -199,6 +199,8 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 
 9. [**Specify Generation**] ページで、[**Generation 2]** を選択し、[**Next**] を選択します。
 
+   ※ 既定値が Generation 1 のケースがありますので、必ず確認してください。
+
 10. [**Assign Memory]** ページの **[Startup memory]** の横に「**8192**」と入力し、[**Next**] を選択します。
 
 11. [**Configure Networking]** ページの **[Connection]** の横にある **[External Network]** を選択し、 [**次へ**] を選択します。
@@ -223,63 +225,67 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 
 18. [**OK**] を選択して [設定] ダイアログ ボックスを閉じます。
 
-19. Hyper-V マネージャーで、[**SEA-WS4**]、[**Connect]**、[**Start]** の順に選択します。
+19. Hyper-V マネージャーで、[**SEA-WS4**] を右クリックし、[**Connect]** を選択します。
 
-20. コンピュータが起動したら、キーボードの任意のキーを押して、MDT 展開ウィザードを呼び出します。必要に応じてウィンドウを最大化します。
+20. 仮想マシンのコンソール画面が開かれますがまだ起動していません。画面真ん中の **[Start]** ボタンを選択して起動します。
 
-21. [**Welcome**] ページで、[**Run the Deployment Wizard to install a new Operating System] を選択します**。
+21. コンピュータが起動したら、キーボードの任意のキーを押して仮想DVDメディアで起動し、MDT 展開ウィザードを呼び出します。必要に応じてウィンドウを最大化します。
 
-22. [**Specify credentials for connecting to network shares**] ウィンドウで、次のように入力し、[**OK]** を選択します。
+22. [**Welcome**] ページで、[**Run the Deployment Wizard to install a new Operating System] を選択します**。
+
+23. [**Specify credentials for connecting to network shares**] ウィンドウで、次のように入力し、[**OK]** を選択します。
 
     - ユーザー名: **Administrator**
     - パスワード:**Pa55w.rd**
     - ドメイン: **Contoso**
 
-23. [**Task Sequence]** ページで、[**Deploy Windows 11 Enterprise]** を選択し、[**Next**] を選択します。
+24. [**Task Sequence]** ページで、[**Deploy Windows 11 Enterprise]** を選択し、[**Next**] を選択します。
 
-24. [**Computer Details**] ページの **[Computer name**] の横に「**SEA-WS4**」と入力し、[**Next**] を選択します。
+25. [**Computer Details**] ページの **[Computer name**] の横に「**SEA-WS4**」と入力し、[**Next**] を選択します。
 
-25. **[Move Data and Settings]** ページで、[**Next**] を選択します。
+26. **[Move Data and Settings]** ページで、[**Next**] を選択します。
 
-26. [**User Data (Restore)]** ページで、[**Next**] を選択します。
+27. [**User Data (Restore)]** ページで、[**Next**] を選択します。
 
-27. [**Locale and Time]** ページで、[**Next**] を選択します。
+28. [**Locale and Time]** ページで、[**Next**] を選択します。
 
-28. [**Applications]** ページで、[**Next**] を選択します。
+29. [**Applications]** ページで、[**Next**] を選択します。
 
-29. [**Administrator Password]** ページで、両方のテキスト ボックスに「**Pa55w.rd**」と入力し、[**Next**] を選択します。
+    ※ [Microsoft XML Notepad]がリストされることがありますが、今回はインストールしません。
 
-30. **Ready** ページで、**Begin** を選択します。
+30. [**Administrator Password]** ページで、両方のテキスト ボックスに「**Pa55w.rd**」と入力し、[**Next**] を選択します。
+
+31. **Ready** ページで、**Begin** を選択します。
 
     > インストールが開始されます。完了するまでに 15 分から 20 分かかり、必要に応じてインストール中に SEA-WS4 が再起動されます。
 
-31. **Deployment Workbench**に切り替えます。
+32. **Deployment Workbench**に切り替えます。
 
-32. Deployment Workbench で、[**Deployment Shares**] を展開し、[**MDT Deployment Share**] を展開します。
+33. Deployment Workbench で、[**Deployment Shares**] を展開し、[**MDT Deployment Share**] を展開します。
 
-33. **[Monitoring]** を選択し、詳細ペインで **[SEA-WS4**] をダブルクリックします。
+34. **[Monitoring]** を選択し、詳細ペインで **[SEA-WS4**] をダブルクリックします。
 
     > デプロイ中に監視ステータスを確認します。
 
-34. **SEA-WS4** に切り替えます。
+35. **SEA-WS4** に切り替えます。
 
-35. インストールが完了すると、デスクトップが開き、展開が完了します。デプロイの概要で、 **[Finish]** を選択します。
+36. インストールが完了すると、デスクトップが開き、展開が完了します。デプロイの概要で、 **[Finish]** を選択します。
 
-36. **SEA-WS4** をシャットダウンし、[仮想マシン接続] ウィンドウを閉じます。
+37. **SEA-WS4** をシャットダウンし、[仮想マシン接続] ウィンドウを閉じます。
 
-37. Hyper-V マネージャーで、[**SEA-WS4**] を右クリックし、[**Settings]** を選択します。
+38. Hyper-V マネージャーで、[**SEA-WS4**] を右クリックし、[**Settings]** を選択します。
 
-38. **[SEA-WS4 の設定**] で、[**SCSI Controller]** を展開し、[**DVD Drive**] を選択します。
+39. **[SEA-WS4 の設定**] で、[**SCSI Controller]** を展開し、[**DVD Drive**] を選択します。
 
-39. 詳細ウィンドウの **[Media**] で [**None**] を選択し、[**OK]** を選択します。
+40. 詳細ウィンドウの **[Media**] で [**None**] を選択し、[**OK]** を選択します。
 
-40. **[SEA-WS4**]を右クリックし、[ **Checkpoint** ]を選択して、SEA-WS4の現在の状態のチェックポイントを作成します。
+41. **[SEA-WS4**]を右クリックし、[ **Checkpoint** ]を選択して、SEA-WS4の現在の状態のチェックポイントを作成します。
 
-41. SEA-SVR2 では、**Hyper-V Manager** を閉じ、**Deployment Workbench** を閉じます。
+42. SEA-SVR2 では、**Hyper-V Manager** を閉じ、**Deployment Workbench** を閉じます。
 
-42. **File Explorer** を開き、**DVD Drive F** を右クリックして、[**Eject**]を選択します。
+43. **File Explorer** を開き、**DVD Drive F** を右クリックして、[**Eject**]を選択します。
 
-43. **File Explorer** を閉じて、**SEA-SVR2** からサインアウトします。
+44. **File Explorer** を閉じて、**SEA-SVR2** からサインアウトします。
 
 **結果**: この演習を完了すると、Microsoft Deployment Toolkit を使用して Windows 11 ワークステーションを作成および展開できます。
 
