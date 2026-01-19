@@ -79,7 +79,7 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 4. [**Details ]** ページで、以下を構成し、[**Next**] を選択します。
    - パブリッシャー: **Microsoft**
    - アプリケーション名: **XML Notepad**
-5. [**Source **] ページの [**Source directory**] に「**E:\Labfiles\Apps**」と入力し、[**Next**] を選択します。
+5. [**Source**] ページの [**Source directory**] に「**E:\Labfiles\Apps**」と入力し、[**Next**] を選択します。
 6. [**Destination]** ページで、既定の宛先ディレクトリ名を受け入れ、[**Next**] を選択します。
 7. [**Command Details]** ページの **[Command line]** に「**XmlNotepadSetup.msi /q」**　を入力し、[**Next**] を選択します。
 8. [**Summary ]** ページで、情報を確認し、[**Next**] を選択します。
@@ -241,7 +241,7 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 
 29. [**Administrator Password]** ページで、両方のテキスト ボックスに「**Pa55w.rd**」と入力し、[**Next**] を選択します。
 
-30. **Ready ** ページで、**Begin** を選択します。
+30. **Ready** ページで、**Begin** を選択します。
 
     > インストールが開始されます。完了するまでに 15 分から 20 分かかり、必要に応じてインストール中に SEA-WS4 が再起動されます。
 

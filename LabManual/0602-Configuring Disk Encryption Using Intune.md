@@ -51,9 +51,9 @@ SEA-WS1 のすべての情報を暗号化する必要があることが決定さ
    - Require additional authentication at startup: **Enabled**
    - Configure minimum PIN length for startup: **Enabled**
    - Choose how BitLocker-protected operating system drives can be recovered: **Enabled**
-   - オペレーティング システム ドライブの回復情報が AD DS に格納されるまで Bitlocker を有効にしない: **True**
-   - BitLocker セットアップ ウィザードからの回復オプションを省略する: **True**
-   - オペレーティング システム ドライブの Bitlocker 回復情報を AD DS に保存する: **True**
+   - Do not enable BitLocker until recovery information is stored to AD DS for operating system drives: **True**
+   - Omit recovery options from the BitLocker setup wizard: **True**
+   - Save BitLocker recovery information to AD DS for operating system drives: **True**
 10. [**次へ**] を2回選択します。
 11. [**Assignments]** タブで、検索ボックスに「**Contoso**」と入力し、[**Contoso Developer Devices]** グループを選択して、[**次へ**] を選択します。
 12. [**Review + create**] タブで、情報を確認し、[**保存]** を選択します。
