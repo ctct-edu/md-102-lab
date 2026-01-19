@@ -69,7 +69,7 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 
 7. Confirmation  ページで、プロセスが正常に完了したことを確認し、**Finish** を選択します。
 
-8. **Deployment Workbench**で、「**Operating Systems」**を選択した状態で、オペレーティングシステムが表示されることを確認します。
+8. **Deployment Workbench**で、 **Operating Systems** を選択した状態で、オペレーティングシステムが表示されることを確認します。
 
 ### タスク3: デプロイメント共有へのアプリケーションの追加
 
@@ -126,6 +126,8 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 
     > その他の変更は行わないでください。
 
+    ![](./Media/7-1-1.jpg)
+
 16. [**Deploy Windows 11 Enterprise Properties]** ウィンドウで、[**OK]** を選択します。
 
 ### タスク 5: 展開共有のプロパティと Windows PE 設定の構成
@@ -148,16 +150,22 @@ SEA-WS4 という名前の新しい Windows 11 仮想マシンを展開する必
 
 7. [**Windows PE Customizations]** セクションの **[Scratch space size**] の横にある [**64**] を選択します。
 
-8. [**Features**] タブを選択し、次の機能パックの横にあるチェック ボックスをオンにします。
+   ![](./Media/7-1-2.jpg)
+
+8. [**Features**] タブを選択します。
+
+   ![](./Media/7-1-3.jpg)
+
+9. 次の機能パックの横にあるチェック ボックスをオンにします。
 
    - DISM Cmdlets
 
    - Microsoft Data Access Compenents (MDAC/ADO) support
    - Windows PowerShell
 
-9. [**Monitoring]** タブを選択します。
+10. [**Monitoring]** タブを選択します。[**Monitoring]** タブで、[**Enable monitoring for this deployment share]** の横にあるチェック ボックスをオンにします。
 
-10. [**Monitoring]** タブで、[**Enable monitoring for this deployment share]** の横にあるチェック ボックスをオンにします。
+    ![](./Media/7-1-4.jpg)
 
 11. [**MDT Deployment Share Properties]** ウィンドウで、[**OK]** を選択します。
 
