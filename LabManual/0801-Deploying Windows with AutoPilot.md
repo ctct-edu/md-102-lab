@@ -55,7 +55,7 @@ Contoso IT は、Autopilot を使用して新しい Windows 11 デバイスの�
 
 ### タスク2: デバイス固有のカンマ区切り値(CSV)ファイルの生成
 
-1. **SEA-WS3** に切り替え、**Pa55w.rd** のパスワードで **Admin ** としてサインインします。
+1. **SEA-WS3** に切り替え、**Pa55w.rd** のパスワードで **Admin** としてサインインします。
 
 2. **[Start]** を右クリックし、[**Windows Terminal (Admin)]** を選択し、[**User Account Control**] プロンプトで [**Yes**] を選択します。
 
