@@ -42,13 +42,7 @@
 
 
 
-1. **SEA-SVR1** で、**Pa55w.rd** のパスワードを使用して **Contoso\Administrator** としてサインインします。
-
-2. **サーバー マネージャー**を閉じます。
-
-3. タスク バーで、[**Microsoft Edge]** を選択します。
-
-4. アドレスバーに「**[https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力します。
+1. [**Microsoft Edge]** のアドレスバーに「**[https://entra.microsoft.com](https://entra.microsoft.com/)**」と入力します。
 
 5. サインイン プロンプトで、「**[admin@yourtenant.onmicrosoft.com](mailto:admin@yourtenant.onmicrosoft.com)**」と入力し、**次へ** を選択します。
 
@@ -263,7 +257,7 @@
 
 
 
-1. SEA-SVR1 では、Microsoft Edge に切り替えます。
+1. Microsoft Edge に切り替えます。
 
 2. Microsoft Entra 管理センターの [ナビゲーション] ウィンドウで、[**役割と管理者**] を選択します。
 
