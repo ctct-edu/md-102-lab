@@ -187,8 +187,6 @@
 
    
 
-8. a
-
 9. 表示される **[Let's get you signed in]** プロンプトで、[**Work or school account**] を選択し、 **[Continue]** を選択します。
 
 10. サインインを求められます。[**Sign in to your account]** ダイアログ ボックスで、テナント パスワードを使用して **`admin@yourtenant.onmicrosoft.com`** としてサインインし、 **[Sign in]** を選択します。
