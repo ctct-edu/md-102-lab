@@ -95,7 +95,7 @@ Aaron Nicholls に適切なライセンスを割り当て、Windows デバイス
 
 5. [**Install Microsoft Authenticator]** ダイアログ ボックスで、[**Set up a different way to sign in]** リンクを選択します。
 
-   ![](.\Media\2-1-1.jpg)
+   ![](./Media/2-1-1.jpg)
 
 6. [**Add a sign-in method**] ダイアログ ボックスで、[**Phone**] を選択します。
 
