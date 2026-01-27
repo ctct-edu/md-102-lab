@@ -30,8 +30,6 @@ Aaron Nicholls に適切なライセンスを割り当て、Windows デバイス
 
 ### タスク 1: Windows デバイスを Microsoft Intune に自動的に登録する
 
-※開始前にEntra管理センターで「**Aaron@yourtenant.onmicrosoft.com**」のパスワードをリセットしてください。
-
 1. **SEA-WS1** に切り替え、**Pa55w.rd** のパスワードで**Admin**としてサインインします。
 2. タスク バーで、[**Start （Windowsアイコン）]** を選択し、[**Settings]** を選択します。
 3. [Settings] ウィンドウで、[**Accounts]** を選択します。

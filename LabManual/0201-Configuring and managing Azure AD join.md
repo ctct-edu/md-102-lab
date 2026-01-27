@@ -127,29 +127,31 @@
 
 
 
-1. **SEA-WS1** に切り替え、サインイン画面で左下の「Other user」をクリックした後、 **`JoniS@yourtenant.onmicrosoft.com`** としてサインインします。
+1. **SEA-WS1** に切り替え、Windowsからサインアウトします。
+
+2. サインイン画面で左下の「Other user」をクリックした後、 **`JoniS@yourtenant.onmicrosoft.com`** としてサインインします。
 
    > プロファイルが作成されるまで待ちます。
 
-2. [**Use Windows Hello with your account]** ページで、[**OK]** を選択します。
+3. [**Use Windows Hello with your account]** ページで、[**OK]** を選択します。
 
-3. [**Let's keep your account secure]** ダイアログ ボックスで、[**Next**] を選択します。
+4. [**Let's keep your account secure]** ダイアログ ボックスで、[**Next**] を選択します。
 
-4. [**Install Microsoft Authenticator]** ダイアログ ボックスで、[**Set up a different way to sign in]** リンクを選択します。
+5. [**Install Microsoft Authenticator]** ダイアログ ボックスで、[**Set up a different way to sign in]** リンクを選択します。
 
    ![](./Media/2-1-1.jpg)
 
-5. [**Add a sign-in method**] ダイアログ ボックスで、[**Phone**] を選択します。
+6. [**Add a sign-in method**] ダイアログ ボックスで、[**Phone**] を選択します。
 
-6. **[Add your phone number]** ダイアログ ボックスの[Country code] で [**Japan(+81)**] を選択後 [**Enter phone number**] フィールドに、テキスト メッセージを受信できる携帯電話番号を入力します。[**Next**] を選択します。
+7. **[Add your phone number]** ダイアログ ボックスの[Country code] で [**Japan(+81)**] を選択後 [**Enter phone number**] フィールドに、テキスト メッセージを受信できる携帯電話番号を入力します。[**Next**] を選択します。
 
-7. 確認コードを受け取ったら、[Phone ] ページでコードを入力し、[**Next**] を選択します。
+8. 確認コードを受け取ったら、[Phone ] ページでコードを入力し、[**Next**] を選択します。
 
-8. **[Phone number added]** ダイアログ ボックスで、**[Done]** を選択します。
+9. **[Phone number added]** ダイアログ ボックスで、**[Done]** を選択します。
 
-9. [**Set up a PIN**] ページの [**New PIN**] ボックスと [**Confirm PIN**] ボックスに「**`102938`**」と入力し、[**OK]** を選択します。
+10. [**Set up a PIN**] ページの [**New PIN**] ボックスと [**Confirm PIN**] ボックスに「**`102938`**」と入力し、[**OK]** を選択します。
 
-10. **[All set!]** ページで、[**OK]** を選択します。
+11. **[All set!]** ページで、[**OK]** を選択します。
 
 ### タスク 5: Entra から Windows デバイスを削除する
 
