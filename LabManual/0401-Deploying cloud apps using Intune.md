@@ -93,6 +93,10 @@ Microsoft Intune を使用して、Contoso Corporation のデスクトップと�
 
 3. [**Microsoft Edge]** を起動します。
 
+   ※デスクトップのEdgeアイコンを使用することをおすすめします。
+
+   （ツールバーのものを使用すると、Edgeのプロファイル作成が必要となります。）
+
 4. アドレス バーで **[https://portal.manage.microsoft.com](https://portal.manage.microsoft.com/)** を参照し、**Enter キー**を押します。
 
 5. **Aaron Nicholls** という名前でサインインします。
