@@ -34,7 +34,7 @@
 | Miranda Snider | `msnider@yourtenant.onmicrosoft.com`  | Pa55-w.rd! | ヘルプデスクマネージャー | オペレーションズ |
 | Cody Godinez   | `cgodinez@yourtenant.onmicrosoft.com` | Pa55-w.rd! | 営業担当                 | セールス         |
 
-*注: 場所については、お住まいの地域または米国のいずれかを使用します。*
+*注: 場所については米国を使用します。*
 
 また、今後数か月でさらに数人の従業員が採用されるとも言われています。スクリプトは、多数の新規ユーザーを追加するためのはるかに効率的な方法であると判断しました。PowerShell スクリプトを作成し、Cody Godinez のアカウントを作成するときにテストすることにしました。
 
