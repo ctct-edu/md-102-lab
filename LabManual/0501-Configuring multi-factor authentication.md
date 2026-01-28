@@ -106,7 +106,7 @@ Entra ID への Windows Hello サインイン認証をセキュリティで保�
 
 11. **[Phone number added]** ダイアログ ボックスで、**[Done]** を選択します。
 
-12. [サインインしたままにする] メッセージで、[**No**] を選択します。
+12. [Stay signed in?] メッセージで、[**No**] を選択します。
 
     > Outlook on the Web が開き、Alex Wilber の受信トレイが表示されます。
 
