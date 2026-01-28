@@ -96,7 +96,7 @@ Entra ID への Windows Hello サインイン認証をセキュリティで保�
 
 7. [**Install Microsoft Authenticator]** ダイアログ ボックスで、[**Set up a different way to sign in]** リンクを選択します。
 
-   ![](C:/Users/z2115023/Documents/GitHub/md-102-lab/LabManual/Media/2-1-1.jpg)
+   ![](./Media/2-1-1.jpg)
 
 8. [**Add a sign-in method**] ダイアログ ボックスで、[**Phone**] を選択します。
 
