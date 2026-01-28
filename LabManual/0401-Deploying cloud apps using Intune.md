@@ -95,7 +95,7 @@ Microsoft Intune を使用して、Contoso Corporation のデスクトップと�
 
    ※デスクトップのEdgeアイコンを使用することをおすすめします。
 
-   （ツールバーのEdgeアイコンを使用すると、Edgeのプロファイル作成が必要となります。）
+   （タスクバーのEdgeアイコンを使用すると、Edgeのプロファイル作成が必要となります。）
 
 4. アドレス バーで **[https://portal.manage.microsoft.com](https://portal.manage.microsoft.com/)** を参照し、**Enter キー**を押します。
 
