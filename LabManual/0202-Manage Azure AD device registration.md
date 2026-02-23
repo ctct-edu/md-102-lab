@@ -102,7 +102,7 @@
 
 6. [**Access work or school**] ページで、[**Connect]** を選択します。
 
-7. [**Access work or school**] ページで、**「[JoniS@yourtenant.onmicrosoft.com]」**を選択して展開します。
+7. [**Access work or school**] ページで、**[JoniS@yourtenant.onmicrosoft.com]**を選択して展開します。
 
 8. [Disconnect this account] の横にある **[Disconnect]** を選択し、[**Yes**] を選択します。
 
