@@ -80,7 +80,7 @@
 
 6. **[デバイス]** を選択し、[**すべてのデバイス**] を選択します。[デバイス(Devices)] ペインに、SEA-WS1 がリストされていることに注意してください。
 
-7. [**参加の種類]** が **[Microsoft Entra 登録済み**] として一覧表示され、所有者が **Joni Sherman** であることを確認します。
+7. [**参加の種類]** が **[Microsoft Entra registered**] として一覧表示され、所有者が **Joni Sherman** であることを確認します。
 
    > デバイスは Microsoft Entra に登録されており、Microsoft Entra に参加しているわけではありません。Entra 登録済みデバイスは、通常、Entra に参加できないデバイス、またはユーザーが個人的に所有するデバイスです。デバイスを登録すると、クラウドベースのリソースにアクセスできるようになります。
 
@@ -102,7 +102,7 @@
 
 6. [**Access work or school**] ページで、[**Connect]** を選択します。
 
-7. [**Access work or school**] ページで、**JoniS** 職場または学校アカウントを選択します。
+7. [**Access work or school**] ページで、**「[JoniS@yourtenant.onmicrosoft.com]」**を選択して展開します。
 
 8. [Disconnect this account] の横にある **[Disconnect]** を選択し、[**Yes**] を選択します。
 
