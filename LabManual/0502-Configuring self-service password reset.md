@@ -85,7 +85,7 @@
 
    > **注**: AlexではなくAaronとしてサインインしてください。
 
-6. [**Enter password**] ページで、「 **Pa55w.rd** 」と入力し、[**Sign in]** を選択します。Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Save]** を選択します。
+6. [**Enter password**] ページで、「 **Pa55w.rd** 」と入力し、[**Sign in]** を選択します。Microsoft Edge でパスワードの保存を求めるメッセージが表示されたら、[**Not Now]** を選択します。
 
 7. 多要素認証を求められた場合は実施してください。**[Protect your account]** ダイアログが表示された場合は、[ **Skip for now (x times left)** ] を選択します。
 
