@@ -145,7 +145,7 @@
 
 7. **[Add your phone number]** ダイアログ ボックスの[Country code] で [**Japan(+81)**] を選択後 [**Enter phone number**] フィールドに、テキスト メッセージを受信できる携帯電話番号を入力します。[**Next**] を選択します。
 
-8. 確認コードを受け取ったら、[Phone ] ページでコードを入力し、[**Next**] を選択します。
+8. 確認コードを受け取ったら、**[Veriy your phone number]** ページでコードを入力し、[**Next**] を選択します。
 
 9. **[Phone number added]** ダイアログ ボックスで、**[Done]** を選択します。
 
