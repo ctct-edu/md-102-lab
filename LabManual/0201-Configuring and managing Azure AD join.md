@@ -252,7 +252,7 @@
 
 9. [**Optional features]** ページで、変更を加えず、[**Next**] を選択します。
 
-10. [**Ready to configure]** ウィンドウで、[**Configure ]** を選択して構成を実行し、同期を開始します。
+10. [**Ready to configure]** ウィンドウで、**[Configure]** を選択して構成を実行し、同期を開始します。
 
 11. 構成が完了したら、[**Exit]** を選択します。
 
