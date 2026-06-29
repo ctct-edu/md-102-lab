@@ -37,14 +37,14 @@ SEA-WS2 を Windows 11 キオスクとして構成して、Contoso の訪問者�
 
 
 1. パスワード **Pa55w.rd** を使用して **SEA-WS2** に**Admin**としてサインインします。
-2. [**Start ]** を選択し、[**Settings]** を選択します。
+2. [**Start]** を選択し、[**Settings]** を選択します。
 3. **[Settings]** で **[Accounts]** を選択します。
-4. [アカウント] ページで、[**Access work or school**] を選択します。
+4. [Accounts] ページで、[**Access work or school**] を選択します。
 5. [**Access work or school**] ページで、[**Connect**] を選択します。
 6. [**Microsoft account**] ウィンドウで、[**Join this device to Microsoft Entra ID]** を選択します。
 7. サインイン ページで、「**`AllanD@yourtenant.onmicrosoft.com`**」と入力し、**Next** を選択します。
 8. [**Enter password**] ページで、パスワード(User Password)を入力し、[**Sign in]** を選択します。
-9. これが**Make sure this is your organization** ダイアログ ボックスで、**Join** を選択します。
+9. **Make sure this is your organization** ダイアログ ボックスで、**Join** を選択します。
 10. [**You're all set!]** ページで、情報を読み、[**Done]** を選択します。
 11. [**Access work or school**] セクションで、 **[Connected to Contoso's Azure AD]** が表示されていることを確認します。
 12. [**Connected to Contoso's Azure AD]** を選択し、 [**Info**] を選択します。
@@ -99,7 +99,7 @@ SEA-WS2 を Windows 11 キオスクとして構成して、Contoso の訪問者�
      - アイドル時間後にブラウザを更新する: **5**
    - アプリの再起動のメンテナンス期間の指定: **構成されていません**
 
-8. [**割り当て]** ブレードの **[組み込まれたグループ]** で、 [**グループを追加**] を選択します。
+8. [**割り当て]** ブレードの **[包含されたグループ]** で、 [**グループを追加**] を選択します。
 
 9. **[含めるグループの選択**] ウィンドウで、[**Contoso Kiosk Devices]** を選択し、[**選択]** をクリックします。
 
