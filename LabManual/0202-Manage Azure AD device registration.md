@@ -52,7 +52,7 @@
 
 8. **Stay signed in?** ページで、[**No]** を選択します。
 
-9. Setting up your device ページで、**[Got it]** を選択します。
+9. Account added to thes device ページで、**[Done]** を選択します。
 
 10. [Access work or school] ページで、「[JoniS@yourtenant.onmicrosoft.com](mailto:JoniS@yourtenant.onmicrosoft.com)」と「Work or school account」が表示されていることを確認します。
 
@@ -99,8 +99,6 @@
 4. [**Settings**] ウィンドウで、[**Accounts]** を選択します。
 
 5. [Accounts] ページで、[**Access work or school**] を選択します。
-
-6. [**Access work or school**] ページで、[**Connect]** を選択します。
 
 7. [**Access work or school**] ページで、**JoniS@yourtenant.onmicrosoft.com**を選択して展開します。
 
