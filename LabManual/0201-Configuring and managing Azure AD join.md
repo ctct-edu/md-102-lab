@@ -137,7 +137,7 @@
 
 4. [**Let's keep your account secure]** ダイアログ ボックスで、[**Next**] を選択します。
 
-5. [**Install Microsoft Authenticator]** ダイアログ ボックスで、[**Set up a different way to sign in]** リンクを選択します。
+5. [**Install Microsoft Authenticator]** ダイアログ ボックスで、**[Other options]** リンクを選択します。
 
    ![](./Media/2-1-1.jpg)
 
