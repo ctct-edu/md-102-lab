@@ -24,7 +24,7 @@
 
   > 注: Entra ID への Windows Hello サインイン認証をセキュリティで保護するために使用されるテキスト メッセージを受信できる携帯電話も必要です。
 
-## 演習 1: Microsoft Store アプリを Intune に追加する
+## (オプション)演習 1: Microsoft Store アプリを Intune に追加する
 
 
 
