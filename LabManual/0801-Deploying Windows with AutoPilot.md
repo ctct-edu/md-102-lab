@@ -162,7 +162,7 @@ Contoso IT は、Autopilot を使用して新しい Windows 11 デバイスの�
 
 1. [**Let's set things up for your work or school**] ページで、「**`Aaron@yourtenant.onmicrosoft.com`**」と入力し、[**次へ**] を選択します。
 
-2. [パスワード] ページで、「 **Pa55w.rd1234!** 」と入力し、[**Sign in]** を選択します。
+2. [パスワード] ページで、「 **Pa55w.rd1234!** 」 (0502未実施なら「 **Pa55w.rd** 」)と入力し、[**Sign in]** を選択します。
 
 3. [**Use Windows Hello with your account**] で、[**OK]** を選択します。
 

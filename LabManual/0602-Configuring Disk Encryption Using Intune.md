@@ -68,7 +68,7 @@ SEA-WS1 のすべての情報を暗号化する必要があることが決定さ
 
 3. **Settings**アプリで、 **[Accounts ]** を選択し、 [**Access work or school**] を選択します。
 
-4. [**Access work or school**] セクションで、 **[Connected to Contoso's Azure AD]** リンクを選択し、 [**Info**] を選択します。[**Sync]** を選択します。必要に応じてパスワード「Pa55w.rd1234!」でサインインします。
+4. [**Access work or school**] セクションで、 **[Connected to Contoso's Azure AD]** リンクを選択し、 [**Info**] を選択します。[**Sync]** を選択します。必要に応じてパスワード「Pa55w.rd1234!」 (0502未実施なら「 **Pa55w.rd** 」)でサインインします。
 
 5. [**Encryption needed]** 通知を選択します。
 

@@ -123,7 +123,7 @@ Contoso は、Intune に登録されている Windows デバイスが最小構�
 
 4. [Pick an account]] ダイアログ ボックスで、**`Aaron@yourtenant.onmicrosoft.com`** を選択します。
 
-5. [**パスワードの入力**] ページで、「 **Pa55w.rd1234!** 」 と入力し、[**Sing in]** を選択します。
+5. [**パスワードの入力**] ページで、「 **Pa55w.rd1234!** 」 (0502未実施なら「 **Pa55w.rd** 」)と入力し、[**Sing in]** を選択します。
 
    > **手記**Microsoft Edge の [パスワードの保存] プロンプトが表示されたら、[**Update]** を選択します。
 
@@ -131,7 +131,7 @@ Contoso は、Intune に登録されている Windows デバイスが最小構�
 
 7. 「**Continue with your work or school account**」というメッセージが表示されます。**[Sign in to sync data]**　を選択してデータを同期します。
 
-8. パスワードの入力を再度必要とします。**Pa55w.rd1234!** と入力し、[**Sign in]** を選択します。
+8. パスワードの入力を再度必要とします。**Pa55w.rd1234!**  (0502未実施なら「 **Pa55w.rd** 」)と入力し、[**Sign in]** を選択します。
 
 9. 「**Automatically sign in to all desktops apps and websites on this device?**」というダイアログ ボックスが表示されます。[**No, sign in to this app only]** を選択します。
 
@@ -151,7 +151,7 @@ Contoso は、Intune に登録されている Windows デバイスが最小構�
 
 12. タスク バーで、[**Microsoft Edge]** を選択します。
 
-13. Microsoft Edge で、「**outlook.office.com**」と入力し、Enter キーを押します。必要に応じて、「**Pa55w.rd1234!」** のパスワードでサインインします。[**Stay signed in?]** プロンプトでは [**No**] を選択します。
+13. Microsoft Edge で、「**outlook.office.com**」と入力し、Enter キーを押します。必要に応じて、「**Pa55w.rd1234!」**  (0502未実施なら「 **Pa55w.rd** 」)のパスワードでサインインします。[**Stay signed in?]** プロンプトでは [**No**] を選択します。
 
 14. Aaron のメールボックスにアクセスできることを確認します。
 
