@@ -34,7 +34,7 @@
 
 Microsoft Intune を使用して、Contoso Corporation のデスクトップとアプリを管理します。研究部門は、タスクを実行するためにさまざまなサーバーに接続することが多く、必要に応じて研究メンバーがインストールできるように Windows アプリを利用できるように依頼しています。Windows アプリは Microsoft Store から入手できますが、ユーザーがポータル サイト Web サイトからアクセスできるように、アプリを Intune に追加することにしました。Aaron Nicholls という名前の研究メンバーは、アプリをポータルに公開した後、インストール プロセスをテストすることに同意しました。
 
-### (オプション)タスク 1: Windows アプリを Intune に追加する
+### タスク 1: Windows アプリを Intune に追加する
 
 
 
@@ -124,8 +124,12 @@ Microsoft Intune を使用して、Contoso Corporation のデスクトップと�
 > [Apps] ページに一覧表示されている Windows アプリを確認します。アプリが表示されるまでに数分かかる場合があります。
 
 1. [**Windows App**] を選択します。
+
 2. [Windows App] ページで、[**Install]** を選択します。
+
 3. メッセージが表示されたら、[**Install Windows App]** ダイアログ ボックスで、[**Always allow portal.manage.microsoft.com to open links of this type in the associated app**] チェックボックスを **オン** にして、[**Open**] を選択します。
+
+   ![](./Media/4-1-4.jpg)
 
 > アプリのインストールには数分かかる場合があります。
 
