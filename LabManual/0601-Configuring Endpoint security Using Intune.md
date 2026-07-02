@@ -105,7 +105,7 @@ Contoso 開発者グループに Microsoft Defender が正しく構成されて�
 
 7. [**Assignments]** タブで、検索ボックスに「**Contoso**」と入力し、[**Contoso Developer Devices]** グループを選択して、[**次へ**] を選択します。
 
-8. [**Review + create**] タブで、情報を確認し、[**保存]** を選択します。
+8. [**Review + create**] タブで、情報を確認し、[**create]** を選択します。
 
 ### タスク 3: 管理対象デバイスの同期
 
