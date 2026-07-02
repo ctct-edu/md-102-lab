@@ -55,19 +55,19 @@ Contoso 開発者グループに Microsoft Defender が正しく構成されて�
 
 8. [Configuration settings] タブの **[Defender]** で、次の設定を構成します。
 
-   - 改ざん保護 (デバイス): **オン**
+   - 改ざん保護 (デバイス):**Tamper Protection(On)**
 
 9. [**Windows Defender セキュリティ センター**] で、次の設定を構成します。
-   - アカウント保護 UI を無効にする: **(有効)**
-   - アプリ ブラウザー UI を無効にする:**(有効)**
-   - デバイス セキュリティ UI を無効にする:**(有効)**
-   - 家庭向け UI を無効にする: **(有効)**
-   - 正常性 UI を無効にする:  **(有効)**
-   - カスタマイズされたトーストを有効にする: **(有効)**
+   - Disable Account Protection UI: **(Enable)**
+   - Disable App Browser UI:**(Enable)**
+   - Disable Device Security UI:**(Enable)**
+   - Disable Family UI: **(Enable)**
+   - Disable Health UI:  **(Enable)**
+   - Enable Customized Toasts: **(Enable)**
 
-10. **会社名** で、スライドバーをクリックして**構成済み** に表示を切り替え、**Contoso IT** と入力します。
+10. **Company Name** で、スライドバーをクリックして**構成済み** に表示を切り替え、**Contoso IT** と入力します。
 
-11. [**電話]** で、スライドバーをクリックして**構成済み** に表示を切り替え、「**555-1234**」と入力して [**次へ**] を選択します。
+11. [**Phone]** で、スライドバーをクリックして**構成済み** に表示を切り替え、「**555-1234**」と入力して [**次へ**] を選択します。
 
     ![](./Media/6-1-1.jpg)
 
@@ -75,23 +75,36 @@ Contoso 開発者グループに Microsoft Defender が正しく構成されて�
 
 13. [**Assignments]** タブで、検索ボックスに「**Contoso**」と入力し、[**Contoso Developer Devices]** グループを選択して、[**次へ**] を選択します。
 
-14. [**Review + create**] タブで、情報を確認し、[**保存]** を選択します。
+14. [**Review + create**] タブで、情報を確認し、[**Create]** を選択します。
 
 ### タスク 2: IntuneでMicrosoft Defender ウイルス対策ポリシーを構成する
 
 1. **エンドポイントセキュリティ |[ウイルス対策**] ウィンドウで、「AV ポリシー」セクションにある[**+ ポリシーの作成]** を選択します。
+
 2. [**プロファイルの作成**] ウィンドウの **[プラットフォーム]** で [**Windows**] を選択します。
+
 3. [**プロファイル]** ボックスの一覧で、[**Microsoft Defender ウイルス対策**] を選択し、[**作成]** を選択します。
+
 4. [**Basics**] タブの [**名前**] フィールドに、「**Microsoft Defender ウイルス対策設定**」と入力します。[**次へ**] を選択します。
+
 5. **[Configuration settings**] タブで、次の設定を構成します。
-   - ダウンロードしたすべてのファイルと添付ファイルのスキャンを許可する:  **許可済み。（既定）**
-   - リアルタイム監視を許可: **許可済み。リアルタイム監視サービスをオンにして実行します。（既定）**
-   - スキャンを実行する前に署名を確認する: **有効**
-   - クリーニングしたマルウェアを保持する日数: (スライドバーをクリックして)「構成されていません」を **構成済み** に設定し、**60** を入力
-   - クイック スキャンの実行時刻のスケジュール:(スライドバーをクリックして)「構成されていません」を **構成済み** に設定し、 **60** (午前 1:00 に相当)を入力
-   - サンプル送信の同意: **安全なサンプルを自動的に送信する。(既定)**
+   - Allow scanning of all downloaded files and attachments:  **Allowed（既定）**
+   - Allow Realtime Monitoring: **Allowed ～ （既定）**
+   - Check For Signatures Before Running Scan: **Enabled**
+   - Days To Retain Cleaned Malware: (スライドバーをクリックして)「構成されていません」を **構成済み** に設定し、**60** を入力
+   - Schedule Quick Scan Time:(スライドバーをクリックして)「構成されていません」を **構成済み** に設定し、 **60** (午前 1:00 に相当)を入力
+   - Submit Samples Consent: **Send safe samples automatically (既定)**
+
+   ![](./Media/6-1-2.jpg)
+
+     					（中略）
+
+   ![](./Media/6-1-3.jpg)
+
 6. [**次へ**] を 2 回選択します。
+
 7. [**Assignments]** タブで、検索ボックスに「**Contoso**」と入力し、[**Contoso Developer Devices]** グループを選択して、[**次へ**] を選択します。
+
 8. [**Review + create**] タブで、情報を確認し、[**保存]** を選択します。
 
 ### タスク 3: 管理対象デバイスの同期
